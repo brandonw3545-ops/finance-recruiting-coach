@@ -2,7 +2,7 @@
 
 A free coach for college students recruiting for finance clubs and internships. You plug in your school, the seats you want, your goals and the dates that matter. It builds a day-by-day plan to the date you want to be interview-ready, teaches a lesson a day, has you answer questions out loud, brings back the ones you miss, and runs mock interviews.
 
-- **Website:** https://brandonw3545-ops.github.io/finance-recruiting-coach/ (no account, nothing to pay for)
+- **Website:** https://brandonw3545-ops.github.io/finance-recruiting-coach/ (free; you'll need a Claude account, and the free plan works)
 - **Claude version:** https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn (the same coach running inside Claude, with in-page grading and a chat coach that can edit your plan)
 
 ## Two versions, one codebase

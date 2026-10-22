@@ -459,7 +459,7 @@ with sync_playwright() as pw:
     # ---------------- B2. the coach on the website ----------------
     ctx, page, errs = open_web(viewport={'width': 1280, 'height': 900}, init=FAKE_SR)
     page.wait_for_selector('#setup-form')
-    check('No account needed' in page.inner_text('.intro'), 'B: setup explains that nothing needs an account')
+    check("You'll need a Claude account" in page.inner_text('.intro'), 'B: setup says up front that it needs a Claude account')
     page.fill('#f-school', 'Wake Forest University')
     page.click('a[data-act="handoff"][data-kind="dates"]')
     href, q = handoff_q(page)

@@ -149,7 +149,7 @@ function siteTop(depth, active) {
 }
 function siteFoot(depth) {
   const up = '../'.repeat(depth);
-  return '<footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">' + NAME + '</div><p class="note">Made by a college freshman who was preparing for the same interviews. Free, no account, no ads. Not affiliated with any bank, school or Anthropic.</p></div>' +
+  return '<footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">' + NAME + '</div><p class="note">Made by a college freshman who was preparing for the same interviews. Free, no ads, and it runs on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div>' +
     '<nav class="foot-nav" aria-label="More"><a href="' + up + 'app.html">The coach</a><a href="' + up + 'library/">Lesson library</a><a href="' + AI_URL + '" target="_blank" rel="noopener">Claude version</a><a href="' + REPO_URL + '" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer>';
 }
 const CAT_LABEL = { car: 'Careers & fit', acc: 'Accounting', val: 'Valuation & deals', mkt: 'Markets & the economy', awm: 'Asset & wealth management', inv: 'Investing & pitches', trd: 'Trading', sto: 'Case studies' };
@@ -176,11 +176,11 @@ function homePage(lessons) {
   const featured = pick.map(id => lessons.find(l => l.id === id)).filter(Boolean).concat(lessons).filter((l, i, a) => a.indexOf(l) === i).slice(0, 6);
   const body = siteTop(0, '') + '<main>' +
     '<section class="hero"><div class="wrap hero-grid"><div class="hero-copy">' +
-      '<p class="eyebrow">Free · no account · for college students recruiting for finance</p>' +
+      '<p class="eyebrow">For college students recruiting for finance</p>' +
       '<h1 class="hero-h">Walk into your first finance interview ready.</h1>' +
       '<p class="hero-sub">Tell it your school, your goals and the dates that matter. It builds a day-by-day plan to your interview, teaches one lesson a day, and drills you out loud until the answers come easily.</p>' +
       '<div class="btn-row hero-cta"><a class="btn primary big" href="app.html">Build my plan</a><a class="btn big" href="library/">Read the ' + lessons.length + ' lessons</a></div>' +
-      '<p class="note">Takes about five minutes. Your plan stays in your browser.</p></div>' +
+      '<p class="note">Free. You\'ll need a Claude account, and the free plan works. Setup takes about five minutes, and your plan stays in your browser.</p></div>' +
       '<figure class="demo" aria-label="Example: part of a plan for a sophomore aiming for banking">' +
         '<div class="demo-head"><span class="ex-flag">Example plan · a sophomore aiming for banking</span><span class="mono note">' + ex.total + ' study days</span></div>' +
         '<ol class="ex-list">' + ex.rows + '</ol>' +
@@ -203,9 +203,9 @@ function homePage(lessons) {
       feature('CALENDAR', 'Reminders on your phone', 'Add the whole plan to Google or Apple Calendar in one tap. Each morning\'s session shows up with a link straight to it.') +
     '</div></div></section>' +
 
-    '<section class="band" id="ai"><div class="wrap two-col"><div><h2 class="sec-h">Where the AI comes from</h2></div><div class="prose">' +
-      '<p>The site runs no AI of its own and has no server. Your plan, the written lessons, practice, voice and the scorecard all work right here, in your browser.</p>' +
-      '<p>When you want more, like a lesson written for a topic that isn\'t in the library, a grade from an interviewer\'s point of view, or a live mock that pushes back on your answers, the button opens a new chat on <b>your own Claude account</b> with your plan already in the prompt. A free account works.</p>' +
+    '<section class="band" id="ai"><div class="wrap two-col"><div><h2 class="sec-h">What you need Claude for</h2></div><div class="prose">' +
+      '<p>You\'ll need a Claude account, and the free plan works. The site itself runs no AI and has no server: your plan, the written lessons, practice, voice and the scorecard all work right here, in your browser.</p>' +
+      '<p>Claude does the rest. It writes the lessons that aren\'t in the library yet, grades your answers the way an interviewer would, and runs live mock interviews that push back on what you say. Each of those buttons opens a new chat on <b>your own Claude account</b> with your plan already in the prompt.</p>' +
       '<p>Prefer everything in one place? The <a href="' + AI_URL + '" target="_blank" rel="noopener">Claude version</a> runs the same coach inside Claude, with grading and a chat coach that can edit your plan.</p>' +
     '</div></div></section>' +
 
@@ -214,7 +214,8 @@ function homePage(lessons) {
     '</ul></div></section>' +
 
     '<section class="band" id="faq"><div class="wrap two-col"><div><h2 class="sec-h">Questions</h2></div><div class="faq">' +
-      faq('Is it free?', 'Yes. There\'s no account and nothing to pay for. AI features use your own Claude account, and a free one works.') +
+      faq('Do I need Claude?', 'Yes, for the full plan, and the free plan works. Lessons on topics that aren\'t in the library yet, grading from an interviewer\'s point of view and live mock interviews all happen in Claude. The written lessons, voice practice, reviews and the scorecard work without it.') +
+      faq('Is it free?', 'Yes. There\'s nothing to pay for here, and Claude\'s free plan works. A lot of use in one day can run into the free plan\'s usage limits.') +
       faq('Where is my data?', 'In this browser only. Nothing is sent to a server. To move to another device, copy a backup code in Setup and restore it there.') +
       faq('Does voice practice record me?', 'Recording uses your browser\'s built-in speech-to-text. In Chrome, the audio goes to Google to be transcribed; the transcript stays in your browser.') +
       faq('Who is this for?', 'College students recruiting for finance clubs, early insight programs and internships in banking, asset and wealth management, sales and trading, and the buy side. It\'s built for freshmen and sophomores, and it works for anyone starting out.') +
