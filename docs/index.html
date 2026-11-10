@@ -514,6 +514,19 @@ a.btn.primary { color: var(--sheet); }
 .cal-info { display: grid; gap: 8px; margin: 0 0 20px; padding: 14px 16px; border: 1px solid color-mix(in oklab, var(--link) 35%, transparent); background: var(--link-wash); border-radius: 8px; font-size: 14px; }
 .cal-info ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 
+/* readiness + the link out to the games */
+a.tab { text-decoration: none; display: inline-block; }
+.tab-out::after { content: " \2197"; font-weight: 500; color: var(--ink-3); }
+.stats-row .stat-sm b small { font-size: 13px; }
+.ready { margin: 18px 0 0; display: grid; gap: 12px; }
+.ready-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.ready-top .sub { margin-bottom: 0; }
+.ready-n { font-size: 44px; font-weight: 760; font-stretch: 112%; line-height: 1; font-variant-numeric: tabular-nums; flex: none; }
+.ready-n small { font-size: 18px; color: var(--ink-3); font-weight: 600; }
+.ready-pace { font-size: 14.5px; color: var(--ink-2); }
+.ready-pace b { color: var(--ink); }
+.ready-next { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 14.5px; }
+
 /* ==========================================================================
    Website pages (home, lesson library, lessons). Builds on the app's tokens in styles.css.
    Layout: a sticky top bar, full-width bands that alternate paper and sheet, content in .wrap.
@@ -529,7 +542,8 @@ main { padding-block: 0; }
 .site-nav { display: flex; align-items: center; gap: 4px 18px; flex-wrap: wrap; justify-content: flex-end; }
 .site-nav a:not(.btn) { color: var(--ink-2); font-weight: 600; font-size: 14px; text-decoration: none; }
 .site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 640px) { .site-nav a[href$="#how"], .site-nav a[href$="#faq"] { display: none; } .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 640px) { .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 520px) { .site-top .brand-name { display: none; } }
 @media (max-width: 380px) { .site-top .brand-name { display: none; } }
 
 /* hero */
@@ -632,4 +646,1087 @@ main { padding-block: 0; }
 .pg:hover { border-color: var(--ink-2); }
 .pg.next { text-align: right; }
 @media (max-width: 560px) { .pager { grid-template-columns: minmax(0, 1fr); } .pg.next { text-align: left; } }
-</style></head><body><header class="site-top"><div class="wrap site-top-row"><a class="brand" href="./"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg><span class="brand-name">Finance Recruiting Coach</span></a><nav class="site-nav" aria-label="Site"><a href="library/">Lessons</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a class="btn primary small" href="app.html">Build my plan</a></nav></div></header><main><section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><p class="eyebrow">For college students recruiting for finance</p><h1 class="hero-h">Walk into your first finance interview ready.</h1><p class="hero-sub">Tell it your school, your goals and the dates that matter. It builds a day-by-day plan to your interview, teaches one lesson a day, and drills you out loud until the answers come easily.</p><div class="btn-row hero-cta"><a class="btn primary big" href="app.html">Build my plan</a><a class="btn big" href="library/">Read the 40 lessons</a></div><p class="note">Free. You'll need a Claude account, and the free plan works. Setup takes about five minutes, and your plan stays in your browser.</p></div><figure class="demo" aria-label="Example: part of a plan for a sophomore aiming for banking"><div class="demo-head"><span class="ex-flag">Example plan · a sophomore aiming for banking</span><span class="mono note">162 study days</span></div><ol class="ex-list"><li><span class="d">Sun</span><span class="c"><span class="chip">PREP</span></span><span class="t">Club prep: Investment club interview<small>for Investment club interview</small></span></li><li><span class="d">Mon</span><span class="c"><span class="chip">VAL</span></span><span class="t">The EV bridge: why you add debt and subtract cash (and the trick questions)</span></li><li><span class="d">Tue</span><span class="c"><span class="chip">ACC</span></span><span class="t">The balance sheet: why assets always equal liabilities plus equity</span></li><li><span class="d">Wed</span><span class="c"><span class="chip">CAR</span></span><span class="t">Your &quot;why finance&quot; story: an answer only you could give</span></li><li><span class="d">Thu</span><span class="c"><span class="chip">VAL</span></span><span class="t">Valuation multiples: P/E, EV/EBITDA, EV/Revenue, and which ones go together</span></li><li><span class="d">Fri</span><span class="c"><span class="chip">MKT</span></span><span class="t">Inflation: CPI vs. PCE, and why the Fed targets 2%</span></li><li class="ex-mk"><span class="d">Fri</span><span class="c"><span class="chip input">DATE</span></span><span class="t">Investment club interview</span></li></ol><div class="demo-score"><div class="score s-hi sm" role="img" aria-label="Score 4 out of 5">4<small>/5</small></div><div><b>Say it out loud:</b> "Walk me through a DCF."<div class="mono note">0:58 · 142 wpm · 1 filler · back for review in 3 days</div></div></div><figcaption class="legend-model"><span class="b-in"><b>Blue</b> is what you enter</span><span class="b-out"><b>Black</b> is what the coach builds</span><span class="b-ln"><b>Green</b> ties a session to your dates</span></figcaption></figure></div></section><section class="band" id="how"><div class="wrap"><h2 class="sec-h">How it works</h2><ol class="steps"><li><span class="step-n">1</span><h3>Plug in your dates</h3><p>Your school, the seats you want, your goals, and every deadline, club interview and info session you know about. Not sure of the dates? It can suggest typical ones.</p></li><li><span class="step-n">2</span><h3>Learn one thing a day</h3><p>A plan paced to the date you want to be interview-ready: the three statements before DCFs, fit questions before your first interview, and a prep session before every date you entered.</p></li><li><span class="step-n">3</span><h3>Say it out loud</h3><p>Answer each question out loud and score it against a model answer. Anything you miss comes back in 1, 3, 7 and 14 days, and mock interviews tell you if you'd advance.</p></li></ol></div></section><section class="band alt"><div class="wrap"><h2 class="sec-h">What you get</h2><div class="features"><div class="feature"><span class="chip">LESSONS</span><h3>A lesson a day</h3><p>40 written lessons on the questions first rounds actually ask, from the three statements to "walk me through a DCF". Each opens with a question to answer before you read.</p></div><div class="feature"><span class="chip">PREP</span><h3>Prep before every date</h3><p>Add a deadline or interview and the plan schedules prep before it: a checklist for applications, a mock the day before an interview, a warm-up that morning.</p></div><div class="feature"><span class="chip">VOICE</span><h3>Practice out loud</h3><p>Record your answer and see your time, pace and filler words, then compare it with a model answer. Interviews are spoken, so practice should be too.</p></div><div class="feature"><span class="chip">MOCK</span><h3>Mock interviews</h3><p>Five questions the way a first round runs, each with the follow-up interviewers usually ask. Score yourself, or run a live one in Claude that reacts to what you say.</p></div><div class="feature"><span class="chip">REVIEW</span><h3>Spaced repetition</h3><p>Miss a question and it comes back the next day, then after 3, 7 and 14 days, until you have it cold.</p></div><div class="feature"><span class="chip">CALENDAR</span><h3>Reminders on your phone</h3><p>Add the whole plan to Google or Apple Calendar in one tap. Each morning's session shows up with a link straight to it.</p></div></div></div></section><section class="band" id="ai"><div class="wrap two-col"><div><h2 class="sec-h">What you need Claude for</h2></div><div class="prose"><p>You'll need a Claude account, and the free plan works. The site itself runs no AI and has no server: your plan, the written lessons, practice, voice and the scorecard all work right here, in your browser.</p><p>Claude does the rest. It writes the lessons that aren't in the library yet, grades your answers the way an interviewer would, and runs live mock interviews that push back on what you say. Each of those buttons opens a new chat on <b>your own Claude account</b> with your plan already in the prompt.</p><p>Prefer everything in one place? The <a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a> runs the same coach inside Claude, with grading and a chat coach that can edit your plan.</p></div></div></section><section class="band alt"><div class="wrap"><div class="sec-row"><h2 class="sec-h">Start with these lessons</h2><a class="more" href="library/">All 40 lessons</a></div><ul class="lib-cards"><li><a href="library/the-three-financial-statements-what-each-one-tells-you.html"><span class="chip">ACC</span><b>The three financial statements: what each one tells you</b><span class="note">Nearly every technical first round, as &quot;Walk me through the three financial statements.&quot;</span></a></li><li><a href="library/walk-me-through-a-dcf-the-60-second-answer-and-the-follow.html"><span class="chip">VAL</span><b>&quot;Walk me through a DCF&quot;: the 60-second answer and the follow-ups</b><span class="note">One of the most common technical questions in banking and private equity, and frequent in equity research and asset management.</span></a></li><li><a href="library/equity-value-vs-enterprise-value-the-house-and-mortgage.html"><span class="chip">VAL</span><b>Equity value vs. enterprise value (the house-and-mortgage analogy)</b><span class="note">Nearly every banking, private equity and equity research first round, usually as one of the first technical questions.</span></a></li><li><a href="library/tell-me-about-yourself-turning-your-resume-into-a-60-second.html"><span class="chip">CAR</span><b>&quot;Tell me about yourself&quot;: turning your resume into a 60-second story</b><span class="note">Nearly every interview, usually as the first question, and it sets the tone for the next 30 minutes.</span></a></li><li><a href="library/bonds-101-coupons-maturities-and-why-prices-and-yields-move.html"><span class="chip">MKT</span><b>Bonds 101: coupons, maturities, and why prices and yields move in opposite directions</b><span class="note">Sales and trading and asset management interviews, any markets question, and banking interviews that touch on debt.</span></a></li><li><a href="library/asset-management-vs-wealth-management-what-each-does-and.html"><span class="chip">AWM</span><b>Asset management vs. wealth management: what each does, and how each makes money</b><span class="note">Every asset management and wealth management interview, and &quot;why this division?&quot; questions at big banks.</span></a></li></ul></div></section><section class="band" id="faq"><div class="wrap two-col"><div><h2 class="sec-h">Questions</h2></div><div class="faq"><details class="faq-item"><summary>Do I need Claude?</summary><p>Yes, for the full plan, and the free plan works. Lessons on topics that aren't in the library yet, grading from an interviewer's point of view and live mock interviews all happen in Claude. The written lessons, voice practice, reviews and the scorecard work without it.</p></details><details class="faq-item"><summary>Is it free?</summary><p>Yes. There's nothing to pay for here, and Claude's free plan works. A lot of use in one day can run into the free plan's usage limits.</p></details><details class="faq-item"><summary>Where is my data?</summary><p>In this browser only. Nothing is sent to a server. To move to another device, copy a backup code in Setup and restore it there.</p></details><details class="faq-item"><summary>Does voice practice record me?</summary><p>Recording uses your browser's built-in speech-to-text. In Chrome, the audio goes to Google to be transcribed; the transcript stays in your browser.</p></details><details class="faq-item"><summary>Who is this for?</summary><p>College students recruiting for finance clubs, early insight programs and internships in banking, asset and wealth management, sales and trading, and the buy side. It's built for freshmen and sophomores, and it works for anyone starting out.</p></details><details class="faq-item"><summary>Is the content accurate?</summary><p>The lessons cover standard interview material and get checked against the usual technical answers. Anything about this week's markets or a specific firm's dates changes fast, so the coach tells you what to look up.</p></details><details class="faq-item"><summary>Can I see the code?</summary><p>Yes. It's open source on <a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">GitHub</a>.</p></details></div></div></section><section class="band cta-band"><div class="wrap cta-row"><h2 class="sec-h">Your first lesson takes about 20 minutes.</h2><a class="btn primary big" href="app.html">Build my plan</a></div></section></main><footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">Finance Recruiting Coach</div><p class="note">Made by a college freshman who was preparing for the same interviews. Free, no ads, and it runs on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div><nav class="foot-nav" aria-label="More"><a href="app.html">The coach</a><a href="library/">Lesson library</a><a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a><a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer></body></html>
+
+/* ==========================================================================
+   The model look: worksheets, ledgers and sheet tabs.
+   Used by the home page, Play and the Live Room. Builds on the tokens in styles.css.
+   The idea: this is prep for people who will live in spreadsheets, so the interactive
+   parts are spreadsheets. Row numbers number real rows, the blue cell is the one you
+   type in, and negatives sit in parentheses.
+   ========================================================================== */
+:root { --head: color-mix(in oklab, var(--paper) 78%, var(--rule-2)); --cell: 28px; }
+
+/* ---------- worksheet ---------- */
+.ws { background: var(--sheet); border: 1px solid var(--rule-2); box-shadow: var(--shadow); min-width: 0; }
+.ws-bar { display: flex; align-items: stretch; border-bottom: 1px solid var(--rule-2); background: var(--head); font-size: 13px; line-height: 1.2; }
+.ws-bar > span { display: flex; align-items: center; padding: 7px 10px; white-space: nowrap; }
+.ws-ref { min-width: 62px; justify-content: center; background: var(--sheet); border-right: 1px solid var(--rule-2); font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.ws-fx { font-family: var(--f-read); font-style: italic; color: var(--ink-3); padding-right: 4px !important; }
+.ws-formula { flex: 1; min-width: 0; font-family: var(--f-mono); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; padding-left: 4px !important; }
+.ws-meter { border-left: 1px solid var(--rule-2); gap: 5px; color: var(--ink-2); }
+.ws-meter b { color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
+.ws-clock { border-left: 1px solid var(--rule-2); background: var(--sheet); font-family: var(--f-mono); font-weight: 600; font-variant-numeric: tabular-nums; min-width: 6ch; justify-content: flex-end; }
+.ws-time { height: 4px; background: var(--rule); }
+.ws-time i { display: block; height: 100%; width: 0; background: var(--input); }
+.ws-grid { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 15px; background: var(--sheet); }
+.ws-grid th { background: var(--head); border: 1px solid var(--rule); padding: 3px 8px; font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; color: var(--ink-3); text-align: center; }
+.ws-grid td { border: 1px solid var(--rule); padding: 8px 10px; vertical-align: middle; overflow-wrap: anywhere; }
+.ws-grid .rn { width: 34px; padding: 3px 2px; background: var(--head); font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; }
+.ws-grid .num { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ws-note { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.ws > .btn-row { padding: 14px 14px 16px; }
+.fn { font-size: 12.5px; color: var(--ink-3); margin-top: 8px; max-width: 70ch; }
+.fn a { color: inherit; }
+sup { font-size: .68em; line-height: 0; font-variant-numeric: normal; }
+
+/* ---------- Mental Math Sprint ---------- */
+.sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 150px; }
+.sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 96px; }
+.sp-grid .hdr td { font-weight: 650; font-size: 12.5px; color: var(--ink-2); padding-block: 5px; }
+.sp-grid #sp-log tr:not(.hdr) td { font-size: 13.5px; color: var(--ink-2); padding-block: 6px; }
+.sp-grid .typed { color: var(--input) !important; }
+.sp-grid .miss .typed { text-decoration: line-through; text-decoration-color: var(--miss); }
+.sp-grid .skip { font-family: var(--f-ui); font-size: 12px; color: var(--ink-3); }
+.sp-grid .ok .chk { color: var(--link) !important; font-weight: 700; }
+.sp-grid .miss .chk { color: var(--miss) !important; font-weight: 600; }
+.sp-grid .active .q { font-family: var(--f-read); font-size: 20px; font-weight: 600; line-height: 1.32; padding: 16px 12px; }
+.sp-grid .in-cell { padding: 0; box-shadow: inset 0 0 0 2px var(--input); }
+.sp-grid form { display: flex; align-items: baseline; }
+.cell-in { flex: 1; min-width: 0; width: 100%; border: 0; background: transparent; padding: 15px 4px 15px 10px; font-family: var(--f-mono); font-size: 20px; font-weight: 600; color: var(--input); text-align: right; font-variant-numeric: tabular-nums; }
+.cell-in:focus { outline: none; }
+.cell-in:disabled { color: var(--ink-3); }
+.sp-grid .unit { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-3); padding-right: 8px; }
+.sp-grid .unit:empty { padding-right: 6px; }
+.sp-grid .active td:last-child { text-align: center; padding: 6px; }
+@media (max-width: 560px) {
+  .sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 112px; }
+  .sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 70px; }
+  .sp-grid .active .q { font-size: 18px; padding: 12px 10px; }
+  .cell-in { font-size: 18px; padding-block: 13px; }
+  .ws-grid .rn { width: 26px; }
+  .ws-formula { display: none !important; }
+  .ws-fx { flex: 1; }
+}
+
+/* ---------- Statement Flows ---------- */
+.fl-event { padding: 18px 16px 14px; border-bottom: 1px solid var(--rule-2); }
+.fl-text { font-family: var(--f-read); font-size: clamp(20px, 2.5vw, 27px); font-weight: 600; line-height: 1.28; max-width: 34ch; text-wrap: balance; }
+.fl-assume { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+.fl-stmts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; background: var(--sheet); }
+@media (min-width: 940px) { .fl-stmts { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fl-stmts .fl-tbl + .fl-tbl { border-left: 1px solid var(--rule-2); } }
+.fl-tbl th:nth-child(2) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+.fl-tbl .chg { width: 138px; text-align: center; padding: 5px 6px; white-space: nowrap; }
+.fl-tbl th.chg { font-family: var(--f-ui); font-size: 12px; }
+.seg3 { display: inline-flex; border: 1px solid var(--rule-2); border-radius: 5px; overflow: hidden; background: var(--sheet); }
+.seg3 button { appearance: none; border: 0; border-left: 1px solid var(--rule); background: none; width: 40px; height: 34px; font-size: 14px; color: var(--ink-3); cursor: pointer; }
+.seg3 button:first-child { border-left: 0; }
+.seg3 button:hover { background: var(--paper); color: var(--ink); }
+.seg3 button[aria-pressed="true"][data-pick="1"] { background: var(--link-wash); color: var(--link); }
+.seg3 button[aria-pressed="true"][data-pick="0"] { background: var(--head); color: var(--ink); font-weight: 700; }
+.seg3 button[aria-pressed="true"][data-pick="-1"] { background: var(--miss-wash); color: var(--miss); }
+.fl-ans { display: inline-block; min-width: 6ch; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.fl-ans.up { color: var(--link); } .fl-ans.down { color: var(--miss); } .fl-ans.flat { color: var(--ink-3); }
+.fl-mark { display: inline-block; width: 2.2ch; text-align: right; font-weight: 700; }
+.fl-mark.ok { color: var(--link); } .fl-mark.miss { color: var(--miss); }
+.fl-tbl tr.miss td:nth-child(2) { background: var(--miss-wash); }
+.fl-why { padding: 16px; border-top: 1px solid var(--rule-2); display: grid; gap: 10px; }
+.fl-got { font-size: 15.5px; }
+.fl-why dl { margin: 0; display: grid; gap: 2px 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .fl-why dl { grid-template-columns: 150px minmax(0, 1fr); } }
+.fl-why dt { font-size: 13px; font-weight: 650; color: var(--ink-2); padding-top: 3px; }
+.fl-why dd { margin: 0 0 8px; font-family: var(--f-read); font-size: 16.5px; line-height: 1.5; max-width: 68ch; }
+
+/* ---------- Play page ---------- */
+.play-main { padding-block: 28px 64px; display: grid; gap: 30px; align-content: start; }
+.play-main > * { min-width: 0; }
+.play-head { display: grid; gap: 4px; }
+.play-top { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; justify-content: space-between; }
+.play-top .backlink { margin: 0; }
+#game { margin-top: 12px; }
+.game-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 0; border: 1px solid var(--rule-2); background: var(--rule-2); column-gap: 1px; row-gap: 1px; }
+.game-tile { background: var(--sheet); padding: 22px 22px 24px; display: grid; gap: 10px; align-content: start; }
+.game-tile h2 { font-size: 24px; font-weight: 760; font-stretch: 112%; letter-spacing: -0.015em; }
+.game-tile p { color: var(--ink-2); max-width: 52ch; }
+.game-best { font-size: 13.5px; }
+.game-best b { color: var(--ink); font-size: 16px; }
+.prog, .live-cta { display: grid; gap: 10px; }
+.prog h2, .live-cta h2 { font-size: 19px; font-weight: 720; }
+.prog-tbl td:nth-child(2) { width: 150px; font-weight: 600; }
+.prog-tbl td:nth-child(3) { width: 150px; }
+.prog-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; }
+.live-cta p { color: var(--ink-2); max-width: 60ch; }
+@media (max-width: 640px) {
+  .prog-tbl td:nth-child(2) { width: 104px; } .prog-tbl td:nth-child(3) { width: 84px; white-space: normal; }
+}
+.ch-banner { background: var(--input-wash); border: 1px solid color-mix(in oklab, var(--input) 35%, transparent); padding: 16px 18px; display: grid; gap: 12px; }
+.ch-banner p { font-family: var(--f-read); font-size: 19px; line-height: 1.4; max-width: 56ch; }
+.res { margin-top: 26px; display: grid; gap: 14px; max-width: 780px; }
+.res-num { font-size: clamp(84px, 16vw, 148px); font-weight: 800; font-stretch: 122%; line-height: .86; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
+.res-lbl { font-size: 19px; color: var(--ink-2); margin-top: -4px; }
+.res-tbl td:nth-child(2) { font-weight: 600; }
+.res-tbl td:nth-child(3) { width: 84px; }
+.res-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 38%; }
+.res-share { display: grid; gap: 8px; padding: 16px; background: var(--sheet); border: 1px solid var(--rule-2); }
+.res-share label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.res-share .in { max-width: 260px; }
+.hero-out { padding: 14px; border-top: 1px solid var(--rule-2); background: var(--sheet); display: grid; gap: 10px; border: 1px solid var(--rule-2); border-top: 0; }
+
+/* ---------- Live Room ---------- */
+.live-main { padding-block: 28px 64px; display: grid; gap: 24px; align-content: start; }
+.live-main > * { min-width: 0; }
+.live-head { display: grid; gap: 4px; }
+.live-note { padding: 10px 14px; background: var(--flag-wash); border: 1px solid color-mix(in oklab, var(--flag) 40%, transparent); font-size: 14.5px; max-width: 70ch; }
+.live-door { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+.door-card { background: var(--sheet); padding: 22px; display: grid; gap: 12px; align-content: start; }
+.door-card h2 { font-size: 22px; font-weight: 740; font-stretch: 110%; }
+.door-card p { color: var(--ink-2); max-width: 46ch; }
+.code-in { font-family: var(--f-mono); font-size: 28px; letter-spacing: .3em; text-transform: uppercase; max-width: 8.5em; padding-block: 8px; }
+.live-setup-db { background: var(--sheet); border: 1px solid var(--rule-2); padding: 20px; display: grid; gap: 12px; max-width: 720px; }
+.live-setup-db h2 { font-size: 19px; }
+.live-setup-db p { color: var(--ink-2); }
+.host-form { display: grid; max-width: 720px; }
+.radio-pill { position: relative; }
+.radio-pill input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.radio-pill span { display: block; border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink-2); padding: 8px 14px; font-size: 14.5px; font-weight: 600; border-radius: var(--r); }
+.radio-pill input:checked + span { color: var(--input); border-color: var(--input); background: var(--input-wash); }
+.radio-pill input:focus-visible + span { outline: 2px solid var(--input); outline-offset: 2px; }
+
+/* the host screen is read from the back of a room: everything scales with the window */
+.host { display: grid; gap: clamp(14px, 2.4vh, 28px); align-content: start; }
+.lobby { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: center; background: var(--sheet); border: 1px solid var(--rule-2); padding: clamp(18px, 3vw, 40px); }
+@media (min-width: 820px) { .lobby { grid-template-columns: minmax(0, 1fr) auto; } }
+.lobby-how { font-size: clamp(17px, 2vw, 26px); color: var(--ink-2); overflow-wrap: anywhere; }
+.lobby-how b { color: var(--ink); }
+.room-code { font-family: var(--f-mono); font-weight: 600; font-size: clamp(72px, 15vw, 220px); line-height: 1; letter-spacing: .08em; color: var(--input); margin: 6px 0 10px; }
+.lobby-qr { display: grid; gap: 6px; justify-items: center; }
+.lobby-qr svg { width: clamp(180px, 24vw, 340px); height: auto; display: block; border: 1px solid var(--rule); }
+.lobby-players h2 { font-size: clamp(18px, 2vw, 26px); font-weight: 720; margin-bottom: 10px; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pchip { appearance: none; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: 4px; padding: 6px 12px; font-size: clamp(15px, 1.5vw, 22px); font-weight: 600; color: var(--ink); cursor: pointer; }
+.pchip span { color: var(--ink-3); }
+.pchip:hover { border-color: var(--miss); color: var(--miss); }
+.host-actions { gap: 12px 16px; }
+.q-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; font-size: clamp(15px, 1.5vw, 22px); color: var(--ink-2); }
+.q-n { font-weight: 700; color: var(--ink); }
+.q-in { margin-left: auto; }
+.q-clock { font-family: var(--f-mono); font-weight: 600; font-size: clamp(26px, 3.4vw, 56px); color: var(--ink); min-width: 2ch; text-align: right; font-variant-numeric: tabular-nums; line-height: 1; }
+.q-bar { height: 8px; }
+.q-text { font-family: var(--f-read); font-weight: 600; font-size: clamp(24px, 3.5vw, 58px); line-height: 1.18; max-width: 30ch; text-wrap: balance; }
+.q-choices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 700px) { .q-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.q-choices li { background: var(--sheet); display: flex; align-items: center; gap: clamp(10px, 1.4vw, 22px); padding: clamp(12px, 1.8vw, 28px); font-size: clamp(20px, 2.6vw, 44px); font-weight: 650; }
+.q-letter { flex: none; display: grid; place-items: center; width: 1.7em; height: 1.7em; background: var(--head); border: 1px solid var(--rule-2); font-family: var(--f-mono); font-size: .68em; font-weight: 600; color: var(--ink-2); }
+.q-choice { flex: 1; min-width: 0; font-variant-numeric: tabular-nums; }
+.q-count { font-family: var(--f-mono); font-size: .7em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.q-choices.revealed li { color: var(--ink-3); }
+.q-choices.revealed li.right { background: var(--link-wash); color: var(--link); }
+.q-choices.revealed li.right .q-letter { background: var(--link); border-color: var(--link); color: var(--sheet); }
+.q-choices.revealed li.right .q-count { color: var(--link); }
+.q-why { font-family: var(--f-read); font-size: clamp(15px, 1.5vw, 22px); line-height: 1.45; color: var(--ink-2); max-width: 90ch; }
+.board h2 { font-size: clamp(16px, 1.6vw, 22px); font-weight: 720; margin-bottom: 8px; }
+.board-tbl { font-size: clamp(16px, 1.8vw, 28px); max-width: 900px; }
+.board-tbl td:nth-child(3) { width: 7em; }
+.board-tbl .rn { font-size: .6em; width: 2.6em; }
+.final-h { font-size: clamp(28px, 4vw, 60px); font-weight: 780; font-stretch: 114%; letter-spacing: -0.02em; }
+.final { display: grid; gap: clamp(16px, 2.6vh, 30px); }
+.podium { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 760px) { .podium { grid-template-columns: 1.25fr 1fr 1fr; } }
+.podium li { background: var(--sheet); padding: clamp(14px, 2vw, 30px); display: grid; gap: 4px; }
+.pod-place { font-family: var(--f-mono); font-size: clamp(14px, 1.3vw, 20px); color: var(--ink-3); }
+.pod-name { font-size: clamp(26px, 3.6vw, 60px); font-weight: 780; font-stretch: 112%; letter-spacing: -0.02em; line-height: 1.05; overflow-wrap: anywhere; }
+.pod-score { font-family: var(--f-mono); font-size: clamp(18px, 2vw, 32px); font-variant-numeric: tabular-nums; }
+.podium .p1 { background: var(--input-wash); }
+.podium .p1 .pod-name { color: var(--input); }
+body.is-host .wrap { max-width: 1680px; }
+body.is-host .site-foot { display: none; }
+
+/* a player's phone */
+.player { max-width: 560px; margin-inline: auto; display: grid; gap: 14px; width: 100%; }
+.p-top { display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.p-q { font-family: var(--f-read); font-size: 19px; font-weight: 600; line-height: 1.35; }
+.p-choices { display: grid; gap: 10px; }
+.p-choice { appearance: none; display: flex; align-items: center; gap: 14px; width: 100%; min-height: 64px; padding: 12px 14px; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: var(--r); font-size: 20px; font-weight: 650; color: var(--ink); text-align: left; cursor: pointer; font-variant-numeric: tabular-nums; }
+.p-choice .q-letter { font-size: 15px; width: 34px; height: 34px; }
+.p-choice:disabled { cursor: default; color: var(--ink-3); }
+.p-choice.picked { border-color: var(--input); box-shadow: inset 0 0 0 2px var(--input); color: var(--input); background: var(--input-wash); }
+.p-status { min-height: 1.5em; font-weight: 600; color: var(--ink-2); text-align: center; }
+.p-msg { background: var(--sheet); border: 1px solid var(--rule-2); padding: 26px 22px; display: grid; gap: 10px; }
+.p-msg h2 { font-size: 24px; font-weight: 760; font-stretch: 110%; }
+.p-msg p { color: var(--ink-2); }
+.p-verdict { font-size: 30px; font-weight: 780; font-stretch: 112%; color: var(--ink) !important; letter-spacing: -0.015em; }
+.p-pts { font-family: var(--f-mono); font-size: 44px; font-weight: 600; line-height: 1; color: var(--ink) !important; font-variant-numeric: tabular-nums; }
+.p-right { border-color: var(--link); } .p-right .p-verdict, .p-right .p-pts { color: var(--link) !important; }
+.p-wrong .p-verdict { color: var(--miss) !important; }
+.p-rank { font-weight: 600; color: var(--ink) !important; }
+
+/* ---------- home page ---------- */
+.grid-paper { background-color: var(--paper); background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: var(--cell) var(--cell); background-position: -1px -1px; }
+.home .hero { padding-block: 44px 52px; border-bottom: 1px solid var(--rule-2); }
+.home .hero-copy { background: var(--paper); padding: 4px 14px 14px 0; align-self: start; box-shadow: 0 0 0 10px var(--paper); }
+.home .hero-h { max-width: 13ch; font-size: clamp(38px, 5.2vw, 66px); }
+.home .hero-sub .t-in { color: var(--input); font-weight: 600; }
+.hero-sheet { min-width: 0; align-self: start; }
+.home .band { border-top: 0; border-bottom: 1px solid var(--rule); padding-block: 52px; scroll-margin-top: 64px; }
+.sec-note { color: var(--ink-2); max-width: 44ch; margin-top: -12px; }
+.tear td:nth-child(2) { font-weight: 600; }
+.tear td:nth-child(3) { width: 92px; font-size: 17px; font-weight: 600; color: var(--ink); }
+.tear td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 44%; }
+@media (max-width: 720px) { .tear td:nth-child(4) { display: none; } .tear th:nth-child(4) { display: none; } }
+.play-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 44px; align-items: start; }
+@media (min-width: 980px) { .play-row { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); } .play-row.flip { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); } }
+.play-row + .play-row { margin-top: 48px; }
+.play-copy { display: grid; gap: 12px; align-content: start; }
+.play-copy h3 { font-size: 23px; font-weight: 750; font-stretch: 110%; letter-spacing: -0.012em; }
+.play-copy p { font-family: var(--f-read); font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 54ch; }
+.ex-cap { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.shot { margin: 0; display: grid; gap: 8px; }
+.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule-2); box-shadow: var(--shadow); background: var(--sheet); }
+.shot figcaption { font-size: 13px; color: var(--ink-2); }
+.maker { display: grid; gap: 14px; }
+.maker p { font-family: var(--f-read); font-size: 19px; line-height: 1.6; max-width: 60ch; }
+.maker .sig { font-family: var(--f-ui); font-size: 15px; font-weight: 650; color: var(--ink-2); }
+.contents td:nth-child(2) { font-weight: 600; width: 24%; }
+.contents td:nth-child(4) { width: 132px; font-size: 13.5px; color: var(--ink-2); }
+.contents td:nth-child(3) { color: var(--ink-2); font-size: 14.5px; }
+.contents th:not(.rn) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+@media (max-width: 720px) { .contents td:nth-child(2) { width: 34%; } .contents td:nth-child(4), .contents th:nth-child(4) { display: none; } }
+.lesson-ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-2); }
+.lesson-ledger li { border-bottom: 1px solid var(--rule); }
+.lesson-ledger a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 12px 4px; color: var(--ink); text-decoration: none; }
+.lesson-ledger a:hover { background: var(--paper); }
+.lesson-ledger .n { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; }
+.lesson-ledger b { font-size: 16.5px; font-weight: 650; }
+.lesson-ledger .where { font-size: 13px; color: var(--ink-2); text-align: right; max-width: 30ch; }
+@media (max-width: 720px) { .lesson-ledger .where { display: none; } }
+.footnotes { padding-block: 22px 28px; }
+.footnotes ol { margin: 0; padding-left: 1.4em; font-size: 13px; color: var(--ink-2); display: grid; gap: 4px; max-width: 86ch; }
+
+/* sheet tabs: the home page's sections, along the bottom like a workbook */
+.sheet-tabs { position: sticky; bottom: 0; z-index: 15; display: flex; align-items: stretch; background: var(--head); border-top: 1px solid var(--rule-2); overflow-x: auto; scrollbar-width: none; padding-bottom: env(safe-area-inset-bottom, 0px); padding-left: max(8px, env(safe-area-inset-left, 0px)); }
+.sheet-tabs::-webkit-scrollbar { display: none; }
+.sheet-tabs a { flex: none; padding: 9px 16px 10px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); text-decoration: none; border-right: 1px solid var(--rule-2); white-space: nowrap; }
+.sheet-tabs a:first-child { border-left: 1px solid var(--rule-2); }
+.sheet-tabs a:hover { color: var(--ink); background: var(--paper); }
+.sheet-tabs a[aria-current="true"] { background: var(--sheet); color: var(--link); box-shadow: inset 0 -3px 0 var(--link); margin-top: -1px; border-top: 1px solid var(--sheet); }
+.has-tabs .toast { bottom: calc(max(20px, env(safe-area-inset-bottom, 0px)) + 44px); }
+
+/* nav */
+.site-nav a[aria-current="page"]:not(.btn) { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 560px) { .site-nav { gap: 4px 12px; } .site-nav .btn.small { padding: 5px 8px; } .site-nav .nav-opt { display: none; } }
+
+/* the Live Room example on the home page: the host screen, at card size */
+.lobby-ex { display: grid; gap: 12px; min-width: 0; }
+.lobby-ex .lobby { padding: 20px; gap: 16px; }
+.lobby-ex .lobby-how { font-size: 15px; }
+.lobby-ex .room-code { font-size: clamp(56px, 8vw, 92px); margin: 4px 0 0; }
+.lobby-ex .lobby-qr svg { width: 148px; }
+.lobby-ex .pchip { font-size: 14.5px; cursor: default; padding: 4px 10px; }
+.lobby-ex .pchip:hover { border-color: var(--rule-2); color: var(--ink); }
+@media (min-width: 820px) and (max-width: 1100px) { .lobby-ex .lobby { grid-template-columns: minmax(0, 1fr); } }
+.home .demo { border-radius: 0; }
+.home .ex-flag { font-family: var(--f-ui); font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 600; color: var(--ink-2); }
+</style></head><body class="has-tabs"><header class="site-top"><div class="wrap site-top-row"><a class="brand" href="./"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg><span class="brand-name">Finance Recruiting Coach</span></a><nav class="site-nav" aria-label="Site"><a href="play.html">Play</a><a class="nav-opt" href="live.html">Live Room</a><a href="library/">Lessons</a><a class="btn primary small" href="app.html">Build my plan</a></nav></div></header><main class="home"><section class="hero grid-paper" id="summary"><div class="wrap hero-grid"><div class="hero-copy"><h1 class="hero-h">Finance recruiting prep, built like a model.</h1><p class="hero-sub"><span class="t-in">Blue is what you type</span>: your school, the seats you want, the dates that matter. Black is what it builds: a day-by-day plan to your interview, a lesson a day, and questions you answer out loud. Start with the sprint on this page. The clock starts when you type.</p><div class="btn-row hero-cta"><a class="btn primary big" href="app.html">Build my plan</a><a class="btn big" href="play.html">Play the games</a></div><p class="note">Free. No sign-up, no ads, nothing to install.<sup>1</sup></p></div><div class="hero-sheet" id="hero-sheet"><noscript><p class="note">The sprint needs JavaScript. The <a href="library/">lesson library</a> works without it.</p></noscript></div></div></section><section class="band alt" id="numbers"><div class="wrap two-col"><div><h2 class="sec-h">What's in it, counted</h2><p class="sec-note">These numbers come straight from the code every time the site is built.</p></div><table class="ws-grid tear"><tbody><tr><td class="rn">1</td><td>Written lessons</td><td class="num">40</td><td>From the three statements to "walk me through a DCF"</td></tr><tr><td class="rn">2</td><td>Practice questions with model answers</td><td class="num">94</td><td>Each with the follow-up interviewers usually ask</td></tr><tr><td class="rn">3</td><td>Events in Statement Flows</td><td class="num">21</td><td>Every one is tested to balance</td></tr><tr><td class="rn">4</td><td>Kinds of mental math in the Sprint</td><td class="num">21</td><td>The numbers change every round</td></tr><tr><td class="rn">5</td><td>Topics a plan can draw from</td><td class="num">175</td><td>40 are written; the rest open in Claude<sup>1</sup></td></tr><tr><td class="rn">6</td><td>Price</td><td class="num">$0</td><td>No ads either</td></tr><tr><td class="rn">7</td><td>Sign-ups</td><td class="num">0</td><td>Your plan and scores stay in this browser<sup>2</sup></td></tr></tbody></table></div></section><section class="band" id="play"><div class="wrap"><h2 class="sec-h">Two games, and a room for when there's an audience</h2><div class="play-row"><figure class="ws" style="margin:0" aria-label="Example: depreciation goes up by $20 at a 25% tax rate"><div class="fl-event"><p class="fl-text">Depreciation goes up by $20.</p><p class="fl-assume">Tax rate 25%. One period, and taxes are paid in cash this period.</p></div><div class="fl-stmts" style="grid-template-columns:minmax(0,1fr)"><table class="ws-grid fl-tbl"><thead><tr><th class="rn"></th><th>Income statement</th><th class="chg">Change</th></tr></thead><tbody><tr><td class="rn">1</td><td>Pre-tax income</td><td class="chg"><span class="fl-ans down">(20)</span></td></tr><tr><td class="rn">2</td><td>Net income</td><td class="chg"><span class="fl-ans down">(15)</span></td></tr></tbody></table><table class="ws-grid fl-tbl"><thead><tr><th class="rn"></th><th>Cash flow statement</th><th class="chg">Change</th></tr></thead><tbody><tr><td class="rn">3</td><td>Cash from operations</td><td class="chg"><span class="fl-ans up">5</span></td></tr><tr><td class="rn">4</td><td>Cash from investing</td><td class="chg"><span class="fl-ans flat">–</span></td></tr><tr><td class="rn">5</td><td>Cash from financing</td><td class="chg"><span class="fl-ans flat">–</span></td></tr></tbody></table><table class="ws-grid fl-tbl"><thead><tr><th class="rn"></th><th>Balance sheet</th><th class="chg">Change</th></tr></thead><tbody><tr><td class="rn">6</td><td>Cash</td><td class="chg"><span class="fl-ans up">5</span></td></tr><tr><td class="rn">7</td><td>Other assets</td><td class="chg"><span class="fl-ans down">(20)</span></td></tr><tr><td class="rn">8</td><td>Liabilities</td><td class="chg"><span class="fl-ans flat">–</span></td></tr><tr><td class="rn">9</td><td>Shareholders&#39; equity</td><td class="chg"><span class="fl-ans down">(15)</span></td></tr></tbody></table></div><figcaption class="ex-cap">Cash goes up, not down: the only cash effect is the tax you saved.</figcaption></figure><div class="play-copy"><h3>Statement Flows</h3><p>Every accounting interview gets to the same question: one thing changes, so what happens on all three statements? You mark nine lines up, down or unchanged. Then it shows the numbers and walks through why.</p><p>The example here is a real answer from the game. The Mental Math Sprint at the top of this page is the other game, and its link sends a friend the exact same questions.</p><div class="btn-row"><a class="btn primary" href="play.html">Play Statement Flows</a></div></div></div><div class="play-row flip"><div class="play-copy"><h3>Live Room</h3><p>For a club meeting or a class. One screen shows the question, everyone answers on their own phone, and the leaderboard moves after each one. Ten questions takes about five minutes.</p><div class="btn-row"><a class="btn primary" href="live.html#host">Host a room</a><a class="btn" href="live.html">Join with a code</a></div></div><figure class="lobby-ex" style="margin:0" aria-label="Example: a Live Room waiting to start"><div class="lobby"><div class="lobby-join"><p class="lobby-how">Join at <b>brandonw3545-ops.github.io/finance-recruiting-coach/live.html</b> with code</p><p class="room-code">DCFS</p></div><div class="lobby-qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41" shape-rendering="crispEdges" role="img" aria-label="QR code"><rect width="41" height="41" fill="#fff"/><path d="M2 2h7v1h-7zM12 2h1v1h-1zM15 2h6v1h-6zM22 2h1v1h-1zM25 2h1v1h-1zM30 2h1v1h-1zM32 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM17 3h1v1h-1zM19 3h1v1h-1zM21 3h1v1h-1zM24 3h1v1h-1zM26 3h5v1h-5zM32 3h1v1h-1zM38 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM10 4h5v1h-5zM16 4h3v1h-3zM21 4h3v1h-3zM28 4h1v1h-1zM32 4h1v1h-1zM34 4h3v1h-3zM38 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM16 5h2v1h-2zM19 5h3v1h-3zM24 5h1v1h-1zM26 5h2v1h-2zM29 5h2v1h-2zM32 5h1v1h-1zM34 5h3v1h-3zM38 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM10 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h3v1h-3zM25 6h4v1h-4zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h3v1h-3zM38 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM12 7h1v1h-1zM14 7h4v1h-4zM20 7h1v1h-1zM22 7h3v1h-3zM29 7h1v1h-1zM32 7h1v1h-1zM38 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM30 8h1v1h-1zM32 8h7v1h-7zM10 9h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM23 9h4v1h-4zM30 9h1v1h-1zM2 10h1v1h-1zM4 10h5v1h-5zM13 10h4v1h-4zM20 10h3v1h-3zM24 10h1v1h-1zM27 10h1v1h-1zM32 10h5v1h-5zM2 11h3v1h-3zM7 11h1v1h-1zM10 11h1v1h-1zM16 11h4v1h-4zM23 11h1v1h-1zM25 11h1v1h-1zM30 11h1v1h-1zM33 11h1v1h-1zM37 11h1v1h-1zM3 12h1v1h-1zM6 12h1v1h-1zM8 12h1v1h-1zM19 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM26 12h2v1h-2zM29 12h2v1h-2zM32 12h2v1h-2zM37 12h2v1h-2zM2 13h2v1h-2zM5 13h1v1h-1zM11 13h1v1h-1zM15 13h2v1h-2zM18 13h1v1h-1zM23 13h2v1h-2zM26 13h1v1h-1zM28 13h2v1h-2zM34 13h1v1h-1zM38 13h1v1h-1zM3 14h1v1h-1zM5 14h4v1h-4zM14 14h1v1h-1zM19 14h1v1h-1zM24 14h2v1h-2zM27 14h1v1h-1zM29 14h1v1h-1zM31 14h2v1h-2zM34 14h5v1h-5zM3 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM11 15h1v1h-1zM13 15h1v1h-1zM16 15h1v1h-1zM18 15h5v1h-5zM25 15h1v1h-1zM27 15h2v1h-2zM30 15h2v1h-2zM33 15h1v1h-1zM3 16h6v1h-6zM10 16h1v1h-1zM12 16h4v1h-4zM17 16h3v1h-3zM23 16h2v1h-2zM26 16h6v1h-6zM33 16h3v1h-3zM37 16h2v1h-2zM3 17h1v1h-1zM5 17h2v1h-2zM10 17h7v1h-7zM19 17h5v1h-5zM26 17h1v1h-1zM28 17h1v1h-1zM30 17h1v1h-1zM33 17h2v1h-2zM2 18h2v1h-2zM5 18h1v1h-1zM8 18h3v1h-3zM14 18h5v1h-5zM21 18h1v1h-1zM23 18h1v1h-1zM26 18h3v1h-3zM31 18h2v1h-2zM34 18h1v1h-1zM36 18h1v1h-1zM38 18h1v1h-1zM4 19h1v1h-1zM6 19h2v1h-2zM13 19h3v1h-3zM17 19h1v1h-1zM20 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM30 19h1v1h-1zM33 19h1v1h-1zM35 19h1v1h-1zM37 19h1v1h-1zM2 20h2v1h-2zM8 20h1v1h-1zM11 20h1v1h-1zM14 20h1v1h-1zM17 20h3v1h-3zM21 20h1v1h-1zM23 20h1v1h-1zM26 20h1v1h-1zM28 20h3v1h-3zM32 20h1v1h-1zM36 20h3v1h-3zM4 21h1v1h-1zM13 21h2v1h-2zM17 21h1v1h-1zM20 21h6v1h-6zM28 21h1v1h-1zM30 21h1v1h-1zM33 21h1v1h-1zM38 21h1v1h-1zM2 22h1v1h-1zM5 22h1v1h-1zM7 22h2v1h-2zM14 22h2v1h-2zM17 22h1v1h-1zM19 22h1v1h-1zM21 22h1v1h-1zM24 22h2v1h-2zM27 22h1v1h-1zM31 22h2v1h-2zM34 22h1v1h-1zM36 22h1v1h-1zM3 23h4v1h-4zM9 23h2v1h-2zM15 23h1v1h-1zM18 23h1v1h-1zM20 23h2v1h-2zM24 23h2v1h-2zM27 23h2v1h-2zM30 23h1v1h-1zM35 23h1v1h-1zM37 23h1v1h-1zM3 24h3v1h-3zM8 24h3v1h-3zM16 24h2v1h-2zM20 24h1v1h-1zM24 24h1v1h-1zM28 24h2v1h-2zM31 24h5v1h-5zM37 24h2v1h-2zM4 25h2v1h-2zM7 25h1v1h-1zM9 25h1v1h-1zM15 25h1v1h-1zM18 25h1v1h-1zM21 25h1v1h-1zM25 25h1v1h-1zM29 25h3v1h-3zM33 25h2v1h-2zM37 25h2v1h-2zM6 26h3v1h-3zM10 26h1v1h-1zM13 26h3v1h-3zM20 26h1v1h-1zM22 26h8v1h-8zM32 26h3v1h-3zM36 26h2v1h-2zM2 27h1v1h-1zM5 27h3v1h-3zM11 27h2v1h-2zM15 27h5v1h-5zM23 27h1v1h-1zM25 27h2v1h-2zM30 27h1v1h-1zM33 27h1v1h-1zM35 27h1v1h-1zM2 28h1v1h-1zM4 28h1v1h-1zM6 28h1v1h-1zM8 28h6v1h-6zM15 28h2v1h-2zM20 28h1v1h-1zM22 28h3v1h-3zM28 28h3v1h-3zM32 28h2v1h-2zM35 28h4v1h-4zM2 29h1v1h-1zM7 29h1v1h-1zM9 29h2v1h-2zM12 29h1v1h-1zM14 29h2v1h-2zM18 29h1v1h-1zM23 29h1v1h-1zM31 29h2v1h-2zM34 29h1v1h-1zM37 29h2v1h-2zM2 30h1v1h-1zM4 30h5v1h-5zM10 30h1v1h-1zM13 30h1v1h-1zM15 30h2v1h-2zM19 30h1v1h-1zM24 30h1v1h-1zM26 30h2v1h-2zM29 30h6v1h-6zM36 30h3v1h-3zM10 31h1v1h-1zM12 31h1v1h-1zM18 31h6v1h-6zM25 31h1v1h-1zM27 31h4v1h-4zM34 31h2v1h-2zM2 32h7v1h-7zM11 32h2v1h-2zM14 32h6v1h-6zM22 32h2v1h-2zM30 32h1v1h-1zM32 32h1v1h-1zM34 32h1v1h-1zM36 32h1v1h-1zM38 32h1v1h-1zM2 33h1v1h-1zM8 33h1v1h-1zM10 33h1v1h-1zM12 33h3v1h-3zM16 33h2v1h-2zM19 33h2v1h-2zM22 33h3v1h-3zM28 33h1v1h-1zM30 33h1v1h-1zM34 33h2v1h-2zM37 33h2v1h-2zM2 34h1v1h-1zM4 34h3v1h-3zM8 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM15 34h4v1h-4zM23 34h1v1h-1zM25 34h10v1h-10zM36 34h3v1h-3zM2 35h1v1h-1zM4 35h3v1h-3zM8 35h1v1h-1zM10 35h2v1h-2zM14 35h1v1h-1zM17 35h1v1h-1zM19 35h2v1h-2zM22 35h1v1h-1zM24 35h2v1h-2zM28 35h5v1h-5zM34 35h1v1h-1zM38 35h1v1h-1zM2 36h1v1h-1zM4 36h3v1h-3zM8 36h1v1h-1zM10 36h5v1h-5zM16 36h4v1h-4zM21 36h1v1h-1zM23 36h1v1h-1zM26 36h1v1h-1zM28 36h1v1h-1zM30 36h1v1h-1zM37 36h2v1h-2zM2 37h1v1h-1zM8 37h1v1h-1zM11 37h2v1h-2zM15 37h1v1h-1zM17 37h1v1h-1zM20 37h4v1h-4zM25 37h1v1h-1zM28 37h4v1h-4zM34 37h1v1h-1zM38 37h1v1h-1zM2 38h7v1h-7zM10 38h1v1h-1zM12 38h4v1h-4zM17 38h1v1h-1zM19 38h1v1h-1zM21 38h2v1h-2zM24 38h1v1h-1zM26 38h2v1h-2zM31 38h2v1h-2zM34 38h5v1h-5z" fill="#000"/></svg></div></div><div class="lobby-players"><ul class="chips"><li><span class="pchip">Ana</span></li><li><span class="pchip">Marcus</span></li><li><span class="pchip">Priya</span></li><li><span class="pchip">Jon</span></li><li><span class="pchip">Sofia</span></li><li><span class="pchip">Dev</span></li></ul></div><figcaption class="fn">An example of the host screen. The QR code is real and opens the join page.</figcaption></figure></div></div></section><section class="band alt" id="plan"><div class="wrap"><h2 class="sec-h">The plan is the part that knows your dates</h2><div class="play-row"><figure class="demo" aria-label="Example: part of a plan for a sophomore aiming for banking"><div class="demo-head"><span class="ex-flag">Example plan for a sophomore aiming for banking</span><span class="mono note">162 study days</span></div><ol class="ex-list"><li><span class="d">Sun</span><span class="c"><span class="chip">PREP</span></span><span class="t">Club prep: Investment club interview<small>for Investment club interview</small></span></li><li><span class="d">Mon</span><span class="c"><span class="chip">VAL</span></span><span class="t">The EV bridge: why you add debt and subtract cash (and the trick questions)</span></li><li><span class="d">Tue</span><span class="c"><span class="chip">ACC</span></span><span class="t">The balance sheet: why assets always equal liabilities plus equity</span></li><li><span class="d">Wed</span><span class="c"><span class="chip">CAR</span></span><span class="t">Your &quot;why finance&quot; story: an answer only you could give</span></li><li><span class="d">Thu</span><span class="c"><span class="chip">VAL</span></span><span class="t">Valuation multiples: P/E, EV/EBITDA, EV/Revenue, and which ones go together</span></li><li><span class="d">Fri</span><span class="c"><span class="chip">MKT</span></span><span class="t">Inflation: CPI vs. PCE, and why the Fed targets 2%</span></li><li class="ex-mk"><span class="d">Fri</span><span class="c"><span class="chip input">DATE</span></span><span class="t">Investment club interview</span></li></ol><figcaption class="legend-model"><span class="b-in"><b>Blue</b> is what you enter</span><span class="b-out"><b>Black</b> is what the coach builds</span><span class="b-ln"><b>Green</b> ties a session to your dates</span></figcaption></figure><div class="play-copy"><p>Tell it when your club interview, application deadline or superday is, and it works backward: fit questions before your first interview, the three statements before DCFs, a mock the day before and a warm-up that morning.</p><p>You answer out loud and score yourself against a model answer. Anything you miss comes back the next day, then after 3, 7 and 14 days. The readiness score only moves when you answer something, never when you read something.</p><div class="btn-row"><a class="btn primary" href="app.html">Build my plan</a><a class="btn" href="library/">Read the 40 lessons</a></div></div></div></div></section><section class="band" id="notes"><div class="wrap two-col"><div class="maker"><h2 class="sec-h" style="margin-bottom:0">Why I built this</h2><p>I built this because I felt behind on finance recruiting, which starts earlier every year. I also had no idea where to start, at least not without spending a lot of money.</p><p>I wanted something built around me, so I made the Finance Recruiting Coach. It gives you a lesson every day that fits your own goals and dates, then has you answer out loud and shows your time, pace and filler words, so you get better at speaking and not just at knowing the answer.</p><p>It's free and the code is public. If a lesson gets something wrong, <a href="https://github.com/brandonw3545-ops/finance-recruiting-coach/issues" target="_blank" rel="noopener">open an issue on GitHub</a> and I'll fix it.</p><p class="sig">Brandon, college freshman</p></div><div><table class="ws-grid contents"><thead><tr><th class="rn"></th><th>What</th><th>Where it runs</th><th>Needs Claude?</th></tr></thead><tbody><tr><td class="rn">1</td><td>Plan, written lessons, both games</td><td>In this page</td><td>No</td></tr><tr><td class="rn">2</td><td>Voice practice</td><td>In this page, in Chrome, Edge or Safari. It times you and counts filler words.</td><td>No</td></tr><tr><td class="rn">3</td><td>Live Room</td><td>In this page, plus a shared room that holds nicknames and answer taps</td><td>No</td></tr><tr><td class="rn">4</td><td>Lessons that aren't written yet</td><td>A chat on your own Claude account, with your plan already in the prompt</td><td>Yes, free plan works</td></tr><tr><td class="rn">5</td><td>Grading and live mock interviews</td><td>Same: your own Claude account</td><td>Yes, free plan works</td></tr></tbody></table><p class="fn">Want all of it in one place? The <a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a> runs the same coach inside Claude, with grading in the page.</p></div></div></section><section class="band alt" id="lessons"><div class="wrap"><div class="sec-row"><h2 class="sec-h">Start with these lessons</h2><a class="more" href="library/">All 40 lessons</a></div><ol class="lesson-ledger"><li><a href="library/the-three-financial-statements-what-each-one-tells-you.html"><span class="n">1</span><b>The three financial statements: what each one tells you</b><span class="where">Nearly every technical first round, as &quot;Walk me through the three financial statements.&quot;</span></a></li><li><a href="library/walk-me-through-a-dcf-the-60-second-answer-and-the-follow.html"><span class="n">2</span><b>&quot;Walk me through a DCF&quot;: the 60-second answer and the follow-ups</b><span class="where">One of the most common technical questions in banking and private equity, and frequent in equity research and asset management.</span></a></li><li><a href="library/equity-value-vs-enterprise-value-the-house-and-mortgage.html"><span class="n">3</span><b>Equity value vs. enterprise value (the house-and-mortgage analogy)</b><span class="where">Nearly every banking, private equity and equity research first round, usually as one of the first technical questions.</span></a></li><li><a href="library/tell-me-about-yourself-turning-your-resume-into-a-60-second.html"><span class="n">4</span><b>&quot;Tell me about yourself&quot;: turning your resume into a 60-second story</b><span class="where">Nearly every interview, usually as the first question, and it sets the tone for the next 30 minutes.</span></a></li><li><a href="library/bonds-101-coupons-maturities-and-why-prices-and-yields-move.html"><span class="n">5</span><b>Bonds 101: coupons, maturities, and why prices and yields move in opposite directions</b><span class="where">Sales and trading and asset management interviews, any markets question, and banking interviews that touch on debt.</span></a></li><li><a href="library/asset-management-vs-wealth-management-what-each-does-and.html"><span class="n">6</span><b>Asset management vs. wealth management: what each does, and how each makes money</b><span class="where">Every asset management and wealth management interview, and &quot;why this division?&quot; questions at big banks.</span></a></li></ol></div></section><section class="band" id="faq"><div class="wrap two-col"><div><h2 class="sec-h">Questions</h2></div><div class="faq"><details class="faq-item"><summary>Do I need Claude?</summary><p>Not for the games, the written lessons, voice practice or the scorecard. You do for lessons on topics that aren't in the library yet, for grading from an interviewer's point of view and for live mock interviews. A free Claude account works.</p></details><details class="faq-item"><summary>Is it free?</summary><p>Yes. There's nothing to pay for here, and Claude's free plan works. A lot of use in one day can run into the free plan's usage limits.</p></details><details class="faq-item"><summary>Where is my data?</summary><p>In this browser. Your plan, answers and game scores are not sent to a server. To move to another device, copy a backup code in Setup and restore it there. A Live Room is the exception: the nickname you type and your answer taps go to the room's database so the host screen can show them.</p></details><details class="faq-item"><summary>Does voice practice record me?</summary><p>Recording uses your browser's built-in speech-to-text. In Chrome, the audio goes to Google to be transcribed; the transcript stays in your browser.</p></details><details class="faq-item"><summary>Who is this for?</summary><p>College students recruiting for finance clubs, early insight programs and internships in banking, asset and wealth management, sales and trading, and the buy side. It's built for freshmen and sophomores, and it works for anyone starting out.</p></details><details class="faq-item"><summary>Is the content accurate?</summary><p>The lessons cover standard interview material and get checked against the usual technical answers. Every Statement Flows event is tested to balance, and every Sprint answer is recomputed from its own question. Anything about this week's markets or a specific firm's dates changes fast, so the coach tells you what to look up.</p></details><details class="faq-item"><summary>What is the readiness score?</summary><p>An estimate from your graded answers and game scores, by area, compared with how far along your plan is. It starts at zero and only moves when you answer something. It is a study aid, not a prediction.</p></details><details class="faq-item"><summary>Can I see the code?</summary><p>Yes. It's open source on <a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">GitHub</a>.</p></details></div></div></section><section class="footnotes"><div class="wrap"><ol><li>Lessons that aren't written yet, AI grading and live mock interviews open in your own Claude account, and a free one works. Everything else runs in this page.</li><li>Fonts load from Google Fonts, voice practice in Chrome sends audio to Google to be transcribed, and a Live Room shares your nickname and answer taps with the room.</li></ol></div></section></main><nav class="sheet-tabs" aria-label="Sections on this page"><a href="#summary" aria-current="true">Summary</a><a href="#numbers">Numbers</a><a href="#play">Play</a><a href="#plan">Plan</a><a href="#notes">Notes</a><a href="#lessons">Lessons</a><a href="#faq">Questions</a></nav><footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">Finance Recruiting Coach</div><p class="note">Made by Brandon, a college freshman preparing for the same interviews. Free, no ads, and the AI parts run on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div><nav class="foot-nav" aria-label="More"><a href="app.html">The coach</a><a href="play.html">Play</a><a href="live.html">Live Room</a><a href="library/">Lesson library</a><a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a><a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer><script>
+/* ==========================================================================
+   Finance Recruiting Coach: games
+   Pure functions, no DOM. Seeded question generators for the Mental Math Sprint and
+   Statement Flows, the live-room questions built from them, scoring, challenge links,
+   the day streak and the readiness estimate.
+   The same seed always gives the same round, which is what makes a challenge link fair.
+   ========================================================================== */
+const Games = (() => {
+  'use strict';
+
+  /* ---------- seeded random (same generator as the plan engine) ---------- */
+  function rng(seedStr) {
+    seedStr = String(seedStr);
+    let h = 1779033703 ^ seedStr.length;
+    for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+    let a = h >>> 0;
+    return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  }
+  const pick = (r, arr) => arr[Math.floor(r() * arr.length)];
+  const int = (r, lo, hi) => lo + Math.floor(r() * (hi - lo + 1));
+  function shuffle(r, arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  const SEED_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  function newSeed() { let s = ''; for (let i = 0; i < 6; i++) s += SEED_CHARS[Math.floor(Math.random() * SEED_CHARS.length)]; return s; }
+  const dailySeed = iso => 'D' + String(iso).replace(/-/g, '');
+  const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  function roomCode() { let s = ''; for (let i = 0; i < 4; i++) s += CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]; return s; }
+
+  /* ---------- numbers ---------- */
+  const round2 = n => Math.round(n * 100) / 100;
+  function fmtNum(n) {
+    const v = round2(n);
+    const [w, d] = String(Math.abs(v)).split('.');
+    return (v < 0 ? '-' : '') + w.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (d ? '.' + d : '');
+  }
+  // how an answer reads next to its unit: 25%, 8.0x, $360M, 9 years
+  function fmtAnswer(v, unit) {
+    if (unit === 'x') return (Math.round(v * 10) / 10).toFixed(1) + 'x';
+    if (unit === '%') return fmtNum(v) + '%';
+    if (unit === '$M') return '$' + fmtNum(v) + 'M';
+    if (unit === '$') return '$' + fmtNum(v);
+    if (unit === 'yrs') return fmtNum(v) + ' years';
+    return fmtNum(v);
+  }
+  const UNIT_HINT = { 'x': 'x', '%': '%', '$M': '$M', '$': '$', 'yrs': 'years', '': '' };
+  // typed answers: "$1,200", "8x", "25 %" all count
+  function parseTyped(text) {
+    const s = String(text == null ? '' : text).replace(/[,\s$%]/g, '').replace(/(x|m|mm|yrs?|years?)$/i, '');
+    if (!/^-?\d*\.?\d+$/.test(s)) return NaN;
+    return parseFloat(s);
+  }
+  function checkTyped(q, text) {
+    const v = parseTyped(text);
+    return Number.isFinite(v) && Math.abs(v - q.answer) <= 0.011;
+  }
+  // three wrong answers: the usual mistakes first, then near misses
+  function distract(r, ans, extras) {
+    const step = Math.abs(ans) < 2 ? 0.25 : Math.abs(ans) < 20 ? 1 : Math.abs(ans) < 100 ? 5 : Math.abs(ans) < 1000 ? 10 : 50;
+    const near = shuffle(r, [ans + step, ans - step, ans + 2 * step, ans * 2, ans / 2, ans - 2 * step, ans * 1.5]);
+    const out = [];
+    (extras || []).concat(near).forEach(v => {
+      v = round2(v);
+      if (out.length < 3 && Number.isFinite(v) && v > 0 && Math.abs(v - ans) > 0.011 && !out.some(o => Math.abs(o - v) < 0.011)) out.push(v);
+    });
+    for (let k = 3; out.length < 3; k++) out.push(round2(ans + k * step));
+    return out;
+  }
+
+  /* ---------- Mental Math Sprint: the question kinds ----------
+     Each returns { prompt, answer, unit, wrong }. Numbers are chosen so every answer is
+     clean (a whole number or one or two decimals). lv: 0 warm-up, 1 standard, 2 hard. */
+  const KINDS = {
+    pctOf: { cat: 'mkt', lv: [0, 1], make(r, lv) {
+      const p = pick(r, lv ? [5, 15, 30, 35, 40, 60, 75] : [10, 20, 25, 50]), base = 20 * int(r, 2, lv ? 30 : 15);
+      const a = p * base / 100;
+      return { prompt: p + '% of ' + fmtNum(base), answer: a, unit: '', wrong: [(100 - p) * base / 100, a * 10, a / 10] };
+    } },
+    pctChange: { cat: 'mkt', lv: [0, 1, 2], make(r, lv) {
+      const from = pick(r, [20, 40, 60, 80, 100, 120, 200, 240, 400]);
+      const up = lv === 0 || r() < 0.55;
+      const p = up ? pick(r, lv === 0 ? [10, 20, 25, 50, 100] : [5, 15, 30, 35, 45, 75, 150]) : pick(r, lv === 2 ? [15, 35, 45, 65, 85] : [10, 20, 25, 40, 50, 75]);
+      const to = from + (up ? 1 : -1) * from * p / 100;
+      const wrongBase = Math.round(Math.abs(to - from) / to * 1000) / 10;
+      const words = r() < 0.5
+        ? 'A stock ' + (up ? 'rises' : 'falls') + ' from $' + fmtNum(from) + ' to $' + fmtNum(to) + '. Percent ' + (up ? 'gain' : 'drop') + '?'
+        : 'Revenue ' + (up ? 'grew' : 'fell') + ' from $' + fmtNum(from) + 'M to $' + fmtNum(to) + 'M. Percent ' + (up ? 'growth' : 'decline') + '?';
+      return { prompt: words, answer: p, unit: '%', wrong: [wrongBase, Math.abs(to - from)] };
+    } },
+    evMultiple: { cat: 'val', lv: [0, 1, 2], make(r, lv) {
+      const e = pick(r, [20, 40, 50, 80, 100, 120, 150, 200, 250]), m = pick(r, lv === 0 ? [5, 6, 8, 10] : lv === 1 ? [7, 9, 11, 12, 14] : [6.5, 7.5, 8.5, 12.5]);
+      return { prompt: 'Enterprise value $' + fmtNum(e * m) + 'M, EBITDA $' + fmtNum(e) + 'M. EV/EBITDA?', answer: m, unit: 'x', wrong: [m + 1, m - 1, m + 2] };
+    } },
+    impliedEV: { cat: 'val', lv: [1, 2], make(r, lv) {
+      const e = pick(r, [20, 40, 50, 60, 80, 120, 150, 200]), m = pick(r, lv === 1 ? [6, 7, 8, 9, 10, 12] : [6.5, 7.5, 8.5, 11, 14]);
+      return { prompt: 'EBITDA of $' + fmtNum(e) + 'M, peers trade at ' + m + 'x. Implied enterprise value, in $M?', answer: e * m, unit: '$M', wrong: [e * (m + 1), e * (m - 1), e * m * 10] };
+    } },
+    pe: { cat: 'val', lv: [0, 1], make(r) {
+      const eps = pick(r, [2, 3, 4, 5, 6, 8]), m = pick(r, [10, 12, 15, 18, 20, 25, 30]);
+      return { prompt: 'Share price $' + fmtNum(eps * m) + ', earnings per share $' + eps + '. P/E?', answer: m, unit: 'x', wrong: [m + 2, m - 2, m + 5] };
+    } },
+    rule72: { cat: 'mkt', lv: [0, 1], make(r) {
+      const rate = pick(r, [2, 3, 4, 6, 8, 9, 12]);
+      if (r() < 0.6) return { prompt: 'Rule of 72: at ' + rate + '% a year, how many years to double your money?', answer: 72 / rate, unit: 'yrs', wrong: [Math.round(100 / rate), 72 / rate + 2, 72 / rate - 2] };
+      return { prompt: 'Rule of 72: to double in ' + (72 / rate) + ' years, what annual return do you need?', answer: rate, unit: '%', wrong: [rate + 2, rate * 2, rate + 1] };
+    } },
+    margin: { cat: 'acc', lv: [0, 1], make(r) {
+      const rev = pick(r, [200, 300, 400, 500, 600, 800, 1000, 1200]), m = pick(r, [5, 8, 10, 12, 15, 20, 25, 30, 40]);
+      return { prompt: 'Revenue $' + fmtNum(rev) + 'M, EBITDA $' + fmtNum(rev * m / 100) + 'M. EBITDA margin?', answer: m, unit: '%', wrong: [m + 5, m / 2, m + 2] };
+    } },
+    netIncome: { cat: 'acc', lv: [0, 1], make(r) {
+      const x = pick(r, [100, 200, 300, 400, 500, 800]), t = pick(r, [20, 25, 30, 40]);
+      return { prompt: 'Pre-tax income $' + x + 'M, tax rate ' + t + '%. Net income, in $M?', answer: x * (100 - t) / 100, unit: '$M', wrong: [x * t / 100, x * (100 + t) / 100] };
+    } },
+    compound: { cat: 'mkt', lv: [1, 2], make(r, lv) {
+      const P = pick(r, [100, 200, 1000]), g = pick(r, [10, 20, 50, 100]), n = lv === 2 && g !== 20 ? 3 : 2;
+      const a = round2(P * Math.pow(1 + g / 100, n));
+      return { prompt: '$' + fmtNum(P) + ' grows ' + g + '% a year for ' + n + ' years. Ending value?', answer: a, unit: '$', wrong: [P * (1 + n * g / 100), P * (1 + g / 100)] };
+    } },
+    presentValue: { cat: 'val', lv: [1, 2], make(r) {
+      const pv = pick(r, [100, 200, 400, 800, 1000]), d = pick(r, [10, 20, 25, 50]);
+      const fv = pv * (100 + d) / 100;
+      return { prompt: '$' + fmtNum(fv) + ' a year from now, discounted at ' + d + '%. Worth today?', answer: pv, unit: '$', wrong: [fv * (100 - d) / 100, fv * (100 + d) / 100] };
+    } },
+    fraction: { cat: 'mkt', lv: [0, 1], make(r, lv) {
+      const d = pick(r, lv ? [8, 40] : [4, 5, 20, 25]);
+      const n = d === 8 ? pick(r, [1, 3, 5, 7]) : d === 40 ? pick(r, [1, 3, 7, 9, 11]) : int(r, 1, d - 1);
+      return { prompt: n + '/' + d + ' as a percent?', answer: round2(n / d * 100), unit: '%', wrong: [round2(n / (d + 2) * 100), round2(d / n)] };
+    } },
+    times: { cat: 'mkt', lv: [0, 1, 2], make(r, lv) {
+      const a = lv === 0 ? int(r, 6, 12) : lv === 1 ? int(r, 13, 25) : pick(r, [25, 35, 45, 75, 125]);
+      const b = lv === 0 ? int(r, 11, 20) : lv === 1 ? int(r, 11, 19) : pick(r, [12, 16, 24, 32, 48]);
+      return { prompt: a + ' × ' + b, answer: a * b, unit: '', wrong: [a * b + 10, a * b - 10, a * (b + 1), a * b + a] };
+    } },
+    equityValue: { cat: 'val', lv: [1, 2], make(r) {
+      const ev = 100 * int(r, 6, 20), debt = 50 * int(r, 2, 10), cash = 50 * int(r, 1, 5);
+      return { prompt: 'Enterprise value $' + fmtNum(ev) + 'M, debt $' + debt + 'M, cash $' + cash + 'M. Equity value, in $M?', answer: ev - debt + cash, unit: '$M', wrong: [ev + debt - cash, ev - debt - cash, ev + debt + cash] };
+    } },
+    enterpriseValue: { cat: 'val', lv: [1, 2], make(r) {
+      const eq = 100 * int(r, 5, 20), debt = 50 * int(r, 2, 12), cash = 50 * int(r, 1, 5);
+      return { prompt: 'Market cap $' + fmtNum(eq) + 'M, debt $' + debt + 'M, cash $' + cash + 'M. Enterprise value, in $M?', answer: eq + debt - cash, unit: '$M', wrong: [eq - debt + cash, eq + debt + cash, eq - debt - cash] };
+    } },
+    marketCap: { cat: 'val', lv: [0, 1], make(r) {
+      const p = pick(r, [8, 12, 15, 20, 24, 25, 30, 40, 50, 60, 75]), s = pick(r, [20, 40, 50, 80, 100, 150, 200]);
+      return { prompt: 'Share price $' + p + ', ' + s + 'M shares outstanding. Market cap, in $M?', answer: p * s, unit: '$M', wrong: [p * s * 10, p * s / 10, p * (s + 10)] };
+    } },
+    bondYield: { cat: 'mkt', lv: [0, 1], make(r) {
+      const price = pick(r, [500, 800, 1000, 1200]), y = pick(r, [2, 4, 5, 6, 8, 10]);
+      return { prompt: 'A bond pays a $' + (price * y / 100) + ' coupon each year and trades at $' + fmtNum(price) + '. Current yield?', answer: y, unit: '%', wrong: [y + 1, y * 2, y - 1] };
+    } },
+    divYield: { cat: 'mkt', lv: [0, 1], make(r) {
+      const price = pick(r, [20, 25, 40, 50, 80, 100]), y = pick(r, [1, 2, 3, 4, 5, 6, 8]);
+      return { prompt: 'A $' + price + ' stock pays $' + fmtNum(price * y / 100) + ' a year in dividends. Dividend yield?', answer: y, unit: '%', wrong: [y + 1, y * 2, y + 2] };
+    } },
+    breakeven: { cat: 'mkt', lv: [1, 2], make(r) {
+      const [d, g] = pick(r, [[20, 25], [50, 100], [60, 150], [75, 300], [80, 400]]);
+      return { prompt: 'A stock falls ' + d + '%. What percent gain gets it back to even?', answer: g, unit: '%', wrong: [d, d * 2, g / 2 + d] };
+    } },
+    basisPoints: { cat: 'mkt', lv: [1, 2], make(r) {
+      const y = pick(r, [3.25, 3.5, 4, 4.25, 4.5, 4.75, 5]), b = pick(r, [25, 50, 75, 125]), up = r() < 0.5;
+      const a = round2(y + (up ? 1 : -1) * b / 100);
+      return { prompt: 'A bond yields ' + y + '%. Yields ' + (up ? 'rise' : 'fall') + ' ' + b + ' basis points. New yield?', answer: a, unit: '%', wrong: [round2(y + (up ? 1 : -1) * b / 1000), round2(y + (up ? -1 : 1) * b / 100), round2(y + (up ? 1 : -1) * b / 10)] };
+    } },
+    interest: { cat: 'acc', lv: [0, 1], make(r) {
+      const n = pick(r, [100, 200, 300, 400, 500]), rate = pick(r, [4, 5, 6, 8, 10]);
+      return { prompt: 'A $' + n + 'M loan at ' + rate + '%. Interest expense each year, in $M?', answer: n * rate / 100, unit: '$M', wrong: [n * rate / 10, n * rate / 1000, n * (rate + 1) / 100] };
+    } },
+    wacc: { cat: 'val', lv: [2], make(r) {
+      const we = pick(r, [50, 60, 70, 80]), ce = pick(r, [8, 10, 12]), cd = pick(r, [4, 5, 6]);
+      const a = (we * ce + (100 - we) * cd) / 100;
+      return { prompt: we + '% equity at a ' + ce + '% cost, ' + (100 - we) + '% debt at ' + cd + '% after tax. WACC?', answer: a, unit: '%', wrong: [(ce + cd) / 2, ((100 - we) * ce + we * cd) / 100, a + 1] };
+    } },
+  };
+  const KIND_NAMES = Object.keys(KINDS);
+  const levelAt = (i, r) => i < 3 ? 0 : i < 8 ? (r() < 0.5 ? 0 : 1) : i < 16 ? 1 : (r() < 0.5 ? 1 : 2);
+  function mathQ(seed, i, prevKind) {
+    const r = rng(seed + ':m:' + i);
+    const lv = levelAt(i, r);
+    const names = KIND_NAMES.filter(k => KINDS[k].lv.includes(lv) && k !== prevKind);
+    const kind = pick(r, names);
+    const q = KINDS[kind].make(r, lv);
+    return { id: seed + '-' + i, i, kind, cat: KINDS[kind].cat, lv, prompt: q.prompt, answer: round2(q.answer), unit: q.unit, wrong: q.wrong };
+  }
+  // the first n questions of a sprint; no two in a row of the same kind
+  function sprintRound(seed, n) {
+    const out = [];
+    for (let i = 0; i < (n || 80); i++) out.push(mathQ(seed, i, i ? out[i - 1].kind : ''));
+    return out;
+  }
+  // four choices for a math question (the live room is tap-to-answer)
+  function mathChoices(q, r) {
+    const all = shuffle(r, [q.answer].concat(distract(r, q.answer, q.wrong)));
+    return { choices: all.map(v => fmtAnswer(v, q.unit)), correct: all.indexOf(q.answer) };
+  }
+
+  /* ---------- Statement Flows ----------
+     One event, three statements. Each scenario gives the pre-tax hit, the cash flow
+     adjustments and the balance sheet lines; the engine derives the rest and the balance
+     check (cash + other assets = liabilities + equity) has to hold or the tests fail.
+     Assumptions, shown on screen: one period, taxes paid in cash this period. */
+  const FLOW_ROWS = [
+    { k: 'pretax', stmt: 'is', label: 'Pre-tax income' },
+    { k: 'ni', stmt: 'is', label: 'Net income' },
+    { k: 'cfo', stmt: 'cf', label: 'Cash from operations' },
+    { k: 'cfi', stmt: 'cf', label: 'Cash from investing' },
+    { k: 'cff', stmt: 'cf', label: 'Cash from financing' },
+    { k: 'cash', stmt: 'bs', label: 'Cash' },
+    { k: 'oa', stmt: 'bs', label: 'Other assets' },
+    { k: 'liab', stmt: 'bs', label: 'Liabilities' },
+    { k: 'eq', stmt: 'bs', label: "Shareholders' equity" },
+  ];
+  const STMT_NAME = { is: 'Income statement', cf: 'Cash flow statement', bs: 'Balance sheet' };
+  /* fields: pretax, adj (non-cash and working-capital lines inside cash from operations), cfi, cff,
+     oa (non-cash assets), liab, eqx (equity moves that skip the income statement), all as multiples of x.
+     adjWhy / oaName / liabName / eqWhy / isWhy feed the walk-through; trap is the usual mistake. */
+  const SCENARIOS = [
+    { id: 'dep', lv: 0, text: x => 'Depreciation goes up by $' + x + '.', pretax: -1, adj: 1, oa: -1,
+      adjWhy: 'add back the depreciation because no cash left the building', oaName: 'PP&E', trap: 'Cash goes up, not down: the only cash effect is the tax you saved.' },
+    { id: 'capexCash', lv: 0, text: x => 'The company buys $' + x + ' of equipment with cash.', cfi: -1, oa: 1,
+      isWhy: 'Buying equipment is not an expense. It gets depreciated later.', oaName: 'PP&E', trap: 'Nothing hits the income statement on the day you buy it.' },
+    { id: 'debtIssue', lv: 0, text: x => 'The company borrows $' + x + '.', cff: 1, liab: 1,
+      isWhy: 'Borrowing is not income.', liabName: 'debt' },
+    { id: 'dividend', lv: 0, text: x => 'The company pays a $' + x + ' cash dividend.', cff: -1, eqx: -1,
+      isWhy: 'Dividends are not an expense. They come out of retained earnings.', eqWhy: 'retained earnings fall by the dividend', trap: 'Net income does not change.' },
+    { id: 'stockIssue', lv: 0, text: x => 'The company sells $' + x + ' of new stock.', cff: 1, eqx: 1,
+      isWhy: 'Raising equity is not income.', eqWhy: 'common stock and paid-in capital rise' },
+    { id: 'invCash', lv: 0, text: x => 'The company buys $' + x + ' of inventory with cash.', adj: -1, oa: 1,
+      isWhy: 'Inventory is not expensed until it is sold.', adjWhy: 'inventory went up, which uses cash', oaName: 'inventory', trap: 'It sits in operations, not investing, and it never touches net income yet.' },
+    { id: 'debtRepay', lv: 0, text: x => 'The company repays $' + x + ' of debt principal.', cff: -1, liab: -1,
+      isWhy: 'Repaying principal is not an expense. Only interest is.', liabName: 'debt' },
+    { id: 'buyback', lv: 1, text: x => 'The company buys back $' + x + ' of its own stock.', cff: -1, eqx: -1,
+      isWhy: 'A buyback is not an expense.', eqWhy: 'treasury stock reduces equity' },
+    { id: 'capexDebt', lv: 1, text: x => 'The company buys $' + x + ' of equipment and pays for it with new debt.', cfi: -1, cff: 1, oa: 1, liab: 1,
+      isWhy: 'Neither the purchase nor the borrowing is income or expense.', oaName: 'PP&E', liabName: 'debt', trap: 'Cash does not move: investing is down and financing is up by the same amount.' },
+    { id: 'arSale', lv: 1, text: x => 'The company books $' + x + ' of revenue on credit. No costs, and the customer has not paid.', pretax: 1, adj: -1, oa: 1,
+      adjWhy: 'receivables went up, so that revenue is not cash yet', oaName: 'receivables', trap: 'Cash goes down: you owe tax on revenue you have not collected.' },
+    { id: 'arCollect', lv: 1, text: x => 'A customer pays a $' + x + ' invoice that was booked as revenue last period.', adj: 1, oa: -1,
+      isWhy: 'The revenue was already booked last period.', adjWhy: 'receivables came down, which brings in cash', oaName: 'receivables' },
+    { id: 'invWriteDown', lv: 1, text: x => 'The company writes down $' + x + ' of inventory.', pretax: -1, adj: 1, oa: -1,
+      adjWhy: 'add back the write-down because it is non-cash', oaName: 'inventory', trap: 'Same shape as depreciation: cash rises by the tax saved.' },
+    { id: 'deferredRev', lv: 1, text: x => 'A customer pays $' + x + ' upfront for a subscription that has not been delivered yet.', adj: 1, liab: 1,
+      isWhy: 'No revenue until the service is delivered.', adjWhy: 'deferred revenue went up, which is cash in the door', liabName: 'deferred revenue', trap: 'Cash is up but revenue is not. The company owes the service, so it is a liability.' },
+    { id: 'accrued', lv: 1, text: x => 'Employees earned $' + x + ' of wages this period that have not been paid yet.', pretax: -1, adj: 1, liab: 1,
+      adjWhy: 'accrued wages went up, so the expense has not cost cash yet', liabName: 'accrued wages', trap: 'The expense counts now even though no one has been paid.' },
+    { id: 'interest', lv: 1, text: x => 'The company pays $' + x + ' of interest on its debt, in cash.', pretax: -1,
+      trap: 'Interest is tax-deductible, so net income falls by less than the interest.' },
+    { id: 'prepaid', lv: 1, text: x => 'The company pays $' + x + ' upfront for next year\'s insurance.', adj: -1, oa: 1,
+      isWhy: 'The expense belongs to next year.', adjWhy: 'prepaid expenses went up, which uses cash', oaName: 'prepaid insurance' },
+    { id: 'apPay', lv: 1, text: x => 'The company pays off $' + x + ' of accounts payable.', adj: -1, liab: -1,
+      isWhy: 'The expense was booked when the bill arrived.', adjWhy: 'payables came down, which uses cash', liabName: 'payables' },
+    { id: 'sbc', lv: 2, text: x => 'The company records $' + x + ' of stock-based compensation.', pretax: -1, adj: 1, eqx: 1,
+      adjWhy: 'add back the stock comp because it is paid in shares, not cash', eqWhy: 'paid-in capital rises by the full grant while retained earnings fall by the after-tax expense', trap: 'Equity goes up, not down.' },
+    { id: 'invSale', lv: 2, text: x => 'The company sells inventory that cost $' + x + ' for $' + (2 * x) + ' in cash.', pretax: 1, adj: 1, oa: -1,
+      adjWhy: 'inventory came down by its cost', oaName: 'inventory' },
+    { id: 'assetSale', lv: 2, text: x => 'The company sells equipment carried at $' + x + ' for $' + (2 * x) + ' in cash.', pretax: 1, adj: -1, cfi: 2, oa: -1,
+      adjWhy: 'take the gain back out, because the whole sale price shows up in investing', oaName: 'PP&E', trap: 'Cash from operations falls: the gain is removed and the tax on it stays.' },
+    { id: 'deferredEarned', lv: 2, text: x => 'The company delivers a service that a customer prepaid $' + x + ' for last period.', pretax: 1, adj: -1, liab: -1,
+      adjWhy: 'deferred revenue came down, and the cash arrived last period', liabName: 'deferred revenue', trap: 'Revenue is up and cash is down: the only cash movement is the tax.' },
+  ];
+  const SCEN_BY_ID = {}; SCENARIOS.forEach(s => { SCEN_BY_ID[s.id] = s; });
+  const plural = noun => /s$/.test(noun) && !/^cash from/i.test(noun);
+  const upDown = (n, noun) => {
+    const pl = plural(noun);
+    return n === 0 ? noun + (pl ? ' do not change' : ' does not change') : noun + (n > 0 ? (pl ? ' rise by $' : ' rises by $') : (pl ? ' fall by $' : ' falls by $')) + fmtNum(Math.abs(n));
+  };
+  const sgn = n => n > 0 ? 1 : n < 0 ? -1 : 0;
+
+  function flowCalc(id, x, taxPct) {
+    const s = SCEN_BY_ID[id];
+    const pretax = (s.pretax || 0) * x;
+    const tax = pretax * taxPct / 100;
+    const ni = pretax - tax;
+    const adj = (s.adj || 0) * x;
+    const cfo = ni + adj, cfi = (s.cfi || 0) * x, cff = (s.cff || 0) * x;
+    const d = { pretax, ni, cfo, cfi, cff, cash: cfo + cfi + cff, oa: (s.oa || 0) * x, liab: (s.liab || 0) * x, eq: ni + (s.eqx || 0) * x };
+    const balanced = Math.abs(d.cash + d.oa - d.liab - d.eq) < 1e-9;
+    // the walk-through, in the order an interviewer expects: income statement, cash flow, balance sheet
+    const is = pretax ? upDown(pretax, 'Pre-tax income') + '. At a ' + taxPct + '% tax rate, ' + upDown(ni, 'net income') + '.' : (s.isWhy || 'Nothing hits the income statement.') + ' Net income does not change.';
+    const cfParts = [];
+    if (pretax) cfParts.push('Start with net income, ' + (ni > 0 ? 'up' : 'down') + ' $' + fmtNum(Math.abs(ni)));
+    if (adj) cfParts.push((pretax ? 'then ' : 'In operations, ') + (adj > 0 ? 'add' : 'subtract') + ' $' + fmtNum(Math.abs(adj)) + ': ' + s.adjWhy);
+    let cf = cfParts.length ? cfParts.join(', ') + '. ' + upDown(cfo, 'Cash from operations') + '.' : 'Cash from operations does not change.';
+    if (cfi) cf += ' ' + upDown(cfi, 'Cash from investing') + '.';
+    if (cff) cf += ' ' + upDown(cff, 'Cash from financing') + '.';
+    cf += ' ' + (d.cash ? 'Net, ' + upDown(d.cash, 'cash') + '.' : 'Net, cash does not change.');
+    const bsParts = [upDown(d.cash, 'Cash')];
+    if (d.oa) bsParts.push(upDown(d.oa, s.oaName || 'other assets'));
+    if (d.liab) bsParts.push(upDown(d.liab, s.liabName || 'liabilities'));
+    bsParts.push(d.eq ? upDown(d.eq, 'equity') + (s.eqWhy ? ' (' + s.eqWhy + ')' : ni ? ' through retained earnings' : '') : 'equity does not change');
+    const side = d.cash + d.oa;
+    const bs = bsParts.join(', ') + '. ' + (side ? 'Both sides move by $' + fmtNum(Math.abs(side)) + (side > 0 ? ' up' : ' down') + ', so it balances.' : 'Total assets do not change, so it balances.');
+    return { d, balanced, tax, why: { is, cf, bs }, trap: s.trap || '' };
+  }
+  function flowScenario(id, x, taxPct) {
+    const s = SCEN_BY_ID[id], c = flowCalc(id, x, taxPct);
+    return {
+      id, lv: s.lv, x, taxPct, text: s.text(x),
+      rows: FLOW_ROWS.map(rw => ({ k: rw.k, stmt: rw.stmt, label: rw.label, delta: c.d[rw.k], dir: sgn(c.d[rw.k]) })),
+      why: c.why, trap: c.trap, balanced: c.balanced,
+    };
+  }
+  // a round ramps: two warm-ups, two standard, then a hard one (repeating that shape for longer rounds)
+  function flowsRound(seed, n) {
+    const r = rng(seed + ':f');
+    const pools = [0, 1, 2].map(lv => shuffle(r, SCENARIOS.filter(s => s.lv === lv).map(s => s.id)));
+    const shape = [0, 0, 1, 1, 2];
+    const out = [];
+    for (let i = 0; i < (n || 5); i++) {
+      const lv = shape[i % shape.length];
+      const pool = pools[lv].length ? pools[lv] : pools[1];
+      out.push(flowScenario(pool.shift(), pick(r, [20, 40, 100, 200]), pick(r, [20, 25, 40])));
+    }
+    return out;
+  }
+  const flowScore = (scen, picks) => scen.rows.reduce((n, rw) => n + (picks && picks[rw.k] === rw.dir ? 1 : 0), 0);
+  // accounting style: negatives in parentheses, zero as a dash
+  const acct = n => n === 0 ? '–' : n < 0 ? '(' + fmtNum(-n) + ')' : fmtNum(n);
+  const moveWords = n => n === 0 ? 'No change' : (n > 0 ? 'Up $' : 'Down $') + fmtNum(Math.abs(n));
+
+  // one scenario as a four-choice question about a single line
+  function flowChoices(scen, r) {
+    const cands = scen.rows.filter(rw => ['ni', 'cfo', 'cash', 'eq', 'liab', 'cfi', 'cff'].includes(rw.k));
+    const moving = cands.filter(rw => rw.delta !== 0);
+    const row = r() < 0.8 && moving.length ? pick(r, moving) : pick(r, cands);
+    const x = scen.x, after = x * (100 - scen.taxPct) / 100, tax = x * scen.taxPct / 100;
+    const opts = [row.delta];
+    shuffle(r, [-row.delta, 0, x, -x, after, -after, tax, -tax, 2 * x, -2 * x]).forEach(v => { if (opts.length < 4 && !opts.includes(v)) opts.push(v); });
+    const all = shuffle(r, opts);
+    return { text: scen.text + ' Tax rate ' + scen.taxPct + '%. What happens to ' + (row.k === 'eq' ? "shareholders' equity" : row.label.toLowerCase()) + '?', choices: all.map(moveWords), correct: all.indexOf(row.delta), row: row.k };
+  }
+
+  /* ---------- live room ---------- */
+  const LIVE_MIXES = { mixed: 'Mental math and the three statements', math: 'Mental math only', flows: 'Three statements only' };
+  // which scenario the f-th statements question uses: warm-ups first, no repeats until a level runs out
+  const flowLevel = f => f < 2 ? 0 : f < 5 ? 1 : (f % 2 ? 2 : 1);
+  function liveFlowId(seed, f) {
+    const r = rng(seed + ':lf');
+    const pools = [0, 1, 2].map(lv => shuffle(r, SCENARIOS.filter(s => s.lv === lv).map(s => s.id)));
+    const lv = flowLevel(f);
+    let seen = 0; for (let k = 0; k < f; k++) if (flowLevel(k) === lv) seen++;
+    return pools[lv][seen % pools[lv].length];
+  }
+  function liveQuestion(seed, mix, i) {
+    const r = rng(seed + ':l:' + i);
+    const useFlow = mix === 'flows' || (mix !== 'math' && i % 2 === 1);
+    if (useFlow) {
+      const scen = flowScenario(liveFlowId(seed, mix === 'flows' ? i : (i - 1) / 2), pick(r, [20, 40, 100, 200]), pick(r, [20, 25, 40]));
+      const c = flowChoices(scen, r);
+      return { i, cat: 'acc', tag: 'Three statements', text: c.text, choices: c.choices, correct: c.correct, why: [scen.why.is, scen.why.cf, scen.why.bs].join(' ') };
+    }
+    const q = mathQ(seed + ':lm', mix === 'math' ? i : i / 2 + 2, '');
+    const c = mathChoices(q, r);
+    return { i, cat: q.cat, tag: 'Mental math', text: q.prompt, choices: c.choices, correct: c.correct, why: 'Answer: ' + fmtAnswer(q.answer, q.unit) + '.' };
+  }
+  // right answers score 600 plus up to 400 for speed
+  function livePoints(right, ms, limitMs) {
+    if (!right) return 0;
+    const f = Math.max(0, Math.min(1, 1 - (ms || 0) / (limitMs || 20000)));
+    return 600 + Math.round(400 * f);
+  }
+  function liveBoard(players, answers, seed, mix, upTo, secs) {
+    const ids = Object.keys(players || {});
+    const rows = ids.map(id => ({ id, n: cleanName(players[id] && players[id].n) || 'Player', s: 0, right: 0, last: 0 }));
+    const by = {}; rows.forEach(rw => { by[rw.id] = rw; });
+    for (let i = 0; i <= upTo; i++) {
+      const q = liveQuestion(seed, mix, i), a = (answers && answers[i]) || {};
+      Object.keys(a).forEach(id => {
+        const rw = by[id], v = a[id];
+        if (!rw || !v || typeof v.c !== 'number') return;
+        const pts = livePoints(v.c === q.correct, +v.ms || 0, secs * 1000);
+        rw.s += pts; if (pts) rw.right++; if (i === upTo) rw.last = pts;
+      });
+    }
+    return rows.sort((a, b) => b.s - a.s || a.n.localeCompare(b.n));
+  }
+
+  /* ---------- names, challenge links, share text ---------- */
+  function cleanName(s) {
+    return String(s == null ? '' : s).replace(/[\u0000-\u001f<>&"'`\\]/g, '').replace(/\s+/g, ' ').trim().slice(0, 16);
+  }
+  const GAMES = { sprint: { name: 'Mental Math Sprint', unit: 'right in 60 seconds' }, flows: { name: 'Statement Flows', unit: 'of 45 lines right' } };
+  function challengeHash(c) {
+    const p = ['g=' + c.g, 's=' + encodeURIComponent(c.seed)];
+    if (Number.isFinite(c.score)) p.push('p=' + Math.round(c.score));
+    if (c.name) p.push('n=' + encodeURIComponent(cleanName(c.name)));
+    return '#' + p.join('&');
+  }
+  function parseChallenge(hash) {
+    const m = {};
+    String(hash || '').replace(/^#/, '').split('&').forEach(kv => { const k = kv.indexOf('='); if (k > 0) { try { m[kv.slice(0, k)] = decodeURIComponent(kv.slice(k + 1)); } catch (e) { /* skip a malformed value */ } } });
+    if (!GAMES[m.g] || !/^[A-Z0-9]{3,12}$/.test(m.s || '')) return null;
+    const score = /^\d{1,3}$/.test(m.p || '') ? +m.p : null;
+    return { g: m.g, seed: m.s, score, name: cleanName(m.n) };
+  }
+  function shareText(c, url) {
+    const g = GAMES[c.g];
+    return g.name + ': ' + c.score + ' ' + g.unit + '. Same questions, your turn: ' + url;
+  }
+
+  /* ---------- progress: streak and readiness ---------- */
+  function addDaysISO(iso, n) {
+    const [y, m, d] = iso.split('-').map(Number);
+    const dt = new Date(y, m - 1, d + n, 12);
+    return dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0');
+  }
+  // days in a row with any practice. Today not done yet doesn't break it; a missed yesterday does.
+  function streak(days, today) {
+    const has = d => (days instanceof Set ? days.has(d) : !!days[d]);
+    let cur = has(today) ? today : addDaysISO(today, -1), n = 0;
+    while (has(cur)) { n++; cur = addDaysISO(cur, -1); }
+    return { n, today: has(today) };
+  }
+  // every day with a graded answer, a finished session, a mock or a game
+  function activeDays(app, play) {
+    const days = new Set();
+    const ok = d => { if (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}/.test(d)) days.add(d.slice(0, 10)); };
+    if (app) {
+      (app.answers || []).forEach(a => ok(a.date));
+      Object.keys(app.done || {}).forEach(k => ok(app.done[k]));
+      (app.mocks || []).forEach(m => ok(m.date));
+    }
+    if (play) (play.runs || []).forEach(rn => ok(rn.date));
+    return days;
+  }
+  const SPRINT_TARGET = 20;      // right answers in 60 seconds this site treats as ready (a house target, not an industry rule)
+  const AREAS = [
+    { k: 'acc', name: 'Accounting', cats: ['acc'], game: 'flows', next: 'Play Statement Flows, then drill accounting questions out loud.' },
+    { k: 'val', name: 'Valuation', cats: ['val'], next: 'Drill valuation questions out loud in Practice.' },
+    { k: 'mkt', name: 'Markets', cats: ['mkt', 'trd', 'inv'], next: 'Drill markets questions and practice your 60-second markets answer.' },
+    { k: 'awm', name: 'Asset & wealth mgmt', cats: ['awm'], seats: ['wm', 'am'], next: 'Drill asset and wealth management questions in Practice.' },
+    { k: 'story', name: 'Story & fit', cats: ['fit', 'beh', 'car', 'prep', 'firm'], next: 'Record your "tell me about yourself" and one behavioral story.' },
+    { k: 'math', name: 'Mental math', cats: ['teaser'], game: 'sprint', next: 'Run the Mental Math Sprint until you clear ' + SPRINT_TARGET + ' in a minute.' },
+  ];
+  /* A rough, honest estimate from what you've actually done, never from what you've read:
+     graded answers (last 12 per area, on the 1-5 scale), Statement Flows accuracy and Sprint scores.
+     An area needs about six graded answers or three game rounds before it counts in full. */
+  function readiness(input) {
+    const answers = input.answers || [], runs = (input.play && input.play.runs) || [], seats = input.seats || [];
+    const gameRuns = g => runs.filter(rn => rn.g === g).slice(-5);
+    const areas = AREAS.filter(a => !a.seats || a.seats.some(s => seats.includes(s))).map(a => {
+      const parts = [];
+      const arr = answers.filter(x => a.cats.includes(x.cat)).slice(-12);
+      if (arr.length) {
+        const avg = arr.reduce((s, x) => s + (+x.score || 0), 0) / arr.length;
+        parts.push({ w: 0.6, v: Math.max(0, Math.min(1, (avg - 1) / 4)) * Math.min(1, arr.length / 6) });
+      }
+      if (a.game === 'flows') {
+        const g = gameRuns('flows');
+        if (g.length) parts.push({ w: 0.4, v: g.reduce((s, rn) => s + rn.score / (rn.total || 45), 0) / g.length * Math.min(1, g.length / 3) });
+      }
+      if (a.game === 'sprint') {
+        const g = gameRuns('sprint');
+        if (g.length) parts.push({ w: 1, v: Math.min(1, g.reduce((s, rn) => s + rn.score, 0) / g.length / SPRINT_TARGET) * Math.min(1, g.length / 3) });
+      }
+      const wsum = parts.reduce((s, p) => s + p.w, 0);
+      const pct = wsum ? Math.round(parts.reduce((s, p) => s + p.w * p.v, 0) / wsum * 100) : 0;
+      return { k: a.k, name: a.name, pct, seen: arr.length + (a.game ? gameRuns(a.game).length : 0), next: a.next, game: a.game || '' };
+    });
+    const overall = areas.length ? Math.round(areas.reduce((s, a) => s + a.pct, 0) / areas.length) : 0;
+    const out = { overall, areas, weakest: areas.slice().sort((a, b) => a.pct - b.pct)[0] || null, expected: null, status: '', daysLeft: null, next: null };
+    const pl = input.plan, t = input.today;
+    if (pl && pl.start && pl.ready && t) {
+      const span = Math.max(1, dayDiff(pl.start, pl.ready));
+      const el = Math.max(0, Math.min(1, dayDiff(pl.start, t) / span));
+      out.expected = Math.round(el * 100);
+      out.daysLeft = dayDiff(t, pl.ready);
+      out.status = overall >= out.expected - 10 ? 'on pace' : 'behind pace';
+      const ev = (pl.events || []).filter(e => e.date >= t).sort((a, b) => (a.date < b.date ? -1 : 1))[0];
+      if (ev) out.next = { name: ev.name, date: ev.date, days: dayDiff(t, ev.date) };
+    }
+    return out;
+  }
+  function dayDiff(a, b) {
+    const f = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d, 12); };
+    return Math.round((f(b) - f(a)) / 86400000);
+  }
+
+  return {
+    rng, shuffle, newSeed, dailySeed, roomCode, fmtNum, fmtAnswer, UNIT_HINT, parseTyped, checkTyped, distract,
+    KINDS, KIND_NAMES, mathQ, sprintRound, mathChoices,
+    FLOW_ROWS, STMT_NAME, SCENARIOS, flowCalc, flowScenario, flowsRound, flowScore, flowChoices, acct, moveWords,
+    LIVE_MIXES, liveQuestion, livePoints, liveBoard,
+    cleanName, GAMES, challengeHash, parseChallenge, shareText,
+    streak, activeDays, readiness, AREAS, SPRINT_TARGET, addDaysISO, dayDiff,
+  };
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = Games;
+
+</script>
+<script>
+/* ==========================================================================
+   Finance Recruiting Coach: Play
+   The Mental Math Sprint and Statement Flows, drawn as worksheets you fill in.
+   Runs on play.html and, in a 30-second form, in the home page hero. No plan or
+   sign-up needed. Scores stay in this browser (localStorage key frc:play:v1).
+   ========================================================================== */
+const Play = (() => {
+  'use strict';
+  const G = Games;
+  const KEY = 'frc:play:v1', APP_KEY = 'frc:v1';
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const todayISO = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+  const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  const playURL = () => new URL('play.html', location.href.replace(/[#?].*$/, '')).href;
+
+  /* ---------- what's saved ---------- */
+  let store = load();
+  function load() {
+    try { const d = JSON.parse(localStorage.getItem(KEY) || 'null'); if (d && d.v === 1 && Array.isArray(d.runs)) return d; } catch (e) { /* unreadable or blocked: start fresh */ }
+    return { v: 1, name: '', runs: [] };
+  }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* private window: scores last for this visit only */ } }
+  function appState() { try { const d = JSON.parse(localStorage.getItem(APP_KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function record(run) {
+    store.runs.push(Object.assign({ date: todayISO(), at: Date.now() }, run));
+    if (store.runs.length > 300) store.runs = store.runs.slice(-300);
+    persist();
+  }
+  const runsOf = g => store.runs.filter(r => r.g === g);
+  const bestOf = g => { const r = runsOf(g); return r.length ? Math.max.apply(null, r.map(x => x.score)) : null; };
+  function defaultName() {
+    if (store.name) return store.name;
+    const a = appState();
+    return a && a.profile && a.profile.name ? G.cleanName(String(a.profile.name).split(' ')[0]) : '';
+  }
+
+  /* ---------- small UI helpers ---------- */
+  let toastT = 0;
+  function toast(msg) {
+    let t = $('#toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2600);
+  }
+  function copy(text, ok) {
+    let p;
+    try { p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject(new Error('none')); } catch (e) { p = Promise.reject(e); }
+    p.then(() => toast(ok)).catch(() => { window.prompt('Copy this link:', text); });
+  }
+  function shareChallenge(c) {
+    const url = playURL() + G.challengeHash(c);
+    if (navigator.share) navigator.share({ text: G.shareText(c, '').replace(/:\s*$/, '.'), url }).catch(() => { /* closed the share sheet */ });
+    else copy(G.shareText(c, url), 'Challenge copied. Paste it into a text or group chat.');
+  }
+
+  /* =========================== Mental Math Sprint ===========================
+     A worksheet: column A is the question, B is your answer, C is the check.
+     The clock starts on the first keystroke, so reading the first question is free. */
+  function startSprint(root, opts) {
+    const secs = opts.secs || 60, keep = opts.compact ? 2 : 4;
+    const qs = G.sprintRound(opts.seed, 90);
+    let i = 0, right = 0, t0 = 0, tick = 0, over = false;
+    const log = [];
+    root.innerHTML =
+      '<div class="ws" data-game="sprint">' +
+      '<div class="ws-bar"><span class="ws-ref" id="sp-ref">B2</span><span class="ws-fx" aria-hidden="true">fx</span><span class="ws-formula">=SPRINT(' + secs + ')</span>' +
+      '<span class="ws-meter"><b id="sp-score">0</b> right</span><span class="ws-clock" id="sp-clock" aria-label="Time left">' + mmss(secs) + '</span></div>' +
+      '<div class="ws-time" aria-hidden="true"><i id="sp-bar"></i></div>' +
+      '<table class="ws-grid sp-grid"><thead><tr><th class="rn"></th><th>A</th><th>B</th><th>C</th></tr></thead>' +
+      '<tbody id="sp-log"><tr class="hdr"><td class="rn">1</td><td>Question</td><td>Your answer</td><td>Check</td></tr></tbody>' +
+      '<tbody><tr class="active"><td class="rn" id="sp-rn">2</td><td class="q" id="sp-q" aria-live="polite"></td>' +
+      '<td class="in-cell"><form id="sp-form" autocomplete="off"><input class="cell-in" id="sp-in" inputmode="decimal" enterkeyhint="go" autocapitalize="off" spellcheck="false" aria-label="Your answer"><span class="unit" id="sp-unit"></span></form></td>' +
+      '<td><button class="btn small" type="submit" form="sp-form" id="sp-go">Enter</button></td></tr></tbody></table>' +
+      '<p class="ws-note" id="sp-note">The clock starts when you type. Enter locks in an answer, and an empty Enter skips.</p></div>';
+    const input = $('#sp-in', root), qEl = $('#sp-q', root);
+    const show = () => {
+      const q = qs[i];
+      qEl.textContent = q.prompt;
+      $('#sp-unit', root).textContent = G.UNIT_HINT[q.unit] || '';
+      $('#sp-rn', root).textContent = i + 2;
+      $('#sp-ref', root).textContent = 'B' + (i + 2);
+    };
+    const paintClock = () => {
+      const left = Math.max(0, secs - (Date.now() - t0) / 1000);
+      $('#sp-clock', root).textContent = mmss(Math.ceil(left));
+      $('#sp-bar', root).style.width = (100 - left / secs * 100).toFixed(1) + '%';
+      if (left <= 0) finish();
+    };
+    const begin = () => { if (t0 || over) return; t0 = Date.now(); tick = setInterval(paintClock, 100); root.classList.add('running'); };
+    function finish() {
+      if (over) return;
+      over = true; clearInterval(tick);
+      input.disabled = true; $('#sp-go', root).disabled = true; input.blur();
+      $('#sp-clock', root).textContent = '0:00'; $('#sp-bar', root).style.width = '100%';
+      $('#sp-note', root).textContent = 'Time. ' + right + ' right out of ' + log.length + ' answered.';
+      opts.onDone({ g: 'sprint', seed: opts.seed, score: right, tried: log.length, secs, log });
+    }
+    $('#sp-form', root).addEventListener('submit', e => {
+      e.preventDefault();
+      if (over) return;
+      begin();
+      const q = qs[i], typed = input.value.trim(), ok = G.checkTyped(q, typed);
+      if (ok) right++;
+      log.push({ kind: q.kind, ok });
+      const tr = document.createElement('tr');
+      tr.className = ok ? 'ok' : 'miss';
+      tr.innerHTML = '<td class="rn">' + (i + 2) + '</td><td>' + esc(q.prompt) + '</td><td class="num typed">' + (typed ? esc(typed) : '<span class="skip">skipped</span>') + '</td>' +
+        '<td class="num chk">' + (ok ? '<span aria-label="right">✓</span>' : esc(G.fmtAnswer(q.answer, q.unit))) + '</td>';
+      const lg = $('#sp-log', root);
+      lg.appendChild(tr);
+      while (lg.children.length > keep + 1) lg.removeChild(lg.children[1]);
+      $('#sp-score', root).textContent = right;
+      i++; input.value = '';
+      if (i >= qs.length) { finish(); return; }
+      show(); input.focus();
+    });
+    input.addEventListener('input', begin);
+    show();
+    if (opts.focus) input.focus();
+    return { stop() { over = true; clearInterval(tick); } };
+  }
+
+  /* =========================== Statement Flows ===========================
+     One event, nine lines across the three statements. Mark each line up, down or
+     unchanged, check it, and read the walk-through. Five events a round. */
+  const PICK = [[1, '▲', 'Up'], [0, '–', 'No change'], [-1, '▼', 'Down']];
+  function startFlows(root, opts) {
+    const round = G.flowsRound(opts.seed, opts.n || 5);
+    let idx = 0, picks = {}, total = 0, checked = false, t0 = 0, tick = 0, done = false;
+    const per = [];
+    const clock = () => { const el = $('#fl-clock', root); if (el && t0) el.textContent = mmss((Date.now() - t0) / 1000); };
+    function stmtTable(scen, stmt, startRow) {
+      const rows = scen.rows.filter(r => r.stmt === stmt);
+      return '<table class="ws-grid fl-tbl"><thead><tr><th class="rn"></th><th>' + G.STMT_NAME[stmt] + '</th><th class="chg">Change</th></tr></thead><tbody>' +
+        rows.map((r, j) => {
+          let cell;
+          if (!checked) {
+            cell = '<span class="seg3" role="group" aria-label="' + esc(r.label) + '">' + PICK.map(p => '<button type="button" data-k="' + r.k + '" data-pick="' + p[0] + '" aria-pressed="' + (picks[r.k] === p[0]) + '" aria-label="' + p[2] + '" title="' + p[2] + '">' + p[1] + '</button>').join('') + '</span>';
+          } else {
+            const ok = picks[r.k] === r.dir;
+            cell = '<span class="fl-ans ' + (r.dir > 0 ? 'up' : r.dir < 0 ? 'down' : 'flat') + '">' + G.acct(r.delta) + '</span><span class="fl-mark ' + (ok ? 'ok' : 'miss') + '">' + (ok ? '✓' : '✗') + '</span>';
+          }
+          return '<tr data-row="' + r.k + '"' + (checked ? ' class="' + (picks[r.k] === r.dir ? 'ok' : 'miss') + '"' : '') + '><td class="rn">' + (startRow + j) + '</td><td>' + esc(r.label) + '</td><td class="chg">' + cell + '</td></tr>';
+        }).join('') + '</tbody></table>';
+    }
+    function paint() {
+      const s = round[idx];
+      const got = checked ? G.flowScore(s, picks) : 0;
+      const filled = s.rows.filter(r => picks[r.k] !== undefined).length;
+      root.innerHTML =
+        '<div class="ws" data-game="flows">' +
+        '<div class="ws-bar"><span class="ws-ref">' + (idx + 1) + ' of ' + round.length + '</span><span class="ws-fx" aria-hidden="true">fx</span><span class="ws-formula">=FLOW(event)</span>' +
+        '<span class="ws-meter"><b>' + (total + got) + '</b> of ' + ((idx + (checked ? 1 : 0)) * 9) + ' lines</span><span class="ws-clock" id="fl-clock">' + mmss(t0 ? (Date.now() - t0) / 1000 : 0) + '</span></div>' +
+        '<div class="fl-event"><p class="fl-text">' + esc(s.text) + '</p><p class="fl-assume">Tax rate ' + s.taxPct + '%. One period, and taxes are paid in cash this period.</p></div>' +
+        '<div class="fl-stmts">' + stmtTable(s, 'is', 1) + stmtTable(s, 'cf', 3) + stmtTable(s, 'bs', 6) + '</div>' +
+        (checked
+          ? '<div class="fl-why" aria-live="polite"><p class="fl-got"><b>' + got + ' of 9 lines.</b>' + (s.trap ? ' ' + esc(s.trap) : '') + '</p>' +
+            '<dl><dt>Income statement</dt><dd>' + esc(s.why.is) + '</dd><dt>Cash flow statement</dt><dd>' + esc(s.why.cf) + '</dd><dt>Balance sheet</dt><dd>' + esc(s.why.bs) + '</dd></dl></div>' +
+            '<div class="btn-row"><button class="btn primary" type="button" data-fl="next">' + (idx + 1 < round.length ? 'Next event' : 'See my result') + '</button></div>'
+          : '<div class="btn-row"><button class="btn primary" type="button" data-fl="check">Check ' + (filled < 9 ? '(' + filled + ' of 9 marked)' : 'my answers') + '</button><button class="btn" type="button" data-fl="rest">The rest don\'t change</button></div>') +
+        '</div>';
+    }
+    root.addEventListener('click', e => {
+      if (done) return;
+      const b = e.target.closest('button'); if (!b || !root.contains(b)) return;
+      if (b.dataset.pick !== undefined && !checked) {
+        if (!t0) { t0 = Date.now(); tick = setInterval(clock, 500); }
+        picks[b.dataset.k] = +b.dataset.pick;
+        $$('button[data-k="' + b.dataset.k + '"]', root).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        const filled = round[idx].rows.filter(r => picks[r.k] !== undefined).length;
+        const c = $('[data-fl="check"]', root); if (c) c.textContent = 'Check ' + (filled < 9 ? '(' + filled + ' of 9 marked)' : 'my answers');
+      } else if (b.dataset.fl === 'rest') {
+        round[idx].rows.forEach(r => { if (picks[r.k] === undefined) picks[r.k] = 0; });
+        paint();
+      } else if (b.dataset.fl === 'check') {
+        if (!t0) { t0 = Date.now(); tick = setInterval(clock, 500); }
+        checked = true; paint();
+        const w = $('.fl-why', root); if (w && w.scrollIntoView) w.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      } else if (b.dataset.fl === 'next') {
+        const got = G.flowScore(round[idx], picks);
+        total += got; per.push({ id: round[idx].id, got });
+        if (idx + 1 < round.length) { idx++; picks = {}; checked = false; paint(); root.scrollIntoView && root.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
+        done = true; clearInterval(tick);
+        opts.onDone({ g: 'flows', seed: opts.seed, score: total, total: round.length * 9, ms: Date.now() - t0, per });
+      }
+    });
+    paint();
+    return { stop() { done = true; clearInterval(tick); } };
+  }
+
+  /* =========================== the Play page =========================== */
+  let root = null, game = null, challenge = null;
+  function progress() {
+    const app = appState();
+    const st = G.streak(G.activeDays(app, store), todayISO());
+    const p = app && app.profile;
+    const rd = G.readiness({ answers: (app && app.answers) || [], play: store, seats: (p && p.seats) || [], today: todayISO(),
+      plan: p && p.startDate && p.readyDate ? { start: p.startDate, ready: p.readyDate, events: p.events || [] } : null });
+    return { st, rd, hasPlan: !!p };
+  }
+  function lobby() {
+    if (game) { game.stop(); game = null; }
+    const pr = progress(), bs = bestOf('sprint'), bf = bestOf('flows');
+    const ch = challenge;
+    const banner = ch ? '<div class="ch-banner"><p>' + (ch.name ? '<b>' + esc(ch.name) + '</b> ' : 'Someone ') + (ch.score != null ? 'got <b>' + ch.score + '</b> ' + (ch.g === 'flows' ? 'of 45 lines' : 'in 60 seconds') + ' on this round of ' : 'sent you a round of ') + G.GAMES[ch.g].name + '. You get the same questions.</p>' +
+      '<div class="btn-row"><button class="btn primary" data-go="' + ch.g + '" data-seed="' + esc(ch.seed) + '">Take the challenge</button><button class="btn ghost" data-go="clear">Not now</button></div></div>' : '';
+    const tile = (g, title, blurb, best, bestLbl) =>
+      '<section class="game-tile"><h2>' + title + '</h2><p>' + blurb + '</p>' +
+      '<p class="game-best">' + (best == null ? 'No score yet.' : 'Your best: <b>' + best + '</b> ' + bestLbl + '.') + '</p>' +
+      '<div class="btn-row"><button class="btn primary" data-go="' + g + '" data-seed="' + G.dailySeed(todayISO()) + '">Play today\'s round</button><button class="btn" data-go="' + g + '" data-seed="">New round</button></div></section>';
+    const rd = pr.rd;
+    root.innerHTML = banner +
+      '<header class="play-head"><h1 class="h-page">Play</h1><p class="lede">Two games built from the questions first rounds actually ask. Today\'s round is the same for everyone, so you can compare scores. No account, and nothing leaves this browser.</p></header>' +
+      '<div class="game-tiles">' +
+      tile('sprint', 'Mental Math Sprint', 'Sixty seconds of the arithmetic interviewers expect in your head: percent changes, multiples, yields, the rule of 72. Type the answer, hit Enter, next.', bs, 'in 60 seconds') +
+      tile('flows', 'Statement Flows', 'One event, three statements. "Depreciation goes up by $20": mark each line up, down or unchanged, then read the walk-through. Five events a round.', bf, 'of 45 lines') +
+      '</div>' +
+      '<section class="prog"><h2>Your progress</h2><table class="ws-grid prog-tbl"><tbody>' +
+      '<tr><td class="rn">1</td><td>Day streak</td><td class="num"><b>' + pr.st.n + '</b></td><td>' + (pr.st.n ? (pr.st.today ? 'Today counts.' : 'Play or study today to keep it.') : 'Any game, graded answer or finished session starts one.') + '</td></tr>' +
+      '<tr><td class="rn">2</td><td>Rounds played</td><td class="num"><b>' + store.runs.length + '</b></td><td>' + runsOf('sprint').length + ' sprints, ' + runsOf('flows').length + ' flows</td></tr>' +
+      (pr.hasPlan
+        ? '<tr><td class="rn">3</td><td>Readiness<sup>1</sup></td><td class="num"><b>' + rd.overall + '%</b></td><td>' + (rd.expected != null ? 'Your plan is ' + rd.expected + '% elapsed, so you are ' + rd.status + '.' : '') + (rd.next ? ' ' + esc(rd.next.name) + ' is in ' + rd.next.days + ' day' + (rd.next.days === 1 ? '' : 's') + '.' : '') + '</td></tr>' +
+          (rd.weakest ? '<tr><td class="rn">4</td><td>Weakest area</td><td class="num">' + esc(rd.weakest.name) + '</td><td>' + esc(rd.weakest.next) + '</td></tr>' : '')
+        : '<tr><td class="rn">3</td><td>Readiness</td><td class="num">–</td><td><a href="app.html">Build a plan</a> with your interview dates and this row tracks you against them.</td></tr>') +
+      '</tbody></table>' + (pr.hasPlan ? '<p class="fn"><sup>1</sup> An estimate from your graded answers and game scores, nothing else. <a href="app.html#scorecard">The Scorecard</a> breaks it down by area.</p>' : '') + '</section>' +
+      '<section class="live-cta"><h2>Playing with a room?</h2><p>Put a code on the projector and everyone answers on their phone. Ten questions, a live leaderboard, about five minutes.</p><div class="btn-row"><a class="btn" href="live.html#host">Host a live room</a><a class="btn ghost" href="live.html">Join with a code</a></div></section>';
+  }
+  function play(g, seed) {
+    seed = seed || G.newSeed();
+    if (game) game.stop();
+    const daily = seed === G.dailySeed(todayISO());
+    root.innerHTML = '<div class="play-top"><button class="backlink" data-go="lobby">← All games</button><span class="note">' + G.GAMES[g].name + (daily ? ', today\'s round' : '') + '</span></div><div id="game"></div><div id="result"></div>';
+    const onDone = res => result(res);
+    game = g === 'sprint' ? startSprint($('#game', root), { seed, secs: 60, focus: true, onDone }) : startFlows($('#game', root), { seed, n: 5, onDone });
+    window.scrollTo(0, 0);
+  }
+  function result(res) {
+    const before = bestOf(res.g);
+    record({ g: res.g, seed: res.seed, score: res.score, total: res.total || 0, tried: res.tried || 0, ms: res.ms || 0 });
+    const ch = challenge && challenge.g === res.g && challenge.seed === res.seed ? challenge : null;
+    const unit = res.g === 'sprint' ? 'right in 60 seconds' : 'of 45 lines right';
+    const rows = [['This round', res.score, res.g === 'sprint' ? res.tried + ' answered' : mmss(res.ms / 1000) + ' on the clock']];
+    if (ch && ch.score != null) rows.push([ch.name || 'Your challenger', ch.score, res.score > ch.score ? 'You win by ' + (res.score - ch.score) + '.' : res.score === ch.score ? 'A tie. Run it back.' : 'They lead by ' + (ch.score - res.score) + '.']);
+    rows.push(['Your best before this', before == null ? '–' : before, before == null ? 'First score on the board.' : res.score > before ? 'New best.' : '']);
+    if (res.g === 'sprint') rows.push(['Target', G.SPRINT_TARGET, res.score >= G.SPRINT_TARGET ? 'Cleared.' : (G.SPRINT_TARGET - res.score) + ' to go.']);
+    const st = G.streak(G.activeDays(appState(), store), todayISO());
+    rows.push(['Day streak', st.n, 'Today counts.']);
+    let miss = '';
+    if (res.g === 'sprint' && res.log) {
+      const m = {}; res.log.forEach(l => { if (!l.ok) m[l.kind] = (m[l.kind] || 0) + 1; });
+      const worst = Object.keys(m).sort((a, b) => m[b] - m[a])[0];
+      if (worst) miss = '<p class="note">Most misses: ' + esc(KIND_LABEL[worst] || worst) + '.</p>';
+    }
+    const el = $('#result', root);
+    el.innerHTML = '<section class="res" aria-live="polite"><p class="res-num">' + res.score + '</p><p class="res-lbl">' + unit + '</p>' +
+      '<table class="ws-grid res-tbl"><tbody>' + rows.map((r, i) => '<tr><td class="rn">' + (i + 1) + '</td><td>' + esc(r[0]) + '</td><td class="num"><b>' + esc(r[1]) + '</b></td><td>' + esc(r[2]) + '</td></tr>').join('') + '</tbody></table>' + miss +
+      '<div class="res-share"><label for="ch-name">Your name on the challenge</label><input class="in" id="ch-name" maxlength="16" placeholder="First name" value="' + esc(defaultName()) + '">' +
+      '<div class="btn-row"><button class="btn primary" data-go="share">Challenge a friend</button><button class="btn" data-go="copy">Copy the link</button></div>' +
+      '<p class="hint">They get the same questions and see your score first.</p></div>' +
+      '<div class="btn-row"><button class="btn" data-go="' + res.g + '" data-seed="">New round</button><button class="btn" data-go="' + res.g + '" data-seed="' + esc(res.seed) + '">Same round again</button><button class="btn" data-go="' + (res.g === 'sprint' ? 'flows' : 'sprint') + '" data-seed="' + G.dailySeed(todayISO()) + '">Try ' + G.GAMES[res.g === 'sprint' ? 'flows' : 'sprint'].name + '</button><button class="btn ghost" data-go="lobby">All games</button></div></section>';
+    el.dataset.g = res.g; el.dataset.seed = res.seed; el.dataset.score = res.score;
+    if (el.scrollIntoView) el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }
+  const KIND_LABEL = { pctOf: 'percent of a number', pctChange: 'percent change', evMultiple: 'EV/EBITDA', impliedEV: 'implied enterprise value', pe: 'P/E', rule72: 'the rule of 72', margin: 'margins', netIncome: 'after-tax income',
+    compound: 'compounding', presentValue: 'present value', fraction: 'fractions to percents', times: 'multiplication', equityValue: 'the EV to equity bridge', enterpriseValue: 'the equity to EV bridge', marketCap: 'market cap',
+    bondYield: 'bond yields', divYield: 'dividend yields', breakeven: 'gains needed after a loss', basisPoints: 'basis points', interest: 'interest expense', wacc: 'WACC' };
+  function onClick(e) {
+    const b = e.target.closest('[data-go]'); if (!b) return;
+    const go = b.dataset.go;
+    if (go === 'lobby') lobby();
+    else if (go === 'clear') { challenge = null; history.replaceState(null, '', location.pathname); lobby(); }
+    else if (go === 'sprint' || go === 'flows') play(go, b.dataset.seed);
+    else if (go === 'share' || go === 'copy') {
+      const el = $('#result', root), nm = G.cleanName(($('#ch-name', root) || {}).value);
+      store.name = nm; persist();
+      const c = { g: el.dataset.g, seed: el.dataset.seed, score: +el.dataset.score, name: nm };
+      if (go === 'share') shareChallenge(c);
+      else copy(playURL() + G.challengeHash(c), 'Link copied. Whoever opens it gets the same round.');
+    }
+  }
+  function mount(el) {
+    root = el;
+    challenge = G.parseChallenge(location.hash);
+    root.addEventListener('click', onClick);
+    addEventListener('hashchange', () => { const c = G.parseChallenge(location.hash); if (c) { challenge = c; lobby(); } });
+    lobby();
+  }
+
+  /* ---------- the home page hero: a 30-second sprint, right there ---------- */
+  function hero(el) {
+    const seed = G.dailySeed(todayISO());      // the full minute on the Play page uses this; the taste here uses different questions
+    const run = () => startSprint($('#hero-game', el), { seed: 'H' + seed, secs: 30, compact: true, onDone: res => {
+      const out = $('#hero-out', el);
+      out.innerHTML = '<p><b>' + res.score + ' right in 30 seconds.</b> ' + (res.score >= 10 ? 'That pace clears this site\'s target of 20 a minute.' : 'The target here is 20 a minute. It comes fast with reps.') + '</p>' +
+        '<div class="btn-row"><a class="btn primary" href="play.html' + G.challengeHash({ g: 'sprint', seed }) + '">Play the full minute</a><a class="btn" href="play.html">See both games</a><button class="btn ghost" type="button" id="hero-again">Again</button></div>';
+      out.hidden = false;
+      $('#hero-again', el).addEventListener('click', () => { out.hidden = true; run(); $('#sp-in', el).focus(); });
+    } });
+    el.innerHTML = '<div id="hero-game"></div><div id="hero-out" class="hero-out" hidden aria-live="polite"></div>';
+    run();
+  }
+
+  return { mount, hero, startSprint, startFlows, progress, KEY };
+})();
+
+</script>
+<script>
+Play.hero(document.getElementById("hero-sheet"));
+(function(){var tabs=[].slice.call(document.querySelectorAll(".sheet-tabs a"));if(!("IntersectionObserver" in window))return;var on=function(id){tabs.forEach(function(a){if(a.getAttribute("href")==="#"+id)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current");});};var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:"-45% 0px -50% 0px"});tabs.forEach(function(a){var s=document.getElementById(a.getAttribute("href").slice(1));if(s)io.observe(s);});})();
+</script></body></html>

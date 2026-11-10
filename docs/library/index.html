@@ -514,6 +514,19 @@ a.btn.primary { color: var(--sheet); }
 .cal-info { display: grid; gap: 8px; margin: 0 0 20px; padding: 14px 16px; border: 1px solid color-mix(in oklab, var(--link) 35%, transparent); background: var(--link-wash); border-radius: 8px; font-size: 14px; }
 .cal-info ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 
+/* readiness + the link out to the games */
+a.tab { text-decoration: none; display: inline-block; }
+.tab-out::after { content: " \2197"; font-weight: 500; color: var(--ink-3); }
+.stats-row .stat-sm b small { font-size: 13px; }
+.ready { margin: 18px 0 0; display: grid; gap: 12px; }
+.ready-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.ready-top .sub { margin-bottom: 0; }
+.ready-n { font-size: 44px; font-weight: 760; font-stretch: 112%; line-height: 1; font-variant-numeric: tabular-nums; flex: none; }
+.ready-n small { font-size: 18px; color: var(--ink-3); font-weight: 600; }
+.ready-pace { font-size: 14.5px; color: var(--ink-2); }
+.ready-pace b { color: var(--ink); }
+.ready-next { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 14.5px; }
+
 /* ==========================================================================
    Website pages (home, lesson library, lessons). Builds on the app's tokens in styles.css.
    Layout: a sticky top bar, full-width bands that alternate paper and sheet, content in .wrap.
@@ -529,7 +542,8 @@ main { padding-block: 0; }
 .site-nav { display: flex; align-items: center; gap: 4px 18px; flex-wrap: wrap; justify-content: flex-end; }
 .site-nav a:not(.btn) { color: var(--ink-2); font-weight: 600; font-size: 14px; text-decoration: none; }
 .site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 640px) { .site-nav a[href$="#how"], .site-nav a[href$="#faq"] { display: none; } .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 640px) { .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 520px) { .site-top .brand-name { display: none; } }
 @media (max-width: 380px) { .site-top .brand-name { display: none; } }
 
 /* hero */
@@ -632,4 +646,283 @@ main { padding-block: 0; }
 .pg:hover { border-color: var(--ink-2); }
 .pg.next { text-align: right; }
 @media (max-width: 560px) { .pager { grid-template-columns: minmax(0, 1fr); } .pg.next { text-align: left; } }
-</style></head><body><header class="site-top"><div class="wrap site-top-row"><a class="brand" href="../"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg><span class="brand-name">Finance Recruiting Coach</span></a><nav class="site-nav" aria-label="Site"><a href="../library/" aria-current="page">Lessons</a><a href="../#how">How it works</a><a href="../#faq">FAQ</a><a class="btn primary small" href="../app.html">Build my plan</a></nav></div></header><main class="wrap lib-main"><div class="lib-head"><p class="eyebrow">Lesson library</p><h1 class="h-page">40 lessons on what first rounds actually ask</h1><p class="lede">Each lesson opens with an interview question to answer before you read, then the idea in plain English, a worked example, the trap most candidates fall into, and questions to answer out loud. Read them in any order, or <a href="../app.html">build a plan</a> and get them in the right order for your dates.</p></div><section class="lib-group"><h2 class="lib-cat">Careers &amp; fit</h2><ol class="lib-list"><li><a href="the-map-of-finance-sell-side-vs-buy-side-and-where-every.html"><b>The map of finance: sell side vs. buy side, and where every seat fits</b><span class="note">Almost every first conversation, as &quot;What do you know about the industry?&quot; or &quot;Why this seat over the others?&quot;</span></a></li><li><a href="tell-me-about-yourself-turning-your-resume-into-a-60-second.html"><b>&quot;Tell me about yourself&quot;: turning your resume into a 60-second story</b><span class="note">Nearly every interview, usually as the first question, and it sets the tone for the next 30 minutes.</span></a></li><li><a href="your-why-finance-story-an-answer-only-you-could-give.html"><b>Your &quot;why finance&quot; story: an answer only you could give</b><span class="note">Every first round and most club interviews, usually alongside &quot;why this seat&quot; and &quot;why our firm.&quot;</span></a></li><li><a href="what-s-going-on-in-the-markets-a-daily-habit-and-a-60.html"><b>&quot;What&#39;s going on in the markets?&quot;: a daily habit and a 60-second answer</b><span class="note">Most first rounds, especially asset management, wealth management and sales &amp; trading, as an opener or a closer.</span></a></li><li><a href="how-finance-recruiting-works-clubs-timelines-early-programs.html"><b>How finance recruiting works: clubs, timelines, early programs and superdays</b><span class="note">Every recruiting conversation, as &quot;Where are you in the process?&quot; and &quot;What else are you applying to?&quot; Timing is where most students lose out.</span></a></li><li><a href="investment-banking-what-bankers-do-and-bulge-brackets-vs.html"><b>Investment banking: what bankers do, and bulge brackets vs. elite boutiques vs. middle market</b><span class="note">Every banking interview (&quot;Why banking?&quot;, &quot;Why a boutique over a bulge bracket?&quot;) and useful context for any seat.</span></a></li><li><a href="telling-stories-that-prove-it-the-star-method-and-your.html"><b>Telling stories that prove it: the STAR method and your story bank</b><span class="note">Every behavioral question (&quot;Tell me about a time...&quot;) in every seat, usually one to three per interview.</span></a></li><li><a href="behaviorals-part-1-strengths-weaknesses-and-tell-me-about-a.html"><b>Behaviorals, part 1: strengths, weaknesses and &quot;tell me about a failure&quot;</b><span class="note">Most first rounds and superdays. &quot;Greatest weakness&quot; and &quot;tell me about a failure&quot; are among the most common questions in any interview.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Accounting</h2><ol class="lib-list"><li><a href="the-three-financial-statements-what-each-one-tells-you.html"><b>The three financial statements: what each one tells you</b><span class="note">Nearly every technical first round, as &quot;Walk me through the three financial statements.&quot;</span></a></li><li><a href="the-income-statement-line-by-line.html"><b>The income statement, line by line</b><span class="note">Accounting technicals in every seat, and any time you discuss a company&#39;s earnings.</span></a></li><li><a href="the-balance-sheet-why-assets-always-equal-liabilities-plus.html"><b>The balance sheet: why assets always equal liabilities plus equity</b><span class="note">Accounting technicals, and any interview about a bank, an insurer or a company with heavy debt.</span></a></li><li><a href="the-cash-flow-statement-why-profit-isn-t-the-same-as-cash.html"><b>The cash flow statement: why profit isn&#39;t the same as cash</b><span class="note">Accounting technicals in every seat, and especially in asset management and credit interviews.</span></a></li><li><a href="how-the-three-statements-link-together.html"><b>How the three statements link together</b><span class="note">Banking and private equity technicals, and every financial modeling test.</span></a></li><li><a href="pp-and-e-capex-and-depreciation.html"><b>PP&amp;E, capex and depreciation</b><span class="note">Accounting technicals, and any discussion of capital-heavy businesses, from airlines to the companies building AI data centers.</span></a></li><li><a href="the-classic-depreciation-goes-up-by-10-walk-me-through-the.html"><b>The classic: &quot;Depreciation goes up by $10. Walk me through the three statements.&quot;</b><span class="note">Possibly the single most-asked accounting question in banking and private equity first rounds.</span></a></li><li><a href="working-capital-why-fast-growing-companies-can-run-out-of.html"><b>Working capital: why fast-growing companies can run out of cash</b><span class="note">Accounting technicals, credit and private equity interviews, and any question about why a growing company needs money.</span></a></li><li><a href="ebitda-why-bankers-love-it-and-why-buffett-and-munger-didn-t.html"><b>EBITDA: why bankers love it and why Buffett and Munger didn&#39;t</b><span class="note">Banking, private equity and credit interviews, and any valuation question that uses EV/EBITDA.</span></a></li><li><a href="free-cash-flow-unlevered-vs-levered-and-why-investors-care.html"><b>Free cash flow: unlevered vs. levered, and why investors care most about it</b><span class="note">Every valuation discussion, and almost every DCF question.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Valuation &amp; deals</h2><ol class="lib-list"><li><a href="time-value-of-money-why-100-today-beats-100-next-year.html"><b>Time value of money: why $100 today beats $100 next year</b><span class="note">The foundation of every valuation question, and a common warm-up in wealth management and asset management interviews.</span></a></li><li><a href="present-value-discount-rates-npv-and-irr-the-engine-behind.html"><b>Present value, discount rates, NPV and IRR: the engine behind every valuation</b><span class="note">Corporate finance and private equity interviews especially, and as a building block for every DCF question.</span></a></li><li><a href="equity-value-vs-enterprise-value-the-house-and-mortgage.html"><b>Equity value vs. enterprise value (the house-and-mortgage analogy)</b><span class="note">Nearly every banking, private equity and equity research first round, usually as one of the first technical questions.</span></a></li><li><a href="the-ev-bridge-why-you-add-debt-and-subtract-cash-and-the.html"><b>The EV bridge: why you add debt and subtract cash (and the trick questions)</b><span class="note">Banking and private equity technicals, often as a follow-up to the enterprise value question, with a trick question attached.</span></a></li><li><a href="valuation-multiples-p-e-ev-ebitda-ev-revenue-and-which-ones.html"><b>Valuation multiples: P/E, EV/EBITDA, EV/Revenue, and which ones go together</b><span class="note">Every valuation discussion, from banking technicals to &quot;pitch me a stock&quot; in asset management.</span></a></li><li><a href="comparable-companies-analysis-comps.html"><b>Comparable companies analysis (&quot;comps&quot;)</b><span class="note">Banking and equity research technicals, and any conversation about how a company or an IPO gets priced.</span></a></li><li><a href="dcf-part-1-the-big-idea-and-projecting-free-cash-flow.html"><b>DCF, part 1: the big idea and projecting free cash flow</b><span class="note">Every banking, private equity and equity research process, and many asset management interviews.</span></a></li><li><a href="dcf-part-2-the-discount-rate-wacc-capm-and-beta.html"><b>DCF, part 2: the discount rate (WACC, CAPM and beta)</b><span class="note">Banking and corporate finance technicals, and any question about what rising interest rates do to valuations.</span></a></li><li><a href="dcf-part-3-terminal-value-and-why-it-s-most-of-the-answer.html"><b>DCF, part 3: terminal value, and why it&#39;s most of the answer</b><span class="note">Banking and private equity technicals, often as the follow-up to &quot;walk me through a DCF.&quot;</span></a></li><li><a href="walk-me-through-a-dcf-the-60-second-answer-and-the-follow.html"><b>&quot;Walk me through a DCF&quot;: the 60-second answer and the follow-ups</b><span class="note">One of the most common technical questions in banking and private equity, and frequent in equity research and asset management.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Markets &amp; the economy</h2><ol class="lib-list"><li><a href="what-a-stock-actually-is-and-how-the-stock-market-works.html"><b>What a stock actually is, and how the stock market works</b><span class="note">Sales and trading, asset management and equity research first rounds, and as a warm-up anywhere.</span></a></li><li><a href="bonds-101-coupons-maturities-and-why-prices-and-yields-move.html"><b>Bonds 101: coupons, maturities, and why prices and yields move in opposite directions</b><span class="note">Sales and trading and asset management interviews, any markets question, and banking interviews that touch on debt.</span></a></li><li><a href="inflation-cpi-vs-pce-and-why-the-fed-targets-2.html"><b>Inflation: CPI vs. PCE, and why the Fed targets 2%</b><span class="note">Markets questions in sales and trading, asset management and wealth management interviews, and &quot;what&#39;s going on in the economy&quot; small talk anywhere.</span></a></li><li><a href="the-federal-reserve-the-fed-funds-rate-the-fomc-and-the.html"><b>The Federal Reserve: the fed funds rate, the FOMC and the dual mandate</b><span class="note">Almost every markets conversation, from sales and trading to wealth management, and in &quot;what&#39;s happening in the markets&quot; questions.</span></a></li><li><a href="why-interest-rates-move-stock-prices.html"><b>Why interest rates move stock prices</b><span class="note">Sales and trading, asset management and equity research interviews, especially &quot;what&#39;s going on in the markets&quot; questions.</span></a></li><li><a href="the-yield-curve-and-what-an-inversion-is-supposed-to-signal.html"><b>The yield curve, and what an inversion is supposed to signal</b><span class="note">Sales and trading and asset management interviews, and any &quot;what&#39;s your view on the economy&quot; question.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Asset &amp; wealth management</h2><ol class="lib-list"><li><a href="asset-management-vs-wealth-management-what-each-does-and.html"><b>Asset management vs. wealth management: what each does, and how each makes money</b><span class="note">Every asset management and wealth management interview, and &quot;why this division?&quot; questions at big banks.</span></a></li><li><a href="asset-classes-stocks-bonds-cash-real-estate-and-alternatives.html"><b>Asset classes: stocks, bonds, cash, real estate and alternatives</b><span class="note">Asset management and wealth management interviews, and &quot;how would you invest $10,000?&quot; questions anywhere.</span></a></li><li><a href="diversification-and-correlation-the-only-free-lunch-in.html"><b>Diversification and correlation: the only free lunch in investing</b><span class="note">Asset management and wealth management interviews, and portfolio questions in sales and trading.</span></a></li><li><a href="active-vs-passive-the-index-fund-revolution-and-why-most.html"><b>Active vs. passive: the index fund revolution, and why most pros trail the index</b><span class="note">Nearly every asset management interview, plus wealth management and equity research.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Investing &amp; pitches</h2><ol class="lib-list"><li><a href="how-to-pitch-a-stock-thesis-catalysts-valuation-risks.html"><b>How to pitch a stock: thesis, catalysts, valuation, risks</b><span class="note">Asset management, equity research, hedge fund and investment club interviews, and sometimes as a curveball in banking.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Trading</h2><ol class="lib-list"><li><a href="options-101-calls-and-puts-in-plain-english.html"><b>Options 101: calls and puts in plain English</b><span class="note">Sales and trading interviews, especially on derivatives desks, and as a stretch question in asset management.</span></a></li></ol></section></main><footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">Finance Recruiting Coach</div><p class="note">Made by a college freshman who was preparing for the same interviews. Free, no ads, and it runs on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div><nav class="foot-nav" aria-label="More"><a href="../app.html">The coach</a><a href="../library/">Lesson library</a><a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a><a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer></body></html>
+
+/* ==========================================================================
+   The model look: worksheets, ledgers and sheet tabs.
+   Used by the home page, Play and the Live Room. Builds on the tokens in styles.css.
+   The idea: this is prep for people who will live in spreadsheets, so the interactive
+   parts are spreadsheets. Row numbers number real rows, the blue cell is the one you
+   type in, and negatives sit in parentheses.
+   ========================================================================== */
+:root { --head: color-mix(in oklab, var(--paper) 78%, var(--rule-2)); --cell: 28px; }
+
+/* ---------- worksheet ---------- */
+.ws { background: var(--sheet); border: 1px solid var(--rule-2); box-shadow: var(--shadow); min-width: 0; }
+.ws-bar { display: flex; align-items: stretch; border-bottom: 1px solid var(--rule-2); background: var(--head); font-size: 13px; line-height: 1.2; }
+.ws-bar > span { display: flex; align-items: center; padding: 7px 10px; white-space: nowrap; }
+.ws-ref { min-width: 62px; justify-content: center; background: var(--sheet); border-right: 1px solid var(--rule-2); font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.ws-fx { font-family: var(--f-read); font-style: italic; color: var(--ink-3); padding-right: 4px !important; }
+.ws-formula { flex: 1; min-width: 0; font-family: var(--f-mono); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; padding-left: 4px !important; }
+.ws-meter { border-left: 1px solid var(--rule-2); gap: 5px; color: var(--ink-2); }
+.ws-meter b { color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
+.ws-clock { border-left: 1px solid var(--rule-2); background: var(--sheet); font-family: var(--f-mono); font-weight: 600; font-variant-numeric: tabular-nums; min-width: 6ch; justify-content: flex-end; }
+.ws-time { height: 4px; background: var(--rule); }
+.ws-time i { display: block; height: 100%; width: 0; background: var(--input); }
+.ws-grid { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 15px; background: var(--sheet); }
+.ws-grid th { background: var(--head); border: 1px solid var(--rule); padding: 3px 8px; font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; color: var(--ink-3); text-align: center; }
+.ws-grid td { border: 1px solid var(--rule); padding: 8px 10px; vertical-align: middle; overflow-wrap: anywhere; }
+.ws-grid .rn { width: 34px; padding: 3px 2px; background: var(--head); font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; }
+.ws-grid .num { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ws-note { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.ws > .btn-row { padding: 14px 14px 16px; }
+.fn { font-size: 12.5px; color: var(--ink-3); margin-top: 8px; max-width: 70ch; }
+.fn a { color: inherit; }
+sup { font-size: .68em; line-height: 0; font-variant-numeric: normal; }
+
+/* ---------- Mental Math Sprint ---------- */
+.sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 150px; }
+.sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 96px; }
+.sp-grid .hdr td { font-weight: 650; font-size: 12.5px; color: var(--ink-2); padding-block: 5px; }
+.sp-grid #sp-log tr:not(.hdr) td { font-size: 13.5px; color: var(--ink-2); padding-block: 6px; }
+.sp-grid .typed { color: var(--input) !important; }
+.sp-grid .miss .typed { text-decoration: line-through; text-decoration-color: var(--miss); }
+.sp-grid .skip { font-family: var(--f-ui); font-size: 12px; color: var(--ink-3); }
+.sp-grid .ok .chk { color: var(--link) !important; font-weight: 700; }
+.sp-grid .miss .chk { color: var(--miss) !important; font-weight: 600; }
+.sp-grid .active .q { font-family: var(--f-read); font-size: 20px; font-weight: 600; line-height: 1.32; padding: 16px 12px; }
+.sp-grid .in-cell { padding: 0; box-shadow: inset 0 0 0 2px var(--input); }
+.sp-grid form { display: flex; align-items: baseline; }
+.cell-in { flex: 1; min-width: 0; width: 100%; border: 0; background: transparent; padding: 15px 4px 15px 10px; font-family: var(--f-mono); font-size: 20px; font-weight: 600; color: var(--input); text-align: right; font-variant-numeric: tabular-nums; }
+.cell-in:focus { outline: none; }
+.cell-in:disabled { color: var(--ink-3); }
+.sp-grid .unit { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-3); padding-right: 8px; }
+.sp-grid .unit:empty { padding-right: 6px; }
+.sp-grid .active td:last-child { text-align: center; padding: 6px; }
+@media (max-width: 560px) {
+  .sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 112px; }
+  .sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 70px; }
+  .sp-grid .active .q { font-size: 18px; padding: 12px 10px; }
+  .cell-in { font-size: 18px; padding-block: 13px; }
+  .ws-grid .rn { width: 26px; }
+  .ws-formula { display: none !important; }
+  .ws-fx { flex: 1; }
+}
+
+/* ---------- Statement Flows ---------- */
+.fl-event { padding: 18px 16px 14px; border-bottom: 1px solid var(--rule-2); }
+.fl-text { font-family: var(--f-read); font-size: clamp(20px, 2.5vw, 27px); font-weight: 600; line-height: 1.28; max-width: 34ch; text-wrap: balance; }
+.fl-assume { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+.fl-stmts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; background: var(--sheet); }
+@media (min-width: 940px) { .fl-stmts { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fl-stmts .fl-tbl + .fl-tbl { border-left: 1px solid var(--rule-2); } }
+.fl-tbl th:nth-child(2) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+.fl-tbl .chg { width: 138px; text-align: center; padding: 5px 6px; white-space: nowrap; }
+.fl-tbl th.chg { font-family: var(--f-ui); font-size: 12px; }
+.seg3 { display: inline-flex; border: 1px solid var(--rule-2); border-radius: 5px; overflow: hidden; background: var(--sheet); }
+.seg3 button { appearance: none; border: 0; border-left: 1px solid var(--rule); background: none; width: 40px; height: 34px; font-size: 14px; color: var(--ink-3); cursor: pointer; }
+.seg3 button:first-child { border-left: 0; }
+.seg3 button:hover { background: var(--paper); color: var(--ink); }
+.seg3 button[aria-pressed="true"][data-pick="1"] { background: var(--link-wash); color: var(--link); }
+.seg3 button[aria-pressed="true"][data-pick="0"] { background: var(--head); color: var(--ink); font-weight: 700; }
+.seg3 button[aria-pressed="true"][data-pick="-1"] { background: var(--miss-wash); color: var(--miss); }
+.fl-ans { display: inline-block; min-width: 6ch; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.fl-ans.up { color: var(--link); } .fl-ans.down { color: var(--miss); } .fl-ans.flat { color: var(--ink-3); }
+.fl-mark { display: inline-block; width: 2.2ch; text-align: right; font-weight: 700; }
+.fl-mark.ok { color: var(--link); } .fl-mark.miss { color: var(--miss); }
+.fl-tbl tr.miss td:nth-child(2) { background: var(--miss-wash); }
+.fl-why { padding: 16px; border-top: 1px solid var(--rule-2); display: grid; gap: 10px; }
+.fl-got { font-size: 15.5px; }
+.fl-why dl { margin: 0; display: grid; gap: 2px 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .fl-why dl { grid-template-columns: 150px minmax(0, 1fr); } }
+.fl-why dt { font-size: 13px; font-weight: 650; color: var(--ink-2); padding-top: 3px; }
+.fl-why dd { margin: 0 0 8px; font-family: var(--f-read); font-size: 16.5px; line-height: 1.5; max-width: 68ch; }
+
+/* ---------- Play page ---------- */
+.play-main { padding-block: 28px 64px; display: grid; gap: 30px; align-content: start; }
+.play-main > * { min-width: 0; }
+.play-head { display: grid; gap: 4px; }
+.play-top { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; justify-content: space-between; }
+.play-top .backlink { margin: 0; }
+#game { margin-top: 12px; }
+.game-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 0; border: 1px solid var(--rule-2); background: var(--rule-2); column-gap: 1px; row-gap: 1px; }
+.game-tile { background: var(--sheet); padding: 22px 22px 24px; display: grid; gap: 10px; align-content: start; }
+.game-tile h2 { font-size: 24px; font-weight: 760; font-stretch: 112%; letter-spacing: -0.015em; }
+.game-tile p { color: var(--ink-2); max-width: 52ch; }
+.game-best { font-size: 13.5px; }
+.game-best b { color: var(--ink); font-size: 16px; }
+.prog, .live-cta { display: grid; gap: 10px; }
+.prog h2, .live-cta h2 { font-size: 19px; font-weight: 720; }
+.prog-tbl td:nth-child(2) { width: 150px; font-weight: 600; }
+.prog-tbl td:nth-child(3) { width: 150px; }
+.prog-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; }
+.live-cta p { color: var(--ink-2); max-width: 60ch; }
+@media (max-width: 640px) {
+  .prog-tbl td:nth-child(2) { width: 104px; } .prog-tbl td:nth-child(3) { width: 84px; white-space: normal; }
+}
+.ch-banner { background: var(--input-wash); border: 1px solid color-mix(in oklab, var(--input) 35%, transparent); padding: 16px 18px; display: grid; gap: 12px; }
+.ch-banner p { font-family: var(--f-read); font-size: 19px; line-height: 1.4; max-width: 56ch; }
+.res { margin-top: 26px; display: grid; gap: 14px; max-width: 780px; }
+.res-num { font-size: clamp(84px, 16vw, 148px); font-weight: 800; font-stretch: 122%; line-height: .86; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
+.res-lbl { font-size: 19px; color: var(--ink-2); margin-top: -4px; }
+.res-tbl td:nth-child(2) { font-weight: 600; }
+.res-tbl td:nth-child(3) { width: 84px; }
+.res-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 38%; }
+.res-share { display: grid; gap: 8px; padding: 16px; background: var(--sheet); border: 1px solid var(--rule-2); }
+.res-share label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.res-share .in { max-width: 260px; }
+.hero-out { padding: 14px; border-top: 1px solid var(--rule-2); background: var(--sheet); display: grid; gap: 10px; border: 1px solid var(--rule-2); border-top: 0; }
+
+/* ---------- Live Room ---------- */
+.live-main { padding-block: 28px 64px; display: grid; gap: 24px; align-content: start; }
+.live-main > * { min-width: 0; }
+.live-head { display: grid; gap: 4px; }
+.live-note { padding: 10px 14px; background: var(--flag-wash); border: 1px solid color-mix(in oklab, var(--flag) 40%, transparent); font-size: 14.5px; max-width: 70ch; }
+.live-door { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+.door-card { background: var(--sheet); padding: 22px; display: grid; gap: 12px; align-content: start; }
+.door-card h2 { font-size: 22px; font-weight: 740; font-stretch: 110%; }
+.door-card p { color: var(--ink-2); max-width: 46ch; }
+.code-in { font-family: var(--f-mono); font-size: 28px; letter-spacing: .3em; text-transform: uppercase; max-width: 8.5em; padding-block: 8px; }
+.live-setup-db { background: var(--sheet); border: 1px solid var(--rule-2); padding: 20px; display: grid; gap: 12px; max-width: 720px; }
+.live-setup-db h2 { font-size: 19px; }
+.live-setup-db p { color: var(--ink-2); }
+.host-form { display: grid; max-width: 720px; }
+.radio-pill { position: relative; }
+.radio-pill input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.radio-pill span { display: block; border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink-2); padding: 8px 14px; font-size: 14.5px; font-weight: 600; border-radius: var(--r); }
+.radio-pill input:checked + span { color: var(--input); border-color: var(--input); background: var(--input-wash); }
+.radio-pill input:focus-visible + span { outline: 2px solid var(--input); outline-offset: 2px; }
+
+/* the host screen is read from the back of a room: everything scales with the window */
+.host { display: grid; gap: clamp(14px, 2.4vh, 28px); align-content: start; }
+.lobby { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: center; background: var(--sheet); border: 1px solid var(--rule-2); padding: clamp(18px, 3vw, 40px); }
+@media (min-width: 820px) { .lobby { grid-template-columns: minmax(0, 1fr) auto; } }
+.lobby-how { font-size: clamp(17px, 2vw, 26px); color: var(--ink-2); overflow-wrap: anywhere; }
+.lobby-how b { color: var(--ink); }
+.room-code { font-family: var(--f-mono); font-weight: 600; font-size: clamp(72px, 15vw, 220px); line-height: 1; letter-spacing: .08em; color: var(--input); margin: 6px 0 10px; }
+.lobby-qr { display: grid; gap: 6px; justify-items: center; }
+.lobby-qr svg { width: clamp(180px, 24vw, 340px); height: auto; display: block; border: 1px solid var(--rule); }
+.lobby-players h2 { font-size: clamp(18px, 2vw, 26px); font-weight: 720; margin-bottom: 10px; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pchip { appearance: none; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: 4px; padding: 6px 12px; font-size: clamp(15px, 1.5vw, 22px); font-weight: 600; color: var(--ink); cursor: pointer; }
+.pchip span { color: var(--ink-3); }
+.pchip:hover { border-color: var(--miss); color: var(--miss); }
+.host-actions { gap: 12px 16px; }
+.q-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; font-size: clamp(15px, 1.5vw, 22px); color: var(--ink-2); }
+.q-n { font-weight: 700; color: var(--ink); }
+.q-in { margin-left: auto; }
+.q-clock { font-family: var(--f-mono); font-weight: 600; font-size: clamp(26px, 3.4vw, 56px); color: var(--ink); min-width: 2ch; text-align: right; font-variant-numeric: tabular-nums; line-height: 1; }
+.q-bar { height: 8px; }
+.q-text { font-family: var(--f-read); font-weight: 600; font-size: clamp(24px, 3.5vw, 58px); line-height: 1.18; max-width: 30ch; text-wrap: balance; }
+.q-choices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 700px) { .q-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.q-choices li { background: var(--sheet); display: flex; align-items: center; gap: clamp(10px, 1.4vw, 22px); padding: clamp(12px, 1.8vw, 28px); font-size: clamp(20px, 2.6vw, 44px); font-weight: 650; }
+.q-letter { flex: none; display: grid; place-items: center; width: 1.7em; height: 1.7em; background: var(--head); border: 1px solid var(--rule-2); font-family: var(--f-mono); font-size: .68em; font-weight: 600; color: var(--ink-2); }
+.q-choice { flex: 1; min-width: 0; font-variant-numeric: tabular-nums; }
+.q-count { font-family: var(--f-mono); font-size: .7em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.q-choices.revealed li { color: var(--ink-3); }
+.q-choices.revealed li.right { background: var(--link-wash); color: var(--link); }
+.q-choices.revealed li.right .q-letter { background: var(--link); border-color: var(--link); color: var(--sheet); }
+.q-choices.revealed li.right .q-count { color: var(--link); }
+.q-why { font-family: var(--f-read); font-size: clamp(15px, 1.5vw, 22px); line-height: 1.45; color: var(--ink-2); max-width: 90ch; }
+.board h2 { font-size: clamp(16px, 1.6vw, 22px); font-weight: 720; margin-bottom: 8px; }
+.board-tbl { font-size: clamp(16px, 1.8vw, 28px); max-width: 900px; }
+.board-tbl td:nth-child(3) { width: 7em; }
+.board-tbl .rn { font-size: .6em; width: 2.6em; }
+.final-h { font-size: clamp(28px, 4vw, 60px); font-weight: 780; font-stretch: 114%; letter-spacing: -0.02em; }
+.final { display: grid; gap: clamp(16px, 2.6vh, 30px); }
+.podium { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 760px) { .podium { grid-template-columns: 1.25fr 1fr 1fr; } }
+.podium li { background: var(--sheet); padding: clamp(14px, 2vw, 30px); display: grid; gap: 4px; }
+.pod-place { font-family: var(--f-mono); font-size: clamp(14px, 1.3vw, 20px); color: var(--ink-3); }
+.pod-name { font-size: clamp(26px, 3.6vw, 60px); font-weight: 780; font-stretch: 112%; letter-spacing: -0.02em; line-height: 1.05; overflow-wrap: anywhere; }
+.pod-score { font-family: var(--f-mono); font-size: clamp(18px, 2vw, 32px); font-variant-numeric: tabular-nums; }
+.podium .p1 { background: var(--input-wash); }
+.podium .p1 .pod-name { color: var(--input); }
+body.is-host .wrap { max-width: 1680px; }
+body.is-host .site-foot { display: none; }
+
+/* a player's phone */
+.player { max-width: 560px; margin-inline: auto; display: grid; gap: 14px; width: 100%; }
+.p-top { display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.p-q { font-family: var(--f-read); font-size: 19px; font-weight: 600; line-height: 1.35; }
+.p-choices { display: grid; gap: 10px; }
+.p-choice { appearance: none; display: flex; align-items: center; gap: 14px; width: 100%; min-height: 64px; padding: 12px 14px; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: var(--r); font-size: 20px; font-weight: 650; color: var(--ink); text-align: left; cursor: pointer; font-variant-numeric: tabular-nums; }
+.p-choice .q-letter { font-size: 15px; width: 34px; height: 34px; }
+.p-choice:disabled { cursor: default; color: var(--ink-3); }
+.p-choice.picked { border-color: var(--input); box-shadow: inset 0 0 0 2px var(--input); color: var(--input); background: var(--input-wash); }
+.p-status { min-height: 1.5em; font-weight: 600; color: var(--ink-2); text-align: center; }
+.p-msg { background: var(--sheet); border: 1px solid var(--rule-2); padding: 26px 22px; display: grid; gap: 10px; }
+.p-msg h2 { font-size: 24px; font-weight: 760; font-stretch: 110%; }
+.p-msg p { color: var(--ink-2); }
+.p-verdict { font-size: 30px; font-weight: 780; font-stretch: 112%; color: var(--ink) !important; letter-spacing: -0.015em; }
+.p-pts { font-family: var(--f-mono); font-size: 44px; font-weight: 600; line-height: 1; color: var(--ink) !important; font-variant-numeric: tabular-nums; }
+.p-right { border-color: var(--link); } .p-right .p-verdict, .p-right .p-pts { color: var(--link) !important; }
+.p-wrong .p-verdict { color: var(--miss) !important; }
+.p-rank { font-weight: 600; color: var(--ink) !important; }
+
+/* ---------- home page ---------- */
+.grid-paper { background-color: var(--paper); background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: var(--cell) var(--cell); background-position: -1px -1px; }
+.home .hero { padding-block: 44px 52px; border-bottom: 1px solid var(--rule-2); }
+.home .hero-copy { background: var(--paper); padding: 4px 14px 14px 0; align-self: start; box-shadow: 0 0 0 10px var(--paper); }
+.home .hero-h { max-width: 13ch; font-size: clamp(38px, 5.2vw, 66px); }
+.home .hero-sub .t-in { color: var(--input); font-weight: 600; }
+.hero-sheet { min-width: 0; align-self: start; }
+.home .band { border-top: 0; border-bottom: 1px solid var(--rule); padding-block: 52px; scroll-margin-top: 64px; }
+.sec-note { color: var(--ink-2); max-width: 44ch; margin-top: -12px; }
+.tear td:nth-child(2) { font-weight: 600; }
+.tear td:nth-child(3) { width: 92px; font-size: 17px; font-weight: 600; color: var(--ink); }
+.tear td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 44%; }
+@media (max-width: 720px) { .tear td:nth-child(4) { display: none; } .tear th:nth-child(4) { display: none; } }
+.play-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 44px; align-items: start; }
+@media (min-width: 980px) { .play-row { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); } .play-row.flip { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); } }
+.play-row + .play-row { margin-top: 48px; }
+.play-copy { display: grid; gap: 12px; align-content: start; }
+.play-copy h3 { font-size: 23px; font-weight: 750; font-stretch: 110%; letter-spacing: -0.012em; }
+.play-copy p { font-family: var(--f-read); font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 54ch; }
+.ex-cap { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.shot { margin: 0; display: grid; gap: 8px; }
+.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule-2); box-shadow: var(--shadow); background: var(--sheet); }
+.shot figcaption { font-size: 13px; color: var(--ink-2); }
+.maker { display: grid; gap: 14px; }
+.maker p { font-family: var(--f-read); font-size: 19px; line-height: 1.6; max-width: 60ch; }
+.maker .sig { font-family: var(--f-ui); font-size: 15px; font-weight: 650; color: var(--ink-2); }
+.contents td:nth-child(2) { font-weight: 600; width: 24%; }
+.contents td:nth-child(4) { width: 132px; font-size: 13.5px; color: var(--ink-2); }
+.contents td:nth-child(3) { color: var(--ink-2); font-size: 14.5px; }
+.contents th:not(.rn) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+@media (max-width: 720px) { .contents td:nth-child(2) { width: 34%; } .contents td:nth-child(4), .contents th:nth-child(4) { display: none; } }
+.lesson-ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-2); }
+.lesson-ledger li { border-bottom: 1px solid var(--rule); }
+.lesson-ledger a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 12px 4px; color: var(--ink); text-decoration: none; }
+.lesson-ledger a:hover { background: var(--paper); }
+.lesson-ledger .n { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; }
+.lesson-ledger b { font-size: 16.5px; font-weight: 650; }
+.lesson-ledger .where { font-size: 13px; color: var(--ink-2); text-align: right; max-width: 30ch; }
+@media (max-width: 720px) { .lesson-ledger .where { display: none; } }
+.footnotes { padding-block: 22px 28px; }
+.footnotes ol { margin: 0; padding-left: 1.4em; font-size: 13px; color: var(--ink-2); display: grid; gap: 4px; max-width: 86ch; }
+
+/* sheet tabs: the home page's sections, along the bottom like a workbook */
+.sheet-tabs { position: sticky; bottom: 0; z-index: 15; display: flex; align-items: stretch; background: var(--head); border-top: 1px solid var(--rule-2); overflow-x: auto; scrollbar-width: none; padding-bottom: env(safe-area-inset-bottom, 0px); padding-left: max(8px, env(safe-area-inset-left, 0px)); }
+.sheet-tabs::-webkit-scrollbar { display: none; }
+.sheet-tabs a { flex: none; padding: 9px 16px 10px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); text-decoration: none; border-right: 1px solid var(--rule-2); white-space: nowrap; }
+.sheet-tabs a:first-child { border-left: 1px solid var(--rule-2); }
+.sheet-tabs a:hover { color: var(--ink); background: var(--paper); }
+.sheet-tabs a[aria-current="true"] { background: var(--sheet); color: var(--link); box-shadow: inset 0 -3px 0 var(--link); margin-top: -1px; border-top: 1px solid var(--sheet); }
+.has-tabs .toast { bottom: calc(max(20px, env(safe-area-inset-bottom, 0px)) + 44px); }
+
+/* nav */
+.site-nav a[aria-current="page"]:not(.btn) { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 560px) { .site-nav { gap: 4px 12px; } .site-nav .btn.small { padding: 5px 8px; } .site-nav .nav-opt { display: none; } }
+
+/* the Live Room example on the home page: the host screen, at card size */
+.lobby-ex { display: grid; gap: 12px; min-width: 0; }
+.lobby-ex .lobby { padding: 20px; gap: 16px; }
+.lobby-ex .lobby-how { font-size: 15px; }
+.lobby-ex .room-code { font-size: clamp(56px, 8vw, 92px); margin: 4px 0 0; }
+.lobby-ex .lobby-qr svg { width: 148px; }
+.lobby-ex .pchip { font-size: 14.5px; cursor: default; padding: 4px 10px; }
+.lobby-ex .pchip:hover { border-color: var(--rule-2); color: var(--ink); }
+@media (min-width: 820px) and (max-width: 1100px) { .lobby-ex .lobby { grid-template-columns: minmax(0, 1fr); } }
+.home .demo { border-radius: 0; }
+.home .ex-flag { font-family: var(--f-ui); font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 600; color: var(--ink-2); }
+</style></head><body><header class="site-top"><div class="wrap site-top-row"><a class="brand" href="../"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg><span class="brand-name">Finance Recruiting Coach</span></a><nav class="site-nav" aria-label="Site"><a href="../play.html">Play</a><a class="nav-opt" href="../live.html">Live Room</a><a href="../library/" aria-current="page">Lessons</a><a class="btn primary small" href="../app.html">Build my plan</a></nav></div></header><main class="wrap lib-main"><div class="lib-head"><p class="eyebrow">Lesson library</p><h1 class="h-page">40 lessons on what first rounds actually ask</h1><p class="lede">Each lesson opens with an interview question to answer before you read, then the idea in plain English, a worked example, the trap most candidates fall into, and questions to answer out loud. Read them in any order, or <a href="../app.html">build a plan</a> and get them in the right order for your dates.</p></div><section class="lib-group"><h2 class="lib-cat">Careers &amp; fit</h2><ol class="lib-list"><li><a href="the-map-of-finance-sell-side-vs-buy-side-and-where-every.html"><b>The map of finance: sell side vs. buy side, and where every seat fits</b><span class="note">Almost every first conversation, as &quot;What do you know about the industry?&quot; or &quot;Why this seat over the others?&quot;</span></a></li><li><a href="tell-me-about-yourself-turning-your-resume-into-a-60-second.html"><b>&quot;Tell me about yourself&quot;: turning your resume into a 60-second story</b><span class="note">Nearly every interview, usually as the first question, and it sets the tone for the next 30 minutes.</span></a></li><li><a href="your-why-finance-story-an-answer-only-you-could-give.html"><b>Your &quot;why finance&quot; story: an answer only you could give</b><span class="note">Every first round and most club interviews, usually alongside &quot;why this seat&quot; and &quot;why our firm.&quot;</span></a></li><li><a href="what-s-going-on-in-the-markets-a-daily-habit-and-a-60.html"><b>&quot;What&#39;s going on in the markets?&quot;: a daily habit and a 60-second answer</b><span class="note">Most first rounds, especially asset management, wealth management and sales &amp; trading, as an opener or a closer.</span></a></li><li><a href="how-finance-recruiting-works-clubs-timelines-early-programs.html"><b>How finance recruiting works: clubs, timelines, early programs and superdays</b><span class="note">Every recruiting conversation, as &quot;Where are you in the process?&quot; and &quot;What else are you applying to?&quot; Timing is where most students lose out.</span></a></li><li><a href="investment-banking-what-bankers-do-and-bulge-brackets-vs.html"><b>Investment banking: what bankers do, and bulge brackets vs. elite boutiques vs. middle market</b><span class="note">Every banking interview (&quot;Why banking?&quot;, &quot;Why a boutique over a bulge bracket?&quot;) and useful context for any seat.</span></a></li><li><a href="telling-stories-that-prove-it-the-star-method-and-your.html"><b>Telling stories that prove it: the STAR method and your story bank</b><span class="note">Every behavioral question (&quot;Tell me about a time...&quot;) in every seat, usually one to three per interview.</span></a></li><li><a href="behaviorals-part-1-strengths-weaknesses-and-tell-me-about-a.html"><b>Behaviorals, part 1: strengths, weaknesses and &quot;tell me about a failure&quot;</b><span class="note">Most first rounds and superdays. &quot;Greatest weakness&quot; and &quot;tell me about a failure&quot; are among the most common questions in any interview.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Accounting</h2><ol class="lib-list"><li><a href="the-three-financial-statements-what-each-one-tells-you.html"><b>The three financial statements: what each one tells you</b><span class="note">Nearly every technical first round, as &quot;Walk me through the three financial statements.&quot;</span></a></li><li><a href="the-income-statement-line-by-line.html"><b>The income statement, line by line</b><span class="note">Accounting technicals in every seat, and any time you discuss a company&#39;s earnings.</span></a></li><li><a href="the-balance-sheet-why-assets-always-equal-liabilities-plus.html"><b>The balance sheet: why assets always equal liabilities plus equity</b><span class="note">Accounting technicals, and any interview about a bank, an insurer or a company with heavy debt.</span></a></li><li><a href="the-cash-flow-statement-why-profit-isn-t-the-same-as-cash.html"><b>The cash flow statement: why profit isn&#39;t the same as cash</b><span class="note">Accounting technicals in every seat, and especially in asset management and credit interviews.</span></a></li><li><a href="how-the-three-statements-link-together.html"><b>How the three statements link together</b><span class="note">Banking and private equity technicals, and every financial modeling test.</span></a></li><li><a href="pp-and-e-capex-and-depreciation.html"><b>PP&amp;E, capex and depreciation</b><span class="note">Accounting technicals, and any discussion of capital-heavy businesses, from airlines to the companies building AI data centers.</span></a></li><li><a href="the-classic-depreciation-goes-up-by-10-walk-me-through-the.html"><b>The classic: &quot;Depreciation goes up by $10. Walk me through the three statements.&quot;</b><span class="note">Possibly the single most-asked accounting question in banking and private equity first rounds.</span></a></li><li><a href="working-capital-why-fast-growing-companies-can-run-out-of.html"><b>Working capital: why fast-growing companies can run out of cash</b><span class="note">Accounting technicals, credit and private equity interviews, and any question about why a growing company needs money.</span></a></li><li><a href="ebitda-why-bankers-love-it-and-why-buffett-and-munger-didn-t.html"><b>EBITDA: why bankers love it and why Buffett and Munger didn&#39;t</b><span class="note">Banking, private equity and credit interviews, and any valuation question that uses EV/EBITDA.</span></a></li><li><a href="free-cash-flow-unlevered-vs-levered-and-why-investors-care.html"><b>Free cash flow: unlevered vs. levered, and why investors care most about it</b><span class="note">Every valuation discussion, and almost every DCF question.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Valuation &amp; deals</h2><ol class="lib-list"><li><a href="time-value-of-money-why-100-today-beats-100-next-year.html"><b>Time value of money: why $100 today beats $100 next year</b><span class="note">The foundation of every valuation question, and a common warm-up in wealth management and asset management interviews.</span></a></li><li><a href="present-value-discount-rates-npv-and-irr-the-engine-behind.html"><b>Present value, discount rates, NPV and IRR: the engine behind every valuation</b><span class="note">Corporate finance and private equity interviews especially, and as a building block for every DCF question.</span></a></li><li><a href="equity-value-vs-enterprise-value-the-house-and-mortgage.html"><b>Equity value vs. enterprise value (the house-and-mortgage analogy)</b><span class="note">Nearly every banking, private equity and equity research first round, usually as one of the first technical questions.</span></a></li><li><a href="the-ev-bridge-why-you-add-debt-and-subtract-cash-and-the.html"><b>The EV bridge: why you add debt and subtract cash (and the trick questions)</b><span class="note">Banking and private equity technicals, often as a follow-up to the enterprise value question, with a trick question attached.</span></a></li><li><a href="valuation-multiples-p-e-ev-ebitda-ev-revenue-and-which-ones.html"><b>Valuation multiples: P/E, EV/EBITDA, EV/Revenue, and which ones go together</b><span class="note">Every valuation discussion, from banking technicals to &quot;pitch me a stock&quot; in asset management.</span></a></li><li><a href="comparable-companies-analysis-comps.html"><b>Comparable companies analysis (&quot;comps&quot;)</b><span class="note">Banking and equity research technicals, and any conversation about how a company or an IPO gets priced.</span></a></li><li><a href="dcf-part-1-the-big-idea-and-projecting-free-cash-flow.html"><b>DCF, part 1: the big idea and projecting free cash flow</b><span class="note">Every banking, private equity and equity research process, and many asset management interviews.</span></a></li><li><a href="dcf-part-2-the-discount-rate-wacc-capm-and-beta.html"><b>DCF, part 2: the discount rate (WACC, CAPM and beta)</b><span class="note">Banking and corporate finance technicals, and any question about what rising interest rates do to valuations.</span></a></li><li><a href="dcf-part-3-terminal-value-and-why-it-s-most-of-the-answer.html"><b>DCF, part 3: terminal value, and why it&#39;s most of the answer</b><span class="note">Banking and private equity technicals, often as the follow-up to &quot;walk me through a DCF.&quot;</span></a></li><li><a href="walk-me-through-a-dcf-the-60-second-answer-and-the-follow.html"><b>&quot;Walk me through a DCF&quot;: the 60-second answer and the follow-ups</b><span class="note">One of the most common technical questions in banking and private equity, and frequent in equity research and asset management.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Markets &amp; the economy</h2><ol class="lib-list"><li><a href="what-a-stock-actually-is-and-how-the-stock-market-works.html"><b>What a stock actually is, and how the stock market works</b><span class="note">Sales and trading, asset management and equity research first rounds, and as a warm-up anywhere.</span></a></li><li><a href="bonds-101-coupons-maturities-and-why-prices-and-yields-move.html"><b>Bonds 101: coupons, maturities, and why prices and yields move in opposite directions</b><span class="note">Sales and trading and asset management interviews, any markets question, and banking interviews that touch on debt.</span></a></li><li><a href="inflation-cpi-vs-pce-and-why-the-fed-targets-2.html"><b>Inflation: CPI vs. PCE, and why the Fed targets 2%</b><span class="note">Markets questions in sales and trading, asset management and wealth management interviews, and &quot;what&#39;s going on in the economy&quot; small talk anywhere.</span></a></li><li><a href="the-federal-reserve-the-fed-funds-rate-the-fomc-and-the.html"><b>The Federal Reserve: the fed funds rate, the FOMC and the dual mandate</b><span class="note">Almost every markets conversation, from sales and trading to wealth management, and in &quot;what&#39;s happening in the markets&quot; questions.</span></a></li><li><a href="why-interest-rates-move-stock-prices.html"><b>Why interest rates move stock prices</b><span class="note">Sales and trading, asset management and equity research interviews, especially &quot;what&#39;s going on in the markets&quot; questions.</span></a></li><li><a href="the-yield-curve-and-what-an-inversion-is-supposed-to-signal.html"><b>The yield curve, and what an inversion is supposed to signal</b><span class="note">Sales and trading and asset management interviews, and any &quot;what&#39;s your view on the economy&quot; question.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Asset &amp; wealth management</h2><ol class="lib-list"><li><a href="asset-management-vs-wealth-management-what-each-does-and.html"><b>Asset management vs. wealth management: what each does, and how each makes money</b><span class="note">Every asset management and wealth management interview, and &quot;why this division?&quot; questions at big banks.</span></a></li><li><a href="asset-classes-stocks-bonds-cash-real-estate-and-alternatives.html"><b>Asset classes: stocks, bonds, cash, real estate and alternatives</b><span class="note">Asset management and wealth management interviews, and &quot;how would you invest $10,000?&quot; questions anywhere.</span></a></li><li><a href="diversification-and-correlation-the-only-free-lunch-in.html"><b>Diversification and correlation: the only free lunch in investing</b><span class="note">Asset management and wealth management interviews, and portfolio questions in sales and trading.</span></a></li><li><a href="active-vs-passive-the-index-fund-revolution-and-why-most.html"><b>Active vs. passive: the index fund revolution, and why most pros trail the index</b><span class="note">Nearly every asset management interview, plus wealth management and equity research.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Investing &amp; pitches</h2><ol class="lib-list"><li><a href="how-to-pitch-a-stock-thesis-catalysts-valuation-risks.html"><b>How to pitch a stock: thesis, catalysts, valuation, risks</b><span class="note">Asset management, equity research, hedge fund and investment club interviews, and sometimes as a curveball in banking.</span></a></li></ol></section><section class="lib-group"><h2 class="lib-cat">Trading</h2><ol class="lib-list"><li><a href="options-101-calls-and-puts-in-plain-english.html"><b>Options 101: calls and puts in plain English</b><span class="note">Sales and trading interviews, especially on derivatives desks, and as a stretch question in asset management.</span></a></li></ol></section></main><footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">Finance Recruiting Coach</div><p class="note">Made by Brandon, a college freshman preparing for the same interviews. Free, no ads, and the AI parts run on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div><nav class="foot-nav" aria-label="More"><a href="../app.html">The coach</a><a href="../play.html">Play</a><a href="../live.html">Live Room</a><a href="../library/">Lesson library</a><a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a><a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer></body></html>

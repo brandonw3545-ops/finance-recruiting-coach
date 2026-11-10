@@ -13,7 +13,8 @@ main { padding-block: 0; }
 .site-nav { display: flex; align-items: center; gap: 4px 18px; flex-wrap: wrap; justify-content: flex-end; }
 .site-nav a:not(.btn) { color: var(--ink-2); font-weight: 600; font-size: 14px; text-decoration: none; }
 .site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 640px) { .site-nav a[href$="#how"], .site-nav a[href$="#faq"] { display: none; } .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 640px) { .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 520px) { .site-top .brand-name { display: none; } }
 @media (max-width: 380px) { .site-top .brand-name { display: none; } }
 
 /* hero */

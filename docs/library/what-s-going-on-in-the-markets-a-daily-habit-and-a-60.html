@@ -514,6 +514,19 @@ a.btn.primary { color: var(--sheet); }
 .cal-info { display: grid; gap: 8px; margin: 0 0 20px; padding: 14px 16px; border: 1px solid color-mix(in oklab, var(--link) 35%, transparent); background: var(--link-wash); border-radius: 8px; font-size: 14px; }
 .cal-info ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 
+/* readiness + the link out to the games */
+a.tab { text-decoration: none; display: inline-block; }
+.tab-out::after { content: " \2197"; font-weight: 500; color: var(--ink-3); }
+.stats-row .stat-sm b small { font-size: 13px; }
+.ready { margin: 18px 0 0; display: grid; gap: 12px; }
+.ready-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.ready-top .sub { margin-bottom: 0; }
+.ready-n { font-size: 44px; font-weight: 760; font-stretch: 112%; line-height: 1; font-variant-numeric: tabular-nums; flex: none; }
+.ready-n small { font-size: 18px; color: var(--ink-3); font-weight: 600; }
+.ready-pace { font-size: 14.5px; color: var(--ink-2); }
+.ready-pace b { color: var(--ink); }
+.ready-next { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 14.5px; }
+
 /* ==========================================================================
    Website pages (home, lesson library, lessons). Builds on the app's tokens in styles.css.
    Layout: a sticky top bar, full-width bands that alternate paper and sheet, content in .wrap.
@@ -529,7 +542,8 @@ main { padding-block: 0; }
 .site-nav { display: flex; align-items: center; gap: 4px 18px; flex-wrap: wrap; justify-content: flex-end; }
 .site-nav a:not(.btn) { color: var(--ink-2); font-weight: 600; font-size: 14px; text-decoration: none; }
 .site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 640px) { .site-nav a[href$="#how"], .site-nav a[href$="#faq"] { display: none; } .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 640px) { .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 520px) { .site-top .brand-name { display: none; } }
 @media (max-width: 380px) { .site-top .brand-name { display: none; } }
 
 /* hero */
@@ -632,4 +646,283 @@ main { padding-block: 0; }
 .pg:hover { border-color: var(--ink-2); }
 .pg.next { text-align: right; }
 @media (max-width: 560px) { .pager { grid-template-columns: minmax(0, 1fr); } .pg.next { text-align: left; } }
-</style></head><body><header class="site-top"><div class="wrap site-top-row"><a class="brand" href="../"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg><span class="brand-name">Finance Recruiting Coach</span></a><nav class="site-nav" aria-label="Site"><a href="../library/" aria-current="page">Lessons</a><a href="../#how">How it works</a><a href="../#faq">FAQ</a><a class="btn primary small" href="../app.html">Build my plan</a></nav></div></header><main class="wrap lesson-page"><nav class="crumbs" aria-label="Breadcrumb"><a href="./">Lessons</a><span aria-hidden="true">/</span><span>Careers &amp; fit</span></nav><header class="session-head"><div class="session-meta"><span class="chip">CAR</span><span class="note">Careers &amp; Behaviorals</span></div><h1 class="session-title">&quot;What&#39;s going on in the markets?&quot;: a daily habit and a 60-second answer</h1></header><article class="lesson"><div class="lesson-intro"><p><em>Comes up in:</em> Most first rounds, especially asset management, wealth management and sales &amp; trading, as an opener or a closer.</p></div><section class="sec sec-cold"><h2 class="sec-label">Cold open</h2><div class="sec-body"><p>&quot;What&#39;s going on in the markets right now?&quot;</p><p>Answer it out loud before you read on.</p></div></section><section class="sec sec-idea"><h2 class="sec-label">The big idea</h2><div class="sec-body"><p>The interviewer is testing two things: whether you actually follow markets, and whether you can connect a headline to a cause and an effect. A good answer picks one or two themes, gives the numbers that matter, explains why it&#39;s happening, and says what you&#39;re watching next. Think of a weather report: today&#39;s conditions, the front that&#39;s causing them, and the forecast.</p></div></section><section class="sec sec-how"><h2 class="sec-label">How it works</h2><div class="sec-body"><p>Build a ten-minute morning habit.</p><div class="tbl"><table><thead><tr><th>Check</th><th>Where</th><th>What to note</th></tr></thead><tbody><tr><td>The big indexes</td><td>S&amp;P 500, Nasdaq, Dow</td><td>Level and move this week</td></tr><tr><td>Rates</td><td>10-year Treasury yield, the fed funds rate</td><td>Direction and the reason</td></tr><tr><td>The economy</td><td>Latest CPI, jobs report, GDP</td><td>Above or below expectations</td></tr><tr><td>Big moves</td><td>Oil, gold, the dollar</td><td>Only if something moved a lot</td></tr><tr><td>One story</td><td>A deal, an earnings report, a sector</td><td>Your own view on it</td></tr></tbody></table></div><p>Good sources: the Wall Street Journal, Bloomberg, the Financial Times, Reuters, CNBC, the Fed&#39;s own statements and companies&#39; earnings releases.</p><p>Then use four steps for the answer: <strong>theme</strong> (what&#39;s happening), <strong>driver</strong> (why, with one or two numbers), <strong>implication</strong> (what it means for stocks, bonds or a sector) and <strong>what&#39;s next</strong> (what you&#39;re watching, plus your view). Fill in the brackets with this week&#39;s numbers:</p><p>&quot;The big story is [inflation cooling faster than expected]. [CPI] came in at [x]% against [y]% expected, so the 10-year yield fell to about [z]% and growth stocks rallied. What I&#39;m watching is whether the Fed signals [cuts] at its meeting on [date].&quot;</p></div></section><section class="sec sec-world"><h2 class="sec-label">In the real world</h2><div class="sec-body"><p>Here&#39;s what a strong answer looked like in March 2023. Silicon Valley Bank failed on March 10 after depositors tried to pull about $42 billion in a single day, and two days later regulators guaranteed all its deposits. Investors rushed into Treasuries and bet the Fed would slow its rate hikes, and two-year Treasury yields had their biggest three-day drop since 1987. A candidate who connected bank stress to rate expectations to bond prices sounded like they followed markets. One who only said &quot;a bank failed&quot; didn&#39;t. This week, check the latest CPI release and the date of the next Fed meeting before any interview.</p></div></section><section class="sec sec-trap"><h2 class="sec-label">The interview trap</h2><div class="sec-body"><p>The trap is listing headlines without the cause and effect, naming a stock without a single number, or quoting a number you&#39;re not sure of. If you aren&#39;t sure of a figure, say &quot;roughly&quot; or leave it out.</p><blockquote><p>In March 2023, a strong answer sounded like this: The big story is stress in regional banks. Silicon Valley Bank failed after depositors pulled tens of billions of dollars in a day, and regulators stepped in to guarantee deposits. That changed the rate outlook: two-year Treasury yields had their biggest three-day drop since 1987, as investors bet the Fed would slow its hikes. I&#39;m watching deposit flows at other regional banks and whether the Fed still raises rates at its next meeting. My view is that the banking system is better capitalized than in 2008, but banks with lots of uninsured deposits and long-dated bonds are vulnerable.</p></blockquote></div></section><section class="sec sec-line"><h2 class="sec-label">Your line</h2><div class="sec-body"><p>&quot;A markets answer is one theme, the numbers behind it, why it&#39;s happening and what I&#39;m watching next.&quot; <strong>Follow-up you&#39;ll get:</strong> &quot;What would change your view?&quot; <strong>The other side:</strong> Markets move on expectations, not just news. A &quot;good&quot; number can push prices down if investors expected better, so always say what was expected.</p></div></section><section class="sec sec-turn"><h2 class="sec-label">Your turn</h2><div class="sec-body"><ol><li><strong>Say it out loud:</strong> Look up this week&#39;s numbers, then give a 60-second markets update using theme, driver, implication and what&#39;s next.</li><li><strong>Rapid fire:</strong><ol type="a"><li>Name four things to check every morning.</li><li>Why do you compare an economic release to expectations?</li><li>What&#39;s the difference between the fed funds rate and the 10-year Treasury yield?</li></ol></li><li><strong>Rewind:</strong> What are the three parts of a strong &quot;why finance&quot; answer?</li><li><strong>Brain teaser:</strong> A stock rises 50% and then falls 50%. Where does it end up?</li></ol></div></section><details class="sec sec-answers"><summary><span class="sec-label">Answers</span><span class="reveal">Show</span></summary><div class="sec-body"><ul><li><strong>Say it out loud:</strong> A strong answer picks one theme instead of five headlines, uses at least two accurate, current numbers, explains the cause and the effect on prices, and ends with what you&#39;re watching and your own view.</li><li><strong>a.</strong> Index levels, interest rates (the 10-year yield and the Fed), the latest economic data, and one company or sector story, plus any big move in oil, gold or the dollar.</li><li><strong>b.</strong> Prices already reflect what investors expect, so markets react to the surprise, not the number itself.</li><li><strong>c.</strong> The fed funds rate is the Fed&#39;s target for overnight lending between banks; the 10-year yield is set by investors and reflects expectations for growth, inflation and rates over ten years.</li><li><strong>Rewind:</strong> A spark (a specific moment), a follow-through (what you did about it) and a fit (why the work of the seat suits you).</li><li><strong>Brain teaser:</strong> It ends 25% below where it started: 100 rises to 150, then falls 50% to 75.</li></ul></div></details></article><aside class="cta-box"><h2>Practice this out loud</h2><p>Build your plan to record your answers, score them against model answers, and get this lesson at the right point before your interviews.</p><div class="btn-row"><a class="btn primary" href="../app.html">Build my plan</a><a class="btn" href="https://claude.ai/new?q=I'm%20preparing%20for%20finance%20interviews.%20Quiz%20me%20on%20%22%22What's%20going%20on%20in%20the%20markets%3F%22%3A%20a%20daily%20habit%20and%20a%2060-second%20answer%22%20one%20question%20at%20a%20time%2C%20starting%20with%20one%20I%20should%20answer%20out%20loud.%20After%20each%20answer%2C%20score%20it%201-5%20(5%20%3D%20would%20clearly%20pass%20a%20first%20round)%2C%20say%20what%20worked%2C%20give%20the%20top%20fixes%20and%20a%20stronger%2060-second%20version%2C%20then%20ask%20the%20follow-up%20a%20real%20interviewer%20would%20ask.%20Be%20accurate%20and%20don't%20invent%20figures." target="_blank" rel="noopener">Quiz me in Claude<span class="ext" aria-hidden="true"> ↗</span></a></div></aside><nav class="pager" aria-label="More lessons"><a class="pg prev" href="your-why-finance-story-an-answer-only-you-could-give.html"><span class="note">Previous</span><b>Your &quot;why finance&quot; story: an answer only you could give</b></a><a class="pg next" href="how-finance-recruiting-works-clubs-timelines-early-programs.html"><span class="note">Next</span><b>How finance recruiting works: clubs, timelines, early programs and superdays</b></a></nav></main><footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">Finance Recruiting Coach</div><p class="note">Made by a college freshman who was preparing for the same interviews. Free, no ads, and it runs on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div><nav class="foot-nav" aria-label="More"><a href="../app.html">The coach</a><a href="../library/">Lesson library</a><a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a><a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer><script>document.addEventListener("toggle",function(e){var d=e.target;if(d.matches&&d.matches("details.sec-answers")){var r=d.querySelector(".reveal");if(r)r.textContent=d.open?"Hide":"Show";}},true);</script></body></html>
+
+/* ==========================================================================
+   The model look: worksheets, ledgers and sheet tabs.
+   Used by the home page, Play and the Live Room. Builds on the tokens in styles.css.
+   The idea: this is prep for people who will live in spreadsheets, so the interactive
+   parts are spreadsheets. Row numbers number real rows, the blue cell is the one you
+   type in, and negatives sit in parentheses.
+   ========================================================================== */
+:root { --head: color-mix(in oklab, var(--paper) 78%, var(--rule-2)); --cell: 28px; }
+
+/* ---------- worksheet ---------- */
+.ws { background: var(--sheet); border: 1px solid var(--rule-2); box-shadow: var(--shadow); min-width: 0; }
+.ws-bar { display: flex; align-items: stretch; border-bottom: 1px solid var(--rule-2); background: var(--head); font-size: 13px; line-height: 1.2; }
+.ws-bar > span { display: flex; align-items: center; padding: 7px 10px; white-space: nowrap; }
+.ws-ref { min-width: 62px; justify-content: center; background: var(--sheet); border-right: 1px solid var(--rule-2); font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.ws-fx { font-family: var(--f-read); font-style: italic; color: var(--ink-3); padding-right: 4px !important; }
+.ws-formula { flex: 1; min-width: 0; font-family: var(--f-mono); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; padding-left: 4px !important; }
+.ws-meter { border-left: 1px solid var(--rule-2); gap: 5px; color: var(--ink-2); }
+.ws-meter b { color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
+.ws-clock { border-left: 1px solid var(--rule-2); background: var(--sheet); font-family: var(--f-mono); font-weight: 600; font-variant-numeric: tabular-nums; min-width: 6ch; justify-content: flex-end; }
+.ws-time { height: 4px; background: var(--rule); }
+.ws-time i { display: block; height: 100%; width: 0; background: var(--input); }
+.ws-grid { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 15px; background: var(--sheet); }
+.ws-grid th { background: var(--head); border: 1px solid var(--rule); padding: 3px 8px; font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; color: var(--ink-3); text-align: center; }
+.ws-grid td { border: 1px solid var(--rule); padding: 8px 10px; vertical-align: middle; overflow-wrap: anywhere; }
+.ws-grid .rn { width: 34px; padding: 3px 2px; background: var(--head); font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; }
+.ws-grid .num { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ws-note { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.ws > .btn-row { padding: 14px 14px 16px; }
+.fn { font-size: 12.5px; color: var(--ink-3); margin-top: 8px; max-width: 70ch; }
+.fn a { color: inherit; }
+sup { font-size: .68em; line-height: 0; font-variant-numeric: normal; }
+
+/* ---------- Mental Math Sprint ---------- */
+.sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 150px; }
+.sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 96px; }
+.sp-grid .hdr td { font-weight: 650; font-size: 12.5px; color: var(--ink-2); padding-block: 5px; }
+.sp-grid #sp-log tr:not(.hdr) td { font-size: 13.5px; color: var(--ink-2); padding-block: 6px; }
+.sp-grid .typed { color: var(--input) !important; }
+.sp-grid .miss .typed { text-decoration: line-through; text-decoration-color: var(--miss); }
+.sp-grid .skip { font-family: var(--f-ui); font-size: 12px; color: var(--ink-3); }
+.sp-grid .ok .chk { color: var(--link) !important; font-weight: 700; }
+.sp-grid .miss .chk { color: var(--miss) !important; font-weight: 600; }
+.sp-grid .active .q { font-family: var(--f-read); font-size: 20px; font-weight: 600; line-height: 1.32; padding: 16px 12px; }
+.sp-grid .in-cell { padding: 0; box-shadow: inset 0 0 0 2px var(--input); }
+.sp-grid form { display: flex; align-items: baseline; }
+.cell-in { flex: 1; min-width: 0; width: 100%; border: 0; background: transparent; padding: 15px 4px 15px 10px; font-family: var(--f-mono); font-size: 20px; font-weight: 600; color: var(--input); text-align: right; font-variant-numeric: tabular-nums; }
+.cell-in:focus { outline: none; }
+.cell-in:disabled { color: var(--ink-3); }
+.sp-grid .unit { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-3); padding-right: 8px; }
+.sp-grid .unit:empty { padding-right: 6px; }
+.sp-grid .active td:last-child { text-align: center; padding: 6px; }
+@media (max-width: 560px) {
+  .sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 112px; }
+  .sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 70px; }
+  .sp-grid .active .q { font-size: 18px; padding: 12px 10px; }
+  .cell-in { font-size: 18px; padding-block: 13px; }
+  .ws-grid .rn { width: 26px; }
+  .ws-formula { display: none !important; }
+  .ws-fx { flex: 1; }
+}
+
+/* ---------- Statement Flows ---------- */
+.fl-event { padding: 18px 16px 14px; border-bottom: 1px solid var(--rule-2); }
+.fl-text { font-family: var(--f-read); font-size: clamp(20px, 2.5vw, 27px); font-weight: 600; line-height: 1.28; max-width: 34ch; text-wrap: balance; }
+.fl-assume { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+.fl-stmts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; background: var(--sheet); }
+@media (min-width: 940px) { .fl-stmts { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fl-stmts .fl-tbl + .fl-tbl { border-left: 1px solid var(--rule-2); } }
+.fl-tbl th:nth-child(2) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+.fl-tbl .chg { width: 138px; text-align: center; padding: 5px 6px; white-space: nowrap; }
+.fl-tbl th.chg { font-family: var(--f-ui); font-size: 12px; }
+.seg3 { display: inline-flex; border: 1px solid var(--rule-2); border-radius: 5px; overflow: hidden; background: var(--sheet); }
+.seg3 button { appearance: none; border: 0; border-left: 1px solid var(--rule); background: none; width: 40px; height: 34px; font-size: 14px; color: var(--ink-3); cursor: pointer; }
+.seg3 button:first-child { border-left: 0; }
+.seg3 button:hover { background: var(--paper); color: var(--ink); }
+.seg3 button[aria-pressed="true"][data-pick="1"] { background: var(--link-wash); color: var(--link); }
+.seg3 button[aria-pressed="true"][data-pick="0"] { background: var(--head); color: var(--ink); font-weight: 700; }
+.seg3 button[aria-pressed="true"][data-pick="-1"] { background: var(--miss-wash); color: var(--miss); }
+.fl-ans { display: inline-block; min-width: 6ch; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.fl-ans.up { color: var(--link); } .fl-ans.down { color: var(--miss); } .fl-ans.flat { color: var(--ink-3); }
+.fl-mark { display: inline-block; width: 2.2ch; text-align: right; font-weight: 700; }
+.fl-mark.ok { color: var(--link); } .fl-mark.miss { color: var(--miss); }
+.fl-tbl tr.miss td:nth-child(2) { background: var(--miss-wash); }
+.fl-why { padding: 16px; border-top: 1px solid var(--rule-2); display: grid; gap: 10px; }
+.fl-got { font-size: 15.5px; }
+.fl-why dl { margin: 0; display: grid; gap: 2px 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .fl-why dl { grid-template-columns: 150px minmax(0, 1fr); } }
+.fl-why dt { font-size: 13px; font-weight: 650; color: var(--ink-2); padding-top: 3px; }
+.fl-why dd { margin: 0 0 8px; font-family: var(--f-read); font-size: 16.5px; line-height: 1.5; max-width: 68ch; }
+
+/* ---------- Play page ---------- */
+.play-main { padding-block: 28px 64px; display: grid; gap: 30px; align-content: start; }
+.play-main > * { min-width: 0; }
+.play-head { display: grid; gap: 4px; }
+.play-top { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; justify-content: space-between; }
+.play-top .backlink { margin: 0; }
+#game { margin-top: 12px; }
+.game-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 0; border: 1px solid var(--rule-2); background: var(--rule-2); column-gap: 1px; row-gap: 1px; }
+.game-tile { background: var(--sheet); padding: 22px 22px 24px; display: grid; gap: 10px; align-content: start; }
+.game-tile h2 { font-size: 24px; font-weight: 760; font-stretch: 112%; letter-spacing: -0.015em; }
+.game-tile p { color: var(--ink-2); max-width: 52ch; }
+.game-best { font-size: 13.5px; }
+.game-best b { color: var(--ink); font-size: 16px; }
+.prog, .live-cta { display: grid; gap: 10px; }
+.prog h2, .live-cta h2 { font-size: 19px; font-weight: 720; }
+.prog-tbl td:nth-child(2) { width: 150px; font-weight: 600; }
+.prog-tbl td:nth-child(3) { width: 150px; }
+.prog-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; }
+.live-cta p { color: var(--ink-2); max-width: 60ch; }
+@media (max-width: 640px) {
+  .prog-tbl td:nth-child(2) { width: 104px; } .prog-tbl td:nth-child(3) { width: 84px; white-space: normal; }
+}
+.ch-banner { background: var(--input-wash); border: 1px solid color-mix(in oklab, var(--input) 35%, transparent); padding: 16px 18px; display: grid; gap: 12px; }
+.ch-banner p { font-family: var(--f-read); font-size: 19px; line-height: 1.4; max-width: 56ch; }
+.res { margin-top: 26px; display: grid; gap: 14px; max-width: 780px; }
+.res-num { font-size: clamp(84px, 16vw, 148px); font-weight: 800; font-stretch: 122%; line-height: .86; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
+.res-lbl { font-size: 19px; color: var(--ink-2); margin-top: -4px; }
+.res-tbl td:nth-child(2) { font-weight: 600; }
+.res-tbl td:nth-child(3) { width: 84px; }
+.res-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 38%; }
+.res-share { display: grid; gap: 8px; padding: 16px; background: var(--sheet); border: 1px solid var(--rule-2); }
+.res-share label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.res-share .in { max-width: 260px; }
+.hero-out { padding: 14px; border-top: 1px solid var(--rule-2); background: var(--sheet); display: grid; gap: 10px; border: 1px solid var(--rule-2); border-top: 0; }
+
+/* ---------- Live Room ---------- */
+.live-main { padding-block: 28px 64px; display: grid; gap: 24px; align-content: start; }
+.live-main > * { min-width: 0; }
+.live-head { display: grid; gap: 4px; }
+.live-note { padding: 10px 14px; background: var(--flag-wash); border: 1px solid color-mix(in oklab, var(--flag) 40%, transparent); font-size: 14.5px; max-width: 70ch; }
+.live-door { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+.door-card { background: var(--sheet); padding: 22px; display: grid; gap: 12px; align-content: start; }
+.door-card h2 { font-size: 22px; font-weight: 740; font-stretch: 110%; }
+.door-card p { color: var(--ink-2); max-width: 46ch; }
+.code-in { font-family: var(--f-mono); font-size: 28px; letter-spacing: .3em; text-transform: uppercase; max-width: 8.5em; padding-block: 8px; }
+.live-setup-db { background: var(--sheet); border: 1px solid var(--rule-2); padding: 20px; display: grid; gap: 12px; max-width: 720px; }
+.live-setup-db h2 { font-size: 19px; }
+.live-setup-db p { color: var(--ink-2); }
+.host-form { display: grid; max-width: 720px; }
+.radio-pill { position: relative; }
+.radio-pill input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.radio-pill span { display: block; border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink-2); padding: 8px 14px; font-size: 14.5px; font-weight: 600; border-radius: var(--r); }
+.radio-pill input:checked + span { color: var(--input); border-color: var(--input); background: var(--input-wash); }
+.radio-pill input:focus-visible + span { outline: 2px solid var(--input); outline-offset: 2px; }
+
+/* the host screen is read from the back of a room: everything scales with the window */
+.host { display: grid; gap: clamp(14px, 2.4vh, 28px); align-content: start; }
+.lobby { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: center; background: var(--sheet); border: 1px solid var(--rule-2); padding: clamp(18px, 3vw, 40px); }
+@media (min-width: 820px) { .lobby { grid-template-columns: minmax(0, 1fr) auto; } }
+.lobby-how { font-size: clamp(17px, 2vw, 26px); color: var(--ink-2); overflow-wrap: anywhere; }
+.lobby-how b { color: var(--ink); }
+.room-code { font-family: var(--f-mono); font-weight: 600; font-size: clamp(72px, 15vw, 220px); line-height: 1; letter-spacing: .08em; color: var(--input); margin: 6px 0 10px; }
+.lobby-qr { display: grid; gap: 6px; justify-items: center; }
+.lobby-qr svg { width: clamp(180px, 24vw, 340px); height: auto; display: block; border: 1px solid var(--rule); }
+.lobby-players h2 { font-size: clamp(18px, 2vw, 26px); font-weight: 720; margin-bottom: 10px; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pchip { appearance: none; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: 4px; padding: 6px 12px; font-size: clamp(15px, 1.5vw, 22px); font-weight: 600; color: var(--ink); cursor: pointer; }
+.pchip span { color: var(--ink-3); }
+.pchip:hover { border-color: var(--miss); color: var(--miss); }
+.host-actions { gap: 12px 16px; }
+.q-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; font-size: clamp(15px, 1.5vw, 22px); color: var(--ink-2); }
+.q-n { font-weight: 700; color: var(--ink); }
+.q-in { margin-left: auto; }
+.q-clock { font-family: var(--f-mono); font-weight: 600; font-size: clamp(26px, 3.4vw, 56px); color: var(--ink); min-width: 2ch; text-align: right; font-variant-numeric: tabular-nums; line-height: 1; }
+.q-bar { height: 8px; }
+.q-text { font-family: var(--f-read); font-weight: 600; font-size: clamp(24px, 3.5vw, 58px); line-height: 1.18; max-width: 30ch; text-wrap: balance; }
+.q-choices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 700px) { .q-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.q-choices li { background: var(--sheet); display: flex; align-items: center; gap: clamp(10px, 1.4vw, 22px); padding: clamp(12px, 1.8vw, 28px); font-size: clamp(20px, 2.6vw, 44px); font-weight: 650; }
+.q-letter { flex: none; display: grid; place-items: center; width: 1.7em; height: 1.7em; background: var(--head); border: 1px solid var(--rule-2); font-family: var(--f-mono); font-size: .68em; font-weight: 600; color: var(--ink-2); }
+.q-choice { flex: 1; min-width: 0; font-variant-numeric: tabular-nums; }
+.q-count { font-family: var(--f-mono); font-size: .7em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.q-choices.revealed li { color: var(--ink-3); }
+.q-choices.revealed li.right { background: var(--link-wash); color: var(--link); }
+.q-choices.revealed li.right .q-letter { background: var(--link); border-color: var(--link); color: var(--sheet); }
+.q-choices.revealed li.right .q-count { color: var(--link); }
+.q-why { font-family: var(--f-read); font-size: clamp(15px, 1.5vw, 22px); line-height: 1.45; color: var(--ink-2); max-width: 90ch; }
+.board h2 { font-size: clamp(16px, 1.6vw, 22px); font-weight: 720; margin-bottom: 8px; }
+.board-tbl { font-size: clamp(16px, 1.8vw, 28px); max-width: 900px; }
+.board-tbl td:nth-child(3) { width: 7em; }
+.board-tbl .rn { font-size: .6em; width: 2.6em; }
+.final-h { font-size: clamp(28px, 4vw, 60px); font-weight: 780; font-stretch: 114%; letter-spacing: -0.02em; }
+.final { display: grid; gap: clamp(16px, 2.6vh, 30px); }
+.podium { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 760px) { .podium { grid-template-columns: 1.25fr 1fr 1fr; } }
+.podium li { background: var(--sheet); padding: clamp(14px, 2vw, 30px); display: grid; gap: 4px; }
+.pod-place { font-family: var(--f-mono); font-size: clamp(14px, 1.3vw, 20px); color: var(--ink-3); }
+.pod-name { font-size: clamp(26px, 3.6vw, 60px); font-weight: 780; font-stretch: 112%; letter-spacing: -0.02em; line-height: 1.05; overflow-wrap: anywhere; }
+.pod-score { font-family: var(--f-mono); font-size: clamp(18px, 2vw, 32px); font-variant-numeric: tabular-nums; }
+.podium .p1 { background: var(--input-wash); }
+.podium .p1 .pod-name { color: var(--input); }
+body.is-host .wrap { max-width: 1680px; }
+body.is-host .site-foot { display: none; }
+
+/* a player's phone */
+.player { max-width: 560px; margin-inline: auto; display: grid; gap: 14px; width: 100%; }
+.p-top { display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.p-q { font-family: var(--f-read); font-size: 19px; font-weight: 600; line-height: 1.35; }
+.p-choices { display: grid; gap: 10px; }
+.p-choice { appearance: none; display: flex; align-items: center; gap: 14px; width: 100%; min-height: 64px; padding: 12px 14px; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: var(--r); font-size: 20px; font-weight: 650; color: var(--ink); text-align: left; cursor: pointer; font-variant-numeric: tabular-nums; }
+.p-choice .q-letter { font-size: 15px; width: 34px; height: 34px; }
+.p-choice:disabled { cursor: default; color: var(--ink-3); }
+.p-choice.picked { border-color: var(--input); box-shadow: inset 0 0 0 2px var(--input); color: var(--input); background: var(--input-wash); }
+.p-status { min-height: 1.5em; font-weight: 600; color: var(--ink-2); text-align: center; }
+.p-msg { background: var(--sheet); border: 1px solid var(--rule-2); padding: 26px 22px; display: grid; gap: 10px; }
+.p-msg h2 { font-size: 24px; font-weight: 760; font-stretch: 110%; }
+.p-msg p { color: var(--ink-2); }
+.p-verdict { font-size: 30px; font-weight: 780; font-stretch: 112%; color: var(--ink) !important; letter-spacing: -0.015em; }
+.p-pts { font-family: var(--f-mono); font-size: 44px; font-weight: 600; line-height: 1; color: var(--ink) !important; font-variant-numeric: tabular-nums; }
+.p-right { border-color: var(--link); } .p-right .p-verdict, .p-right .p-pts { color: var(--link) !important; }
+.p-wrong .p-verdict { color: var(--miss) !important; }
+.p-rank { font-weight: 600; color: var(--ink) !important; }
+
+/* ---------- home page ---------- */
+.grid-paper { background-color: var(--paper); background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: var(--cell) var(--cell); background-position: -1px -1px; }
+.home .hero { padding-block: 44px 52px; border-bottom: 1px solid var(--rule-2); }
+.home .hero-copy { background: var(--paper); padding: 4px 14px 14px 0; align-self: start; box-shadow: 0 0 0 10px var(--paper); }
+.home .hero-h { max-width: 13ch; font-size: clamp(38px, 5.2vw, 66px); }
+.home .hero-sub .t-in { color: var(--input); font-weight: 600; }
+.hero-sheet { min-width: 0; align-self: start; }
+.home .band { border-top: 0; border-bottom: 1px solid var(--rule); padding-block: 52px; scroll-margin-top: 64px; }
+.sec-note { color: var(--ink-2); max-width: 44ch; margin-top: -12px; }
+.tear td:nth-child(2) { font-weight: 600; }
+.tear td:nth-child(3) { width: 92px; font-size: 17px; font-weight: 600; color: var(--ink); }
+.tear td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 44%; }
+@media (max-width: 720px) { .tear td:nth-child(4) { display: none; } .tear th:nth-child(4) { display: none; } }
+.play-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 44px; align-items: start; }
+@media (min-width: 980px) { .play-row { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); } .play-row.flip { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); } }
+.play-row + .play-row { margin-top: 48px; }
+.play-copy { display: grid; gap: 12px; align-content: start; }
+.play-copy h3 { font-size: 23px; font-weight: 750; font-stretch: 110%; letter-spacing: -0.012em; }
+.play-copy p { font-family: var(--f-read); font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 54ch; }
+.ex-cap { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.shot { margin: 0; display: grid; gap: 8px; }
+.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule-2); box-shadow: var(--shadow); background: var(--sheet); }
+.shot figcaption { font-size: 13px; color: var(--ink-2); }
+.maker { display: grid; gap: 14px; }
+.maker p { font-family: var(--f-read); font-size: 19px; line-height: 1.6; max-width: 60ch; }
+.maker .sig { font-family: var(--f-ui); font-size: 15px; font-weight: 650; color: var(--ink-2); }
+.contents td:nth-child(2) { font-weight: 600; width: 24%; }
+.contents td:nth-child(4) { width: 132px; font-size: 13.5px; color: var(--ink-2); }
+.contents td:nth-child(3) { color: var(--ink-2); font-size: 14.5px; }
+.contents th:not(.rn) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+@media (max-width: 720px) { .contents td:nth-child(2) { width: 34%; } .contents td:nth-child(4), .contents th:nth-child(4) { display: none; } }
+.lesson-ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-2); }
+.lesson-ledger li { border-bottom: 1px solid var(--rule); }
+.lesson-ledger a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 12px 4px; color: var(--ink); text-decoration: none; }
+.lesson-ledger a:hover { background: var(--paper); }
+.lesson-ledger .n { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; }
+.lesson-ledger b { font-size: 16.5px; font-weight: 650; }
+.lesson-ledger .where { font-size: 13px; color: var(--ink-2); text-align: right; max-width: 30ch; }
+@media (max-width: 720px) { .lesson-ledger .where { display: none; } }
+.footnotes { padding-block: 22px 28px; }
+.footnotes ol { margin: 0; padding-left: 1.4em; font-size: 13px; color: var(--ink-2); display: grid; gap: 4px; max-width: 86ch; }
+
+/* sheet tabs: the home page's sections, along the bottom like a workbook */
+.sheet-tabs { position: sticky; bottom: 0; z-index: 15; display: flex; align-items: stretch; background: var(--head); border-top: 1px solid var(--rule-2); overflow-x: auto; scrollbar-width: none; padding-bottom: env(safe-area-inset-bottom, 0px); padding-left: max(8px, env(safe-area-inset-left, 0px)); }
+.sheet-tabs::-webkit-scrollbar { display: none; }
+.sheet-tabs a { flex: none; padding: 9px 16px 10px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); text-decoration: none; border-right: 1px solid var(--rule-2); white-space: nowrap; }
+.sheet-tabs a:first-child { border-left: 1px solid var(--rule-2); }
+.sheet-tabs a:hover { color: var(--ink); background: var(--paper); }
+.sheet-tabs a[aria-current="true"] { background: var(--sheet); color: var(--link); box-shadow: inset 0 -3px 0 var(--link); margin-top: -1px; border-top: 1px solid var(--sheet); }
+.has-tabs .toast { bottom: calc(max(20px, env(safe-area-inset-bottom, 0px)) + 44px); }
+
+/* nav */
+.site-nav a[aria-current="page"]:not(.btn) { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 560px) { .site-nav { gap: 4px 12px; } .site-nav .btn.small { padding: 5px 8px; } .site-nav .nav-opt { display: none; } }
+
+/* the Live Room example on the home page: the host screen, at card size */
+.lobby-ex { display: grid; gap: 12px; min-width: 0; }
+.lobby-ex .lobby { padding: 20px; gap: 16px; }
+.lobby-ex .lobby-how { font-size: 15px; }
+.lobby-ex .room-code { font-size: clamp(56px, 8vw, 92px); margin: 4px 0 0; }
+.lobby-ex .lobby-qr svg { width: 148px; }
+.lobby-ex .pchip { font-size: 14.5px; cursor: default; padding: 4px 10px; }
+.lobby-ex .pchip:hover { border-color: var(--rule-2); color: var(--ink); }
+@media (min-width: 820px) and (max-width: 1100px) { .lobby-ex .lobby { grid-template-columns: minmax(0, 1fr); } }
+.home .demo { border-radius: 0; }
+.home .ex-flag { font-family: var(--f-ui); font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 600; color: var(--ink-2); }
+</style></head><body><header class="site-top"><div class="wrap site-top-row"><a class="brand" href="../"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg><span class="brand-name">Finance Recruiting Coach</span></a><nav class="site-nav" aria-label="Site"><a href="../play.html">Play</a><a class="nav-opt" href="../live.html">Live Room</a><a href="../library/" aria-current="page">Lessons</a><a class="btn primary small" href="../app.html">Build my plan</a></nav></div></header><main class="wrap lesson-page"><nav class="crumbs" aria-label="Breadcrumb"><a href="./">Lessons</a><span aria-hidden="true">/</span><span>Careers &amp; fit</span></nav><header class="session-head"><div class="session-meta"><span class="chip">CAR</span><span class="note">Careers &amp; Behaviorals</span></div><h1 class="session-title">&quot;What&#39;s going on in the markets?&quot;: a daily habit and a 60-second answer</h1></header><article class="lesson"><div class="lesson-intro"><p><em>Comes up in:</em> Most first rounds, especially asset management, wealth management and sales &amp; trading, as an opener or a closer.</p></div><section class="sec sec-cold"><h2 class="sec-label">Cold open</h2><div class="sec-body"><p>&quot;What&#39;s going on in the markets right now?&quot;</p><p>Answer it out loud before you read on.</p></div></section><section class="sec sec-idea"><h2 class="sec-label">The big idea</h2><div class="sec-body"><p>The interviewer is testing two things: whether you actually follow markets, and whether you can connect a headline to a cause and an effect. A good answer picks one or two themes, gives the numbers that matter, explains why it&#39;s happening, and says what you&#39;re watching next. Think of a weather report: today&#39;s conditions, the front that&#39;s causing them, and the forecast.</p></div></section><section class="sec sec-how"><h2 class="sec-label">How it works</h2><div class="sec-body"><p>Build a ten-minute morning habit.</p><div class="tbl"><table><thead><tr><th>Check</th><th>Where</th><th>What to note</th></tr></thead><tbody><tr><td>The big indexes</td><td>S&amp;P 500, Nasdaq, Dow</td><td>Level and move this week</td></tr><tr><td>Rates</td><td>10-year Treasury yield, the fed funds rate</td><td>Direction and the reason</td></tr><tr><td>The economy</td><td>Latest CPI, jobs report, GDP</td><td>Above or below expectations</td></tr><tr><td>Big moves</td><td>Oil, gold, the dollar</td><td>Only if something moved a lot</td></tr><tr><td>One story</td><td>A deal, an earnings report, a sector</td><td>Your own view on it</td></tr></tbody></table></div><p>Good sources: the Wall Street Journal, Bloomberg, the Financial Times, Reuters, CNBC, the Fed&#39;s own statements and companies&#39; earnings releases.</p><p>Then use four steps for the answer: <strong>theme</strong> (what&#39;s happening), <strong>driver</strong> (why, with one or two numbers), <strong>implication</strong> (what it means for stocks, bonds or a sector) and <strong>what&#39;s next</strong> (what you&#39;re watching, plus your view). Fill in the brackets with this week&#39;s numbers:</p><p>&quot;The big story is [inflation cooling faster than expected]. [CPI] came in at [x]% against [y]% expected, so the 10-year yield fell to about [z]% and growth stocks rallied. What I&#39;m watching is whether the Fed signals [cuts] at its meeting on [date].&quot;</p></div></section><section class="sec sec-world"><h2 class="sec-label">In the real world</h2><div class="sec-body"><p>Here&#39;s what a strong answer looked like in March 2023. Silicon Valley Bank failed on March 10 after depositors tried to pull about $42 billion in a single day, and two days later regulators guaranteed all its deposits. Investors rushed into Treasuries and bet the Fed would slow its rate hikes, and two-year Treasury yields had their biggest three-day drop since 1987. A candidate who connected bank stress to rate expectations to bond prices sounded like they followed markets. One who only said &quot;a bank failed&quot; didn&#39;t. This week, check the latest CPI release and the date of the next Fed meeting before any interview.</p></div></section><section class="sec sec-trap"><h2 class="sec-label">The interview trap</h2><div class="sec-body"><p>The trap is listing headlines without the cause and effect, naming a stock without a single number, or quoting a number you&#39;re not sure of. If you aren&#39;t sure of a figure, say &quot;roughly&quot; or leave it out.</p><blockquote><p>In March 2023, a strong answer sounded like this: The big story is stress in regional banks. Silicon Valley Bank failed after depositors pulled tens of billions of dollars in a day, and regulators stepped in to guarantee deposits. That changed the rate outlook: two-year Treasury yields had their biggest three-day drop since 1987, as investors bet the Fed would slow its hikes. I&#39;m watching deposit flows at other regional banks and whether the Fed still raises rates at its next meeting. My view is that the banking system is better capitalized than in 2008, but banks with lots of uninsured deposits and long-dated bonds are vulnerable.</p></blockquote></div></section><section class="sec sec-line"><h2 class="sec-label">Your line</h2><div class="sec-body"><p>&quot;A markets answer is one theme, the numbers behind it, why it&#39;s happening and what I&#39;m watching next.&quot; <strong>Follow-up you&#39;ll get:</strong> &quot;What would change your view?&quot; <strong>The other side:</strong> Markets move on expectations, not just news. A &quot;good&quot; number can push prices down if investors expected better, so always say what was expected.</p></div></section><section class="sec sec-turn"><h2 class="sec-label">Your turn</h2><div class="sec-body"><ol><li><strong>Say it out loud:</strong> Look up this week&#39;s numbers, then give a 60-second markets update using theme, driver, implication and what&#39;s next.</li><li><strong>Rapid fire:</strong><ol type="a"><li>Name four things to check every morning.</li><li>Why do you compare an economic release to expectations?</li><li>What&#39;s the difference between the fed funds rate and the 10-year Treasury yield?</li></ol></li><li><strong>Rewind:</strong> What are the three parts of a strong &quot;why finance&quot; answer?</li><li><strong>Brain teaser:</strong> A stock rises 50% and then falls 50%. Where does it end up?</li></ol></div></section><details class="sec sec-answers"><summary><span class="sec-label">Answers</span><span class="reveal">Show</span></summary><div class="sec-body"><ul><li><strong>Say it out loud:</strong> A strong answer picks one theme instead of five headlines, uses at least two accurate, current numbers, explains the cause and the effect on prices, and ends with what you&#39;re watching and your own view.</li><li><strong>a.</strong> Index levels, interest rates (the 10-year yield and the Fed), the latest economic data, and one company or sector story, plus any big move in oil, gold or the dollar.</li><li><strong>b.</strong> Prices already reflect what investors expect, so markets react to the surprise, not the number itself.</li><li><strong>c.</strong> The fed funds rate is the Fed&#39;s target for overnight lending between banks; the 10-year yield is set by investors and reflects expectations for growth, inflation and rates over ten years.</li><li><strong>Rewind:</strong> A spark (a specific moment), a follow-through (what you did about it) and a fit (why the work of the seat suits you).</li><li><strong>Brain teaser:</strong> It ends 25% below where it started: 100 rises to 150, then falls 50% to 75.</li></ul></div></details></article><aside class="cta-box"><h2>Practice this out loud</h2><p>Build your plan to record your answers, score them against model answers, and get this lesson at the right point before your interviews.</p><div class="btn-row"><a class="btn primary" href="../app.html">Build my plan</a><a class="btn" href="https://claude.ai/new?q=I'm%20preparing%20for%20finance%20interviews.%20Quiz%20me%20on%20%22%22What's%20going%20on%20in%20the%20markets%3F%22%3A%20a%20daily%20habit%20and%20a%2060-second%20answer%22%20one%20question%20at%20a%20time%2C%20starting%20with%20one%20I%20should%20answer%20out%20loud.%20After%20each%20answer%2C%20score%20it%201-5%20(5%20%3D%20would%20clearly%20pass%20a%20first%20round)%2C%20say%20what%20worked%2C%20give%20the%20top%20fixes%20and%20a%20stronger%2060-second%20version%2C%20then%20ask%20the%20follow-up%20a%20real%20interviewer%20would%20ask.%20Be%20accurate%20and%20don't%20invent%20figures." target="_blank" rel="noopener">Quiz me in Claude<span class="ext" aria-hidden="true"> ↗</span></a></div></aside><nav class="pager" aria-label="More lessons"><a class="pg prev" href="your-why-finance-story-an-answer-only-you-could-give.html"><span class="note">Previous</span><b>Your &quot;why finance&quot; story: an answer only you could give</b></a><a class="pg next" href="how-finance-recruiting-works-clubs-timelines-early-programs.html"><span class="note">Next</span><b>How finance recruiting works: clubs, timelines, early programs and superdays</b></a></nav></main><footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">Finance Recruiting Coach</div><p class="note">Made by Brandon, a college freshman preparing for the same interviews. Free, no ads, and the AI parts run on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div><nav class="foot-nav" aria-label="More"><a href="../app.html">The coach</a><a href="../play.html">Play</a><a href="../live.html">Live Room</a><a href="../library/">Lesson library</a><a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a><a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer><script>document.addEventListener("toggle",function(e){var d=e.target;if(d.matches&&d.matches("details.sec-answers")){var r=d.querySelector(".reveal");if(r)r.textContent=d.open?"Hide":"Show";}},true);</script></body></html>

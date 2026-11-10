@@ -1,0 +1,1731 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Play · Finance Recruiting Coach</title><meta name="description" content="Two free games for finance interviews: a 60-second Mental Math Sprint and Statement Flows, where one event moves all three statements. Send a friend the same round."><meta name="claude:viewport-fit-sides" content="cover"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2028%2028%22%3E%3Crect%20width%3D%2228%22%20height%3D%2228%22%20rx%3D%226%22%20fill%3D%22%231537CF%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%227.5%22%20width%3D%2216%22%20height%3D%222.6%22%20rx%3D%221.3%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2212.7%22%20width%3D%2211.5%22%20height%3D%222.6%22%20rx%3D%221.3%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2217.9%22%20width%3D%227%22%20height%3D%222.6%22%20rx%3D%221.3%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M15.6%2018.6l2.2%202.2%204.4-5%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="canonical" href="https://brandonw3545-ops.github.io/finance-recruiting-coach/play.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Finance Recruiting Coach"><meta property="og:title" content="Play · Finance Recruiting Coach"><meta property="og:description" content="Two free games for finance interviews: a 60-second Mental Math Sprint and Statement Flows, where one event moves all three statements. Send a friend the same round."><meta property="og:url" content="https://brandonw3545-ops.github.io/finance-recruiting-coach/play.html"><meta property="og:image" content="https://brandonw3545-ops.github.io/finance-recruiting-coach/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+:root {
+  /* Layout: a working model. Blue = what the student typed, black = what the coach builds,
+     green = sessions linked to one of their dates. Sticky header, tabbed views, ledger-ruled day lists. */
+  --paper: #F1F4EF;
+  --sheet: #FFFFFF;
+  --ink: #101C29;
+  --ink-2: #485664;
+  --ink-3: #5F6C78;
+  --rule: #D6DFD4;
+  --rule-2: #B4C2B2;
+  --input: #1537CF;
+  --input-wash: #E8EDFF;
+  --link: #15703A;
+  --link-wash: #E1F1E6;
+  --flag: #8F5300;
+  --flag-wash: #FFF0D2;
+  --miss: #AE2A20;
+  --miss-wash: #FBE7E4;
+  --today: #FFF3B0;
+  --shadow: 0 1px 2px rgba(16, 28, 41, .06), 0 6px 18px rgba(16, 28, 41, .06);
+  --f-ui: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-read: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0C131A; --sheet: #131C26; --ink: #E7EDF2; --ink-2: #A9B5C1; --ink-3: #8794A1;
+    --rule: #223040; --rule-2: #34475B; --input: #93A8FF; --input-wash: #1B2547;
+    --link: #5DCC88; --link-wash: #11301E; --flag: #F2B45A; --flag-wash: #35260C;
+    --miss: #FF8E82; --miss-wash: #3B1814; --today: #3A3311;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0C131A; --sheet: #131C26; --ink: #E7EDF2; --ink-2: #A9B5C1; --ink-3: #8794A1;
+  --rule: #223040; --rule-2: #34475B; --input: #93A8FF; --input-wash: #1B2547;
+  --link: #5DCC88; --link-wash: #11301E; --flag: #F2B45A; --flag-wash: #35260C;
+  --miss: #FF8E82; --miss-wash: #3B1814; --today: #3A3311;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-ui); font-size: 15px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--sheet); }
+h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--input); }
+:focus-visible { outline: 2px solid var(--input); outline-offset: 2px; }
+.mono { font-family: var(--f-mono); }
+.num { font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- header ---------- */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--sheet); border-bottom: 1px solid var(--rule); }
+.top-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px 4px; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-mark { flex: none; width: 28px; height: 28px; }
+.brand-name { font-weight: 760; font-stretch: 116%; font-size: 17px; letter-spacing: -0.01em; line-height: 1.1; white-space: nowrap; }
+.brand-sub { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand-txt { min-width: 0; }
+.count { display: flex; align-items: baseline; gap: 8px; flex: none; text-align: right; }
+.count-n { font-weight: 720; font-stretch: 110%; font-size: 26px; line-height: 1; }
+.count-l { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; line-height: 1.25; max-width: 12ch; text-align: left; }
+.tabs { display: flex; flex-wrap: wrap; gap: 2px 4px; margin-top: 4px; }
+.tab { appearance: none; border: 0; background: none; padding: 9px 10px 8px; font-size: 14px; font-weight: 600; color: var(--ink-2); border-bottom: 2px solid transparent; cursor: pointer; border-radius: 4px 4px 0 0; }
+.tab:hover { color: var(--ink); background: var(--paper); }
+.tab[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
+.tab[aria-disabled="true"] { color: var(--ink-3); opacity: .55; cursor: not-allowed; background: none; }
+
+main { padding-block: 24px 40px; }
+.foot { border-top: 1px solid var(--rule); color: var(--ink-3); font-size: 12.5px; padding-block: 16px 28px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.foot .warn { color: var(--flag); }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ink-3); margin-right: 6px; vertical-align: 1px; }
+.dot.on { background: var(--link); }
+.dot.off { background: var(--flag); }
+
+/* ---------- shared bits ---------- */
+.eyebrow { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); }
+.h-page { font-size: 28px; font-weight: 740; font-stretch: 112%; letter-spacing: -0.015em; line-height: 1.15; }
+.lede { color: var(--ink-2); max-width: 64ch; margin-top: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; font-family: var(--f-mono); font-size: 11px; font-weight: 600; letter-spacing: .05em; padding: 2px 6px; border: 1px solid var(--rule-2); border-radius: 4px; color: var(--ink-2); background: var(--sheet); white-space: nowrap; line-height: 1.4; }
+.chip.link { color: var(--link); border-color: color-mix(in oklab, var(--link) 45%, transparent); background: var(--link-wash); }
+.chip.input { color: var(--input); border-color: color-mix(in oklab, var(--input) 40%, transparent); background: var(--input-wash); }
+.chip.flag { color: var(--flag); border-color: color-mix(in oklab, var(--flag) 45%, transparent); background: var(--flag-wash); }
+.chip.miss { color: var(--miss); border-color: color-mix(in oklab, var(--miss) 45%, transparent); background: var(--miss-wash); }
+.btn { appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink); padding: 8px 14px; border-radius: var(--r); font-weight: 600; font-size: 14px; cursor: pointer; line-height: 1.25; text-align: center; }
+.btn:hover { border-color: var(--ink-2); }
+.btn.primary { background: var(--ink); border-color: var(--ink); color: var(--sheet); }
+.btn.primary:hover { background: color-mix(in oklab, var(--ink) 86%, var(--input)); }
+.btn.ghost { border-color: transparent; background: transparent; color: var(--ink-2); padding-inline: 8px; }
+.btn.ghost:hover { color: var(--ink); background: var(--paper); }
+.btn.small { padding: 5px 10px; font-size: 13px; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; }
+.note { font-size: 13.5px; color: var(--ink-2); }
+.note.warn { color: var(--flag); }
+.note.bad { color: var(--miss); }
+.empty { padding: 28px; text-align: left; border: 1px dashed var(--rule-2); border-radius: 8px; color: var(--ink-2); background: var(--sheet); }
+.empty h2 { font-size: 18px; color: var(--ink); margin-bottom: 6px; }
+.empty .btn-row { margin-top: 14px; }
+.thinking { display: inline-flex; align-items: center; gap: 10px; color: var(--ink-2); font-size: 14px; }
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--input); animation: pulse 1.1s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: .25; transform: scale(.8); } 50% { opacity: 1; transform: scale(1); } }
+.ai-off { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid color-mix(in oklab, var(--flag) 40%, transparent); background: var(--flag-wash); border-radius: var(--r); color: var(--ink); font-size: 14px; margin-bottom: 16px; }
+.ai-off strong { color: var(--flag); }
+
+/* ---------- Today ---------- */
+.today { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+@media (min-width: 980px) { .today { grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; } }
+.session-head { display: grid; gap: 10px; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+.session-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.session-title { font-size: clamp(24px, 3.4vw, 34px); font-weight: 740; font-stretch: 108%; letter-spacing: -0.02em; line-height: 1.12; max-width: 30ch; }
+.session-link { font-size: 13.5px; color: var(--link); }
+.backlink { appearance: none; border: 0; background: none; color: var(--ink-2); font-size: 13.5px; padding: 0; cursor: pointer; margin-bottom: 10px; }
+.backlink:hover { color: var(--ink); text-decoration: underline; }
+.done-flag { color: var(--link); font-weight: 600; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+
+.side { display: grid; gap: 22px; align-content: start; }
+.side-block h2 { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+.mini { list-style: none; margin: 0; padding: 0; }
+.mini li { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; }
+.mini li:last-child { border-bottom: 0; }
+.mini .d { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.mini .t { min-width: 0; }
+.mini .evn { color: var(--input); font-weight: 600; }
+.mini .away { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mini button.t { appearance: none; border: 0; background: none; padding: 0; text-align: left; cursor: pointer; color: inherit; }
+.mini button.t:hover { text-decoration: underline; }
+.mini li.is-today { background: var(--today); margin-inline: -6px; padding-inline: 6px; border-radius: 3px; }
+.mini .st { font-size: 12px; font-family: var(--f-mono); }
+.st-done { color: var(--link); }
+.st-miss { color: var(--miss); }
+.stats-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stat-sm { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--r); padding: 10px 12px; }
+.stat-sm b { display: block; font-size: 22px; font-weight: 700; line-height: 1.1; }
+.stat-sm span { font-size: 12px; color: var(--ink-3); }
+
+.teach { display: grid; gap: 12px; padding: 22px 0 6px; }
+.teach p { color: var(--ink-2); max-width: 60ch; }
+.lesson-wrap { padding-top: 6px; }
+.lesson-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+.lesson-bar .note { font-family: var(--f-mono); font-size: 11.5px; }
+
+/* lesson typography */
+.lesson { font-family: var(--f-read); font-size: 18px; line-height: 1.62; color: var(--ink); max-width: 70ch; }
+.lesson p, .lesson ul, .lesson ol, .lesson blockquote, .lesson .tbl, .lesson pre { margin: 0 0 14px; }
+.lesson ul, .lesson ol { padding-left: 1.4em; }
+.lesson li { margin: 4px 0; }
+.lesson li::marker { font-family: var(--f-mono); font-size: .8em; color: var(--ink-3); }
+.lesson strong { font-weight: 650; }
+.lesson code { font-family: var(--f-mono); font-size: .82em; background: var(--paper); border: 1px solid var(--rule); padding: 0 4px; border-radius: 3px; }
+.lesson pre { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r); padding: 12px; overflow-x: auto; font-size: 14px; }
+.lesson pre code { border: 0; background: none; padding: 0; }
+.lesson h4, .lesson h5 { font-family: var(--f-ui); font-size: 16px; font-weight: 700; margin: 18px 0 6px; }
+.lesson hr { border: 0; border-top: 1px solid var(--rule); margin: 18px 0; }
+.lesson blockquote { position: relative; padding: 2px 0 2px 28px; font-style: italic; color: var(--ink); }
+.lesson blockquote::before { content: "\201C"; position: absolute; left: 0; top: -6px; font-size: 40px; line-height: 1; color: var(--ink-3); font-style: normal; }
+.lesson blockquote p:last-child { margin-bottom: 0; }
+.lesson .tbl { overflow-x: auto; font-family: var(--f-ui); font-size: 14.5px; }
+.lesson table { border-collapse: collapse; min-width: 60%; font-variant-numeric: tabular-nums; }
+.lesson th, .lesson td { border-bottom: 1px solid var(--rule); padding: 6px 12px 6px 0; text-align: left; vertical-align: top; }
+.lesson th { font-weight: 650; border-bottom-color: var(--rule-2); }
+.lesson-intro { font-family: var(--f-ui); font-size: 14.5px; color: var(--ink-2); margin-bottom: 4px; }
+.lesson-intro p { margin: 0 0 6px; }
+.sec { margin-top: 26px; }
+.sec-label { display: flex; align-items: center; gap: 12px; font-family: var(--f-mono); font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+.sec-label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.sec-cold .sec-body > p:first-child { font-size: 22px; line-height: 1.4; font-weight: 600; }
+.sec-trap .sec-label { color: var(--miss); }
+.sec-turn .sec-body > ol > li { margin: 10px 0; }
+details.sec { border-top: 1px solid var(--rule); padding-top: 10px; }
+details.sec > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; }
+details.sec > summary::-webkit-details-marker { display: none; }
+details.sec > summary .sec-label { margin: 0; flex: 1; }
+details.sec > summary .reveal { font-family: var(--f-ui); font-size: 13px; font-weight: 600; color: var(--ink); border: 1px solid var(--rule-2); border-radius: 4px; padding: 3px 10px; background: var(--sheet); }
+details.sec[open] > summary .reveal::after { content: " ▴"; }
+details.sec:not([open]) > summary .reveal::after { content: " ▾"; }
+details.sec .sec-body { padding-top: 12px; }
+.trunc { font-family: var(--f-ui); font-size: 13.5px; color: var(--flag); }
+
+/* grade box */
+.grade { margin-top: 34px; display: grid; gap: 12px; }
+.grade h2 { font-size: 19px; font-weight: 700; }
+.field { display: grid; gap: 6px; }
+.field > label, .lbl { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.hint { font-size: 12.5px; color: var(--ink-3); }
+.in, select.in, textarea.in { width: 100%; background: var(--sheet); border: 1px solid var(--rule-2); border-radius: var(--r); padding: 9px 11px; color: var(--input); font-weight: 500; }
+.in::placeholder { color: var(--ink-3); font-weight: 400; opacity: 1; }
+.in:focus { outline: none; border-color: var(--input); box-shadow: 0 0 0 3px var(--input-wash); }
+textarea.in { min-height: 120px; resize: vertical; line-height: 1.5; }
+select.in { appearance: auto; color: var(--input); }
+.timer { display: inline-flex; align-items: center; gap: 10px; }
+.timer-read { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 15px; min-width: 9ch; }
+.timer-read .ph { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-right: 6px; }
+.timer-read.answer .ph { color: var(--input); }
+.timer-read.over .ph { color: var(--miss); }
+.result { border: 1px solid var(--rule); background: var(--sheet); border-radius: 8px; padding: 18px; display: grid; gap: 14px; box-shadow: var(--shadow); }
+.result-top { display: flex; gap: 14px; align-items: center; }
+.score { flex: none; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 8px; font-weight: 750; font-size: 28px; line-height: 1; border: 1px solid; }
+.score small { font-size: 11px; font-weight: 600; font-family: var(--f-mono); }
+.score.s-hi { color: var(--link); background: var(--link-wash); border-color: color-mix(in oklab, var(--link) 40%, transparent); }
+.score.s-mid { color: var(--flag); background: var(--flag-wash); border-color: color-mix(in oklab, var(--flag) 40%, transparent); }
+.score.s-lo { color: var(--miss); background: var(--miss-wash); border-color: color-mix(in oklab, var(--miss) 40%, transparent); }
+.verdict { font-weight: 600; font-size: 15.5px; }
+.verdict-l { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); display: block; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+@media (min-width: 700px) { .cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.cols h3 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.cols ul, .cols ol { margin: 0; padding-left: 1.2em; font-size: 14.5px; }
+.better { font-family: var(--f-read); font-size: 16.5px; line-height: 1.55; border-left: 2px solid var(--rule-2); padding-left: 14px; }
+.followup { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--rule); font-size: 14.5px; }
+.followup q { font-style: italic; }
+
+/* ---------- Plan ---------- */
+.plan-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.plan-sum { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--ink-2); font-size: 14px; margin-top: 8px; }
+.plan-sum b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.phasebar-wrap { margin: 8px 0 22px; }
+.phasebar { position: relative; display: flex; height: 14px; border-radius: 4px; overflow: hidden; gap: 2px; background: var(--sheet); }
+.phasebar .seg { min-width: 4px; }
+.phasebar-wrap .ticks { position: relative; height: 18px; }
+.tick { position: absolute; top: 2px; width: 2px; height: 10px; background: var(--input); transform: translateX(-1px); border-radius: 1px; }
+.tick.est { background: var(--flag); }
+.nowline { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); transform: translateX(-1px); }
+.phasebar-outer { position: relative; }
+.phase-legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px 16px; font-size: 13px; }
+.phase-legend li { display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 2px 8px; align-items: baseline; }
+.phase-legend .sw { width: 12px; height: 12px; border-radius: 3px; align-self: center; }
+.phase-legend b { font-weight: 650; }
+.phase-legend span.r { grid-column: 2; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); }
+.ph-1 { background: color-mix(in oklab, var(--ink) 16%, var(--sheet)); }
+.ph-2 { background: color-mix(in oklab, var(--ink) 34%, var(--sheet)); }
+.ph-3 { background: color-mix(in oklab, var(--ink) 56%, var(--sheet)); }
+.ph-4 { background: color-mix(in oklab, var(--ink) 78%, var(--sheet)); }
+.ph-0 { background: color-mix(in oklab, var(--ink) 40%, var(--sheet)); }
+.tick-key { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--ink-2); }
+.tick-key i { display: inline-block; width: 2px; height: 10px; background: var(--input); }
+.tick-key i.now { background: var(--ink); width: 2px; height: 12px; }
+.tick-key i.est { background: var(--flag); }
+.week { border-top: 1px solid var(--rule-2); }
+.week > summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 0; }
+.week > summary::-webkit-details-marker { display: none; }
+.week > summary::before { content: "▸"; font-size: 11px; color: var(--ink-3); width: 10px; }
+.week[open] > summary::before { content: "▾"; }
+.wk-n { font-family: var(--f-mono); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; font-weight: 600; }
+.wk-r { font-size: 14px; color: var(--ink-2); }
+.wk-m { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); margin-left: auto; font-variant-numeric: tabular-nums; }
+.wk-now { font-family: var(--f-mono); font-size: 11px; background: var(--today); color: var(--ink); padding: 1px 6px; border-radius: 3px; }
+.days { list-style: none; margin: 0 0 12px; padding: 0; }
+.days li { border-top: 1px solid var(--rule); }
+.row { display: grid; grid-template-columns: 92px 56px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; width: 100%; padding: 9px 6px; text-align: left; appearance: none; border: 0; background: none; cursor: pointer; color: var(--ink); font-size: 14.5px; }
+.row:hover { background: var(--sheet); }
+.row .d { font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.row .t { min-width: 0; }
+.row .t small { display: block; color: var(--link); font-size: 12.5px; margin-top: 1px; }
+.row .s { font-family: var(--f-mono); font-size: 11.5px; text-align: right; white-space: nowrap; }
+.days li.is-today .row { background: var(--today); }
+.days li.is-done .row .t { color: var(--ink-2); }
+.days li.marker .row { cursor: default; }
+.days li.marker .row:hover { background: none; }
+.days li.marker .t { color: var(--input); font-weight: 600; }
+@media (max-width: 560px) {
+  .row { grid-template-columns: 64px minmax(0, 1fr) auto; }
+  .row .c { display: none; }
+  .row .d { font-size: 11px; }
+}
+
+/* ---------- Practice ---------- */
+.seg-ctl { display: inline-flex; border: 1px solid var(--rule-2); border-radius: var(--r); padding: 2px; background: var(--sheet); gap: 2px; }
+.seg-ctl button { appearance: none; border: 0; background: none; padding: 7px 14px; border-radius: 4px; font-weight: 600; font-size: 14px; color: var(--ink-2); cursor: pointer; }
+.seg-ctl button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0; }
+.fchip { appearance: none; border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink-2); border-radius: 999px; padding: 5px 12px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.fchip[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.fchip .n { font-family: var(--f-mono); font-size: 11px; color: var(--miss); margin-left: 4px; }
+.prac { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; max-width: 820px; }
+.qcard { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: 20px; display: grid; gap: 12px; }
+.qtext { font-family: var(--f-read); font-size: 22px; line-height: 1.38; font-weight: 600; }
+.qmeta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.mock-prog { display: flex; gap: 4px; }
+.mock-prog i { width: 26px; height: 4px; border-radius: 2px; background: var(--rule); }
+.mock-prog i.on { background: var(--ink); }
+.mock-prog i.done { background: var(--ink-3); }
+.mock-list { list-style: none; margin: 0; padding: 0; }
+.mock-list li { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--rule); }
+.mq { border-top: 1px solid var(--rule); padding-top: 14px; display: grid; gap: 8px; }
+.mq-h { display: flex; gap: 12px; align-items: flex-start; }
+.mq-h .score { width: 42px; height: 42px; font-size: 20px; }
+.mq-q { font-weight: 650; }
+.mq details summary { cursor: pointer; font-size: 13px; color: var(--ink-2); }
+.mq details p { font-size: 14.5px; color: var(--ink-2); margin-top: 6px; white-space: pre-wrap; }
+.advance { font-weight: 650; }
+
+/* ---------- Scorecard ---------- */
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 18px 0 26px; }
+@media (min-width: 860px) { .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.tile { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; }
+.tile .l { font-size: 13px; color: var(--ink-2); }
+.tile .v { font-size: 30px; font-weight: 700; line-height: 1.15; margin-top: 4px; }
+.tile .v small { font-size: 15px; color: var(--ink-3); font-weight: 600; }
+.tile .s { font-size: 12.5px; color: var(--ink-3); margin-top: 2px; }
+.sc-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
+@media (min-width: 980px) { .sc-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; min-width: 0; }
+.panel h2 { font-size: 15px; font-weight: 700; }
+.panel .sub { font-size: 12.5px; color: var(--ink-3); margin: 2px 0 12px; }
+.bars { display: grid; gap: 10px; }
+.bar-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 4px 12px; align-items: center; font-size: 13.5px; }
+.bar-row .nm { color: var(--ink); }
+.bar-track { position: relative; height: 12px; }
+.bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--input); border-radius: 0 4px 4px 0; }
+.bar-val { display: flex; gap: 8px; align-items: center; grid-column: 2; font-size: 12.5px; color: var(--ink-2); }
+.bar-val b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.axis5 { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 12px; font-family: var(--f-mono); font-size: 10.5px; color: var(--ink-3); }
+.axis5 .sc { display: flex; justify-content: space-between; font-variant-numeric: tabular-nums; }
+.chart { width: 100%; }
+.chart svg { display: block; overflow: visible; }
+.weak-list { list-style: none; margin: 0; padding: 0; }
+.weak-list li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid var(--rule); }
+.weak-list .score { width: 36px; height: 36px; font-size: 17px; }
+.weak-list .wq { font-size: 13px; color: var(--ink-2); }
+.hist { list-style: none; margin: 0; padding: 0; }
+.hist > li { border-top: 1px solid var(--rule); }
+.hist summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 70px 50px minmax(0, 1fr) 34px; gap: 10px; align-items: baseline; padding: 9px 2px; font-size: 14px; }
+.hist summary::-webkit-details-marker { display: none; }
+.hist .d { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.hist .sc { font-family: var(--f-mono); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.hist .body { padding: 4px 2px 14px 80px; display: grid; gap: 8px; font-size: 14px; color: var(--ink-2); }
+.hist .body .a { white-space: pre-wrap; color: var(--ink); }
+@media (max-width: 560px) { .hist summary { grid-template-columns: 56px minmax(0, 1fr) 30px; } .hist summary .c { display: none; } .hist .body { padding-left: 2px; } .bar-row, .axis5 { grid-template-columns: 96px minmax(0, 1fr); } }
+.tip { position: fixed; z-index: 50; pointer-events: none; background: var(--ink); color: var(--sheet); font-size: 12.5px; line-height: 1.4; padding: 7px 9px; border-radius: 5px; max-width: 260px; box-shadow: var(--shadow); }
+
+/* ---------- Ask ---------- */
+.ask { max-width: 820px; display: grid; gap: 16px; }
+.msgs { display: grid; gap: 14px; }
+.msg { display: grid; gap: 4px; }
+.msg .who { font-family: var(--f-mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); }
+.msg.user .bubble { background: var(--input-wash); color: var(--ink); border-radius: 8px; padding: 10px 14px; white-space: pre-wrap; justify-self: start; max-width: 100%; }
+.msg.coach .bubble { font-family: var(--f-read); font-size: 17px; line-height: 1.58; }
+.msg.coach .bubble p, .msg.coach .bubble ul, .msg.coach .bubble ol { margin: 0 0 10px; }
+.msg.coach .bubble ul, .msg.coach .bubble ol { padding-left: 1.3em; }
+.sugs { display: flex; flex-wrap: wrap; gap: 8px; }
+.composer { display: grid; gap: 8px; position: sticky; bottom: 0; background: var(--paper); padding-block: 10px max(10px, env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--rule); }
+.composer textarea.in { min-height: 70px; }
+.changes { margin-top: 10px; display: grid; gap: 6px; padding: 10px 12px; border: 1px solid color-mix(in oklab, var(--link) 35%, transparent); background: var(--link-wash); border-radius: var(--r); font-size: 14px; }
+.changes-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.changes ul { margin: 0; padding-left: 1.2em; }
+.ask-status:empty { display: none; }
+
+/* ---------- Setup ---------- */
+.setup { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+@media (min-width: 1040px) { .setup { grid-template-columns: minmax(0, 1fr) 400px; gap: 40px; } .preview { position: sticky; top: 132px; align-self: start; max-height: calc(100vh - 150px); overflow: auto; } }
+.intro { margin-bottom: 20px; }
+.legend-model { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; margin-top: 12px; color: var(--ink-2); }
+.legend-model span b { font-weight: 700; }
+.legend-model .b-in { color: var(--input); }
+.legend-model .b-out { color: var(--ink); }
+.legend-model .b-ln { color: var(--link); }
+.fs { border: 0; margin: 0; padding: 18px 0 22px; border-top: 1px solid var(--rule-2); display: grid; gap: 14px; min-width: 0; }
+.fs > legend { padding: 0; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--ink); float: left; width: 100%; margin-bottom: 4px; }
+.fs > legend + * { clear: both; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+@media (min-width: 640px) { .grid2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.err { color: var(--miss); font-size: 13px; }
+.togs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tog { appearance: none; border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink-2); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.tog[aria-pressed="true"] { color: var(--input); border-color: var(--input); background: var(--input-wash); }
+.segs { display: inline-flex; border: 1px solid var(--rule-2); border-radius: var(--r); overflow: hidden; background: var(--sheet); }
+.segs label { position: relative; }
+.segs input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.segs span { display: block; padding: 6px 12px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); border-left: 1px solid var(--rule); }
+.segs label:first-child span { border-left: 0; }
+.segs input:checked + span { background: var(--input-wash); color: var(--input); }
+.segs input:focus-visible + span { outline: 2px solid var(--input); outline-offset: -2px; }
+.lv-grid { display: grid; gap: 10px; }
+.lv-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; max-width: 460px; }
+.ev-list { display: grid; gap: 10px; }
+.ev { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--sheet); }
+@media (min-width: 700px) { .ev { grid-template-columns: minmax(0, 1.6fr) 150px 170px auto; align-items: end; } }
+.ev .x { justify-self: end; }
+.ev-est { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 12.5px; color: var(--ink-2); }
+.sugg { border: 1px dashed var(--rule-2); border-radius: 8px; padding: 14px; display: grid; gap: 10px; background: var(--sheet); }
+.sugg ul { list-style: none; margin: 0; padding: 0; }
+.sugg li { display: grid; grid-template-columns: 86px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--rule); font-size: 14px; }
+.sugg li .d { font-family: var(--f-mono); font-size: 11.5px; color: var(--flag); font-variant-numeric: tabular-nums; }
+.sugg li small { display: block; color: var(--ink-3); font-size: 12.5px; }
+.save-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding-top: 18px; border-top: 1px solid var(--rule-2); }
+.preview .card { display: grid; gap: 12px; }
+.preview h2 { font-size: 16px; font-weight: 700; }
+.ex-flag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); }
+.pv-list { list-style: none; margin: 0; padding: 0; font-size: 13.5px; }
+.pv-list li { display: grid; grid-template-columns: 70px 50px minmax(0, 1fr); gap: 8px; align-items: baseline; padding: 6px 0; border-top: 1px solid var(--rule); }
+.pv-list .d { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.pv-list li.mk .t { color: var(--input); font-weight: 600; }
+.pv-list .t small { display: block; color: var(--link); font-size: 12px; }
+.more-tools { display: grid; gap: 18px; margin-top: 30px; }
+.restore-line { margin-top: 12px; }
+.linkbtn { appearance: none; border: 0; background: none; padding: 0; font: inherit; color: var(--input); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.intro #data-extra:not(:empty) { margin-top: 10px; max-width: 560px; }
+.copyblock { display: grid; gap: 8px; }
+.copyblock pre { margin: 0; max-height: 180px; overflow: auto; background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r); padding: 10px 12px; font-family: var(--f-mono); font-size: 12px; white-space: pre-wrap; color: var(--ink-2); }
+.confirm { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid color-mix(in oklab, var(--miss) 40%, transparent); background: var(--miss-wash); border-radius: var(--r); font-size: 14px; }
+
+/* ---------- overlay + toast ---------- */
+.overlay { position: fixed; inset: 0; z-index: 60; background: rgba(8, 14, 20, .45); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.overlay .card { width: min(720px, 100%); display: grid; gap: 12px; max-height: 100%; overflow: auto; }
+.overlay textarea { min-height: 260px; font-family: var(--f-mono); font-size: 12px; color: var(--ink); }
+.toast { position: fixed; z-index: 70; left: 50%; bottom: max(20px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--sheet); padding: 9px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; box-shadow: var(--shadow); }
+
+@media (max-width: 420px) {
+  .tab { padding: 8px 7px 7px; font-size: 13.5px; }
+  .brand-name { font-size: 15px; }
+  .count-n { font-size: 22px; }
+  .h-page { font-size: 24px; }
+  .lesson { font-size: 17px; }
+  .sec-cold .sec-body > p:first-child, .qtext { font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- referenced by app.js ---------- */
+[hidden] { display: none !important; }
+.bm-bg { fill: var(--input); }
+.bm-ln { fill: var(--sheet); }
+.bm-ck { fill: none; stroke: var(--sheet); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.count-l .short { display: none; }
+@media (max-width: 480px) {
+  .count-l .long { display: none; }
+  .count-l .short { display: inline; }
+  .brand-name { white-space: normal; }
+}
+.stat-sm b small { font-size: 13px; color: var(--ink-3); font-weight: 600; }
+.score.sm { width: 42px; height: 42px; font-size: 20px; }
+.t-hi { color: var(--link); }
+.t-mid { color: var(--flag); }
+.t-lo { color: var(--miss); }
+.tick::after { content: ""; position: absolute; left: -7px; right: -7px; top: -4px; bottom: -4px; }
+.ch-grid { stroke: var(--rule); stroke-width: 1; }
+.ch-lbl { fill: var(--ink-3); font-family: var(--f-mono); font-size: 11px; }
+.ch-line { fill: none; stroke: var(--input); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.ch-dot { fill: var(--input); stroke: var(--sheet); stroke-width: 2; }
+.ch-dot.on { r: 6px; }
+.ch-x { stroke: var(--ink-3); stroke-width: 1; }
+.ch-end { fill: var(--ink); font-family: var(--f-ui); font-size: 12px; font-weight: 700; }
+.msg.coach .bubble h3, .msg.coach .bubble h4, .msg.coach .bubble h5 { font-family: var(--f-ui); font-size: 15px; font-weight: 700; margin: 12px 0 6px; }
+.msg.coach .bubble blockquote { margin: 0 0 10px; padding-left: 14px; border-left: 2px solid var(--rule-2); }
+.msg.coach .bubble .tbl { overflow-x: auto; }
+.msg.coach .bubble table { border-collapse: collapse; font-family: var(--f-ui); font-size: 14px; }
+.msg.coach .bubble th, .msg.coach .bubble td { border-bottom: 1px solid var(--rule); padding: 5px 10px 5px 0; text-align: left; }
+.lesson h5 { font-family: var(--f-ui); font-size: 15px; font-weight: 700; margin: 16px 0 6px; }
+
+/* ---------- website + upgrades ---------- */
+a.brand { text-decoration: none; color: inherit; border-radius: 6px; }
+a.brand:hover .brand-name { text-decoration: underline; text-underline-offset: 3px; }
+a.btn, a.fchip { text-decoration: none; }
+a.btn { color: var(--ink); }
+a.btn.primary { color: var(--sheet); }
+.ext { font-weight: 500; }
+.foot-links { display: inline-flex; flex-wrap: wrap; gap: 4px 14px; }
+.foot a { color: var(--ink-2); }
+.foot a:hover { color: var(--ink); }
+.mini-h { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.h-sub { font-size: 20px; font-weight: 720; font-stretch: 108%; letter-spacing: -0.01em; }
+
+/* voice */
+.rec { gap: 7px; }
+.rec-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--miss); flex: none; }
+.rec.on { border-color: var(--miss); color: var(--miss); background: var(--miss-wash); }
+.rec.on .rec-dot, .rec-live .rec-dot { animation: pulse 1.1s ease-in-out infinite; }
+.vstats:empty { display: none; }
+.rec-live { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--miss); font-weight: 600; }
+.vbox { display: grid; gap: 4px; font-size: 13.5px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: var(--r); background: var(--sheet); }
+.vbox .mono { font-size: 12.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.vbox ul { margin: 0; padding-left: 1.1em; }
+
+/* self-scoring */
+.result.self, .result.logged { gap: 12px; }
+.rubric { display: grid; gap: 8px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.score-pick { display: flex; flex-wrap: wrap; gap: 8px; }
+.pick { appearance: none; width: 46px; height: 46px; border-radius: 8px; border: 1px solid var(--rule-2); background: var(--sheet); font-weight: 750; font-size: 18px; cursor: pointer; color: var(--ink); }
+.pick:hover { border-color: var(--ink-2); }
+.pick.s-hi[aria-pressed="true"], .pick.s-hi:hover { color: var(--link); border-color: var(--link); background: var(--link-wash); }
+.pick.s-mid[aria-pressed="true"], .pick.s-mid:hover { color: var(--flag); border-color: var(--flag); background: var(--flag-wash); }
+.pick.s-lo[aria-pressed="true"], .pick.s-lo:hover { color: var(--miss); border-color: var(--miss); background: var(--miss-wash); }
+.result details > summary { cursor: pointer; font-size: 13.5px; color: var(--ink-2); font-weight: 600; }
+.result details[open] > summary { margin-bottom: 8px; }
+.better p { margin: 0 0 8px; }
+.better p:last-child { margin-bottom: 0; }
+.better ul, .better ol { margin: 0 0 8px; padding-left: 1.2em; }
+
+/* mocks */
+.prev-q { font-size: 14px; color: var(--ink-3); border-left: 2px solid var(--rule-2); padding-left: 10px; }
+.mq-a { display: grid; gap: 4px; font-size: 14.5px; }
+.mq-a p { color: var(--ink-2); white-space: pre-wrap; margin: 0 0 6px; }
+.mq .score-pick { margin-top: 4px; }
+
+/* reviews */
+.due { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); margin-top: 2px; }
+.due.is-due { color: var(--flag); font-weight: 600; }
+
+/* calendar */
+.cal-info { display: grid; gap: 8px; margin: 0 0 20px; padding: 14px 16px; border: 1px solid color-mix(in oklab, var(--link) 35%, transparent); background: var(--link-wash); border-radius: 8px; font-size: 14px; }
+.cal-info ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+
+/* readiness + the link out to the games */
+a.tab { text-decoration: none; display: inline-block; }
+.tab-out::after { content: " \2197"; font-weight: 500; color: var(--ink-3); }
+.stats-row .stat-sm b small { font-size: 13px; }
+.ready { margin: 18px 0 0; display: grid; gap: 12px; }
+.ready-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.ready-top .sub { margin-bottom: 0; }
+.ready-n { font-size: 44px; font-weight: 760; font-stretch: 112%; line-height: 1; font-variant-numeric: tabular-nums; flex: none; }
+.ready-n small { font-size: 18px; color: var(--ink-3); font-weight: 600; }
+.ready-pace { font-size: 14.5px; color: var(--ink-2); }
+.ready-pace b { color: var(--ink); }
+.ready-next { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 14.5px; }
+
+/* ==========================================================================
+   Website pages (home, lesson library, lessons). Builds on the app's tokens in styles.css.
+   Layout: a sticky top bar, full-width bands that alternate paper and sheet, content in .wrap.
+   ========================================================================== */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+main { padding-block: 0; }
+
+/* top bar */
+.site-top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--sheet); border-bottom: 1px solid var(--rule); }
+.site-top-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.site-top .brand-name { white-space: nowrap; }
+.site-nav { display: flex; align-items: center; gap: 4px 18px; flex-wrap: wrap; justify-content: flex-end; }
+.site-nav a:not(.btn) { color: var(--ink-2); font-weight: 600; font-size: 14px; text-decoration: none; }
+.site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 640px) { .site-top .brand-name { font-size: 15px; } }
+@media (max-width: 520px) { .site-top .brand-name { display: none; } }
+@media (max-width: 380px) { .site-top .brand-name { display: none; } }
+
+/* hero */
+.hero { padding-block: 48px 56px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; align-items: center; }
+@media (min-width: 980px) { .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 56px; } }
+.hero-copy { display: grid; gap: 18px; align-content: start; }
+.hero-h { font-size: clamp(38px, 5.4vw, 64px); font-weight: 780; font-stretch: 112%; letter-spacing: -0.025em; line-height: 1.02; max-width: 14ch; text-wrap: balance; }
+.hero-sub { font-family: var(--f-read); font-size: clamp(18px, 2vw, 21px); line-height: 1.5; color: var(--ink-2); max-width: 46ch; }
+.hero-cta { gap: 10px; }
+.btn.big { padding: 12px 20px; font-size: 16px; }
+
+/* the example plan on the home page, drawn like the app's plan rows */
+.demo { margin: 0; background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px 14px; box-shadow: var(--shadow); display: grid; gap: 10px; min-width: 0; }
+.demo-head { display: flex; flex-wrap: wrap; gap: 6px 12px; justify-content: space-between; align-items: baseline; }
+.ex-flag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); }
+.ex-list { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.ex-list li { display: grid; grid-template-columns: 40px 58px minmax(0, 1fr); gap: 8px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--rule); }
+.ex-list .d { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); }
+.ex-list .t { min-width: 0; }
+.ex-list .t small { display: block; color: var(--link); font-size: 12.5px; }
+.ex-list .ex-mk .t { color: var(--input); font-weight: 600; }
+.demo-score { display: flex; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 8px; background: var(--paper); font-size: 14px; }
+.demo-score .note { font-size: 12px; margin-top: 2px; }
+.demo .legend-model { margin-top: 2px; font-size: 12.5px; }
+
+/* bands */
+.band { padding-block: 56px; border-top: 1px solid var(--rule); }
+.band.alt { background: var(--sheet); }
+.sec-h { font-size: clamp(24px, 3vw, 32px); font-weight: 740; font-stretch: 108%; letter-spacing: -0.015em; line-height: 1.15; margin-bottom: 24px; text-wrap: balance; }
+.sec-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.more { font-weight: 600; color: var(--input); }
+.two-col { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px 48px; }
+@media (min-width: 900px) { .two-col { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); } }
+.prose { display: grid; gap: 14px; }
+.prose p { font-family: var(--f-read); font-size: 18px; line-height: 1.6; max-width: 62ch; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+@media (min-width: 860px) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.steps li { border-top: 2px solid var(--ink); padding-top: 14px; display: grid; gap: 8px; align-content: start; }
+.step-n { font-family: var(--f-mono); font-size: 12px; font-weight: 600; color: var(--ink-3); }
+.steps h3 { font-size: 19px; font-weight: 720; }
+.steps p { color: var(--ink-2); }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px 32px; }
+.feature { display: grid; gap: 8px; align-content: start; }
+.feature .chip { justify-self: start; }
+.feature h3 { font-size: 18px; font-weight: 700; }
+.feature p { color: var(--ink-2); }
+
+.lib-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.lib-cards a { display: grid; gap: 8px; align-content: start; height: 100%; padding: 16px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--paper); color: var(--ink); text-decoration: none; }
+.lib-cards a:hover { border-color: var(--ink-2); }
+.lib-cards .chip { justify-self: start; }
+.lib-cards b { font-size: 16px; line-height: 1.3; }
+
+.faq { display: grid; }
+.faq-item { border-top: 1px solid var(--rule); padding: 14px 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--rule); }
+.faq-item summary { cursor: pointer; font-weight: 650; font-size: 16px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-family: var(--f-mono); color: var(--ink-3); }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p { margin-top: 8px; color: var(--ink-2); max-width: 62ch; }
+
+.cta-band { background: var(--ink); color: var(--sheet); border-top: 0; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; }
+.cta-band .sec-h { margin: 0; color: var(--sheet); }
+.cta-band .btn.primary { background: var(--sheet); color: var(--ink); border-color: var(--sheet); }
+
+/* footer */
+.site-foot { border-top: 1px solid var(--rule); padding-block: 28px 40px; }
+.site-foot-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px 40px; }
+@media (min-width: 760px) { .site-foot-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); } }
+.site-foot .note { max-width: 52ch; margin-top: 6px; }
+.foot-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; align-content: start; }
+.foot-nav a { color: var(--ink-2); font-size: 14px; }
+.foot-nav a:hover { color: var(--ink); }
+
+/* library */
+.lib-main { padding-block: 32px 56px; }
+.lib-head { display: grid; gap: 10px; margin-bottom: 8px; }
+.lib-group { margin-top: 30px; }
+.lib-cat { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--ink-2); margin-bottom: 4px; }
+.lib-list { list-style: none; margin: 0; padding: 0; }
+.lib-list li { border-top: 1px solid var(--rule); }
+.lib-list a { display: grid; gap: 2px; padding: 12px 4px; text-decoration: none; color: var(--ink); }
+.lib-list a:hover { background: var(--sheet); }
+.lib-list b { font-size: 16px; font-weight: 650; }
+
+/* a lesson page */
+.lesson-page { padding-block: 24px 56px; display: grid; gap: 22px; max-width: 820px; }
+.crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13.5px; color: var(--ink-3); }
+.crumbs a { color: var(--ink-2); }
+.cta-box { border: 1px solid color-mix(in oklab, var(--input) 35%, transparent); background: var(--input-wash); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; }
+.cta-box h2 { font-size: 19px; font-weight: 720; }
+.cta-box p { color: var(--ink-2); max-width: 60ch; }
+.pager { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.pg { display: grid; gap: 2px; padding: 12px 14px; border: 1px solid var(--rule-2); border-radius: 8px; text-decoration: none; color: var(--ink); background: var(--sheet); }
+.pg:hover { border-color: var(--ink-2); }
+.pg.next { text-align: right; }
+@media (max-width: 560px) { .pager { grid-template-columns: minmax(0, 1fr); } .pg.next { text-align: left; } }
+
+/* ==========================================================================
+   The model look: worksheets, ledgers and sheet tabs.
+   Used by the home page, Play and the Live Room. Builds on the tokens in styles.css.
+   The idea: this is prep for people who will live in spreadsheets, so the interactive
+   parts are spreadsheets. Row numbers number real rows, the blue cell is the one you
+   type in, and negatives sit in parentheses.
+   ========================================================================== */
+:root { --head: color-mix(in oklab, var(--paper) 78%, var(--rule-2)); --cell: 28px; }
+
+/* ---------- worksheet ---------- */
+.ws { background: var(--sheet); border: 1px solid var(--rule-2); box-shadow: var(--shadow); min-width: 0; }
+.ws-bar { display: flex; align-items: stretch; border-bottom: 1px solid var(--rule-2); background: var(--head); font-size: 13px; line-height: 1.2; }
+.ws-bar > span { display: flex; align-items: center; padding: 7px 10px; white-space: nowrap; }
+.ws-ref { min-width: 62px; justify-content: center; background: var(--sheet); border-right: 1px solid var(--rule-2); font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.ws-fx { font-family: var(--f-read); font-style: italic; color: var(--ink-3); padding-right: 4px !important; }
+.ws-formula { flex: 1; min-width: 0; font-family: var(--f-mono); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; padding-left: 4px !important; }
+.ws-meter { border-left: 1px solid var(--rule-2); gap: 5px; color: var(--ink-2); }
+.ws-meter b { color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
+.ws-clock { border-left: 1px solid var(--rule-2); background: var(--sheet); font-family: var(--f-mono); font-weight: 600; font-variant-numeric: tabular-nums; min-width: 6ch; justify-content: flex-end; }
+.ws-time { height: 4px; background: var(--rule); }
+.ws-time i { display: block; height: 100%; width: 0; background: var(--input); }
+.ws-grid { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 15px; background: var(--sheet); }
+.ws-grid th { background: var(--head); border: 1px solid var(--rule); padding: 3px 8px; font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; color: var(--ink-3); text-align: center; }
+.ws-grid td { border: 1px solid var(--rule); padding: 8px 10px; vertical-align: middle; overflow-wrap: anywhere; }
+.ws-grid .rn { width: 34px; padding: 3px 2px; background: var(--head); font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; }
+.ws-grid .num { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ws-note { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.ws > .btn-row { padding: 14px 14px 16px; }
+.fn { font-size: 12.5px; color: var(--ink-3); margin-top: 8px; max-width: 70ch; }
+.fn a { color: inherit; }
+sup { font-size: .68em; line-height: 0; font-variant-numeric: normal; }
+
+/* ---------- Mental Math Sprint ---------- */
+.sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 150px; }
+.sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 96px; }
+.sp-grid .hdr td { font-weight: 650; font-size: 12.5px; color: var(--ink-2); padding-block: 5px; }
+.sp-grid #sp-log tr:not(.hdr) td { font-size: 13.5px; color: var(--ink-2); padding-block: 6px; }
+.sp-grid .typed { color: var(--input) !important; }
+.sp-grid .miss .typed { text-decoration: line-through; text-decoration-color: var(--miss); }
+.sp-grid .skip { font-family: var(--f-ui); font-size: 12px; color: var(--ink-3); }
+.sp-grid .ok .chk { color: var(--link) !important; font-weight: 700; }
+.sp-grid .miss .chk { color: var(--miss) !important; font-weight: 600; }
+.sp-grid .active .q { font-family: var(--f-read); font-size: 20px; font-weight: 600; line-height: 1.32; padding: 16px 12px; }
+.sp-grid .in-cell { padding: 0; box-shadow: inset 0 0 0 2px var(--input); }
+.sp-grid form { display: flex; align-items: baseline; }
+.cell-in { flex: 1; min-width: 0; width: 100%; border: 0; background: transparent; padding: 15px 4px 15px 10px; font-family: var(--f-mono); font-size: 20px; font-weight: 600; color: var(--input); text-align: right; font-variant-numeric: tabular-nums; }
+.cell-in:focus { outline: none; }
+.cell-in:disabled { color: var(--ink-3); }
+.sp-grid .unit { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-3); padding-right: 8px; }
+.sp-grid .unit:empty { padding-right: 6px; }
+.sp-grid .active td:last-child { text-align: center; padding: 6px; }
+@media (max-width: 560px) {
+  .sp-grid th:nth-child(3), .sp-grid td:nth-child(3) { width: 112px; }
+  .sp-grid th:nth-child(4), .sp-grid td:nth-child(4) { width: 70px; }
+  .sp-grid .active .q { font-size: 18px; padding: 12px 10px; }
+  .cell-in { font-size: 18px; padding-block: 13px; }
+  .ws-grid .rn { width: 26px; }
+  .ws-formula { display: none !important; }
+  .ws-fx { flex: 1; }
+}
+
+/* ---------- Statement Flows ---------- */
+.fl-event { padding: 18px 16px 14px; border-bottom: 1px solid var(--rule-2); }
+.fl-text { font-family: var(--f-read); font-size: clamp(20px, 2.5vw, 27px); font-weight: 600; line-height: 1.28; max-width: 34ch; text-wrap: balance; }
+.fl-assume { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+.fl-stmts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; background: var(--sheet); }
+@media (min-width: 940px) { .fl-stmts { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fl-stmts .fl-tbl + .fl-tbl { border-left: 1px solid var(--rule-2); } }
+.fl-tbl th:nth-child(2) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+.fl-tbl .chg { width: 138px; text-align: center; padding: 5px 6px; white-space: nowrap; }
+.fl-tbl th.chg { font-family: var(--f-ui); font-size: 12px; }
+.seg3 { display: inline-flex; border: 1px solid var(--rule-2); border-radius: 5px; overflow: hidden; background: var(--sheet); }
+.seg3 button { appearance: none; border: 0; border-left: 1px solid var(--rule); background: none; width: 40px; height: 34px; font-size: 14px; color: var(--ink-3); cursor: pointer; }
+.seg3 button:first-child { border-left: 0; }
+.seg3 button:hover { background: var(--paper); color: var(--ink); }
+.seg3 button[aria-pressed="true"][data-pick="1"] { background: var(--link-wash); color: var(--link); }
+.seg3 button[aria-pressed="true"][data-pick="0"] { background: var(--head); color: var(--ink); font-weight: 700; }
+.seg3 button[aria-pressed="true"][data-pick="-1"] { background: var(--miss-wash); color: var(--miss); }
+.fl-ans { display: inline-block; min-width: 6ch; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.fl-ans.up { color: var(--link); } .fl-ans.down { color: var(--miss); } .fl-ans.flat { color: var(--ink-3); }
+.fl-mark { display: inline-block; width: 2.2ch; text-align: right; font-weight: 700; }
+.fl-mark.ok { color: var(--link); } .fl-mark.miss { color: var(--miss); }
+.fl-tbl tr.miss td:nth-child(2) { background: var(--miss-wash); }
+.fl-why { padding: 16px; border-top: 1px solid var(--rule-2); display: grid; gap: 10px; }
+.fl-got { font-size: 15.5px; }
+.fl-why dl { margin: 0; display: grid; gap: 2px 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .fl-why dl { grid-template-columns: 150px minmax(0, 1fr); } }
+.fl-why dt { font-size: 13px; font-weight: 650; color: var(--ink-2); padding-top: 3px; }
+.fl-why dd { margin: 0 0 8px; font-family: var(--f-read); font-size: 16.5px; line-height: 1.5; max-width: 68ch; }
+
+/* ---------- Play page ---------- */
+.play-main { padding-block: 28px 64px; display: grid; gap: 30px; align-content: start; }
+.play-main > * { min-width: 0; }
+.play-head { display: grid; gap: 4px; }
+.play-top { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; justify-content: space-between; }
+.play-top .backlink { margin: 0; }
+#game { margin-top: 12px; }
+.game-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 0; border: 1px solid var(--rule-2); background: var(--rule-2); column-gap: 1px; row-gap: 1px; }
+.game-tile { background: var(--sheet); padding: 22px 22px 24px; display: grid; gap: 10px; align-content: start; }
+.game-tile h2 { font-size: 24px; font-weight: 760; font-stretch: 112%; letter-spacing: -0.015em; }
+.game-tile p { color: var(--ink-2); max-width: 52ch; }
+.game-best { font-size: 13.5px; }
+.game-best b { color: var(--ink); font-size: 16px; }
+.prog, .live-cta { display: grid; gap: 10px; }
+.prog h2, .live-cta h2 { font-size: 19px; font-weight: 720; }
+.prog-tbl td:nth-child(2) { width: 150px; font-weight: 600; }
+.prog-tbl td:nth-child(3) { width: 150px; }
+.prog-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; }
+.live-cta p { color: var(--ink-2); max-width: 60ch; }
+@media (max-width: 640px) {
+  .prog-tbl td:nth-child(2) { width: 104px; } .prog-tbl td:nth-child(3) { width: 84px; white-space: normal; }
+}
+.ch-banner { background: var(--input-wash); border: 1px solid color-mix(in oklab, var(--input) 35%, transparent); padding: 16px 18px; display: grid; gap: 12px; }
+.ch-banner p { font-family: var(--f-read); font-size: 19px; line-height: 1.4; max-width: 56ch; }
+.res { margin-top: 26px; display: grid; gap: 14px; max-width: 780px; }
+.res-num { font-size: clamp(84px, 16vw, 148px); font-weight: 800; font-stretch: 122%; line-height: .86; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
+.res-lbl { font-size: 19px; color: var(--ink-2); margin-top: -4px; }
+.res-tbl td:nth-child(2) { font-weight: 600; }
+.res-tbl td:nth-child(3) { width: 84px; }
+.res-tbl td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 38%; }
+.res-share { display: grid; gap: 8px; padding: 16px; background: var(--sheet); border: 1px solid var(--rule-2); }
+.res-share label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.res-share .in { max-width: 260px; }
+.hero-out { padding: 14px; border-top: 1px solid var(--rule-2); background: var(--sheet); display: grid; gap: 10px; border: 1px solid var(--rule-2); border-top: 0; }
+
+/* ---------- Live Room ---------- */
+.live-main { padding-block: 28px 64px; display: grid; gap: 24px; align-content: start; }
+.live-main > * { min-width: 0; }
+.live-head { display: grid; gap: 4px; }
+.live-note { padding: 10px 14px; background: var(--flag-wash); border: 1px solid color-mix(in oklab, var(--flag) 40%, transparent); font-size: 14.5px; max-width: 70ch; }
+.live-door { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+.door-card { background: var(--sheet); padding: 22px; display: grid; gap: 12px; align-content: start; }
+.door-card h2 { font-size: 22px; font-weight: 740; font-stretch: 110%; }
+.door-card p { color: var(--ink-2); max-width: 46ch; }
+.code-in { font-family: var(--f-mono); font-size: 28px; letter-spacing: .3em; text-transform: uppercase; max-width: 8.5em; padding-block: 8px; }
+.live-setup-db { background: var(--sheet); border: 1px solid var(--rule-2); padding: 20px; display: grid; gap: 12px; max-width: 720px; }
+.live-setup-db h2 { font-size: 19px; }
+.live-setup-db p { color: var(--ink-2); }
+.host-form { display: grid; max-width: 720px; }
+.radio-pill { position: relative; }
+.radio-pill input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.radio-pill span { display: block; border: 1px solid var(--rule-2); background: var(--sheet); color: var(--ink-2); padding: 8px 14px; font-size: 14.5px; font-weight: 600; border-radius: var(--r); }
+.radio-pill input:checked + span { color: var(--input); border-color: var(--input); background: var(--input-wash); }
+.radio-pill input:focus-visible + span { outline: 2px solid var(--input); outline-offset: 2px; }
+
+/* the host screen is read from the back of a room: everything scales with the window */
+.host { display: grid; gap: clamp(14px, 2.4vh, 28px); align-content: start; }
+.lobby { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: center; background: var(--sheet); border: 1px solid var(--rule-2); padding: clamp(18px, 3vw, 40px); }
+@media (min-width: 820px) { .lobby { grid-template-columns: minmax(0, 1fr) auto; } }
+.lobby-how { font-size: clamp(17px, 2vw, 26px); color: var(--ink-2); overflow-wrap: anywhere; }
+.lobby-how b { color: var(--ink); }
+.room-code { font-family: var(--f-mono); font-weight: 600; font-size: clamp(72px, 15vw, 220px); line-height: 1; letter-spacing: .08em; color: var(--input); margin: 6px 0 10px; }
+.lobby-qr { display: grid; gap: 6px; justify-items: center; }
+.lobby-qr svg { width: clamp(180px, 24vw, 340px); height: auto; display: block; border: 1px solid var(--rule); }
+.lobby-players h2 { font-size: clamp(18px, 2vw, 26px); font-weight: 720; margin-bottom: 10px; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pchip { appearance: none; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: 4px; padding: 6px 12px; font-size: clamp(15px, 1.5vw, 22px); font-weight: 600; color: var(--ink); cursor: pointer; }
+.pchip span { color: var(--ink-3); }
+.pchip:hover { border-color: var(--miss); color: var(--miss); }
+.host-actions { gap: 12px 16px; }
+.q-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; font-size: clamp(15px, 1.5vw, 22px); color: var(--ink-2); }
+.q-n { font-weight: 700; color: var(--ink); }
+.q-in { margin-left: auto; }
+.q-clock { font-family: var(--f-mono); font-weight: 600; font-size: clamp(26px, 3.4vw, 56px); color: var(--ink); min-width: 2ch; text-align: right; font-variant-numeric: tabular-nums; line-height: 1; }
+.q-bar { height: 8px; }
+.q-text { font-family: var(--f-read); font-weight: 600; font-size: clamp(24px, 3.5vw, 58px); line-height: 1.18; max-width: 30ch; text-wrap: balance; }
+.q-choices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 700px) { .q-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.q-choices li { background: var(--sheet); display: flex; align-items: center; gap: clamp(10px, 1.4vw, 22px); padding: clamp(12px, 1.8vw, 28px); font-size: clamp(20px, 2.6vw, 44px); font-weight: 650; }
+.q-letter { flex: none; display: grid; place-items: center; width: 1.7em; height: 1.7em; background: var(--head); border: 1px solid var(--rule-2); font-family: var(--f-mono); font-size: .68em; font-weight: 600; color: var(--ink-2); }
+.q-choice { flex: 1; min-width: 0; font-variant-numeric: tabular-nums; }
+.q-count { font-family: var(--f-mono); font-size: .7em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.q-choices.revealed li { color: var(--ink-3); }
+.q-choices.revealed li.right { background: var(--link-wash); color: var(--link); }
+.q-choices.revealed li.right .q-letter { background: var(--link); border-color: var(--link); color: var(--sheet); }
+.q-choices.revealed li.right .q-count { color: var(--link); }
+.q-why { font-family: var(--f-read); font-size: clamp(15px, 1.5vw, 22px); line-height: 1.45; color: var(--ink-2); max-width: 90ch; }
+.board h2 { font-size: clamp(16px, 1.6vw, 22px); font-weight: 720; margin-bottom: 8px; }
+.board-tbl { font-size: clamp(16px, 1.8vw, 28px); max-width: 900px; }
+.board-tbl td:nth-child(3) { width: 7em; }
+.board-tbl .rn { font-size: .6em; width: 2.6em; }
+.final-h { font-size: clamp(28px, 4vw, 60px); font-weight: 780; font-stretch: 114%; letter-spacing: -0.02em; }
+.final { display: grid; gap: clamp(16px, 2.6vh, 30px); }
+.podium { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule-2); border: 1px solid var(--rule-2); }
+@media (min-width: 760px) { .podium { grid-template-columns: 1.25fr 1fr 1fr; } }
+.podium li { background: var(--sheet); padding: clamp(14px, 2vw, 30px); display: grid; gap: 4px; }
+.pod-place { font-family: var(--f-mono); font-size: clamp(14px, 1.3vw, 20px); color: var(--ink-3); }
+.pod-name { font-size: clamp(26px, 3.6vw, 60px); font-weight: 780; font-stretch: 112%; letter-spacing: -0.02em; line-height: 1.05; overflow-wrap: anywhere; }
+.pod-score { font-family: var(--f-mono); font-size: clamp(18px, 2vw, 32px); font-variant-numeric: tabular-nums; }
+.podium .p1 { background: var(--input-wash); }
+.podium .p1 .pod-name { color: var(--input); }
+body.is-host .wrap { max-width: 1680px; }
+body.is-host .site-foot { display: none; }
+
+/* a player's phone */
+.player { max-width: 560px; margin-inline: auto; display: grid; gap: 14px; width: 100%; }
+.p-top { display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.p-q { font-family: var(--f-read); font-size: 19px; font-weight: 600; line-height: 1.35; }
+.p-choices { display: grid; gap: 10px; }
+.p-choice { appearance: none; display: flex; align-items: center; gap: 14px; width: 100%; min-height: 64px; padding: 12px 14px; border: 1px solid var(--rule-2); background: var(--sheet); border-radius: var(--r); font-size: 20px; font-weight: 650; color: var(--ink); text-align: left; cursor: pointer; font-variant-numeric: tabular-nums; }
+.p-choice .q-letter { font-size: 15px; width: 34px; height: 34px; }
+.p-choice:disabled { cursor: default; color: var(--ink-3); }
+.p-choice.picked { border-color: var(--input); box-shadow: inset 0 0 0 2px var(--input); color: var(--input); background: var(--input-wash); }
+.p-status { min-height: 1.5em; font-weight: 600; color: var(--ink-2); text-align: center; }
+.p-msg { background: var(--sheet); border: 1px solid var(--rule-2); padding: 26px 22px; display: grid; gap: 10px; }
+.p-msg h2 { font-size: 24px; font-weight: 760; font-stretch: 110%; }
+.p-msg p { color: var(--ink-2); }
+.p-verdict { font-size: 30px; font-weight: 780; font-stretch: 112%; color: var(--ink) !important; letter-spacing: -0.015em; }
+.p-pts { font-family: var(--f-mono); font-size: 44px; font-weight: 600; line-height: 1; color: var(--ink) !important; font-variant-numeric: tabular-nums; }
+.p-right { border-color: var(--link); } .p-right .p-verdict, .p-right .p-pts { color: var(--link) !important; }
+.p-wrong .p-verdict { color: var(--miss) !important; }
+.p-rank { font-weight: 600; color: var(--ink) !important; }
+
+/* ---------- home page ---------- */
+.grid-paper { background-color: var(--paper); background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: var(--cell) var(--cell); background-position: -1px -1px; }
+.home .hero { padding-block: 44px 52px; border-bottom: 1px solid var(--rule-2); }
+.home .hero-copy { background: var(--paper); padding: 4px 14px 14px 0; align-self: start; box-shadow: 0 0 0 10px var(--paper); }
+.home .hero-h { max-width: 13ch; font-size: clamp(38px, 5.2vw, 66px); }
+.home .hero-sub .t-in { color: var(--input); font-weight: 600; }
+.hero-sheet { min-width: 0; align-self: start; }
+.home .band { border-top: 0; border-bottom: 1px solid var(--rule); padding-block: 52px; scroll-margin-top: 64px; }
+.sec-note { color: var(--ink-2); max-width: 44ch; margin-top: -12px; }
+.tear td:nth-child(2) { font-weight: 600; }
+.tear td:nth-child(3) { width: 92px; font-size: 17px; font-weight: 600; color: var(--ink); }
+.tear td:nth-child(4) { color: var(--ink-2); font-size: 14px; width: 44%; }
+@media (max-width: 720px) { .tear td:nth-child(4) { display: none; } .tear th:nth-child(4) { display: none; } }
+.play-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 44px; align-items: start; }
+@media (min-width: 980px) { .play-row { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); } .play-row.flip { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); } }
+.play-row + .play-row { margin-top: 48px; }
+.play-copy { display: grid; gap: 12px; align-content: start; }
+.play-copy h3 { font-size: 23px; font-weight: 750; font-stretch: 110%; letter-spacing: -0.012em; }
+.play-copy p { font-family: var(--f-read); font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 54ch; }
+.ex-cap { font-size: 13px; color: var(--ink-2); padding: 9px 12px; border-top: 1px solid var(--rule); }
+.shot { margin: 0; display: grid; gap: 8px; }
+.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule-2); box-shadow: var(--shadow); background: var(--sheet); }
+.shot figcaption { font-size: 13px; color: var(--ink-2); }
+.maker { display: grid; gap: 14px; }
+.maker p { font-family: var(--f-read); font-size: 19px; line-height: 1.6; max-width: 60ch; }
+.maker .sig { font-family: var(--f-ui); font-size: 15px; font-weight: 650; color: var(--ink-2); }
+.contents td:nth-child(2) { font-weight: 600; width: 24%; }
+.contents td:nth-child(4) { width: 132px; font-size: 13.5px; color: var(--ink-2); }
+.contents td:nth-child(3) { color: var(--ink-2); font-size: 14.5px; }
+.contents th:not(.rn) { text-align: left; font-family: var(--f-ui); font-size: 12.5px; font-weight: 650; color: var(--ink); }
+@media (max-width: 720px) { .contents td:nth-child(2) { width: 34%; } .contents td:nth-child(4), .contents th:nth-child(4) { display: none; } }
+.lesson-ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-2); }
+.lesson-ledger li { border-bottom: 1px solid var(--rule); }
+.lesson-ledger a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 12px 4px; color: var(--ink); text-decoration: none; }
+.lesson-ledger a:hover { background: var(--paper); }
+.lesson-ledger .n { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); text-align: center; }
+.lesson-ledger b { font-size: 16.5px; font-weight: 650; }
+.lesson-ledger .where { font-size: 13px; color: var(--ink-2); text-align: right; max-width: 30ch; }
+@media (max-width: 720px) { .lesson-ledger .where { display: none; } }
+.footnotes { padding-block: 22px 28px; }
+.footnotes ol { margin: 0; padding-left: 1.4em; font-size: 13px; color: var(--ink-2); display: grid; gap: 4px; max-width: 86ch; }
+
+/* sheet tabs: the home page's sections, along the bottom like a workbook */
+.sheet-tabs { position: sticky; bottom: 0; z-index: 15; display: flex; align-items: stretch; background: var(--head); border-top: 1px solid var(--rule-2); overflow-x: auto; scrollbar-width: none; padding-bottom: env(safe-area-inset-bottom, 0px); padding-left: max(8px, env(safe-area-inset-left, 0px)); }
+.sheet-tabs::-webkit-scrollbar { display: none; }
+.sheet-tabs a { flex: none; padding: 9px 16px 10px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); text-decoration: none; border-right: 1px solid var(--rule-2); white-space: nowrap; }
+.sheet-tabs a:first-child { border-left: 1px solid var(--rule-2); }
+.sheet-tabs a:hover { color: var(--ink); background: var(--paper); }
+.sheet-tabs a[aria-current="true"] { background: var(--sheet); color: var(--link); box-shadow: inset 0 -3px 0 var(--link); margin-top: -1px; border-top: 1px solid var(--sheet); }
+.has-tabs .toast { bottom: calc(max(20px, env(safe-area-inset-bottom, 0px)) + 44px); }
+
+/* nav */
+.site-nav a[aria-current="page"]:not(.btn) { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 560px) { .site-nav { gap: 4px 12px; } .site-nav .btn.small { padding: 5px 8px; } .site-nav .nav-opt { display: none; } }
+
+/* the Live Room example on the home page: the host screen, at card size */
+.lobby-ex { display: grid; gap: 12px; min-width: 0; }
+.lobby-ex .lobby { padding: 20px; gap: 16px; }
+.lobby-ex .lobby-how { font-size: 15px; }
+.lobby-ex .room-code { font-size: clamp(56px, 8vw, 92px); margin: 4px 0 0; }
+.lobby-ex .lobby-qr svg { width: 148px; }
+.lobby-ex .pchip { font-size: 14.5px; cursor: default; padding: 4px 10px; }
+.lobby-ex .pchip:hover { border-color: var(--rule-2); color: var(--ink); }
+@media (min-width: 820px) and (max-width: 1100px) { .lobby-ex .lobby { grid-template-columns: minmax(0, 1fr); } }
+.home .demo { border-radius: 0; }
+.home .ex-flag { font-family: var(--f-ui); font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 600; color: var(--ink-2); }
+</style></head><body><header class="site-top"><div class="wrap site-top-row"><a class="brand" href="./"><svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg><span class="brand-name">Finance Recruiting Coach</span></a><nav class="site-nav" aria-label="Site"><a href="play.html" aria-current="page">Play</a><a class="nav-opt" href="live.html">Live Room</a><a href="library/">Lessons</a><a class="btn primary small" href="app.html">Build my plan</a></nav></div></header><main class="wrap play-main" id="play"><noscript>The games need JavaScript.</noscript></main><footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">Finance Recruiting Coach</div><p class="note">Made by Brandon, a college freshman preparing for the same interviews. Free, no ads, and the AI parts run on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div><nav class="foot-nav" aria-label="More"><a href="app.html">The coach</a><a href="play.html">Play</a><a href="live.html">Live Room</a><a href="library/">Lesson library</a><a href="https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn" target="_blank" rel="noopener">Claude version</a><a href="https://github.com/brandonw3545-ops/finance-recruiting-coach" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer><script>
+/* ==========================================================================
+   Finance Recruiting Coach: games
+   Pure functions, no DOM. Seeded question generators for the Mental Math Sprint and
+   Statement Flows, the live-room questions built from them, scoring, challenge links,
+   the day streak and the readiness estimate.
+   The same seed always gives the same round, which is what makes a challenge link fair.
+   ========================================================================== */
+const Games = (() => {
+  'use strict';
+
+  /* ---------- seeded random (same generator as the plan engine) ---------- */
+  function rng(seedStr) {
+    seedStr = String(seedStr);
+    let h = 1779033703 ^ seedStr.length;
+    for (let i = 0; i < seedStr.length; i++) { h = Math.imul(h ^ seedStr.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+    let a = h >>> 0;
+    return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  }
+  const pick = (r, arr) => arr[Math.floor(r() * arr.length)];
+  const int = (r, lo, hi) => lo + Math.floor(r() * (hi - lo + 1));
+  function shuffle(r, arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  const SEED_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  function newSeed() { let s = ''; for (let i = 0; i < 6; i++) s += SEED_CHARS[Math.floor(Math.random() * SEED_CHARS.length)]; return s; }
+  const dailySeed = iso => 'D' + String(iso).replace(/-/g, '');
+  const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  function roomCode() { let s = ''; for (let i = 0; i < 4; i++) s += CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]; return s; }
+
+  /* ---------- numbers ---------- */
+  const round2 = n => Math.round(n * 100) / 100;
+  function fmtNum(n) {
+    const v = round2(n);
+    const [w, d] = String(Math.abs(v)).split('.');
+    return (v < 0 ? '-' : '') + w.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (d ? '.' + d : '');
+  }
+  // how an answer reads next to its unit: 25%, 8.0x, $360M, 9 years
+  function fmtAnswer(v, unit) {
+    if (unit === 'x') return (Math.round(v * 10) / 10).toFixed(1) + 'x';
+    if (unit === '%') return fmtNum(v) + '%';
+    if (unit === '$M') return '$' + fmtNum(v) + 'M';
+    if (unit === '$') return '$' + fmtNum(v);
+    if (unit === 'yrs') return fmtNum(v) + ' years';
+    return fmtNum(v);
+  }
+  const UNIT_HINT = { 'x': 'x', '%': '%', '$M': '$M', '$': '$', 'yrs': 'years', '': '' };
+  // typed answers: "$1,200", "8x", "25 %" all count
+  function parseTyped(text) {
+    const s = String(text == null ? '' : text).replace(/[,\s$%]/g, '').replace(/(x|m|mm|yrs?|years?)$/i, '');
+    if (!/^-?\d*\.?\d+$/.test(s)) return NaN;
+    return parseFloat(s);
+  }
+  function checkTyped(q, text) {
+    const v = parseTyped(text);
+    return Number.isFinite(v) && Math.abs(v - q.answer) <= 0.011;
+  }
+  // three wrong answers: the usual mistakes first, then near misses
+  function distract(r, ans, extras) {
+    const step = Math.abs(ans) < 2 ? 0.25 : Math.abs(ans) < 20 ? 1 : Math.abs(ans) < 100 ? 5 : Math.abs(ans) < 1000 ? 10 : 50;
+    const near = shuffle(r, [ans + step, ans - step, ans + 2 * step, ans * 2, ans / 2, ans - 2 * step, ans * 1.5]);
+    const out = [];
+    (extras || []).concat(near).forEach(v => {
+      v = round2(v);
+      if (out.length < 3 && Number.isFinite(v) && v > 0 && Math.abs(v - ans) > 0.011 && !out.some(o => Math.abs(o - v) < 0.011)) out.push(v);
+    });
+    for (let k = 3; out.length < 3; k++) out.push(round2(ans + k * step));
+    return out;
+  }
+
+  /* ---------- Mental Math Sprint: the question kinds ----------
+     Each returns { prompt, answer, unit, wrong }. Numbers are chosen so every answer is
+     clean (a whole number or one or two decimals). lv: 0 warm-up, 1 standard, 2 hard. */
+  const KINDS = {
+    pctOf: { cat: 'mkt', lv: [0, 1], make(r, lv) {
+      const p = pick(r, lv ? [5, 15, 30, 35, 40, 60, 75] : [10, 20, 25, 50]), base = 20 * int(r, 2, lv ? 30 : 15);
+      const a = p * base / 100;
+      return { prompt: p + '% of ' + fmtNum(base), answer: a, unit: '', wrong: [(100 - p) * base / 100, a * 10, a / 10] };
+    } },
+    pctChange: { cat: 'mkt', lv: [0, 1, 2], make(r, lv) {
+      const from = pick(r, [20, 40, 60, 80, 100, 120, 200, 240, 400]);
+      const up = lv === 0 || r() < 0.55;
+      const p = up ? pick(r, lv === 0 ? [10, 20, 25, 50, 100] : [5, 15, 30, 35, 45, 75, 150]) : pick(r, lv === 2 ? [15, 35, 45, 65, 85] : [10, 20, 25, 40, 50, 75]);
+      const to = from + (up ? 1 : -1) * from * p / 100;
+      const wrongBase = Math.round(Math.abs(to - from) / to * 1000) / 10;
+      const words = r() < 0.5
+        ? 'A stock ' + (up ? 'rises' : 'falls') + ' from $' + fmtNum(from) + ' to $' + fmtNum(to) + '. Percent ' + (up ? 'gain' : 'drop') + '?'
+        : 'Revenue ' + (up ? 'grew' : 'fell') + ' from $' + fmtNum(from) + 'M to $' + fmtNum(to) + 'M. Percent ' + (up ? 'growth' : 'decline') + '?';
+      return { prompt: words, answer: p, unit: '%', wrong: [wrongBase, Math.abs(to - from)] };
+    } },
+    evMultiple: { cat: 'val', lv: [0, 1, 2], make(r, lv) {
+      const e = pick(r, [20, 40, 50, 80, 100, 120, 150, 200, 250]), m = pick(r, lv === 0 ? [5, 6, 8, 10] : lv === 1 ? [7, 9, 11, 12, 14] : [6.5, 7.5, 8.5, 12.5]);
+      return { prompt: 'Enterprise value $' + fmtNum(e * m) + 'M, EBITDA $' + fmtNum(e) + 'M. EV/EBITDA?', answer: m, unit: 'x', wrong: [m + 1, m - 1, m + 2] };
+    } },
+    impliedEV: { cat: 'val', lv: [1, 2], make(r, lv) {
+      const e = pick(r, [20, 40, 50, 60, 80, 120, 150, 200]), m = pick(r, lv === 1 ? [6, 7, 8, 9, 10, 12] : [6.5, 7.5, 8.5, 11, 14]);
+      return { prompt: 'EBITDA of $' + fmtNum(e) + 'M, peers trade at ' + m + 'x. Implied enterprise value, in $M?', answer: e * m, unit: '$M', wrong: [e * (m + 1), e * (m - 1), e * m * 10] };
+    } },
+    pe: { cat: 'val', lv: [0, 1], make(r) {
+      const eps = pick(r, [2, 3, 4, 5, 6, 8]), m = pick(r, [10, 12, 15, 18, 20, 25, 30]);
+      return { prompt: 'Share price $' + fmtNum(eps * m) + ', earnings per share $' + eps + '. P/E?', answer: m, unit: 'x', wrong: [m + 2, m - 2, m + 5] };
+    } },
+    rule72: { cat: 'mkt', lv: [0, 1], make(r) {
+      const rate = pick(r, [2, 3, 4, 6, 8, 9, 12]);
+      if (r() < 0.6) return { prompt: 'Rule of 72: at ' + rate + '% a year, how many years to double your money?', answer: 72 / rate, unit: 'yrs', wrong: [Math.round(100 / rate), 72 / rate + 2, 72 / rate - 2] };
+      return { prompt: 'Rule of 72: to double in ' + (72 / rate) + ' years, what annual return do you need?', answer: rate, unit: '%', wrong: [rate + 2, rate * 2, rate + 1] };
+    } },
+    margin: { cat: 'acc', lv: [0, 1], make(r) {
+      const rev = pick(r, [200, 300, 400, 500, 600, 800, 1000, 1200]), m = pick(r, [5, 8, 10, 12, 15, 20, 25, 30, 40]);
+      return { prompt: 'Revenue $' + fmtNum(rev) + 'M, EBITDA $' + fmtNum(rev * m / 100) + 'M. EBITDA margin?', answer: m, unit: '%', wrong: [m + 5, m / 2, m + 2] };
+    } },
+    netIncome: { cat: 'acc', lv: [0, 1], make(r) {
+      const x = pick(r, [100, 200, 300, 400, 500, 800]), t = pick(r, [20, 25, 30, 40]);
+      return { prompt: 'Pre-tax income $' + x + 'M, tax rate ' + t + '%. Net income, in $M?', answer: x * (100 - t) / 100, unit: '$M', wrong: [x * t / 100, x * (100 + t) / 100] };
+    } },
+    compound: { cat: 'mkt', lv: [1, 2], make(r, lv) {
+      const P = pick(r, [100, 200, 1000]), g = pick(r, [10, 20, 50, 100]), n = lv === 2 && g !== 20 ? 3 : 2;
+      const a = round2(P * Math.pow(1 + g / 100, n));
+      return { prompt: '$' + fmtNum(P) + ' grows ' + g + '% a year for ' + n + ' years. Ending value?', answer: a, unit: '$', wrong: [P * (1 + n * g / 100), P * (1 + g / 100)] };
+    } },
+    presentValue: { cat: 'val', lv: [1, 2], make(r) {
+      const pv = pick(r, [100, 200, 400, 800, 1000]), d = pick(r, [10, 20, 25, 50]);
+      const fv = pv * (100 + d) / 100;
+      return { prompt: '$' + fmtNum(fv) + ' a year from now, discounted at ' + d + '%. Worth today?', answer: pv, unit: '$', wrong: [fv * (100 - d) / 100, fv * (100 + d) / 100] };
+    } },
+    fraction: { cat: 'mkt', lv: [0, 1], make(r, lv) {
+      const d = pick(r, lv ? [8, 40] : [4, 5, 20, 25]);
+      const n = d === 8 ? pick(r, [1, 3, 5, 7]) : d === 40 ? pick(r, [1, 3, 7, 9, 11]) : int(r, 1, d - 1);
+      return { prompt: n + '/' + d + ' as a percent?', answer: round2(n / d * 100), unit: '%', wrong: [round2(n / (d + 2) * 100), round2(d / n)] };
+    } },
+    times: { cat: 'mkt', lv: [0, 1, 2], make(r, lv) {
+      const a = lv === 0 ? int(r, 6, 12) : lv === 1 ? int(r, 13, 25) : pick(r, [25, 35, 45, 75, 125]);
+      const b = lv === 0 ? int(r, 11, 20) : lv === 1 ? int(r, 11, 19) : pick(r, [12, 16, 24, 32, 48]);
+      return { prompt: a + ' × ' + b, answer: a * b, unit: '', wrong: [a * b + 10, a * b - 10, a * (b + 1), a * b + a] };
+    } },
+    equityValue: { cat: 'val', lv: [1, 2], make(r) {
+      const ev = 100 * int(r, 6, 20), debt = 50 * int(r, 2, 10), cash = 50 * int(r, 1, 5);
+      return { prompt: 'Enterprise value $' + fmtNum(ev) + 'M, debt $' + debt + 'M, cash $' + cash + 'M. Equity value, in $M?', answer: ev - debt + cash, unit: '$M', wrong: [ev + debt - cash, ev - debt - cash, ev + debt + cash] };
+    } },
+    enterpriseValue: { cat: 'val', lv: [1, 2], make(r) {
+      const eq = 100 * int(r, 5, 20), debt = 50 * int(r, 2, 12), cash = 50 * int(r, 1, 5);
+      return { prompt: 'Market cap $' + fmtNum(eq) + 'M, debt $' + debt + 'M, cash $' + cash + 'M. Enterprise value, in $M?', answer: eq + debt - cash, unit: '$M', wrong: [eq - debt + cash, eq + debt + cash, eq - debt - cash] };
+    } },
+    marketCap: { cat: 'val', lv: [0, 1], make(r) {
+      const p = pick(r, [8, 12, 15, 20, 24, 25, 30, 40, 50, 60, 75]), s = pick(r, [20, 40, 50, 80, 100, 150, 200]);
+      return { prompt: 'Share price $' + p + ', ' + s + 'M shares outstanding. Market cap, in $M?', answer: p * s, unit: '$M', wrong: [p * s * 10, p * s / 10, p * (s + 10)] };
+    } },
+    bondYield: { cat: 'mkt', lv: [0, 1], make(r) {
+      const price = pick(r, [500, 800, 1000, 1200]), y = pick(r, [2, 4, 5, 6, 8, 10]);
+      return { prompt: 'A bond pays a $' + (price * y / 100) + ' coupon each year and trades at $' + fmtNum(price) + '. Current yield?', answer: y, unit: '%', wrong: [y + 1, y * 2, y - 1] };
+    } },
+    divYield: { cat: 'mkt', lv: [0, 1], make(r) {
+      const price = pick(r, [20, 25, 40, 50, 80, 100]), y = pick(r, [1, 2, 3, 4, 5, 6, 8]);
+      return { prompt: 'A $' + price + ' stock pays $' + fmtNum(price * y / 100) + ' a year in dividends. Dividend yield?', answer: y, unit: '%', wrong: [y + 1, y * 2, y + 2] };
+    } },
+    breakeven: { cat: 'mkt', lv: [1, 2], make(r) {
+      const [d, g] = pick(r, [[20, 25], [50, 100], [60, 150], [75, 300], [80, 400]]);
+      return { prompt: 'A stock falls ' + d + '%. What percent gain gets it back to even?', answer: g, unit: '%', wrong: [d, d * 2, g / 2 + d] };
+    } },
+    basisPoints: { cat: 'mkt', lv: [1, 2], make(r) {
+      const y = pick(r, [3.25, 3.5, 4, 4.25, 4.5, 4.75, 5]), b = pick(r, [25, 50, 75, 125]), up = r() < 0.5;
+      const a = round2(y + (up ? 1 : -1) * b / 100);
+      return { prompt: 'A bond yields ' + y + '%. Yields ' + (up ? 'rise' : 'fall') + ' ' + b + ' basis points. New yield?', answer: a, unit: '%', wrong: [round2(y + (up ? 1 : -1) * b / 1000), round2(y + (up ? -1 : 1) * b / 100), round2(y + (up ? 1 : -1) * b / 10)] };
+    } },
+    interest: { cat: 'acc', lv: [0, 1], make(r) {
+      const n = pick(r, [100, 200, 300, 400, 500]), rate = pick(r, [4, 5, 6, 8, 10]);
+      return { prompt: 'A $' + n + 'M loan at ' + rate + '%. Interest expense each year, in $M?', answer: n * rate / 100, unit: '$M', wrong: [n * rate / 10, n * rate / 1000, n * (rate + 1) / 100] };
+    } },
+    wacc: { cat: 'val', lv: [2], make(r) {
+      const we = pick(r, [50, 60, 70, 80]), ce = pick(r, [8, 10, 12]), cd = pick(r, [4, 5, 6]);
+      const a = (we * ce + (100 - we) * cd) / 100;
+      return { prompt: we + '% equity at a ' + ce + '% cost, ' + (100 - we) + '% debt at ' + cd + '% after tax. WACC?', answer: a, unit: '%', wrong: [(ce + cd) / 2, ((100 - we) * ce + we * cd) / 100, a + 1] };
+    } },
+  };
+  const KIND_NAMES = Object.keys(KINDS);
+  const levelAt = (i, r) => i < 3 ? 0 : i < 8 ? (r() < 0.5 ? 0 : 1) : i < 16 ? 1 : (r() < 0.5 ? 1 : 2);
+  function mathQ(seed, i, prevKind) {
+    const r = rng(seed + ':m:' + i);
+    const lv = levelAt(i, r);
+    const names = KIND_NAMES.filter(k => KINDS[k].lv.includes(lv) && k !== prevKind);
+    const kind = pick(r, names);
+    const q = KINDS[kind].make(r, lv);
+    return { id: seed + '-' + i, i, kind, cat: KINDS[kind].cat, lv, prompt: q.prompt, answer: round2(q.answer), unit: q.unit, wrong: q.wrong };
+  }
+  // the first n questions of a sprint; no two in a row of the same kind
+  function sprintRound(seed, n) {
+    const out = [];
+    for (let i = 0; i < (n || 80); i++) out.push(mathQ(seed, i, i ? out[i - 1].kind : ''));
+    return out;
+  }
+  // four choices for a math question (the live room is tap-to-answer)
+  function mathChoices(q, r) {
+    const all = shuffle(r, [q.answer].concat(distract(r, q.answer, q.wrong)));
+    return { choices: all.map(v => fmtAnswer(v, q.unit)), correct: all.indexOf(q.answer) };
+  }
+
+  /* ---------- Statement Flows ----------
+     One event, three statements. Each scenario gives the pre-tax hit, the cash flow
+     adjustments and the balance sheet lines; the engine derives the rest and the balance
+     check (cash + other assets = liabilities + equity) has to hold or the tests fail.
+     Assumptions, shown on screen: one period, taxes paid in cash this period. */
+  const FLOW_ROWS = [
+    { k: 'pretax', stmt: 'is', label: 'Pre-tax income' },
+    { k: 'ni', stmt: 'is', label: 'Net income' },
+    { k: 'cfo', stmt: 'cf', label: 'Cash from operations' },
+    { k: 'cfi', stmt: 'cf', label: 'Cash from investing' },
+    { k: 'cff', stmt: 'cf', label: 'Cash from financing' },
+    { k: 'cash', stmt: 'bs', label: 'Cash' },
+    { k: 'oa', stmt: 'bs', label: 'Other assets' },
+    { k: 'liab', stmt: 'bs', label: 'Liabilities' },
+    { k: 'eq', stmt: 'bs', label: "Shareholders' equity" },
+  ];
+  const STMT_NAME = { is: 'Income statement', cf: 'Cash flow statement', bs: 'Balance sheet' };
+  /* fields: pretax, adj (non-cash and working-capital lines inside cash from operations), cfi, cff,
+     oa (non-cash assets), liab, eqx (equity moves that skip the income statement), all as multiples of x.
+     adjWhy / oaName / liabName / eqWhy / isWhy feed the walk-through; trap is the usual mistake. */
+  const SCENARIOS = [
+    { id: 'dep', lv: 0, text: x => 'Depreciation goes up by $' + x + '.', pretax: -1, adj: 1, oa: -1,
+      adjWhy: 'add back the depreciation because no cash left the building', oaName: 'PP&E', trap: 'Cash goes up, not down: the only cash effect is the tax you saved.' },
+    { id: 'capexCash', lv: 0, text: x => 'The company buys $' + x + ' of equipment with cash.', cfi: -1, oa: 1,
+      isWhy: 'Buying equipment is not an expense. It gets depreciated later.', oaName: 'PP&E', trap: 'Nothing hits the income statement on the day you buy it.' },
+    { id: 'debtIssue', lv: 0, text: x => 'The company borrows $' + x + '.', cff: 1, liab: 1,
+      isWhy: 'Borrowing is not income.', liabName: 'debt' },
+    { id: 'dividend', lv: 0, text: x => 'The company pays a $' + x + ' cash dividend.', cff: -1, eqx: -1,
+      isWhy: 'Dividends are not an expense. They come out of retained earnings.', eqWhy: 'retained earnings fall by the dividend', trap: 'Net income does not change.' },
+    { id: 'stockIssue', lv: 0, text: x => 'The company sells $' + x + ' of new stock.', cff: 1, eqx: 1,
+      isWhy: 'Raising equity is not income.', eqWhy: 'common stock and paid-in capital rise' },
+    { id: 'invCash', lv: 0, text: x => 'The company buys $' + x + ' of inventory with cash.', adj: -1, oa: 1,
+      isWhy: 'Inventory is not expensed until it is sold.', adjWhy: 'inventory went up, which uses cash', oaName: 'inventory', trap: 'It sits in operations, not investing, and it never touches net income yet.' },
+    { id: 'debtRepay', lv: 0, text: x => 'The company repays $' + x + ' of debt principal.', cff: -1, liab: -1,
+      isWhy: 'Repaying principal is not an expense. Only interest is.', liabName: 'debt' },
+    { id: 'buyback', lv: 1, text: x => 'The company buys back $' + x + ' of its own stock.', cff: -1, eqx: -1,
+      isWhy: 'A buyback is not an expense.', eqWhy: 'treasury stock reduces equity' },
+    { id: 'capexDebt', lv: 1, text: x => 'The company buys $' + x + ' of equipment and pays for it with new debt.', cfi: -1, cff: 1, oa: 1, liab: 1,
+      isWhy: 'Neither the purchase nor the borrowing is income or expense.', oaName: 'PP&E', liabName: 'debt', trap: 'Cash does not move: investing is down and financing is up by the same amount.' },
+    { id: 'arSale', lv: 1, text: x => 'The company books $' + x + ' of revenue on credit. No costs, and the customer has not paid.', pretax: 1, adj: -1, oa: 1,
+      adjWhy: 'receivables went up, so that revenue is not cash yet', oaName: 'receivables', trap: 'Cash goes down: you owe tax on revenue you have not collected.' },
+    { id: 'arCollect', lv: 1, text: x => 'A customer pays a $' + x + ' invoice that was booked as revenue last period.', adj: 1, oa: -1,
+      isWhy: 'The revenue was already booked last period.', adjWhy: 'receivables came down, which brings in cash', oaName: 'receivables' },
+    { id: 'invWriteDown', lv: 1, text: x => 'The company writes down $' + x + ' of inventory.', pretax: -1, adj: 1, oa: -1,
+      adjWhy: 'add back the write-down because it is non-cash', oaName: 'inventory', trap: 'Same shape as depreciation: cash rises by the tax saved.' },
+    { id: 'deferredRev', lv: 1, text: x => 'A customer pays $' + x + ' upfront for a subscription that has not been delivered yet.', adj: 1, liab: 1,
+      isWhy: 'No revenue until the service is delivered.', adjWhy: 'deferred revenue went up, which is cash in the door', liabName: 'deferred revenue', trap: 'Cash is up but revenue is not. The company owes the service, so it is a liability.' },
+    { id: 'accrued', lv: 1, text: x => 'Employees earned $' + x + ' of wages this period that have not been paid yet.', pretax: -1, adj: 1, liab: 1,
+      adjWhy: 'accrued wages went up, so the expense has not cost cash yet', liabName: 'accrued wages', trap: 'The expense counts now even though no one has been paid.' },
+    { id: 'interest', lv: 1, text: x => 'The company pays $' + x + ' of interest on its debt, in cash.', pretax: -1,
+      trap: 'Interest is tax-deductible, so net income falls by less than the interest.' },
+    { id: 'prepaid', lv: 1, text: x => 'The company pays $' + x + ' upfront for next year\'s insurance.', adj: -1, oa: 1,
+      isWhy: 'The expense belongs to next year.', adjWhy: 'prepaid expenses went up, which uses cash', oaName: 'prepaid insurance' },
+    { id: 'apPay', lv: 1, text: x => 'The company pays off $' + x + ' of accounts payable.', adj: -1, liab: -1,
+      isWhy: 'The expense was booked when the bill arrived.', adjWhy: 'payables came down, which uses cash', liabName: 'payables' },
+    { id: 'sbc', lv: 2, text: x => 'The company records $' + x + ' of stock-based compensation.', pretax: -1, adj: 1, eqx: 1,
+      adjWhy: 'add back the stock comp because it is paid in shares, not cash', eqWhy: 'paid-in capital rises by the full grant while retained earnings fall by the after-tax expense', trap: 'Equity goes up, not down.' },
+    { id: 'invSale', lv: 2, text: x => 'The company sells inventory that cost $' + x + ' for $' + (2 * x) + ' in cash.', pretax: 1, adj: 1, oa: -1,
+      adjWhy: 'inventory came down by its cost', oaName: 'inventory' },
+    { id: 'assetSale', lv: 2, text: x => 'The company sells equipment carried at $' + x + ' for $' + (2 * x) + ' in cash.', pretax: 1, adj: -1, cfi: 2, oa: -1,
+      adjWhy: 'take the gain back out, because the whole sale price shows up in investing', oaName: 'PP&E', trap: 'Cash from operations falls: the gain is removed and the tax on it stays.' },
+    { id: 'deferredEarned', lv: 2, text: x => 'The company delivers a service that a customer prepaid $' + x + ' for last period.', pretax: 1, adj: -1, liab: -1,
+      adjWhy: 'deferred revenue came down, and the cash arrived last period', liabName: 'deferred revenue', trap: 'Revenue is up and cash is down: the only cash movement is the tax.' },
+  ];
+  const SCEN_BY_ID = {}; SCENARIOS.forEach(s => { SCEN_BY_ID[s.id] = s; });
+  const plural = noun => /s$/.test(noun) && !/^cash from/i.test(noun);
+  const upDown = (n, noun) => {
+    const pl = plural(noun);
+    return n === 0 ? noun + (pl ? ' do not change' : ' does not change') : noun + (n > 0 ? (pl ? ' rise by $' : ' rises by $') : (pl ? ' fall by $' : ' falls by $')) + fmtNum(Math.abs(n));
+  };
+  const sgn = n => n > 0 ? 1 : n < 0 ? -1 : 0;
+
+  function flowCalc(id, x, taxPct) {
+    const s = SCEN_BY_ID[id];
+    const pretax = (s.pretax || 0) * x;
+    const tax = pretax * taxPct / 100;
+    const ni = pretax - tax;
+    const adj = (s.adj || 0) * x;
+    const cfo = ni + adj, cfi = (s.cfi || 0) * x, cff = (s.cff || 0) * x;
+    const d = { pretax, ni, cfo, cfi, cff, cash: cfo + cfi + cff, oa: (s.oa || 0) * x, liab: (s.liab || 0) * x, eq: ni + (s.eqx || 0) * x };
+    const balanced = Math.abs(d.cash + d.oa - d.liab - d.eq) < 1e-9;
+    // the walk-through, in the order an interviewer expects: income statement, cash flow, balance sheet
+    const is = pretax ? upDown(pretax, 'Pre-tax income') + '. At a ' + taxPct + '% tax rate, ' + upDown(ni, 'net income') + '.' : (s.isWhy || 'Nothing hits the income statement.') + ' Net income does not change.';
+    const cfParts = [];
+    if (pretax) cfParts.push('Start with net income, ' + (ni > 0 ? 'up' : 'down') + ' $' + fmtNum(Math.abs(ni)));
+    if (adj) cfParts.push((pretax ? 'then ' : 'In operations, ') + (adj > 0 ? 'add' : 'subtract') + ' $' + fmtNum(Math.abs(adj)) + ': ' + s.adjWhy);
+    let cf = cfParts.length ? cfParts.join(', ') + '. ' + upDown(cfo, 'Cash from operations') + '.' : 'Cash from operations does not change.';
+    if (cfi) cf += ' ' + upDown(cfi, 'Cash from investing') + '.';
+    if (cff) cf += ' ' + upDown(cff, 'Cash from financing') + '.';
+    cf += ' ' + (d.cash ? 'Net, ' + upDown(d.cash, 'cash') + '.' : 'Net, cash does not change.');
+    const bsParts = [upDown(d.cash, 'Cash')];
+    if (d.oa) bsParts.push(upDown(d.oa, s.oaName || 'other assets'));
+    if (d.liab) bsParts.push(upDown(d.liab, s.liabName || 'liabilities'));
+    bsParts.push(d.eq ? upDown(d.eq, 'equity') + (s.eqWhy ? ' (' + s.eqWhy + ')' : ni ? ' through retained earnings' : '') : 'equity does not change');
+    const side = d.cash + d.oa;
+    const bs = bsParts.join(', ') + '. ' + (side ? 'Both sides move by $' + fmtNum(Math.abs(side)) + (side > 0 ? ' up' : ' down') + ', so it balances.' : 'Total assets do not change, so it balances.');
+    return { d, balanced, tax, why: { is, cf, bs }, trap: s.trap || '' };
+  }
+  function flowScenario(id, x, taxPct) {
+    const s = SCEN_BY_ID[id], c = flowCalc(id, x, taxPct);
+    return {
+      id, lv: s.lv, x, taxPct, text: s.text(x),
+      rows: FLOW_ROWS.map(rw => ({ k: rw.k, stmt: rw.stmt, label: rw.label, delta: c.d[rw.k], dir: sgn(c.d[rw.k]) })),
+      why: c.why, trap: c.trap, balanced: c.balanced,
+    };
+  }
+  // a round ramps: two warm-ups, two standard, then a hard one (repeating that shape for longer rounds)
+  function flowsRound(seed, n) {
+    const r = rng(seed + ':f');
+    const pools = [0, 1, 2].map(lv => shuffle(r, SCENARIOS.filter(s => s.lv === lv).map(s => s.id)));
+    const shape = [0, 0, 1, 1, 2];
+    const out = [];
+    for (let i = 0; i < (n || 5); i++) {
+      const lv = shape[i % shape.length];
+      const pool = pools[lv].length ? pools[lv] : pools[1];
+      out.push(flowScenario(pool.shift(), pick(r, [20, 40, 100, 200]), pick(r, [20, 25, 40])));
+    }
+    return out;
+  }
+  const flowScore = (scen, picks) => scen.rows.reduce((n, rw) => n + (picks && picks[rw.k] === rw.dir ? 1 : 0), 0);
+  // accounting style: negatives in parentheses, zero as a dash
+  const acct = n => n === 0 ? '–' : n < 0 ? '(' + fmtNum(-n) + ')' : fmtNum(n);
+  const moveWords = n => n === 0 ? 'No change' : (n > 0 ? 'Up $' : 'Down $') + fmtNum(Math.abs(n));
+
+  // one scenario as a four-choice question about a single line
+  function flowChoices(scen, r) {
+    const cands = scen.rows.filter(rw => ['ni', 'cfo', 'cash', 'eq', 'liab', 'cfi', 'cff'].includes(rw.k));
+    const moving = cands.filter(rw => rw.delta !== 0);
+    const row = r() < 0.8 && moving.length ? pick(r, moving) : pick(r, cands);
+    const x = scen.x, after = x * (100 - scen.taxPct) / 100, tax = x * scen.taxPct / 100;
+    const opts = [row.delta];
+    shuffle(r, [-row.delta, 0, x, -x, after, -after, tax, -tax, 2 * x, -2 * x]).forEach(v => { if (opts.length < 4 && !opts.includes(v)) opts.push(v); });
+    const all = shuffle(r, opts);
+    return { text: scen.text + ' Tax rate ' + scen.taxPct + '%. What happens to ' + (row.k === 'eq' ? "shareholders' equity" : row.label.toLowerCase()) + '?', choices: all.map(moveWords), correct: all.indexOf(row.delta), row: row.k };
+  }
+
+  /* ---------- live room ---------- */
+  const LIVE_MIXES = { mixed: 'Mental math and the three statements', math: 'Mental math only', flows: 'Three statements only' };
+  // which scenario the f-th statements question uses: warm-ups first, no repeats until a level runs out
+  const flowLevel = f => f < 2 ? 0 : f < 5 ? 1 : (f % 2 ? 2 : 1);
+  function liveFlowId(seed, f) {
+    const r = rng(seed + ':lf');
+    const pools = [0, 1, 2].map(lv => shuffle(r, SCENARIOS.filter(s => s.lv === lv).map(s => s.id)));
+    const lv = flowLevel(f);
+    let seen = 0; for (let k = 0; k < f; k++) if (flowLevel(k) === lv) seen++;
+    return pools[lv][seen % pools[lv].length];
+  }
+  function liveQuestion(seed, mix, i) {
+    const r = rng(seed + ':l:' + i);
+    const useFlow = mix === 'flows' || (mix !== 'math' && i % 2 === 1);
+    if (useFlow) {
+      const scen = flowScenario(liveFlowId(seed, mix === 'flows' ? i : (i - 1) / 2), pick(r, [20, 40, 100, 200]), pick(r, [20, 25, 40]));
+      const c = flowChoices(scen, r);
+      return { i, cat: 'acc', tag: 'Three statements', text: c.text, choices: c.choices, correct: c.correct, why: [scen.why.is, scen.why.cf, scen.why.bs].join(' ') };
+    }
+    const q = mathQ(seed + ':lm', mix === 'math' ? i : i / 2 + 2, '');
+    const c = mathChoices(q, r);
+    return { i, cat: q.cat, tag: 'Mental math', text: q.prompt, choices: c.choices, correct: c.correct, why: 'Answer: ' + fmtAnswer(q.answer, q.unit) + '.' };
+  }
+  // right answers score 600 plus up to 400 for speed
+  function livePoints(right, ms, limitMs) {
+    if (!right) return 0;
+    const f = Math.max(0, Math.min(1, 1 - (ms || 0) / (limitMs || 20000)));
+    return 600 + Math.round(400 * f);
+  }
+  function liveBoard(players, answers, seed, mix, upTo, secs) {
+    const ids = Object.keys(players || {});
+    const rows = ids.map(id => ({ id, n: cleanName(players[id] && players[id].n) || 'Player', s: 0, right: 0, last: 0 }));
+    const by = {}; rows.forEach(rw => { by[rw.id] = rw; });
+    for (let i = 0; i <= upTo; i++) {
+      const q = liveQuestion(seed, mix, i), a = (answers && answers[i]) || {};
+      Object.keys(a).forEach(id => {
+        const rw = by[id], v = a[id];
+        if (!rw || !v || typeof v.c !== 'number') return;
+        const pts = livePoints(v.c === q.correct, +v.ms || 0, secs * 1000);
+        rw.s += pts; if (pts) rw.right++; if (i === upTo) rw.last = pts;
+      });
+    }
+    return rows.sort((a, b) => b.s - a.s || a.n.localeCompare(b.n));
+  }
+
+  /* ---------- names, challenge links, share text ---------- */
+  function cleanName(s) {
+    return String(s == null ? '' : s).replace(/[\u0000-\u001f<>&"'`\\]/g, '').replace(/\s+/g, ' ').trim().slice(0, 16);
+  }
+  const GAMES = { sprint: { name: 'Mental Math Sprint', unit: 'right in 60 seconds' }, flows: { name: 'Statement Flows', unit: 'of 45 lines right' } };
+  function challengeHash(c) {
+    const p = ['g=' + c.g, 's=' + encodeURIComponent(c.seed)];
+    if (Number.isFinite(c.score)) p.push('p=' + Math.round(c.score));
+    if (c.name) p.push('n=' + encodeURIComponent(cleanName(c.name)));
+    return '#' + p.join('&');
+  }
+  function parseChallenge(hash) {
+    const m = {};
+    String(hash || '').replace(/^#/, '').split('&').forEach(kv => { const k = kv.indexOf('='); if (k > 0) { try { m[kv.slice(0, k)] = decodeURIComponent(kv.slice(k + 1)); } catch (e) { /* skip a malformed value */ } } });
+    if (!GAMES[m.g] || !/^[A-Z0-9]{3,12}$/.test(m.s || '')) return null;
+    const score = /^\d{1,3}$/.test(m.p || '') ? +m.p : null;
+    return { g: m.g, seed: m.s, score, name: cleanName(m.n) };
+  }
+  function shareText(c, url) {
+    const g = GAMES[c.g];
+    return g.name + ': ' + c.score + ' ' + g.unit + '. Same questions, your turn: ' + url;
+  }
+
+  /* ---------- progress: streak and readiness ---------- */
+  function addDaysISO(iso, n) {
+    const [y, m, d] = iso.split('-').map(Number);
+    const dt = new Date(y, m - 1, d + n, 12);
+    return dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0');
+  }
+  // days in a row with any practice. Today not done yet doesn't break it; a missed yesterday does.
+  function streak(days, today) {
+    const has = d => (days instanceof Set ? days.has(d) : !!days[d]);
+    let cur = has(today) ? today : addDaysISO(today, -1), n = 0;
+    while (has(cur)) { n++; cur = addDaysISO(cur, -1); }
+    return { n, today: has(today) };
+  }
+  // every day with a graded answer, a finished session, a mock or a game
+  function activeDays(app, play) {
+    const days = new Set();
+    const ok = d => { if (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}/.test(d)) days.add(d.slice(0, 10)); };
+    if (app) {
+      (app.answers || []).forEach(a => ok(a.date));
+      Object.keys(app.done || {}).forEach(k => ok(app.done[k]));
+      (app.mocks || []).forEach(m => ok(m.date));
+    }
+    if (play) (play.runs || []).forEach(rn => ok(rn.date));
+    return days;
+  }
+  const SPRINT_TARGET = 20;      // right answers in 60 seconds this site treats as ready (a house target, not an industry rule)
+  const AREAS = [
+    { k: 'acc', name: 'Accounting', cats: ['acc'], game: 'flows', next: 'Play Statement Flows, then drill accounting questions out loud.' },
+    { k: 'val', name: 'Valuation', cats: ['val'], next: 'Drill valuation questions out loud in Practice.' },
+    { k: 'mkt', name: 'Markets', cats: ['mkt', 'trd', 'inv'], next: 'Drill markets questions and practice your 60-second markets answer.' },
+    { k: 'awm', name: 'Asset & wealth mgmt', cats: ['awm'], seats: ['wm', 'am'], next: 'Drill asset and wealth management questions in Practice.' },
+    { k: 'story', name: 'Story & fit', cats: ['fit', 'beh', 'car', 'prep', 'firm'], next: 'Record your "tell me about yourself" and one behavioral story.' },
+    { k: 'math', name: 'Mental math', cats: ['teaser'], game: 'sprint', next: 'Run the Mental Math Sprint until you clear ' + SPRINT_TARGET + ' in a minute.' },
+  ];
+  /* A rough, honest estimate from what you've actually done, never from what you've read:
+     graded answers (last 12 per area, on the 1-5 scale), Statement Flows accuracy and Sprint scores.
+     An area needs about six graded answers or three game rounds before it counts in full. */
+  function readiness(input) {
+    const answers = input.answers || [], runs = (input.play && input.play.runs) || [], seats = input.seats || [];
+    const gameRuns = g => runs.filter(rn => rn.g === g).slice(-5);
+    const areas = AREAS.filter(a => !a.seats || a.seats.some(s => seats.includes(s))).map(a => {
+      const parts = [];
+      const arr = answers.filter(x => a.cats.includes(x.cat)).slice(-12);
+      if (arr.length) {
+        const avg = arr.reduce((s, x) => s + (+x.score || 0), 0) / arr.length;
+        parts.push({ w: 0.6, v: Math.max(0, Math.min(1, (avg - 1) / 4)) * Math.min(1, arr.length / 6) });
+      }
+      if (a.game === 'flows') {
+        const g = gameRuns('flows');
+        if (g.length) parts.push({ w: 0.4, v: g.reduce((s, rn) => s + rn.score / (rn.total || 45), 0) / g.length * Math.min(1, g.length / 3) });
+      }
+      if (a.game === 'sprint') {
+        const g = gameRuns('sprint');
+        if (g.length) parts.push({ w: 1, v: Math.min(1, g.reduce((s, rn) => s + rn.score, 0) / g.length / SPRINT_TARGET) * Math.min(1, g.length / 3) });
+      }
+      const wsum = parts.reduce((s, p) => s + p.w, 0);
+      const pct = wsum ? Math.round(parts.reduce((s, p) => s + p.w * p.v, 0) / wsum * 100) : 0;
+      return { k: a.k, name: a.name, pct, seen: arr.length + (a.game ? gameRuns(a.game).length : 0), next: a.next, game: a.game || '' };
+    });
+    const overall = areas.length ? Math.round(areas.reduce((s, a) => s + a.pct, 0) / areas.length) : 0;
+    const out = { overall, areas, weakest: areas.slice().sort((a, b) => a.pct - b.pct)[0] || null, expected: null, status: '', daysLeft: null, next: null };
+    const pl = input.plan, t = input.today;
+    if (pl && pl.start && pl.ready && t) {
+      const span = Math.max(1, dayDiff(pl.start, pl.ready));
+      const el = Math.max(0, Math.min(1, dayDiff(pl.start, t) / span));
+      out.expected = Math.round(el * 100);
+      out.daysLeft = dayDiff(t, pl.ready);
+      out.status = overall >= out.expected - 10 ? 'on pace' : 'behind pace';
+      const ev = (pl.events || []).filter(e => e.date >= t).sort((a, b) => (a.date < b.date ? -1 : 1))[0];
+      if (ev) out.next = { name: ev.name, date: ev.date, days: dayDiff(t, ev.date) };
+    }
+    return out;
+  }
+  function dayDiff(a, b) {
+    const f = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d, 12); };
+    return Math.round((f(b) - f(a)) / 86400000);
+  }
+
+  return {
+    rng, shuffle, newSeed, dailySeed, roomCode, fmtNum, fmtAnswer, UNIT_HINT, parseTyped, checkTyped, distract,
+    KINDS, KIND_NAMES, mathQ, sprintRound, mathChoices,
+    FLOW_ROWS, STMT_NAME, SCENARIOS, flowCalc, flowScenario, flowsRound, flowScore, flowChoices, acct, moveWords,
+    LIVE_MIXES, liveQuestion, livePoints, liveBoard,
+    cleanName, GAMES, challengeHash, parseChallenge, shareText,
+    streak, activeDays, readiness, AREAS, SPRINT_TARGET, addDaysISO, dayDiff,
+  };
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = Games;
+
+</script>
+<script>
+/* ==========================================================================
+   Finance Recruiting Coach: Play
+   The Mental Math Sprint and Statement Flows, drawn as worksheets you fill in.
+   Runs on play.html and, in a 30-second form, in the home page hero. No plan or
+   sign-up needed. Scores stay in this browser (localStorage key frc:play:v1).
+   ========================================================================== */
+const Play = (() => {
+  'use strict';
+  const G = Games;
+  const KEY = 'frc:play:v1', APP_KEY = 'frc:v1';
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const todayISO = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+  const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  const playURL = () => new URL('play.html', location.href.replace(/[#?].*$/, '')).href;
+
+  /* ---------- what's saved ---------- */
+  let store = load();
+  function load() {
+    try { const d = JSON.parse(localStorage.getItem(KEY) || 'null'); if (d && d.v === 1 && Array.isArray(d.runs)) return d; } catch (e) { /* unreadable or blocked: start fresh */ }
+    return { v: 1, name: '', runs: [] };
+  }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* private window: scores last for this visit only */ } }
+  function appState() { try { const d = JSON.parse(localStorage.getItem(APP_KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function record(run) {
+    store.runs.push(Object.assign({ date: todayISO(), at: Date.now() }, run));
+    if (store.runs.length > 300) store.runs = store.runs.slice(-300);
+    persist();
+  }
+  const runsOf = g => store.runs.filter(r => r.g === g);
+  const bestOf = g => { const r = runsOf(g); return r.length ? Math.max.apply(null, r.map(x => x.score)) : null; };
+  function defaultName() {
+    if (store.name) return store.name;
+    const a = appState();
+    return a && a.profile && a.profile.name ? G.cleanName(String(a.profile.name).split(' ')[0]) : '';
+  }
+
+  /* ---------- small UI helpers ---------- */
+  let toastT = 0;
+  function toast(msg) {
+    let t = $('#toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2600);
+  }
+  function copy(text, ok) {
+    let p;
+    try { p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(text) : Promise.reject(new Error('none')); } catch (e) { p = Promise.reject(e); }
+    p.then(() => toast(ok)).catch(() => { window.prompt('Copy this link:', text); });
+  }
+  function shareChallenge(c) {
+    const url = playURL() + G.challengeHash(c);
+    if (navigator.share) navigator.share({ text: G.shareText(c, '').replace(/:\s*$/, '.'), url }).catch(() => { /* closed the share sheet */ });
+    else copy(G.shareText(c, url), 'Challenge copied. Paste it into a text or group chat.');
+  }
+
+  /* =========================== Mental Math Sprint ===========================
+     A worksheet: column A is the question, B is your answer, C is the check.
+     The clock starts on the first keystroke, so reading the first question is free. */
+  function startSprint(root, opts) {
+    const secs = opts.secs || 60, keep = opts.compact ? 2 : 4;
+    const qs = G.sprintRound(opts.seed, 90);
+    let i = 0, right = 0, t0 = 0, tick = 0, over = false;
+    const log = [];
+    root.innerHTML =
+      '<div class="ws" data-game="sprint">' +
+      '<div class="ws-bar"><span class="ws-ref" id="sp-ref">B2</span><span class="ws-fx" aria-hidden="true">fx</span><span class="ws-formula">=SPRINT(' + secs + ')</span>' +
+      '<span class="ws-meter"><b id="sp-score">0</b> right</span><span class="ws-clock" id="sp-clock" aria-label="Time left">' + mmss(secs) + '</span></div>' +
+      '<div class="ws-time" aria-hidden="true"><i id="sp-bar"></i></div>' +
+      '<table class="ws-grid sp-grid"><thead><tr><th class="rn"></th><th>A</th><th>B</th><th>C</th></tr></thead>' +
+      '<tbody id="sp-log"><tr class="hdr"><td class="rn">1</td><td>Question</td><td>Your answer</td><td>Check</td></tr></tbody>' +
+      '<tbody><tr class="active"><td class="rn" id="sp-rn">2</td><td class="q" id="sp-q" aria-live="polite"></td>' +
+      '<td class="in-cell"><form id="sp-form" autocomplete="off"><input class="cell-in" id="sp-in" inputmode="decimal" enterkeyhint="go" autocapitalize="off" spellcheck="false" aria-label="Your answer"><span class="unit" id="sp-unit"></span></form></td>' +
+      '<td><button class="btn small" type="submit" form="sp-form" id="sp-go">Enter</button></td></tr></tbody></table>' +
+      '<p class="ws-note" id="sp-note">The clock starts when you type. Enter locks in an answer, and an empty Enter skips.</p></div>';
+    const input = $('#sp-in', root), qEl = $('#sp-q', root);
+    const show = () => {
+      const q = qs[i];
+      qEl.textContent = q.prompt;
+      $('#sp-unit', root).textContent = G.UNIT_HINT[q.unit] || '';
+      $('#sp-rn', root).textContent = i + 2;
+      $('#sp-ref', root).textContent = 'B' + (i + 2);
+    };
+    const paintClock = () => {
+      const left = Math.max(0, secs - (Date.now() - t0) / 1000);
+      $('#sp-clock', root).textContent = mmss(Math.ceil(left));
+      $('#sp-bar', root).style.width = (100 - left / secs * 100).toFixed(1) + '%';
+      if (left <= 0) finish();
+    };
+    const begin = () => { if (t0 || over) return; t0 = Date.now(); tick = setInterval(paintClock, 100); root.classList.add('running'); };
+    function finish() {
+      if (over) return;
+      over = true; clearInterval(tick);
+      input.disabled = true; $('#sp-go', root).disabled = true; input.blur();
+      $('#sp-clock', root).textContent = '0:00'; $('#sp-bar', root).style.width = '100%';
+      $('#sp-note', root).textContent = 'Time. ' + right + ' right out of ' + log.length + ' answered.';
+      opts.onDone({ g: 'sprint', seed: opts.seed, score: right, tried: log.length, secs, log });
+    }
+    $('#sp-form', root).addEventListener('submit', e => {
+      e.preventDefault();
+      if (over) return;
+      begin();
+      const q = qs[i], typed = input.value.trim(), ok = G.checkTyped(q, typed);
+      if (ok) right++;
+      log.push({ kind: q.kind, ok });
+      const tr = document.createElement('tr');
+      tr.className = ok ? 'ok' : 'miss';
+      tr.innerHTML = '<td class="rn">' + (i + 2) + '</td><td>' + esc(q.prompt) + '</td><td class="num typed">' + (typed ? esc(typed) : '<span class="skip">skipped</span>') + '</td>' +
+        '<td class="num chk">' + (ok ? '<span aria-label="right">✓</span>' : esc(G.fmtAnswer(q.answer, q.unit))) + '</td>';
+      const lg = $('#sp-log', root);
+      lg.appendChild(tr);
+      while (lg.children.length > keep + 1) lg.removeChild(lg.children[1]);
+      $('#sp-score', root).textContent = right;
+      i++; input.value = '';
+      if (i >= qs.length) { finish(); return; }
+      show(); input.focus();
+    });
+    input.addEventListener('input', begin);
+    show();
+    if (opts.focus) input.focus();
+    return { stop() { over = true; clearInterval(tick); } };
+  }
+
+  /* =========================== Statement Flows ===========================
+     One event, nine lines across the three statements. Mark each line up, down or
+     unchanged, check it, and read the walk-through. Five events a round. */
+  const PICK = [[1, '▲', 'Up'], [0, '–', 'No change'], [-1, '▼', 'Down']];
+  function startFlows(root, opts) {
+    const round = G.flowsRound(opts.seed, opts.n || 5);
+    let idx = 0, picks = {}, total = 0, checked = false, t0 = 0, tick = 0, done = false;
+    const per = [];
+    const clock = () => { const el = $('#fl-clock', root); if (el && t0) el.textContent = mmss((Date.now() - t0) / 1000); };
+    function stmtTable(scen, stmt, startRow) {
+      const rows = scen.rows.filter(r => r.stmt === stmt);
+      return '<table class="ws-grid fl-tbl"><thead><tr><th class="rn"></th><th>' + G.STMT_NAME[stmt] + '</th><th class="chg">Change</th></tr></thead><tbody>' +
+        rows.map((r, j) => {
+          let cell;
+          if (!checked) {
+            cell = '<span class="seg3" role="group" aria-label="' + esc(r.label) + '">' + PICK.map(p => '<button type="button" data-k="' + r.k + '" data-pick="' + p[0] + '" aria-pressed="' + (picks[r.k] === p[0]) + '" aria-label="' + p[2] + '" title="' + p[2] + '">' + p[1] + '</button>').join('') + '</span>';
+          } else {
+            const ok = picks[r.k] === r.dir;
+            cell = '<span class="fl-ans ' + (r.dir > 0 ? 'up' : r.dir < 0 ? 'down' : 'flat') + '">' + G.acct(r.delta) + '</span><span class="fl-mark ' + (ok ? 'ok' : 'miss') + '">' + (ok ? '✓' : '✗') + '</span>';
+          }
+          return '<tr data-row="' + r.k + '"' + (checked ? ' class="' + (picks[r.k] === r.dir ? 'ok' : 'miss') + '"' : '') + '><td class="rn">' + (startRow + j) + '</td><td>' + esc(r.label) + '</td><td class="chg">' + cell + '</td></tr>';
+        }).join('') + '</tbody></table>';
+    }
+    function paint() {
+      const s = round[idx];
+      const got = checked ? G.flowScore(s, picks) : 0;
+      const filled = s.rows.filter(r => picks[r.k] !== undefined).length;
+      root.innerHTML =
+        '<div class="ws" data-game="flows">' +
+        '<div class="ws-bar"><span class="ws-ref">' + (idx + 1) + ' of ' + round.length + '</span><span class="ws-fx" aria-hidden="true">fx</span><span class="ws-formula">=FLOW(event)</span>' +
+        '<span class="ws-meter"><b>' + (total + got) + '</b> of ' + ((idx + (checked ? 1 : 0)) * 9) + ' lines</span><span class="ws-clock" id="fl-clock">' + mmss(t0 ? (Date.now() - t0) / 1000 : 0) + '</span></div>' +
+        '<div class="fl-event"><p class="fl-text">' + esc(s.text) + '</p><p class="fl-assume">Tax rate ' + s.taxPct + '%. One period, and taxes are paid in cash this period.</p></div>' +
+        '<div class="fl-stmts">' + stmtTable(s, 'is', 1) + stmtTable(s, 'cf', 3) + stmtTable(s, 'bs', 6) + '</div>' +
+        (checked
+          ? '<div class="fl-why" aria-live="polite"><p class="fl-got"><b>' + got + ' of 9 lines.</b>' + (s.trap ? ' ' + esc(s.trap) : '') + '</p>' +
+            '<dl><dt>Income statement</dt><dd>' + esc(s.why.is) + '</dd><dt>Cash flow statement</dt><dd>' + esc(s.why.cf) + '</dd><dt>Balance sheet</dt><dd>' + esc(s.why.bs) + '</dd></dl></div>' +
+            '<div class="btn-row"><button class="btn primary" type="button" data-fl="next">' + (idx + 1 < round.length ? 'Next event' : 'See my result') + '</button></div>'
+          : '<div class="btn-row"><button class="btn primary" type="button" data-fl="check">Check ' + (filled < 9 ? '(' + filled + ' of 9 marked)' : 'my answers') + '</button><button class="btn" type="button" data-fl="rest">The rest don\'t change</button></div>') +
+        '</div>';
+    }
+    root.addEventListener('click', e => {
+      if (done) return;
+      const b = e.target.closest('button'); if (!b || !root.contains(b)) return;
+      if (b.dataset.pick !== undefined && !checked) {
+        if (!t0) { t0 = Date.now(); tick = setInterval(clock, 500); }
+        picks[b.dataset.k] = +b.dataset.pick;
+        $$('button[data-k="' + b.dataset.k + '"]', root).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        const filled = round[idx].rows.filter(r => picks[r.k] !== undefined).length;
+        const c = $('[data-fl="check"]', root); if (c) c.textContent = 'Check ' + (filled < 9 ? '(' + filled + ' of 9 marked)' : 'my answers');
+      } else if (b.dataset.fl === 'rest') {
+        round[idx].rows.forEach(r => { if (picks[r.k] === undefined) picks[r.k] = 0; });
+        paint();
+      } else if (b.dataset.fl === 'check') {
+        if (!t0) { t0 = Date.now(); tick = setInterval(clock, 500); }
+        checked = true; paint();
+        const w = $('.fl-why', root); if (w && w.scrollIntoView) w.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      } else if (b.dataset.fl === 'next') {
+        const got = G.flowScore(round[idx], picks);
+        total += got; per.push({ id: round[idx].id, got });
+        if (idx + 1 < round.length) { idx++; picks = {}; checked = false; paint(); root.scrollIntoView && root.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
+        done = true; clearInterval(tick);
+        opts.onDone({ g: 'flows', seed: opts.seed, score: total, total: round.length * 9, ms: Date.now() - t0, per });
+      }
+    });
+    paint();
+    return { stop() { done = true; clearInterval(tick); } };
+  }
+
+  /* =========================== the Play page =========================== */
+  let root = null, game = null, challenge = null;
+  function progress() {
+    const app = appState();
+    const st = G.streak(G.activeDays(app, store), todayISO());
+    const p = app && app.profile;
+    const rd = G.readiness({ answers: (app && app.answers) || [], play: store, seats: (p && p.seats) || [], today: todayISO(),
+      plan: p && p.startDate && p.readyDate ? { start: p.startDate, ready: p.readyDate, events: p.events || [] } : null });
+    return { st, rd, hasPlan: !!p };
+  }
+  function lobby() {
+    if (game) { game.stop(); game = null; }
+    const pr = progress(), bs = bestOf('sprint'), bf = bestOf('flows');
+    const ch = challenge;
+    const banner = ch ? '<div class="ch-banner"><p>' + (ch.name ? '<b>' + esc(ch.name) + '</b> ' : 'Someone ') + (ch.score != null ? 'got <b>' + ch.score + '</b> ' + (ch.g === 'flows' ? 'of 45 lines' : 'in 60 seconds') + ' on this round of ' : 'sent you a round of ') + G.GAMES[ch.g].name + '. You get the same questions.</p>' +
+      '<div class="btn-row"><button class="btn primary" data-go="' + ch.g + '" data-seed="' + esc(ch.seed) + '">Take the challenge</button><button class="btn ghost" data-go="clear">Not now</button></div></div>' : '';
+    const tile = (g, title, blurb, best, bestLbl) =>
+      '<section class="game-tile"><h2>' + title + '</h2><p>' + blurb + '</p>' +
+      '<p class="game-best">' + (best == null ? 'No score yet.' : 'Your best: <b>' + best + '</b> ' + bestLbl + '.') + '</p>' +
+      '<div class="btn-row"><button class="btn primary" data-go="' + g + '" data-seed="' + G.dailySeed(todayISO()) + '">Play today\'s round</button><button class="btn" data-go="' + g + '" data-seed="">New round</button></div></section>';
+    const rd = pr.rd;
+    root.innerHTML = banner +
+      '<header class="play-head"><h1 class="h-page">Play</h1><p class="lede">Two games built from the questions first rounds actually ask. Today\'s round is the same for everyone, so you can compare scores. No account, and nothing leaves this browser.</p></header>' +
+      '<div class="game-tiles">' +
+      tile('sprint', 'Mental Math Sprint', 'Sixty seconds of the arithmetic interviewers expect in your head: percent changes, multiples, yields, the rule of 72. Type the answer, hit Enter, next.', bs, 'in 60 seconds') +
+      tile('flows', 'Statement Flows', 'One event, three statements. "Depreciation goes up by $20": mark each line up, down or unchanged, then read the walk-through. Five events a round.', bf, 'of 45 lines') +
+      '</div>' +
+      '<section class="prog"><h2>Your progress</h2><table class="ws-grid prog-tbl"><tbody>' +
+      '<tr><td class="rn">1</td><td>Day streak</td><td class="num"><b>' + pr.st.n + '</b></td><td>' + (pr.st.n ? (pr.st.today ? 'Today counts.' : 'Play or study today to keep it.') : 'Any game, graded answer or finished session starts one.') + '</td></tr>' +
+      '<tr><td class="rn">2</td><td>Rounds played</td><td class="num"><b>' + store.runs.length + '</b></td><td>' + runsOf('sprint').length + ' sprints, ' + runsOf('flows').length + ' flows</td></tr>' +
+      (pr.hasPlan
+        ? '<tr><td class="rn">3</td><td>Readiness<sup>1</sup></td><td class="num"><b>' + rd.overall + '%</b></td><td>' + (rd.expected != null ? 'Your plan is ' + rd.expected + '% elapsed, so you are ' + rd.status + '.' : '') + (rd.next ? ' ' + esc(rd.next.name) + ' is in ' + rd.next.days + ' day' + (rd.next.days === 1 ? '' : 's') + '.' : '') + '</td></tr>' +
+          (rd.weakest ? '<tr><td class="rn">4</td><td>Weakest area</td><td class="num">' + esc(rd.weakest.name) + '</td><td>' + esc(rd.weakest.next) + '</td></tr>' : '')
+        : '<tr><td class="rn">3</td><td>Readiness</td><td class="num">–</td><td><a href="app.html">Build a plan</a> with your interview dates and this row tracks you against them.</td></tr>') +
+      '</tbody></table>' + (pr.hasPlan ? '<p class="fn"><sup>1</sup> An estimate from your graded answers and game scores, nothing else. <a href="app.html#scorecard">The Scorecard</a> breaks it down by area.</p>' : '') + '</section>' +
+      '<section class="live-cta"><h2>Playing with a room?</h2><p>Put a code on the projector and everyone answers on their phone. Ten questions, a live leaderboard, about five minutes.</p><div class="btn-row"><a class="btn" href="live.html#host">Host a live room</a><a class="btn ghost" href="live.html">Join with a code</a></div></section>';
+  }
+  function play(g, seed) {
+    seed = seed || G.newSeed();
+    if (game) game.stop();
+    const daily = seed === G.dailySeed(todayISO());
+    root.innerHTML = '<div class="play-top"><button class="backlink" data-go="lobby">← All games</button><span class="note">' + G.GAMES[g].name + (daily ? ', today\'s round' : '') + '</span></div><div id="game"></div><div id="result"></div>';
+    const onDone = res => result(res);
+    game = g === 'sprint' ? startSprint($('#game', root), { seed, secs: 60, focus: true, onDone }) : startFlows($('#game', root), { seed, n: 5, onDone });
+    window.scrollTo(0, 0);
+  }
+  function result(res) {
+    const before = bestOf(res.g);
+    record({ g: res.g, seed: res.seed, score: res.score, total: res.total || 0, tried: res.tried || 0, ms: res.ms || 0 });
+    const ch = challenge && challenge.g === res.g && challenge.seed === res.seed ? challenge : null;
+    const unit = res.g === 'sprint' ? 'right in 60 seconds' : 'of 45 lines right';
+    const rows = [['This round', res.score, res.g === 'sprint' ? res.tried + ' answered' : mmss(res.ms / 1000) + ' on the clock']];
+    if (ch && ch.score != null) rows.push([ch.name || 'Your challenger', ch.score, res.score > ch.score ? 'You win by ' + (res.score - ch.score) + '.' : res.score === ch.score ? 'A tie. Run it back.' : 'They lead by ' + (ch.score - res.score) + '.']);
+    rows.push(['Your best before this', before == null ? '–' : before, before == null ? 'First score on the board.' : res.score > before ? 'New best.' : '']);
+    if (res.g === 'sprint') rows.push(['Target', G.SPRINT_TARGET, res.score >= G.SPRINT_TARGET ? 'Cleared.' : (G.SPRINT_TARGET - res.score) + ' to go.']);
+    const st = G.streak(G.activeDays(appState(), store), todayISO());
+    rows.push(['Day streak', st.n, 'Today counts.']);
+    let miss = '';
+    if (res.g === 'sprint' && res.log) {
+      const m = {}; res.log.forEach(l => { if (!l.ok) m[l.kind] = (m[l.kind] || 0) + 1; });
+      const worst = Object.keys(m).sort((a, b) => m[b] - m[a])[0];
+      if (worst) miss = '<p class="note">Most misses: ' + esc(KIND_LABEL[worst] || worst) + '.</p>';
+    }
+    const el = $('#result', root);
+    el.innerHTML = '<section class="res" aria-live="polite"><p class="res-num">' + res.score + '</p><p class="res-lbl">' + unit + '</p>' +
+      '<table class="ws-grid res-tbl"><tbody>' + rows.map((r, i) => '<tr><td class="rn">' + (i + 1) + '</td><td>' + esc(r[0]) + '</td><td class="num"><b>' + esc(r[1]) + '</b></td><td>' + esc(r[2]) + '</td></tr>').join('') + '</tbody></table>' + miss +
+      '<div class="res-share"><label for="ch-name">Your name on the challenge</label><input class="in" id="ch-name" maxlength="16" placeholder="First name" value="' + esc(defaultName()) + '">' +
+      '<div class="btn-row"><button class="btn primary" data-go="share">Challenge a friend</button><button class="btn" data-go="copy">Copy the link</button></div>' +
+      '<p class="hint">They get the same questions and see your score first.</p></div>' +
+      '<div class="btn-row"><button class="btn" data-go="' + res.g + '" data-seed="">New round</button><button class="btn" data-go="' + res.g + '" data-seed="' + esc(res.seed) + '">Same round again</button><button class="btn" data-go="' + (res.g === 'sprint' ? 'flows' : 'sprint') + '" data-seed="' + G.dailySeed(todayISO()) + '">Try ' + G.GAMES[res.g === 'sprint' ? 'flows' : 'sprint'].name + '</button><button class="btn ghost" data-go="lobby">All games</button></div></section>';
+    el.dataset.g = res.g; el.dataset.seed = res.seed; el.dataset.score = res.score;
+    if (el.scrollIntoView) el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }
+  const KIND_LABEL = { pctOf: 'percent of a number', pctChange: 'percent change', evMultiple: 'EV/EBITDA', impliedEV: 'implied enterprise value', pe: 'P/E', rule72: 'the rule of 72', margin: 'margins', netIncome: 'after-tax income',
+    compound: 'compounding', presentValue: 'present value', fraction: 'fractions to percents', times: 'multiplication', equityValue: 'the EV to equity bridge', enterpriseValue: 'the equity to EV bridge', marketCap: 'market cap',
+    bondYield: 'bond yields', divYield: 'dividend yields', breakeven: 'gains needed after a loss', basisPoints: 'basis points', interest: 'interest expense', wacc: 'WACC' };
+  function onClick(e) {
+    const b = e.target.closest('[data-go]'); if (!b) return;
+    const go = b.dataset.go;
+    if (go === 'lobby') lobby();
+    else if (go === 'clear') { challenge = null; history.replaceState(null, '', location.pathname); lobby(); }
+    else if (go === 'sprint' || go === 'flows') play(go, b.dataset.seed);
+    else if (go === 'share' || go === 'copy') {
+      const el = $('#result', root), nm = G.cleanName(($('#ch-name', root) || {}).value);
+      store.name = nm; persist();
+      const c = { g: el.dataset.g, seed: el.dataset.seed, score: +el.dataset.score, name: nm };
+      if (go === 'share') shareChallenge(c);
+      else copy(playURL() + G.challengeHash(c), 'Link copied. Whoever opens it gets the same round.');
+    }
+  }
+  function mount(el) {
+    root = el;
+    challenge = G.parseChallenge(location.hash);
+    root.addEventListener('click', onClick);
+    addEventListener('hashchange', () => { const c = G.parseChallenge(location.hash); if (c) { challenge = c; lobby(); } });
+    lobby();
+  }
+
+  /* ---------- the home page hero: a 30-second sprint, right there ---------- */
+  function hero(el) {
+    const seed = G.dailySeed(todayISO());      // the full minute on the Play page uses this; the taste here uses different questions
+    const run = () => startSprint($('#hero-game', el), { seed: 'H' + seed, secs: 30, compact: true, onDone: res => {
+      const out = $('#hero-out', el);
+      out.innerHTML = '<p><b>' + res.score + ' right in 30 seconds.</b> ' + (res.score >= 10 ? 'That pace clears this site\'s target of 20 a minute.' : 'The target here is 20 a minute. It comes fast with reps.') + '</p>' +
+        '<div class="btn-row"><a class="btn primary" href="play.html' + G.challengeHash({ g: 'sprint', seed }) + '">Play the full minute</a><a class="btn" href="play.html">See both games</a><button class="btn ghost" type="button" id="hero-again">Again</button></div>';
+      out.hidden = false;
+      $('#hero-again', el).addEventListener('click', () => { out.hidden = true; run(); $('#sp-in', el).focus(); });
+    } });
+    el.innerHTML = '<div id="hero-game"></div><div id="hero-out" class="hero-out" hidden aria-live="polite"></div>';
+    run();
+  }
+
+  return { mount, hero, startSprint, startFlows, progress, KEY };
+})();
+
+</script>
+<script>
+Play.mount(document.getElementById("play"));
+</script></body></html>
