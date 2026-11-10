@@ -241,7 +241,8 @@ function homePage(lessons) {
     '</div></div></section>' +
 
     '<section class="band" id="notes"><div class="wrap two-col"><div class="maker"><h2 class="sec-h" style="margin-bottom:0">Why I built this</h2>' +
-      '<p>I\'m a freshman, and I\'m recruiting for finance clubs and internships right now. I wanted one lesson a day and something that would make me answer out loud instead of nodding along to a guide, so I built that for myself with Claude. Then I rebuilt it so anyone can plug in their own school, seats and dates.</p>' +
+      '<p>I built this because I felt behind on finance recruiting, which starts earlier every year. I also had no idea where to start, at least not without spending a lot of money.</p>' +
+      '<p>I wanted something built around me, so I made the Finance Recruiting Coach. It gives you a lesson every day that fits your own goals and dates, then has you answer out loud and shows your time, pace and filler words, so you get better at speaking and not just at knowing the answer.</p>' +
       '<p>It\'s free and the code is public. If a lesson gets something wrong, <a href="' + REPO_URL + '/issues" target="_blank" rel="noopener">open an issue on GitHub</a> and I\'ll fix it.</p>' +
       '<p class="sig">Brandon, college freshman</p></div>' +
       '<div><table class="ws-grid contents"><thead><tr><th class="rn"></th><th>What</th><th>Where it runs</th><th>Needs Claude?</th></tr></thead><tbody>' +
