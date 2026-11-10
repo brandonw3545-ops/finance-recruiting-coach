@@ -21,6 +21,9 @@ import sys
 import threading
 import urllib.parse
 
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
+import mock_firebase  # noqa: E402
+
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -414,8 +417,8 @@ with sync_playwright() as pw:
 
     # ---------------- B1. home, library, lesson pages ----------------
     ctx, page, errs = open_web('', viewport={'width': 1280, 'height': 900})
-    check(page.title() == 'Finance Recruiting Coach' and 'Walk into your first finance interview ready.' in page.inner_text('h1'), 'B: home page renders')
-    check(page.locator('.ex-list li').count() >= 6 and page.locator('.lib-cards li').count() == 6, 'B: example plan and six featured lessons')
+    check(page.title() == 'Finance Recruiting Coach' and 'Finance recruiting prep, built like a model.' in page.inner_text('h1'), 'B: home page renders')
+    check(page.locator('.ex-list li').count() >= 6 and page.locator('.lesson-ledger li').count() == 6, 'B: example plan and six featured lessons')
     check(page.locator('a.btn.primary[href="app.html"]').count() >= 2 and page.locator('meta[property="og:image"]').count() == 1, 'B: calls to action and share card meta')
     page.click('.faq-item summary >> nth=0')
     check(page.locator('.faq-item[open]').count() == 1, 'B: FAQ opens')
@@ -610,6 +613,276 @@ with sync_playwright() as pw:
             no_hscroll(page, f'B: {tab} at 390px ({scheme})')
             if tab in ('today', 'practice') and scheme == 'light':
                 page.screenshot(path=str(SHOTS / f'b06-phone-{scheme}-{tab}.png'))
+        all_errs += errs
+        ctx.close()
+
+    # ==================================================================
+    # PART C: the games, the progress they feed, and the Live Room
+    # ==================================================================
+    T0 = dt.datetime(2026, 11, 10, 15, 0, 0)
+    CLIP = 'window.__clip=[];try{Object.defineProperty(navigator,"clipboard",{value:{writeText:function(t){window.__clip.push(t);return Promise.resolve();}},configurable:true});navigator.share=undefined;}catch(e){};'
+    DAILY = 'Games.dailySeed((function(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")})())'
+
+    # ---------------- C1. the home page hero is a real 30-second sprint ----------------
+    ctx, page, errs = open_web('', clock=T0, viewport={'width': 1280, 'height': 900})
+    page.wait_for_selector('#hero-sheet #sp-in')
+    ans = page.evaluate('Games.sprintRound("H"+' + DAILY + ',3).map(function(q){return q.answer})')
+    check(page.inner_text('#sp-clock') == '0:30' and page.locator('.sheet-tabs a').count() == 7 and page.locator('.tear tbody tr').count() == 7, 'C: home has the hero sprint, seven sheet tabs and the counted table')
+    page.fill('#sp-in', str(ans[0])); page.keyboard.press('Enter')
+    page.fill('#sp-in', '999999'); page.keyboard.press('Enter')
+    check(page.inner_text('#sp-score') == '1' and page.locator('#sp-log tr.ok').count() == 1 and page.locator('#sp-log tr.miss').count() == 1, 'C: hero sprint scores a right answer and shows the miss with the correct value')
+    page.clock.fast_forward(31000)
+    page.wait_for_selector('#hero-out:not([hidden])')
+    check('1 right in 30 seconds' in page.inner_text('#hero-out') and page.is_disabled('#sp-in') and '#g=sprint&s=D' in page.get_attribute('#hero-out a.btn.primary', 'href'), 'C: hero sprint ends at 30 seconds and links to the full minute')
+    check(page.evaluate('localStorage.getItem("frc:play:v1")') is None, 'C: the 30-second taste is not saved as a score')
+    all_errs += errs
+    ctx.close()
+
+    # ---------------- C2. Play: a full sprint, the saved score, a challenge link ----------------
+    ctx, page, errs = open_web('play.html', clock=T0, init=CLIP, viewport={'width': 1280, 'height': 900})
+    page.wait_for_selector('.game-tile')
+    check(page.locator('.game-tile').count() == 2 and 'No score yet' in page.inner_text('.game-tiles') and page.locator('.site-nav a[aria-current="page"]').inner_text() == 'Play', 'C: Play lists both games with no scores yet')
+    page.click('.game-tile >> nth=0 >> text=Play today\'s round')
+    ans = page.evaluate('Games.sprintRound(' + DAILY + ',4).map(function(q){return Games.fmtAnswer(q.answer,q.unit)})')
+    for a_ in (ans[0], ans[1], 'nope', ''):
+        page.fill('#sp-in', a_); page.keyboard.press('Enter')
+    check(page.inner_text('#sp-score') == '2' and page.inner_text('#sp-rn') == '6', 'C: sprint takes answers typed with their units, a wrong one and a skip')
+    page.clock.fast_forward(61000)
+    page.wait_for_selector('.res')
+    saved = json.loads(page.evaluate('localStorage.getItem("frc:play:v1")'))
+    check(page.inner_text('.res-num') == '2' and len(saved['runs']) == 1 and saved['runs'][0]['score'] == 2 and saved['runs'][0]['tried'] == 4 and saved['runs'][0]['date'] == '2026-11-10', 'C: the result shows 2 and the run is saved with its date')
+    check('First score on the board' in page.inner_text('.res-tbl') and '18 to go' in page.inner_text('.res-tbl'), 'C: the result table compares with your best and the target')
+    page.fill('#ch-name', 'Brandon <b>')
+    page.click('[data-go="copy"]')
+    link = page.evaluate('window.__clip[0]')
+    check(link.endswith('play.html#g=sprint&s=D20261110&p=2&n=Brandon%20b'), 'C: the challenge link carries the game, round, score and a cleaned name')
+    page.screenshot(path=str(SHOTS / 'c01-sprint-result.png'), full_page=True)
+    all_errs += errs
+    ctx.close()
+
+    ctx, page, errs = open_web('play.html' + link[link.index('#'):], clock=T0, viewport={'width': 390, 'height': 844}, device_scale_factor=2)
+    page.wait_for_selector('.ch-banner')
+    check('Brandon b' in page.inner_text('.ch-banner') and 'got 2 in 60 seconds' in page.inner_text('.ch-banner'), 'C: a friend opening the link sees who sent it and the score to beat')
+    no_hscroll(page, 'C: play lobby at 390px')
+    page.click('.ch-banner [data-go="sprint"]')
+    ans2 = page.evaluate('Games.sprintRound("D20261110",3).map(function(q){return q.answer})')
+    same = page.evaluate('Games.sprintRound("D20261110",4).map(function(q){return Games.fmtAnswer(q.answer,q.unit)})')
+    check(same == ans and len(ans2) == 3, 'C: the friend gets the same questions')
+    for x in ans2:
+        page.fill('#sp-in', str(x)); page.keyboard.press('Enter')
+    no_hscroll(page, 'C: sprint at 390px')
+    page.clock.fast_forward(61000)
+    page.wait_for_selector('.res')
+    check(page.inner_text('.res-num') == '3' and 'You win by 1' in page.inner_text('.res-tbl'), 'C: the challenge result names the winner')
+    no_hscroll(page, 'C: sprint result at 390px')
+    all_errs += errs
+    ctx.close()
+
+    # ---------------- C3. Statement Flows: mark nine lines, read the walk-through ----------------
+    ctx, page, errs = open_web('play.html', clock=T0, viewport={'width': 1280, 'height': 900})
+    page.click('.game-tile >> nth=1 >> text=Play today\'s round')
+    rnd = page.evaluate('Games.flowsRound(' + DAILY + ',5).map(function(s){return s.rows.map(function(r){return [r.k,r.dir]})})')
+    check(page.locator('.fl-tbl').count() == 3 and page.locator('.seg3').count() == 9 and 'Check (0 of 9 marked)' in page.inner_text('[data-fl="check"]'), 'C: flows shows three statements and nine lines to mark')
+    for n_, rows in enumerate(rnd):
+        if n_ == 0:      # first event: get one wrong on purpose and let "the rest" fill in
+            k0, d0 = rows[0]
+            page.click(f'button[data-k="{k0}"][data-pick="{1 if d0 != 1 else -1}"]')
+            for k_, d_ in rows[1:]:
+                if d_ != 0:
+                    page.click(f'button[data-k="{k_}"][data-pick="{d_}"]')
+            page.click('[data-fl="rest"]')
+        else:
+            for k_, d_ in rows:
+                page.click(f'button[data-k="{k_}"][data-pick="{d_}"]')
+        page.click('[data-fl="check"]')
+        page.wait_for_selector('.fl-why')
+        if n_ == 0:
+            check('8 of 9 lines' in page.inner_text('.fl-got') and page.locator('.fl-tbl tr.miss').count() == 1 and page.locator('.fl-why dd').count() == 3, 'C: checking shows the miss, the amounts and a three-part walk-through')
+            page.screenshot(path=str(SHOTS / 'c02-flows-checked.png'), full_page=True)
+        page.clock.fast_forward(4000)
+        page.click('[data-fl="next"]')
+    page.wait_for_selector('.res')
+    check(page.inner_text('.res-num') == '44' and 'of 45 lines right' in page.inner_text('.res-lbl'), 'C: a flows round totals 44 of 45')
+    all_errs += errs
+    ctx.close()
+
+    # ---------------- C4. games feed the streak and readiness in the plan ----------------
+    play_state = {'v': 1, 'name': 'Sam', 'runs': [{'g': 'sprint', 'seed': 'A2', 'score': 20, 'tried': 22, 'date': iso(0), 'at': 1}, {'g': 'sprint', 'seed': 'A3', 'score': 20, 'tried': 21, 'date': iso(-1), 'at': 2}, {'g': 'sprint', 'seed': 'A4', 'score': 20, 'tried': 20, 'date': iso(-2), 'at': 3},
+                                               {'g': 'flows', 'seed': 'B2', 'score': 45, 'total': 45, 'date': iso(0), 'at': 4}]}
+    seed_play = 'try{if(!sessionStorage.getItem("seededp")){localStorage.setItem("frc:play:v1",' + json.dumps(json.dumps(play_state)) + ');sessionStorage.setItem("seededp","1")}}catch(e){};'
+    ctx, page, errs = open_web(state=json.dumps(web_state), init=seed_play + CLIP, viewport={'width': 1200, 'height': 900})
+    page.wait_for_selector('.tabs')
+    check(page.locator('.tabs a.tab-out[href="play.html"]').count() == 1, 'C: the plan has a Play link in its tabs')
+    page.click('[data-act="tab"][data-tab="today"]')
+    page.wait_for_selector('.side')
+    check('day streak' in page.inner_text('.side') and 'readiness' in page.inner_text('.side'), 'C: Today shows the day streak and readiness')
+    page.click('[data-act="tab"][data-tab="scorecard"]')
+    page.wait_for_selector('.ready')
+    rd = page.inner_text('.ready')
+    check('Mental math' in rd and 'Accounting' in rd and 'Day streak: 3' in rd and page.locator('.ready .bar-row').count() >= 5, 'C: Scorecard has a readiness panel by area with the day streak')
+    math_w = page.evaluate('getComputedStyle(document.querySelectorAll(".ready .bar-fill")[document.querySelectorAll(".ready .bar-row").length-1]).width')
+    check(page.locator('.ready .bar-row >> nth=-1').inner_text().startswith('Mental math') and '100%' in page.locator('.ready .bar-row >> nth=-1').inner_text() and math_w != '0px', 'C: three sprints at the target fill the mental math bar')
+    page.screenshot(path=str(SHOTS / 'c03-readiness.png'))
+    page.click('[data-act="tab"][data-tab="setup"]')
+    page.click('[data-act="backup"]')
+    code = page.evaluate('window.__clip[window.__clip.length-1]')
+    page.evaluate('localStorage.removeItem("frc:play:v1")')
+    page.click('[data-act="restore-open"]'); page.fill('#restore-in', code); page.click('[data-act="restore-go"]')
+    back = json.loads(page.evaluate('localStorage.getItem("frc:play:v1")') or 'null')
+    check(back and len(back['runs']) == 4 and '_play' not in state_of(page), 'C: a backup code carries game scores and restores them')
+    all_errs += errs
+    ctx.close()
+    ctx, page, errs = open_web('play.html', state=json.dumps(web_state), init=seed_play, viewport={'width': 1200, 'height': 900})
+    page.wait_for_selector('.prog-tbl')
+    pt = page.inner_text('.prog-tbl')
+    check('Readiness' in pt and 'Weakest area' in pt and 'Your best: 20 in 60 seconds' in page.inner_text('.game-tiles'), 'C: Play shows bests, readiness and the weakest area when a plan exists')
+    all_errs += errs
+    ctx.close()
+
+    # ---------------- C5. Live Room in one browser: host, two players, six questions ----------------
+    def live_answer(pg, code, pid_right):
+        """Tap the right choice (or a wrong one) for whatever question this player is on."""
+        pg.wait_for_selector('.p-choice:not([disabled])')
+        correct = pg.evaluate('(function(){var r=JSON.parse(localStorage.getItem("frc:live:room:' + code + '")).pub;return Games.liveQuestion(r.seed,r.mix,r.i).correct})()')
+        pg.click(f'.p-choice[data-c="{correct if pid_right else (correct + 1) % 4}"]')
+
+    ctx, host, errs = open_web('live.html#host&local', init=CLIP, viewport={'width': 1440, 'height': 900})
+    host.wait_for_selector('#host-form')
+    host.click('.radio-pill:has(input[name="n"][value="6"])')
+    host.click('.radio-pill:has(input[name="secs"][value="15"])')
+    host.click('#host-form button[type=submit]')
+    host.wait_for_selector('.room-code')
+    code = host.inner_text('.room-code')
+    check(re.fullmatch(r'[A-Z]{4}', code) is not None and host.locator('.lobby-qr svg path').count() == 1 and host.is_disabled('[data-h="start"]'), 'C: hosting opens a room with a four-letter code and a QR, and waits for players')
+    host.click('[data-h="copy"]')
+    check(host.evaluate('window.__clip[0]').endswith('live.html#join=' + code + '&local'), 'C: the join link carries the code')
+    players = []
+    for nm in ('Ana', 'Bo', '<i>Zed</i>'):
+        pg = ctx.new_page(); watch(pg, errs)
+        pg.set_viewport_size({'width': 390, 'height': 844})
+        if nm == 'Bo':      # Bo comes in through the front door and types the code
+            pg.goto(BASE + 'live.html#local')
+            pg.fill('#j-code', code.lower()); pg.fill('#j-name', nm); pg.click('#join-form button[type=submit]')
+        else:
+            pg.goto(BASE + 'live.html#join=' + code + '&local&name=' + urllib.parse.quote(nm))
+        pg.wait_for_selector('.p-msg')
+        players.append(pg)
+    ana, bo, zed = players
+    host.wait_for_function('document.querySelectorAll(".pchip").length === 3')
+    check("You're in, Ana." in ana.inner_text('.p-msg') and 'iZed/i' in host.inner_text('.chips') and host.locator('.chips i').count() == 0, 'C: three players join and a name with markup is shown as plain text')
+    host.screenshot(path=str(SHOTS / 'c04-live-lobby.png'))
+    host.click('.pchip:has-text("iZed/i")')
+    zed.wait_for_selector('text=The host removed you')
+    host.wait_for_function('document.querySelectorAll(".pchip").length === 2')
+    check('Start with 2 players' in host.inner_text('[data-h="start"]'), 'C: the host can remove a player before starting')
+    host.click('[data-h="start"]')
+    for qi in range(6):
+        host.wait_for_function('document.querySelector(".q-n") && document.querySelector(".q-n").textContent.indexOf("Question ' + str(qi + 1) + ' of 6") === 0 && !document.querySelector(".q-choices.revealed")')
+        if qi == 0:
+            check(host.locator('.q-choices li').count() == 4 and ana.locator('.p-choice').count() == 4 and ana.inner_text('.p-q') == host.inner_text('.q-text'), 'C: the host screen and a phone show the same question and four choices')
+            ana.screenshot(path=str(SHOTS / 'c05-live-phone.png'))
+            host.screenshot(path=str(SHOTS / 'c06-live-question.png'))
+        live_answer(ana, code, True)
+        if qi == 0:
+            check('Locked in' in ana.inner_text('.p-status') and ana.locator('.p-choice[disabled]').count() == 4, 'C: a tap locks the answer in')
+        if qi < 5:
+            live_answer(bo, code, False)      # everyone has answered: the host reveals without waiting for the clock
+        else:
+            host.click('[data-h="reveal"]')      # last one: Bo never answers and the host reveals by hand
+        host.wait_for_selector('.q-choices.revealed li.right')
+        ana.wait_for_selector('.p-right'); bo.wait_for_selector('.p-wrong')
+        if qi == 0:
+            pts = int(ana.inner_text('.p-pts').replace('+', '').replace(',', ''))
+            check(600 < pts <= 1000 and 'Ana' in host.inner_text('.board-tbl tr >> nth=0') and "You're 1st of 2" in ana.inner_text('.p-rank') and "You're 2nd of 2" in bo.inner_text('.p-rank') and bo.inner_text('.p-pts') == '+0', 'C: the reveal scores speed, ranks the room and tells each phone where it stands')
+            host.screenshot(path=str(SHOTS / 'c07-live-reveal.png'))
+        if qi == 5:
+            check('No answer' in bo.inner_text('.p-verdict'), 'C: a player who never answered is told so')
+        host.click('[data-h="next"]')
+    host.wait_for_selector('.podium')
+    ana.wait_for_selector('text=You finished')
+    check('Ana' in host.inner_text('.podium .p1') and 'Bo' in host.inner_text('.podium') and 'You finished 1st of 2' in ana.inner_text('.p-verdict') and ana.locator('.p-msg a[href="play.html"]').count() == 1, 'C: the final screen has a podium and each phone gets its place and a way to keep going')
+    host.screenshot(path=str(SHOTS / 'c08-live-final.png'))
+    host.reload()
+    host.wait_for_selector('.podium')
+    check('Ana' in host.inner_text('.podium .p1'), 'C: reloading the host screen picks the room back up')
+    host.click('[data-h="again"]')
+    host.wait_for_selector('.room-code')
+    ana.wait_for_selector("text=You're in, Ana.")
+    host.click('[data-h="start"]')
+    live_answer(ana, code, True)
+    check(True, 'C: the same room can run a second game and a phone can answer again')
+    host.click('[data-h="end"]'); host.click('[data-h="end"]')
+    ana.wait_for_selector('text=The room has closed')
+    check(host.evaluate('localStorage.getItem("frc:live:room:' + code + '")') is None and host.locator('#host-form').count() == 1, 'C: closing the room deletes it and phones are told')
+    all_errs += errs
+    ctx.close()
+
+    # ---------------- C6. Live Room over the database API, on separate devices ----------------
+    db = mock_firebase.Database()
+    fb, DBURL = mock_firebase.serve(db)
+    DBQ = '&db=' + urllib.parse.quote(DBURL, safe='')
+    hctx, host, herrs = open_web('live.html#host' + DBQ, viewport={'width': 1440, 'height': 900})
+    host.wait_for_selector('#host-form')
+    host.click('.radio-pill:has(input[name="mix"][value="flows"])')
+    host.click('.radio-pill:has(input[name="n"][value="6"])')
+    host.click('#host-form button[type=submit]')
+    host.wait_for_selector('.room-code')
+    code = host.inner_text('.room-code')
+    check(db.get(['rooms', code, 'pub', 'stage']) == 'lobby' and db.get(['rooms', code, 'pub', 'mix']) == 'flows', 'C: hosting writes the room to the database')
+    pctx, p1, p1errs = open_web('live.html#join=' + code + DBQ + '&name=Cy', viewport={'width': 390, 'height': 844})      # streams updates
+    qctx, p2, p2errs = open_web('live.html#join=' + code + DBQ + '&name=Di', init='window.EventSource=undefined;', viewport={'width': 390, 'height': 844})      # no streaming: has to poll
+    p1.wait_for_selector('.p-msg'); p2.wait_for_selector('.p-msg')
+    host.wait_for_function('document.querySelectorAll(".pchip").length === 2')
+    check(sorted(v['n'] for v in db.get(['rooms', code, 'players']).values()) == ['Cy', 'Di'], 'C: two phones on separate devices join through the database')
+    host.click('[data-h="start"]')
+    for qi in range(2):
+        p1.wait_for_function('document.querySelector(".p-top") && document.querySelector(".p-top").textContent.indexOf("Question ' + str(qi + 1) + ' of 6") === 0')
+        p2.wait_for_function('document.querySelector(".p-top") && document.querySelector(".p-top").textContent.indexOf("Question ' + str(qi + 1) + ' of 6") === 0', timeout=8000)
+        pub = db.get(['rooms', code, 'pub'])
+        correct = host.evaluate(f'Games.liveQuestion({json.dumps(pub["seed"])},"flows",{qi}).correct')
+        check('Tax rate' in p1.inner_text('.p-q'), f'C: question {qi + 1} is a three-statement question, as the host chose')
+        p1.click(f'.p-choice[data-c="{correct}"]')
+        p2.click(f'.p-choice[data-c="{(correct + 2) % 4}"]')
+        host.wait_for_selector('.q-choices.revealed li.right')
+        p1.wait_for_selector('.p-right'); p2.wait_for_selector('.p-wrong', timeout=8000)
+        if qi == 0:
+            host.click('[data-h="next"]')
+    board = db.get(['rooms', code, 'pub', 'board'])
+    ans_ = mock_firebase._out(db.get(['rooms', code, 'ans']))
+    check(isinstance(ans_, list) and len(ans_) == 2 and board['0']['n'] == 'Cy' and board['0']['s'] > 1200 and board['1']['s'] == 0, 'C: answers for both questions reach the database and the board adds up across them')
+    check("You're 1st of 2" in p1.inner_text('.p-rank') and any(m == 'PATCH' for m, _ in db.log) and any(m == 'PUT' and '/ans/' in k for m, k in db.log), 'C: the streaming phone and the polling phone both keep up')
+    host.reload()
+    host.wait_for_selector('.q-choices.revealed li.right')
+    check('Cy' in host.inner_text('.board-tbl tr >> nth=0'), 'C: the host screen survives a reload mid-game when answers come back as a list')
+    all_errs += herrs + p1errs + [e for e in p2errs if 'EventSource' not in e]
+    for c_ in (hctx, pctx, qctx):
+        c_.close()
+    # a database that refuses (rules not published yet), and a room code nobody opened
+    denied = mock_firebase.Database(deny=True)
+    fb2, DENY = mock_firebase.serve(denied)
+    ctx, page, errs = open_web('live.html#host&db=' + urllib.parse.quote(DENY, safe=''), viewport={'width': 1000, 'height': 800})
+    page.click('#host-form button[type=submit]')
+    page.wait_for_selector('#live-err:not([hidden])')
+    check('Permission denied' in page.inner_text('#live-err') and 'rules' in page.inner_text('#live-err'), 'C: a locked database gives a plain error that points at the rules')
+    ctx.close()
+    ctx, page, errs = open_web('live.html#join=QQQQ' + DBQ + '&name=Eve', viewport={'width': 390, 'height': 844})
+    page.wait_for_selector('.live-note')
+    check('No room has the code QQQQ' in page.inner_text('.live-note') and page.locator('#join-form').count() == 1, 'C: a wrong code says so and leaves the join form up')
+    no_hscroll(page, 'C: live front door at 390px')
+    all_errs += errs
+    ctx.close()
+    fb.shutdown(); fb2.shutdown()
+
+    # ---------------- C7. new pages at phone width, light and dark ----------------
+    for scheme in ('light', 'dark'):
+        ctx, page, errs = open_web('', viewport={'width': 390, 'height': 844}, color_scheme=scheme, device_scale_factor=2)
+        page.wait_for_selector('#sp-in')
+        no_hscroll(page, f'C: home at 390px ({scheme})')
+        page.screenshot(path=str(SHOTS / f'c09-home-phone-{scheme}.png'))
+        page.goto(BASE + 'play.html'); page.click('.game-tile >> nth=1 >> text=New round'); page.wait_for_selector('.fl-tbl')
+        no_hscroll(page, f'C: flows at 390px ({scheme})')
+        page.goto(BASE + 'live.html#host&local'); page.wait_for_selector('#host-form'); page.click('#host-form button[type=submit]'); page.wait_for_selector('.room-code')
+        no_hscroll(page, f'C: live lobby at 390px ({scheme})')
         all_errs += errs
         ctx.close()
 

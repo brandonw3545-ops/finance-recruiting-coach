@@ -140,6 +140,14 @@
     }
     return n;
   }
+  /* games live on their own page and keep their own scores; the plan reads them for the streak and readiness */
+  const PLAY_KEY = 'frc:play:v1';
+  function playStore() { try { const d = JSON.parse(localStorage.getItem(PLAY_KEY) || 'null'); return d && d.v === 1 && Array.isArray(d.runs) ? d : null; } catch (e) { return null; } }
+  const dayStreak = () => Games.streak(Games.activeDays(S, playStore()), todayISO());
+  function readiness() {
+    const plan = getPlan();
+    return Games.readiness({ answers: S.answers, play: playStore(), seats: prof().seats || [], today: todayISO(), plan: plan ? { start: plan.start, ready: plan.ready, events: plan.events } : null });
+  }
   function hashStr(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return Math.abs(h); }
   function resolveRev(it) {
     const w = weakSpots()[0];
@@ -334,7 +342,7 @@
     $('#tabs').innerHTML = TABS.map(([k, l]) => {
       const dis = !has && k !== 'setup';
       return '<button class="tab" data-act="tab" data-tab="' + k + '"' + (S.ui.tab === k ? ' aria-current="page"' : '') + (dis ? ' aria-disabled="true" title="Build your plan first"' : '') + '>' + l + '</button>';
-    }).join('');
+    }).join('') + (IN_CLAUDE ? '' : '<a class="tab tab-out" href="play.html">Play</a>');
   }
   function renderFoot() {
     const f = $('#foot'); if (!f) return;
@@ -587,7 +595,8 @@
     const due = plan.items.filter(i => i.date <= t).length;
     const doneN = plan.items.filter(i => S.done[i.key] && i.date <= t).length;
     const missed = plan.items.filter(i => i.date < t && !S.done[i.key]);
-    const stats = '<div class="stats-row"><div class="stat-sm"><b>' + doneN + '<small> / ' + due + '</small></b><span>sessions done so far</span></div><div class="stat-sm"><b>' + streak(plan) + '</b><span>session streak</span></div></div>';
+    const stats = '<div class="stats-row"><div class="stat-sm"><b>' + doneN + '<small> / ' + due + '</small></b><span>sessions done so far</span></div><div class="stat-sm"><b>' + streak(plan) + '</b><span>session streak</span></div>' +
+      '<div class="stat-sm"><b>' + dayStreak().n + '</b><span>day streak</span></div><div class="stat-sm"><b>' + readiness().overall + '<small>%</small></b><span>readiness</span></div></div>';
     const catchUp = missed.length ? '<div class="side-block"><h2>Catch up · ' + missed.length + '</h2><ul class="mini">' + missed.slice(-4).reverse().map(i => '<li><span class="d">' + short(i.date) + '</span><button class="t" data-act="open" data-key="' + esc(i.key) + '">' + esc(shortTitle(i)) + '</button><span></span></li>').join('') + '</ul></div>' : '';
     return '<div class="side-block"><h2>Your dates</h2>' + evHTML + '</div><div class="side-block"><h2>This week</h2>' + wk + '</div>' +
       '<div class="side-block"><h2>Reviews' + (dueR.length ? ' · ' + dueR.length + ' due' : '') + '</h2>' + revHTML + '</div>' +
@@ -1090,7 +1099,7 @@
         '<section class="panel"><h2>History</h2><p class="sub">Every graded answer, newest first. Open one to see the feedback.</p><ul class="hist">' +
         hist.map(a => '<li><details><summary><span class="d">' + short(a.date) + '</span><span class="c">' + chip(E.CATS[a.cat] ? a.cat : 'fit') + '</span><span>' + esc(trunc(a.q, 110)) + '</span><span class="sc ' + textCls(a.score) + '">' + a.score + '/5</span></summary><div class="body"><div><b>Your answer</b><div class="a">' + esc(a.a) + '</div></div>' + (a.verdict ? '<div><b>Verdict.</b> ' + esc(a.verdict) + '</div>' : '') + (a.fixes && a.fixes.length && a.src !== 'mock' ? '<div><b>Fix next</b><ol style="margin:4px 0 0;padding-left:1.2em">' + a.fixes.map(f => '<li>' + esc(f) + '</li>').join('') + '</ol></div>' : '') + (a.better ? '<div><b>Stronger answer</b><p class="better" style="margin-top:4px">' + esc(a.better) + '</p></div>' : '') + '</div></details></li>').join('') + '</ul></section></div>';
     }
-    $('#main').innerHTML = '<div><h1 class="h-page">Scorecard</h1><p class="lede">Scores use one rubric: 5 would clearly pass a first round, 3 is partly right or disorganized, 1 is wrong or blank.</p></div>' + tiles + body;
+    $('#main').innerHTML = '<div><h1 class="h-page">Scorecard</h1><p class="lede">Scores use one rubric: 5 would clearly pass a first round, 3 is partly right or disorganized, 1 is wrong or blank.</p></div>' + readinessHTML() + tiles + body;
     const tr = $('#trend');
     if (tr) {
       const paint = () => { tr.innerHTML = trendSVG(tr.clientWidth); };
@@ -1098,6 +1107,15 @@
       if (chartRO) chartRO.disconnect();
       if (window.ResizeObserver) { let last = tr.clientWidth; chartRO = new ResizeObserver(() => { if (Math.abs(tr.clientWidth - last) > 4) { last = tr.clientWidth; paint(); } }); chartRO.observe(tr); }
     }
+  }
+  function readinessHTML() {
+    const rd = readiness(), st = dayStreak(), w = rd.weakest;
+    const pace = rd.expected == null ? '' : 'Your plan is ' + rd.expected + '% elapsed, so you are <b>' + rd.status + '</b>.' + (rd.next ? ' ' + esc(rd.next.name) + ' is in ' + rd.next.days + ' day' + (rd.next.days === 1 ? '' : 's') + '.' : rd.daysLeft >= 0 ? ' ' + rd.daysLeft + ' days to your interview-ready date.' : '');
+    return '<section class="panel ready" aria-labelledby="rd-h"><div class="ready-top"><div><h2 id="rd-h">Readiness</h2><p class="sub">An estimate from your graded answers and game scores. It only moves when you answer something.</p></div>' +
+      '<div class="ready-n" role="img" aria-label="Readiness ' + rd.overall + ' percent">' + rd.overall + '<small>%</small></div></div>' +
+      '<p class="ready-pace">' + pace + ' Day streak: <b>' + st.n + '</b>' + (st.n && !st.today ? ' (study or play today to keep it)' : '') + '.</p>' +
+      '<div class="bars">' + rd.areas.map(a => '<div class="bar-row" tabindex="0" data-tip="' + esc(a.name + ': ' + a.pct + '% ready, from ' + a.seen + ' graded answer' + (a.seen === 1 ? '' : 's') + ' and game round' + (a.seen === 1 ? '' : 's')) + '"><span class="nm">' + esc(a.name) + '</span><div class="bar-track"><div class="bar-fill" style="width:' + a.pct + '%"></div></div><div class="bar-val"><b>' + a.pct + '%</b>' + (a.seen ? '' : '<span>nothing answered yet</span>') + '</div></div>').join('') + '</div>' +
+      (w ? '<div class="ready-next"><span><b>Do next, for ' + esc(w.name.toLowerCase()) + ':</b> ' + esc(w.next) + '</span>' + (IN_CLAUDE ? '' : '<a class="btn small" href="play.html">Open the games</a>') + '</div>' : '') + '</section>';
   }
   function barsHTML() {
     const order = ['fit', 'beh', 'acc', 'val', 'mkt', 'inv', 'trd', 'awm', 'teaser', 'sto', 'rev', 'car', 'prep', 'firm', 'mock'];
@@ -1663,20 +1681,22 @@
     'copy-instr': () => copyText(P.projectInstructions(prof(), getPlan()), 'Coach instructions copied'),
     'plan-copy': () => copyText(E.planMarkdown(getPlan()), 'Plan copied as Markdown'),
     'plan-expand': () => { planExpanded = !planExpanded; render(); },
-    backup: () => { copyText('FRC1:' + b64e(JSON.stringify(S)), 'Backup code copied. Keep it somewhere safe.'); },
+    backup: () => { const pl = playStore(); copyText('FRC1:' + b64e(JSON.stringify(pl ? Object.assign({}, S, { _play: pl }) : S)), 'Backup code copied. Keep it somewhere safe.'); },
     'restore-open': () => { dataPanel = '<div class="field"><label for="restore-in">Paste your backup code</label><textarea class="in" id="restore-in" rows="3" placeholder="FRC1:…"></textarea></div><div class="btn-row" style="margin-top:8px"><button type="button" class="btn primary" data-act="restore-go">Restore</button><button type="button" class="btn ghost" data-act="panel-close">Cancel</button></div>'; $('#data-extra').innerHTML = dataPanel; $('#restore-in').focus(); },
     'restore-go': () => {
       const raw = ($('#restore-in').value || '').trim().replace(/^FRC1:/, '').replace(/\s+/g, '');
       try {
         const data = JSON.parse(b64d(raw));
         if (!data || data.v !== 1) throw new Error('bad');
+        if (data._play && data._play.v === 1 && Array.isArray(data._play.runs)) { try { localStorage.setItem(PLAY_KEY, JSON.stringify(data._play)); } catch (e2) { /* the plan still restores */ } }
+        delete data._play;
         S = Object.assign(fresh(), data); S.ui = Object.assign(fresh().ui, data.ui || {}); S.ui.tab = 'today'; S.ui.viewKey = null; tidy(); lastUndo = null;
         D = null; dataPanel = ''; memo = { sig: '', plan: null };
         saveNow(); render(); toast('Restored');
       } catch (e) { $('#data-extra').insertAdjacentHTML('beforeend', '<p class="note bad" style="margin-top:8px">That code didn\'t work. Copy the whole thing, starting with FRC1:</p>'); }
     },
     erase: () => { dataPanel = '<div class="confirm"><span>This deletes your plan, lessons and scores from this browser. It can\'t be undone.</span><button type="button" class="btn small" data-act="erase-yes">Yes, erase everything</button><button type="button" class="btn small ghost" data-act="panel-close">Cancel</button></div>'; $('#data-extra').innerHTML = dataPanel; },
-    'erase-yes': () => { S = fresh(); D = null; sugg = null; dataPanel = ''; memo = { sig: '', plan: null }; saveNow(); render(); window.scrollTo(0, 0); toast('Erased'); },
+    'erase-yes': () => { try { localStorage.removeItem(PLAY_KEY); } catch (e) { /* nothing to remove */ } S = fresh(); D = null; sugg = null; dataPanel = ''; memo = { sig: '', plan: null }; saveNow(); render(); window.scrollTo(0, 0); toast('Erased'); },
     'panel-close': () => { dataPanel = ''; $('#data-extra').innerHTML = ''; },
     'ov-copy': () => { const ta = $('#ov-ta'); ta.select(); try { navigator.clipboard.writeText(ta.value).then(() => { toast('Copied'); closeOverlay(); }).catch(() => toast('Press Ctrl+C or Cmd+C to copy')); } catch (e) { toast('Press Ctrl+C or Cmd+C to copy'); } },
     'ov-close': () => closeOverlay(),

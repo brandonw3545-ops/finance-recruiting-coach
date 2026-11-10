@@ -512,3 +512,16 @@ a.btn.primary { color: var(--sheet); }
 /* calendar */
 .cal-info { display: grid; gap: 8px; margin: 0 0 20px; padding: 14px 16px; border: 1px solid color-mix(in oklab, var(--link) 35%, transparent); background: var(--link-wash); border-radius: 8px; font-size: 14px; }
 .cal-info ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+
+/* readiness + the link out to the games */
+a.tab { text-decoration: none; display: inline-block; }
+.tab-out::after { content: " \2197"; font-weight: 500; color: var(--ink-3); }
+.stats-row .stat-sm b small { font-size: 13px; }
+.ready { margin: 18px 0 0; display: grid; gap: 12px; }
+.ready-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.ready-top .sub { margin-bottom: 0; }
+.ready-n { font-size: 44px; font-weight: 760; font-stretch: 112%; line-height: 1; font-variant-numeric: tabular-nums; flex: none; }
+.ready-n small { font-size: 18px; color: var(--ink-3); font-weight: 600; }
+.ready-pace { font-size: 14.5px; color: var(--ink-2); }
+.ready-pace b { color: var(--ink); }
+.ready-next { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 14.5px; }
