@@ -10,7 +10,7 @@ A free coach for college students recruiting for finance clubs and internships. 
 | | Website | Claude version |
 |---|---|---|
 | Plan, key dates, prep sessions | ✓ | ✓ |
-| 40 written lessons | ✓ | ✓, and Claude can personalize any of them |
+| 46 written lessons | ✓ | ✓, and Claude can personalize any of them |
 | Lessons not in the library yet | Open in your own Claude chat, with your plan in the prompt | Written in the page |
 | Grading | Score yourself against model answers, or grade it in Claude | Claude grades it in the page, or score yourself |
 | Mock interviews | Written follow-ups, then you score yourself against model answers | The interviewer reacts to what you said, then grades the whole interview |
@@ -141,7 +141,7 @@ The browser run drives the Claude version against a stand-in for Claude's runtim
 ## Limits
 
 - Lessons use well-documented examples. For anything that changes week to week (rates, the market, a firm's deadlines), they tell you what to look up. Suggested recruiting dates are estimates; confirm them with your career center and the firm's site.
-- 40 of the roughly 175 topics have written lessons so far. The rest open in Claude on the website.
+- 46 of the roughly 175 topics have written lessons so far. The rest open in Claude on the website.
 - Progress lives in one browser unless you move it with a backup code.
 - The Live Room needs a Firebase Realtime Database (free tier: 100 devices connected at once). Its address is `LIVE_DB` in `build.mjs`. See `LIVE-ROOM.md`.
 - Voice answers need Chrome, Edge or Safari. In Chrome, the audio goes to Google for transcription.
