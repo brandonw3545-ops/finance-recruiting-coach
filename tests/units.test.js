@@ -93,7 +93,7 @@ test('there are 46 lessons, each on a different topic in the bank', () => {
   const titles = lessons.map(l => MD.splitSections(l.md).title);
   const bank = new Set(E.TOPICS.map(t => t.title));
   titles.forEach(t => assert(bank.has(t), 'not in the topic bank: ' + t));
-  assert.strictEqual(new Set(titles).size, 40);
+  assert.strictEqual(new Set(titles).size, 46);
 });
 
 test('every lesson asks seven questions and answers all of them', () => {
