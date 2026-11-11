@@ -20,6 +20,10 @@ const E = require('./src/engine.js');
 const G = require('./src/games.js');
 const QR = require('./src/qr.js');
 const MD = require('./src/md.js');
+const MARKET = require('./tools/market-notes.js');
+// "Right now" numbers, refreshed daily by a GitHub Action. Older than two weeks: left out rather than shown as current.
+const marketData = (() => { try { const d = JSON.parse(fs.readFileSync(rel('content', 'market.json'), 'utf8')); return (Date.now() - Date.parse(d.fetched)) / 86400000 <= 14 ? d : null; } catch (e) { return null; } })();
+const marketNotes = marketData ? MARKET.notes(marketData) : {};
 const esc = MD.esc;
 
 const SITE_URL = 'https://brandonw3545-ops.github.io/finance-recruiting-coach/';
@@ -74,7 +78,7 @@ function loadLessons() {
     const words = md.split(/\n## Answers/)[0].split(/\s+/).filter(Boolean).length;
     if (words < 450 || words > 1400) problems.push(f + ': ' + words + ' words before the answers (aim for 550 to 1,100)');
     const comes = (/^\*Comes up in:\*\s*(.+)$/m.exec(md) || [])[1] || '';
-    lessons.push({ id: topic.id, cat: topic.cat, level: topic.level, title: topic.title, slug: pageSlug(topic.title), md, answers: ans, comes, words, file: f });
+    lessons.push({ id: topic.id, cat: topic.cat, level: topic.level, title: topic.title, slug: pageSlug(topic.title), md: MARKET.inject(md, marketNotes[topic.title]), answers: ans, comes, words, file: f });
   }
   if (problems.length) fail(problems);
   lessons.sort((a, b) => (CAT_ORDER.indexOf(a.cat) - CAT_ORDER.indexOf(b.cat)) || (a.file < b.file ? -1 : 1));
@@ -155,7 +159,7 @@ function siteTop(depth, active) {
 }
 function siteFoot(depth) {
   const up = '../'.repeat(depth);
-  return '<footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">' + NAME + '</div><p class="note">Made by Brandon, a college freshman preparing for the same interviews. Free, no ads, and the AI parts run on your own Claude account. Not affiliated with any bank, school or Anthropic.</p></div>' +
+  return '<footer class="site-foot"><div class="wrap site-foot-row"><div><div class="brand-name">' + NAME + '</div><p class="note">Made by Brandon, a college freshman preparing for the same interviews. Free, no ads, and the AI parts run on your own Claude account. Not affiliated with any bank, school or Anthropic.' + (marketData ? ' This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.' : '') + '</p></div>' +
     '<nav class="foot-nav" aria-label="More"><a href="' + up + 'app.html">The coach</a><a href="' + up + 'play.html">Play</a><a href="' + up + 'live.html">Live Room</a><a href="' + up + 'library/">Lesson library</a><a href="' + AI_URL + '" target="_blank" rel="noopener">Claude version</a><a href="' + REPO_URL + '" target="_blank" rel="noopener">Source on GitHub</a></nav></div></footer>';
 }
 const CAT_LABEL = { car: 'Careers & fit', acc: 'Accounting', val: 'Valuation & deals', mkt: 'Markets & the economy', awm: 'Asset & wealth management', inv: 'Investing & pitches', trd: 'Trading', sto: 'Case studies' };
