@@ -147,3 +147,12 @@ The browser run drives the Claude version against a stand-in for Claude's runtim
 - Voice answers need Chrome, Edge or Safari. In Chrome, the audio goes to Google for transcription.
 
 Not affiliated with any bank, school or Anthropic.
+
+## "Right now" numbers
+
+Seven lessons on rates, the Fed, inflation and the yield curve carry a short "Right now" section built from current data: Treasury yields, the Fed's target range, CPI, core PCE and unemployment. A GitHub Action (`.github/workflows/market.yml`) fetches them from FRED each weekday morning, saves `content/market.json`, rebuilds and publishes.
+
+- The API key lives in the repo's secrets as `FRED_API_KEY` and never reaches the website.
+- Every sentence is generated from the numbers and carries its date (`tools/market-notes.js`). If the file is more than two weeks old, the sections are left out.
+- Only U.S. government series are used. This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.
+- Check: `node tests/market.test.js`.
