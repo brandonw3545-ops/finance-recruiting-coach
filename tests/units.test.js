@@ -88,12 +88,12 @@ test('markdown renders lists, tables and quotes, and escapes HTML', () => {
 const dir = path.join(__dirname, '..', 'content', 'lessons');
 const lessons = fs.readdirSync(dir).filter(f => f.endsWith('.md')).map(f => ({ f, md: fs.readFileSync(path.join(dir, f), 'utf8').replace(/^---[\s\S]*?---\n/, '') }));
 
-test('there are 40 lessons, each on a different topic in the bank', () => {
-  assert.strictEqual(lessons.length, 40);
+test('there are 46 lessons, each on a different topic in the bank', () => {
+  assert.strictEqual(lessons.length, 46);
   const titles = lessons.map(l => MD.splitSections(l.md).title);
   const bank = new Set(E.TOPICS.map(t => t.title));
   titles.forEach(t => assert(bank.has(t), 'not in the topic bank: ' + t));
-  assert.strictEqual(new Set(titles).size, 40);
+  assert.strictEqual(new Set(titles).size, 46);
 });
 
 test('every lesson asks seven questions and answers all of them', () => {

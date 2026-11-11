@@ -425,7 +425,7 @@ with sync_playwright() as pw:
     page.screenshot(path=str(SHOTS / 'b01-home.png'))
     page.click('.site-nav a[href="library/"]')
     page.wait_for_selector('.lib-list')
-    check(page.locator('.lib-list li').count() == 40 and page.locator('.lib-group').count() == 7, 'B: library lists 40 lessons in 7 groups')
+    check(page.locator('.lib-list li').count() == 46 and page.locator('.lib-group').count() == 7, 'B: library lists 46 lessons in 7 groups')
     page.click('.lib-list a >> nth=0')
     page.wait_for_selector('.lesson-page')
     first_title = page.inner_text('h1.session-title')
