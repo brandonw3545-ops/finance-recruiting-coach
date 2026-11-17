@@ -1,0 +1,90 @@
+{
+ "fetched": "2026-11-17",
+ "source": "FRED, Federal Reserve Bank of St. Louis",
+ "series": {
+  "DGS10": {
+   "date": "2026-11-13",
+   "value": 5.15,
+   "monthAgo": {
+    "date": "2026-10-14",
+    "value": 5.19
+   },
+   "yearAgo": {
+    "date": "2025-11-13",
+    "value": 4.11
+   }
+  },
+  "DGS2": {
+   "date": "2026-11-13",
+   "value": 4.88,
+   "monthAgo": {
+    "date": "2026-10-14",
+    "value": 4.82
+   },
+   "yearAgo": {
+    "date": "2025-11-13",
+    "value": 3.58
+   }
+  },
+  "DFEDTARU": {
+   "date": "2026-11-17",
+   "value": 4,
+   "monthAgo": {
+    "date": "2026-10-18",
+    "value": 4
+   },
+   "yearAgo": {
+    "date": "2025-11-17",
+    "value": 4
+   }
+  },
+  "DFEDTARL": {
+   "date": "2026-11-17",
+   "value": 3.75,
+   "monthAgo": {
+    "date": "2026-10-18",
+    "value": 3.75
+   },
+   "yearAgo": {
+    "date": "2025-11-17",
+    "value": 3.75
+   }
+  },
+  "CPIAUCSL": {
+   "date": "2026-10-01",
+   "value": 337.476,
+   "monthAgo": {
+    "date": "2026-09-01",
+    "value": 336.298
+   },
+   "yearAgo": {
+    "date": "2025-09-01",
+    "value": 324.245
+   }
+  },
+  "PCEPILFE": {
+   "date": "2026-09-01",
+   "value": 130.902,
+   "monthAgo": {
+    "date": "2026-08-01",
+    "value": 130.489
+   },
+   "yearAgo": {
+    "date": "2025-09-01",
+    "value": 126.94
+   }
+  },
+  "UNRATE": {
+   "date": "2026-10-01",
+   "value": 4.1,
+   "monthAgo": {
+    "date": "2026-09-01",
+    "value": 4.2
+   },
+   "yearAgo": {
+    "date": "2025-09-01",
+    "value": 4.4
+   }
+  }
+ }
+}
