@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: the coach's prompts
+   Street Ready: the coach's prompts
    Every call to Claude is memoryless, so each prompt carries the rules,
    the student's profile and the exact output format.
    ========================================================================== */

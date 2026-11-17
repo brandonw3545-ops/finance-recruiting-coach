@@ -178,6 +178,12 @@ main { padding-block: 24px 40px; }
 .sec-cold .sec-body > p:first-child { font-size: 22px; line-height: 1.4; font-weight: 600; }
 .sec-trap .sec-label { color: var(--miss); }
 .sec-turn .sec-body > ol > li { margin: 10px 0; }
+/* built from what the person entered in Setup, so it wears the input color */
+.sec-you { margin-top: 18px; padding: 12px 16px 4px; background: var(--input-wash, #eef2ff); border-left: 3px solid var(--input, #1537cf); border-radius: 0 var(--r) var(--r) 0; font-family: var(--f-ui); font-size: 15.5px; line-height: 1.5; }
+.sec-you .sec-label { color: var(--input, #1537cf); }
+.sec-you .sec-label::after { background: color-mix(in oklab, var(--input, #1537cf) 25%, transparent); }
+.sec-you ul { margin: 0 0 8px; padding-left: 18px; }
+.sec-you li { margin: 4px 0; }
 details.sec { border-top: 1px solid var(--rule); padding-top: 10px; }
 details.sec > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; }
 details.sec > summary::-webkit-details-marker { display: none; }

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: Markdown for lessons
+   Street Ready: Markdown for lessons
    Pure functions, no DOM. The app and the static lesson pages both render
    through here, so a lesson looks the same everywhere.
    ========================================================================== */
@@ -92,7 +92,7 @@ const MD = (() => {
     }
     return { title, intro, secs };
   }
-  const SEC_KINDS = [['cold open', 'cold'], ['big idea', 'idea'], ['how it works', 'how'], ['real world', 'world'], ['trap', 'trap'], ['your line', 'line'], ['your turn', 'turn'], ['answers', 'answers'], ['warm-up', 'warm'], ['the set', 'set'], ['stretch', 'stretch']];
+  const SEC_KINDS = [['cold open', 'cold'], ['big idea', 'idea'], ['how it works', 'how'], ['real world', 'world'], ['trap', 'trap'], ['your line', 'line'], ['your turn', 'turn'], ['answers', 'answers'], ['warm-up', 'warm'], ['the set', 'set'], ['stretch', 'stretch'], ['for you', 'you']];
   const secKind = h => { const l = h.toLowerCase(); const f = SEC_KINDS.find(k => l.includes(k[0])); return f ? f[1] : 'gen'; };
 
   /* A lesson as sections. opts.open shows the answers; opts.headingTag picks h2/h3 for section labels. */
@@ -134,7 +134,7 @@ const MD = (() => {
         for (let i = 0; i < L.length; i++) {
           const m = ITEM_RE.exec(L[i]);
           if (!m || m[1].length >= 2 || /^[a-z][.)]$/.test(m[2])) continue;
-          const lm = /^\**\s*(say it out loud|rapid[- ]fire|rewind|brain teaser)\s*:?\s*\**\s*:?\s*(.*)$/i.exec(m[3].trim());
+          const lm = /^\**\s*(say it out loud|rapid[- ]fire|rewind|brain teaser|make it yours)\s*:?\s*\**\s*:?\s*(.*)$/i.exec(m[3].trim());
           if (!lm) continue;
           const kind = lm[1].toLowerCase().replace('-', ' '), rest = lm[2].trim();
           if (kind === 'rapid fire') {
@@ -147,8 +147,8 @@ const MD = (() => {
             if (!subs.length && rest) rest.split(/\s*\(?\b[a-c][.)]\s+/).map(x => x.trim()).filter(x => x.length > 3).forEach(x => subs.push(x));
             subs.slice(0, 3).forEach((q, k) => out.push({ label: 'Rapid fire ' + 'abc'[k], q: strip(cutQ(strip(q))) }));
           } else if (rest) {
-            const label = kind === 'say it out loud' ? 'Say it out loud' : kind === 'rewind' ? 'Rewind' : 'Brain teaser';
-            out.push({ label, q: strip(label === 'Say it out loud' ? rest : cutQ(strip(rest))) });
+            const label = kind === 'say it out loud' ? 'Say it out loud' : kind === 'rewind' ? 'Rewind' : kind === 'make it yours' ? 'Make it yours' : 'Brain teaser';
+            out.push({ label, q: strip(label === 'Say it out loud' || label === 'Make it yours' ? rest : cutQ(strip(rest))) });
           }
         }
       } else if (/warm-up|the set|stretch|questions you|likely questions|questions they might ask/.test(h)) {
@@ -190,6 +190,7 @@ const MD = (() => {
           else if (/^rewind/.test(lab)) key = 'Rewind';
           else if (/^brain teaser/.test(lab)) key = 'Brain teaser';
           else if (/^cold open/.test(lab)) key = 'Cold open';
+          else if (/^make it yours/.test(lab)) key = 'Make it yours';
           if (key && body) out[key] = body;
         });
       }

@@ -1,4 +1,4 @@
-<title>Finance Recruiting Coach</title>
+<title>Street Ready</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="A free coach for finance recruiting: a day-by-day plan to your interview date, a lesson a day, voice practice and mock interviews.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
@@ -183,6 +183,12 @@ main { padding-block: 24px 40px; }
 .sec-cold .sec-body > p:first-child { font-size: 22px; line-height: 1.4; font-weight: 600; }
 .sec-trap .sec-label { color: var(--miss); }
 .sec-turn .sec-body > ol > li { margin: 10px 0; }
+/* built from what the person entered in Setup, so it wears the input color */
+.sec-you { margin-top: 18px; padding: 12px 16px 4px; background: var(--input-wash, #eef2ff); border-left: 3px solid var(--input, #1537cf); border-radius: 0 var(--r) var(--r) 0; font-family: var(--f-ui); font-size: 15.5px; line-height: 1.5; }
+.sec-you .sec-label { color: var(--input, #1537cf); }
+.sec-you .sec-label::after { background: color-mix(in oklab, var(--input, #1537cf) 25%, transparent); }
+.sec-you ul { margin: 0 0 8px; padding-left: 18px; }
+.sec-you li { margin: 4px 0; }
 details.sec { border-top: 1px solid var(--rule); padding-top: 10px; }
 details.sec > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; }
 details.sec > summary::-webkit-details-marker { display: none; }
@@ -536,7 +542,7 @@ a.tab { text-decoration: none; display: inline-block; }
 <div id="tip" class="tip" hidden></div>
 <script>
 /* ==========================================================================
-   Finance Recruiting Coach: Markdown for lessons
+   Street Ready: Markdown for lessons
    Pure functions, no DOM. The app and the static lesson pages both render
    through here, so a lesson looks the same everywhere.
    ========================================================================== */
@@ -629,7 +635,7 @@ const MD = (() => {
     }
     return { title, intro, secs };
   }
-  const SEC_KINDS = [['cold open', 'cold'], ['big idea', 'idea'], ['how it works', 'how'], ['real world', 'world'], ['trap', 'trap'], ['your line', 'line'], ['your turn', 'turn'], ['answers', 'answers'], ['warm-up', 'warm'], ['the set', 'set'], ['stretch', 'stretch']];
+  const SEC_KINDS = [['cold open', 'cold'], ['big idea', 'idea'], ['how it works', 'how'], ['real world', 'world'], ['trap', 'trap'], ['your line', 'line'], ['your turn', 'turn'], ['answers', 'answers'], ['warm-up', 'warm'], ['the set', 'set'], ['stretch', 'stretch'], ['for you', 'you']];
   const secKind = h => { const l = h.toLowerCase(); const f = SEC_KINDS.find(k => l.includes(k[0])); return f ? f[1] : 'gen'; };
 
   /* A lesson as sections. opts.open shows the answers; opts.headingTag picks h2/h3 for section labels. */
@@ -671,7 +677,7 @@ const MD = (() => {
         for (let i = 0; i < L.length; i++) {
           const m = ITEM_RE.exec(L[i]);
           if (!m || m[1].length >= 2 || /^[a-z][.)]$/.test(m[2])) continue;
-          const lm = /^\**\s*(say it out loud|rapid[- ]fire|rewind|brain teaser)\s*:?\s*\**\s*:?\s*(.*)$/i.exec(m[3].trim());
+          const lm = /^\**\s*(say it out loud|rapid[- ]fire|rewind|brain teaser|make it yours)\s*:?\s*\**\s*:?\s*(.*)$/i.exec(m[3].trim());
           if (!lm) continue;
           const kind = lm[1].toLowerCase().replace('-', ' '), rest = lm[2].trim();
           if (kind === 'rapid fire') {
@@ -684,8 +690,8 @@ const MD = (() => {
             if (!subs.length && rest) rest.split(/\s*\(?\b[a-c][.)]\s+/).map(x => x.trim()).filter(x => x.length > 3).forEach(x => subs.push(x));
             subs.slice(0, 3).forEach((q, k) => out.push({ label: 'Rapid fire ' + 'abc'[k], q: strip(cutQ(strip(q))) }));
           } else if (rest) {
-            const label = kind === 'say it out loud' ? 'Say it out loud' : kind === 'rewind' ? 'Rewind' : 'Brain teaser';
-            out.push({ label, q: strip(label === 'Say it out loud' ? rest : cutQ(strip(rest))) });
+            const label = kind === 'say it out loud' ? 'Say it out loud' : kind === 'rewind' ? 'Rewind' : kind === 'make it yours' ? 'Make it yours' : 'Brain teaser';
+            out.push({ label, q: strip(label === 'Say it out loud' || label === 'Make it yours' ? rest : cutQ(strip(rest))) });
           }
         }
       } else if (/warm-up|the set|stretch|questions you|likely questions|questions they might ask/.test(h)) {
@@ -727,6 +733,7 @@ const MD = (() => {
           else if (/^rewind/.test(lab)) key = 'Rewind';
           else if (/^brain teaser/.test(lab)) key = 'Brain teaser';
           else if (/^cold open/.test(lab)) key = 'Cold open';
+          else if (/^make it yours/.test(lab)) key = 'Make it yours';
           if (key && body) out[key] = body;
         });
       }
@@ -747,7 +754,7 @@ if (typeof module !== "undefined" && module.exports) module.exports = QA;
 </script>
 <script>
 /* ==========================================================================
-   Finance Recruiting Coach: topic bank + plan engine
+   Street Ready: topic bank + plan engine
    Pure functions, no DOM. Builds a day-by-day plan from a student's profile.
    ========================================================================== */
 const Engine = (() => {
@@ -1597,7 +1604,7 @@ const Engine = (() => {
   }
 
   const api = {
-    CATS, LESSON_CATS, SEATS, YEARS, EVENT_TYPES, TOPICS, QUESTIONS, DRILLS, SEAT_TECH, PHASE_INFO, DEFAULT_PROFILE,
+    CATS, LESSON_CATS, SEATS, SEAT_WEIGHTS, YEARS, EVENT_TYPES, TOPICS, QUESTIONS, DRILLS, SEAT_TECH, PHASE_INFO, DEFAULT_PROFILE,
     parseISO, iso, addDays, daysBetween, todayISO, fmt, slug, splitList, splitLines, rng,
     normalize, validate, buildPlan, itemOn, nextItem, weekOf, teaserLevel, questionsFor, fillQuestion, pickMock, planMarkdown, baseWeights,
     questionById, reviewKey, reviewSchedule, REVIEW_GAPS,
@@ -1609,7 +1616,242 @@ if (typeof module !== 'undefined' && module.exports) module.exports = Engine;
 </script>
 <script>
 /* ==========================================================================
-   Finance Recruiting Coach: games
+   Street Ready: tailoring a written lesson to the person reading it
+   Pure functions, no DOM, no AI. Takes the lesson's Markdown and the profile from
+   Setup, and adds two things:
+   - a "For you" section near the top: how this topic shows up for their main seat,
+     what to do given their level and time, their next date, and a weak spot from
+     their Scorecard if one matches;
+   - a "Make it yours" question at the end of "Your turn", built from the sectors
+     they follow, their experiences or their firms, with grading guidance in Answers.
+   Everything here is phrased as advice about interviews in general, never as a fact
+   about a specific firm or school.
+   ========================================================================== */
+const Personal = (() => {
+  'use strict';
+  const E = typeof Engine !== 'undefined' ? Engine : require('./engine.js');
+
+  // what a person typed, made safe to drop into Markdown: no formatting, links or headings
+  const clean = (s, n) => {
+    const t = String(s == null ? '' : s).replace(/[*_`[\]#<>|~\\]/g, '').replace(/\s+/g, ' ').trim();
+    return t.length > (n || 80) ? t.slice(0, (n || 80) - 1).trimEnd() + '…' : t;
+  };
+  const AREA = { acc: 'accounting', val: 'valuation', mkt: 'markets' };
+  const SEC = { acc: 'acc', val: 'val', mkt: 'mkt', awm: 'awm', car: 'car', inv: 'inv', sto: 'sto', trd: 'trd' };
+
+  /* How much a seat's interviews lean on each lesson subject comes from the plan engine's
+     own weights, so the advice here and the plan always agree. */
+  function tier(seat, cat) {
+    const w = E.SEAT_WEIGHTS[seat], i = E.LESSON_CATS.indexOf(cat);
+    if (!w || i < 0) return 'regular';
+    return w[i] >= 0.2 ? 'core' : w[i] >= 0.1 ? 'regular' : 'light';
+  }
+  // the first sentence always; the second only when there's no seat-specific angle to say instead
+  const TIER = {
+    core: [ph => 'Core material for ' + ph + ' interviews.', 'Expect it in a first round, with a follow-up.'],
+    regular: [ph => 'Comes up regularly in ' + ph + ' interviews.', 'Interviewers mostly check that you can explain it simply.'],
+    light: [ph => 'Comes up less often in ' + ph + ' interviews.', 'Know the 30-second version and spend extra time elsewhere.'],
+  };
+  const an = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
+  const UNSURE = {
+    core: 'You haven’t picked a seat yet, and this shows up in interviews for most of them. Worth learning well while you decide.',
+    regular: 'You haven’t picked a seat yet. This shows up in many finance interviews, and how much you like it is a clue about where you’d fit.',
+    light: 'You haven’t picked a seat yet. Only some seats ask about this, so if it clicks for you, notice that.',
+  };
+  /* One line on how a seat's interviewers come at a subject, where it differs from the general advice. */
+  const ANGLE = {
+    ib: {
+      acc: 'Bankers expect the three statements cold, so practice walking through changes like this without notes.',
+      val: 'Valuation is the center of most banking interviews: expect "how would you value this company?" and "which method gives the highest value?"',
+      mkt: 'Banking interviewers mostly use markets questions to check you follow the news, so tie it to a recent deal or headline.',
+      car: 'Banking interviewers weigh "why banking" and teamwork stories almost as heavily as technicals.',
+    },
+    st: {
+      mkt: 'Trading interviews expect a view: say where you think this is heading and why, then defend it.',
+      trd: 'This is the language of the desk. Expect quick follow-ups and mental math on the spot.',
+      val: 'On a desk, valuation comes up as "is this cheap or expensive right now?", not as a full model.',
+      acc: 'Trading interviews rarely go deep on accounting. Be able to explain the idea in a sentence.',
+    },
+    am: {
+      awm: 'This is close to the job itself, so explain it the way you would to a portfolio manager.',
+      mkt: 'Asset management interviews often open with "what’s going on in markets?", so connect this to something current.',
+      inv: 'Expect to pitch: asset managers want to hear how this changes your view of a specific stock.',
+      val: 'Asset managers use valuation to decide what to buy, so frame your answer around whether a stock is mispriced.',
+    },
+    wm: {
+      awm: 'This is the job itself. Practice explaining it to a client in plain words, without jargon.',
+      mkt: 'Wealth management interviews often ask what’s happening in markets and how you’d explain it to a nervous client.',
+      val: 'Wealth managers rarely build valuation models. Know it well enough to explain why a stock a client owns looks expensive or cheap.',
+      acc: 'In wealth management, accounting matters for understanding a company a client owns, not for modeling it.',
+      car: 'Wealth management is a people business, so interviewers listen closely to how you talk about working with others.',
+    },
+    pe: {
+      val: 'Private equity interviews lean on valuation and LBO math, so expect numbers, not just definitions.',
+      acc: 'Private equity wants accounting fluency: cash flow, debt and working capital come up constantly.',
+      car: 'Private equity interviews often ask about a deal you’ve followed, so have one ready.',
+    },
+    hf: {
+      inv: 'Hedge funds want a pitch with an edge: what is the market missing?',
+      mkt: 'Expect to defend a view on rates, the economy or a sector you follow.',
+      val: 'Hedge fund interviews use valuation to test judgment: is it cheap, and what would change your mind?',
+    },
+    er: {
+      acc: 'Equity research lives in financial statements, so expect to read and explain lines from a 10-K.',
+      val: 'Research analysts set price targets, so tie this to how you’d value a stock you follow.',
+      inv: 'Expect to pitch a stock and defend your numbers.',
+    },
+    cf: {
+      acc: 'Corporate finance teams work in their own company’s numbers every day: budgets, forecasts and cash.',
+      val: 'Corporate finance uses valuation mainly for big decisions: will this project or purchase earn more than it costs?',
+    },
+    cb: {
+      acc: 'Credit analysts read financial statements to answer one question: can this company pay its debt back?',
+      mkt: 'Lenders watch interest rates closely, because rates set what borrowers pay.',
+    },
+    vc: {
+      inv: 'Venture capital interviews often ask you to pitch a startup or a market, with a view on why now.',
+      val: 'Early-stage companies often have no profits, so venture valuation leans on comparables and growth, not cash flows.',
+    },
+  };
+
+  function seatLine(p, cat) {
+    const seat = p.primary || (p.seats && p.seats[0]) || 'unsure';
+    if (cat === 'car') {
+      const angle = ANGLE[seat] && ANGLE[seat].car;
+      return 'Every interview has these questions, whatever the seat.' + (angle ? ' ' + angle : '');
+    }
+    if (seat === 'unsure' || !E.SEATS[seat]) return UNSURE[tier('unsure', cat)];
+    const t = TIER[tier(seat, cat)], angle = ANGLE[seat] && ANGLE[seat][cat];
+    let s = t[0](E.SEATS[seat].phrase) + ' ' + (angle || t[1]);
+    const also = (p.seats || []).filter(x => x !== seat && x !== 'unsure' && E.SEATS[x] && tier(x, cat) === 'core');
+    if (also.length && tier(seat, cat) !== 'core') s += ' It’s core for ' + also.map(x => E.SEATS[x].phrase).join(' and ') + ', your other target' + (also.length > 1 ? 's' : '') + '.';
+    return s;
+  }
+
+  function levelLine(p, cat) {
+    const lv = AREA[cat] && p.levels && p.levels[cat];
+    if (lv === 'new') return 'You marked ' + AREA[cat] + ' as new to you, so go slowly: read How it works twice and try every question in Your turn before you open the answers.';
+    if (lv === 'solid') return 'You marked ' + AREA[cat] + ' as solid. Skip to The interview trap, answer Say it out loud, and aim for a 5.';
+    return '';
+  }
+  function timeLine(p) {
+    if (+p.minutes === 10) return 'You set 10 minutes a lesson. If that’s all you have today, read The big idea and The interview trap, then answer Say it out loud.';
+    if (+p.minutes === 30) return 'You set 30 minutes a lesson, so finish with Make it yours at the end and grade it.';
+    return '';
+  }
+  const shortDate = d => E.fmt(d, { month: 'short', day: 'numeric' });
+  function dateLine(plan, item, today) {
+    if (!plan || !today) return '';
+    const next = (plan.events || []).filter(e => e.date >= today)[0];
+    if (next && !(item && item.event && item.event.id === next.id)) {
+      const n = E.daysBetween(today, next.date);
+      if (n <= 30) return clean(next.name, 70) + (n === 0 ? ' is today.' : n === 1 ? ' is tomorrow.' : ' is in ' + n + ' days (' + shortDate(next.date) + ').') + (next.est ? ' That date is an estimate.' : '');
+    }
+    if (plan.ready && plan.ready >= today) {
+      const n = E.daysBetween(today, plan.ready);
+      return 'You want to be interview-ready by ' + shortDate(plan.ready) + ', ' + n + ' day' + (n === 1 ? '' : 's') + ' from now.';
+    }
+    return '';
+  }
+  const ANSWER_CATS = { car: ['car', 'beh', 'fit'] };
+  function weakLine(weak, cat, topicId) {
+    const cats = ANSWER_CATS[cat] || [cat], low = (weak || []).filter(x => x && x.score <= 3 && x.q);
+    const own = topicId ? low.find(x => String(x.qid || '').indexOf('L:' + topicId + ':') === 0) : null;
+    const w = own || low.find(x => cats.includes(x.cat));
+    if (!w) return '';
+    const q = clean(w.q, 110), quoted = '“' + q + (/[.?!…]$/.test(q) ? '”' : '.”');
+    return own ? 'Last time you scored ' + w.score + '/5 on this lesson’s question ' + quoted + ' Answer it again before you move on.'
+      : 'You scored ' + w.score + '/5 on ' + quoted + ' This lesson covers related ground, so try that question again afterward.';
+  }
+
+  /* The question at the end of "Your turn". It uses the first thing they listed, so it stays
+     the same from visit to visit and their score history lines up. */
+  function makeItYours(p, lesson) {
+    const cat = lesson.cat, title = String(lesson.title || '');
+    const interest = clean(E.splitList(p.interests || '')[0], 40);
+    const exps = E.splitLines(p.experiences || '').map(x => clean(x, 70)).filter(Boolean), exp = exps[0] ? clean(exps[0], 90) : '';
+    const firm = clean((p.firmList || E.splitList(p.firms || ''))[0], 40);
+    const seat = E.SEATS[p.primary] && p.primary !== 'unsure' ? E.SEATS[p.primary].phrase : '';
+    if (cat === 'car') {
+      if (exps.length && /tell me about yourself/i.test(title)) return { q: 'Draft your 60-second answer from what you entered in Setup: ' + exps.slice(0, 2).map(x => '“' + x + '”').join(' and ') + '. Start with where you are now, then how you got here, then why this seat.', from: 'experience' };
+      if (p.why && /why finance/i.test(title)) return { q: 'Turn your note from Setup, “' + clean(p.why, 100) + '”, into a 60-second answer only you could give.', from: 'why' };
+      if (firm && /firm|why this|research/i.test(title)) return { q: 'Answer “Why ' + firm + '?” in 60 seconds, using what this lesson teaches.', from: 'firm' };
+      if (exp) return { q: 'Answer this lesson’s main question with one of your own experiences, “' + exp + '”, in 90 seconds.', from: 'experience' };
+      if (p.why) return { q: 'Turn your “why finance” note from Setup into a 60-second answer, using this lesson’s structure.', from: 'why' };
+      return null;
+    }
+    if (interest) {
+      const Q = {
+        acc: 'Pick one company tied to ' + interest + '. Find this lesson’s idea in its latest annual report (the 10-K) and explain in 60 seconds what it tells you about the business.',
+        val: 'Pick one company tied to ' + interest + '. Using this lesson, explain in 60 seconds how you’d judge whether its stock is cheap or expensive, and what you’d look up first.',
+        mkt: 'How does this lesson show up in ' + interest + ' right now? Give a 60-second answer that uses one number you looked up today.',
+        inv: 'Use this lesson to pitch one stock tied to ' + interest + ' in 60 seconds: the idea, why now, and the biggest risk.',
+        trd: 'How would a trader use this lesson on a stock or commodity tied to ' + interest + ' this week? Answer in 60 seconds.',
+        awm: 'Explain this lesson in 60 seconds to a family friend who works in ' + interest + ' and has never had a financial advisor. What would matter most to them?',
+        sto: 'Could something like this happen in ' + interest + ' today? Make the case in 60 seconds, for or against.',
+      };
+      if (Q[cat]) return { q: Q[cat], from: 'interest' };
+    }
+    if (seat) return { q: 'Explain this lesson in 60 seconds the way you would in ' + an(seat) + ' interview, with one real example.', from: 'seat' };
+    return { q: 'Explain this lesson in 60 seconds to a friend who isn’t in finance, with one real example.', from: 'none' };
+  }
+  const GUIDE = {
+    car: 'There’s no single right answer. A strong one tells one specific story, says what you did yourself, and ends with what you learned or why it points you to this seat.',
+    other: 'There’s no single right answer. A strong one names a real company or number, uses the lesson’s idea correctly, and ends with what you’d check next.',
+  };
+
+  /* lesson: { cat, title, topicId }; ctx: { today, plan, item, weak } */
+  function build(profile, lesson, ctx) {
+    const p = E.normalize(profile || {});
+    ctx = ctx || {};
+    const cat = SEC[lesson && lesson.cat] || 'gen';
+    const lines = [];
+    const add = (label, text) => { if (text) lines.push({ label, text }); };
+    add('Your seat', seatLine(p, cat));
+    add('Your level', levelLine(p, cat));
+    add('Your time', timeLine(p));
+    add('Your dates', dateLine(ctx.plan, ctx.item, ctx.today));
+    add('Your Scorecard', weakLine(ctx.weak, cat, lesson && lesson.topicId));
+    if (cat === 'car' && p.goalList && p.goalList.length) add('Your goal', clean(p.goalList[0], 120) + '. Aim your answers at that.');
+    const make = makeItYours(p, lesson || {});
+    const nudge = !String(p.interests || '').trim() && cat !== 'car' ? 'Add the sectors you follow in Setup and the last question in every lesson will use them.' : '';
+    return { lines, make, nudge, guide: make ? (cat === 'car' ? GUIDE.car : GUIDE.other) : '' };
+  }
+
+  /* Puts the pieces into the lesson's Markdown: "For you" after the opening lines and before
+     the first section, "Make it yours" as the last item of "Your turn", and its guidance as
+     the last item of "Answers". A lesson missing those sections gets only what fits. */
+  function apply(md, b) {
+    if (!b || !md) return md;
+    const L = String(md).replace(/\r/g, '').split('\n');
+    const headAt = re => L.findIndex(l => re.test(l));
+    const sectionEnd = start => { let i = start + 1; while (i < L.length && !/^##\s/.test(L[i])) i++; while (i > start + 1 && !L[i - 1].trim()) i--; return i; };
+    // Make it yours, at the end of Your turn
+    const turn = headAt(/^##\s+your turn/i);
+    if (b.make && turn >= 0) {
+      const end = sectionEnd(turn);
+      let n = 0;
+      for (let i = turn + 1; i < end; i++) { const m = /^(\d+)[.)]\s/.exec(L[i]); if (m) n = Math.max(n, +m[1]); }
+      L.splice(end, 0, (n ? (n + 1) + '. ' : '- ') + '**Make it yours:** ' + b.make.q);
+    }
+    const ans = headAt(/^##\s+answers/i);
+    if (b.make && b.guide && ans >= 0) L.splice(sectionEnd(ans), 0, '- **Make it yours:** ' + b.guide);
+    // For you, before the first section
+    const first = headAt(/^##\s/);
+    const rows = b.lines.map(x => '- **' + x.label + ':** ' + x.text);
+    if (b.nudge) rows.push('- ' + b.nudge);
+    if (rows.length) L.splice(first >= 0 ? first : L.length, 0, '## For you', ...rows, '');
+    return L.join('\n');
+  }
+
+  return { build, apply, tier, clean, makeItYours, ANGLE };
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = Personal;
+
+</script>
+<script>
+/* ==========================================================================
+   Street Ready: games
    Pure functions, no DOM. Seeded question generators for the Mental Math Sprint and
    Statement Flows, the live-room questions built from them, scoring, challenge links,
    the day streak and the readiness estimate.
@@ -2101,7 +2343,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = Games;
 </script>
 <script>
 /* ==========================================================================
-   Finance Recruiting Coach: the coach's prompts
+   Street Ready: the coach's prompts
    Every call to Claude is memoryless, so each prompt carries the rules,
    the student's profile and the exact output format.
    ========================================================================== */
@@ -2587,7 +2829,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = Prompts;
 </script>
 <script>
 /* ==========================================================================
-   Finance Recruiting Coach: calendar export
+   Street Ready: calendar export
    Turns a plan into an .ics file that Google Calendar and Apple Calendar import:
    one timed event per study day (with a reminder) and an all-day event per key date.
    Pure functions, no DOM.
@@ -2635,8 +2877,8 @@ const Calendar = (() => {
     const minutes = opts.minutes || 20, from = opts.from || plan.start;
     const stamp = stampUTC(opts.now || new Date());
     const link = typeof opts.link === 'function' ? opts.link : () => '';
-    const L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Finance Recruiting Coach//Plan//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
-      'X-WR-CALNAME:' + escText(opts.name || 'Recruiting coach')];
+    const L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Street Ready//Plan//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+      'X-WR-CALNAME:' + escText(opts.name || 'Street Ready')];
     let sessions = 0, dates = 0;
     plan.items.filter(it => it.date >= from).forEach(it => {
       const url = link(it.date);
@@ -2676,7 +2918,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = Calendar;
 </script>
 <script>
 /* ==========================================================================
-   Finance Recruiting Coach: voice answers
+   Street Ready: voice answers
    Speech-to-text through the browser's own Web Speech API (Chrome, Edge, Safari),
    plus delivery stats: time, words per minute and filler words.
    stats() and verdicts() are pure; Recorder needs a browser.
@@ -2779,7 +3021,7 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
 </script>
 <script>
 /* ==========================================================================
-   Finance Recruiting Coach: the app
+   Street Ready: the app
    One app, two homes:
    - the website (GitHub Pages): no AI on the page; written lessons, self-checks and
      voice practice work right here, and AI actions open in the visitor's own Claude chat;
@@ -3102,7 +3344,7 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
   const MARK = '<svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg>';
   function shell() {
     $('#app').innerHTML =
-      '<header class="top"><div class="wrap"><div class="top-row">' + (IN_CLAUDE ? '<div class="brand">' : '<a class="brand" href="./" title="Home">') + MARK + '<div class="brand-txt"><div class="brand-name">Finance Recruiting Coach</div><div class="brand-sub" id="brand-sub"></div></div>' + (IN_CLAUDE ? '</div>' : '</a>') + '<div class="count" id="count"></div></div>' +
+      '<header class="top"><div class="wrap"><div class="top-row">' + (IN_CLAUDE ? '<div class="brand">' : '<a class="brand" href="./" title="Home">') + MARK + '<div class="brand-txt"><div class="brand-name">Street Ready</div><div class="brand-sub" id="brand-sub"></div></div>' + (IN_CLAUDE ? '</div>' : '</a>') + '<div class="count" id="count"></div></div>' +
       '<nav class="tabs" id="tabs" aria-label="Sections"></nav></div></header>' +
       '<main class="wrap" id="main"></main><footer class="wrap foot" id="foot"></footer>';
   }
@@ -3251,6 +3493,16 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
   let lessonQs = [];
   const drafts = {};          // unsent answers, by box
   const libFor = it => (it && (it.kind === 'lesson') && it.topicId && LIB[it.topicId]) || null;
+  /* a written lesson, tailored to this person's setup: a For you section and a Make it yours question (src/personal.js) */
+  const guideFor = {};
+  function tailored(it, lib) {
+    if (typeof Personal === 'undefined') return lib.md;
+    try {
+      const b = Personal.build(S.profile, { cat: lib.cat, title: lib.title, topicId: it.topicId }, { today: todayISO(), plan: getPlan(), item: it, weak: weakSpots() });
+      guideFor[it.topicId] = b.guide;
+      return Personal.apply(lib.md, b);
+    } catch (e) { return lib.md; }
+  }
   function viewToday() {
     const plan = getPlan(), t = todayISO();
     let item = S.ui.viewKey ? findItem(S.ui.viewKey) : null;
@@ -3299,7 +3551,7 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
         '<p class="hint">' + (ai ? 'About ' + prof().minutes + ' minutes. The first time, Claude asks you to allow this page; it uses your own Claude account.'
           : 'A free Claude account works. No Claude? Copy prompt works in most AI chat apps.') + '</p></div>';
     }
-    const md = busy ? stream.text : saved ? saved.text : lib.md;
+    const md = busy ? stream.text : saved ? saved.text : tailored(it, lib);
     return fl + '<div class="lesson-wrap" id="lesson-area" data-key="' + esc(it.key) + '"><div class="lesson-bar" id="lesson-bar">' + lessonBarHTML(it, saved, busy, lib) + '</div>' +
       '<article class="lesson" id="lesson">' + renderLesson(md, it.key) + '</article>' +
       (!busy && saved && saved.truncated ? '<p class="trunc">This one stopped early. Regenerate it for the full version.</p>' : '') + '</div>' +
@@ -3314,7 +3566,7 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
         (lib ? '<button class="btn small" data-act="lib-restore"' + k + '>Standard lesson</button>' : '') +
         '<button class="btn small" data-act="copy-lesson"' + k + '>Copy as prompt</button></div>';
     }
-    return '<span class="note mono">From the lesson library</span><div class="btn-row">' + doneBtn(it, true) +
+    return '<span class="note mono">From the lesson library, tailored to your setup</span><div class="btn-row">' + doneBtn(it, true) +
       (aiReady() ? '<button class="btn small" data-act="teach"' + k + '>Personalize it</button>' : handoffBtn('personalize', 'Make it about me', k, 'small')) + '</div>';
   }
   function gradeButtons(scope, key) {
@@ -3435,7 +3687,8 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
     if (qid.indexOf('L:') === 0) {
       const rest = qid.slice(2), i = rest.indexOf(':');
       const l = LIB[rest.slice(0, i)];
-      return { model: (l && l.answers && l.answers[rest.slice(i + 1)]) || '', followUp: '' };
+      const lab = rest.slice(i + 1), tid = rest.slice(0, i);
+      return { model: (l && l.answers && l.answers[lab]) || (lab === 'Make it yours' ? guideFor[tid] || '' : ''), followUp: '' };
     }
     const b = E.questionById(qid);
     return b ? { model: b.answer || '', followUp: b.followUp || '' } : { model: '', followUp: '' };
@@ -3558,7 +3811,7 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
     const plan = getPlan();
     if (!plan) return;
     const p = prof(), base = appURL();
-    const r = Calendar.buildICS(plan, { time: p.remindAt, minutes: p.minutes, from: todayISO(), link: d => base + '#d-' + d, name: 'Recruiting coach' });
+    const r = Calendar.buildICS(plan, { time: p.remindAt, minutes: p.minutes, from: todayISO(), link: d => base + '#d-' + d, name: 'Street Ready' });
     downloadText('recruiting-plan.ics', r.text, 'text/calendar;charset=utf-8');
     calInfo = { sessions: r.sessions, dates: r.dates, time: p.remindAt };
     if (S.ui.tab !== 'plan') { S.ui.tab = 'plan'; save(); }
@@ -3569,7 +3822,7 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
     return '<div class="cal-info"><div class="btn-row" style="justify-content:space-between"><b>Downloaded recruiting-plan.ics</b><button class="btn small ghost" data-act="cal-close">Close</button></div>' +
       '<p class="note">' + calInfo.sessions + ' sessions at ' + fmtTime(calInfo.time) + ', each with a reminder, plus ' + calInfo.dates + ' key date' + (calInfo.dates === 1 ? '' : 's') + '. Each event links back to that day\'s session.</p>' +
       '<ul><li><b>iPhone or Mac:</b> open the file and choose Add All.</li><li><b>Google Calendar:</b> on a computer, open Settings, then Import &amp; export, then Import. Pick the file and a calendar.</li>' +
-      '<li>Import it into a new calendar named "Recruiting coach" so you can remove it in one step. If your plan changes, delete that calendar and import a fresh file.</li></ul>' +
+      '<li>Import it into a new calendar named "Street Ready" so you can remove it in one step. If your plan changes, delete that calendar and import a fresh file.</li></ul>' +
       '<p class="hint">Change the reminder time in Setup, under Routine.</p></div>';
   }
   function phaseBarHTML(plan, compact) {
@@ -4235,7 +4488,7 @@ const LIBRARY = {"car-the-map-of-finance-sell-side-vs-buy-side-and-whe":{"title"
     const order = [1, 2, 3, 4, 5, 6, 0], dn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], dl = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const lv = (k, label) => '<div class="lv-row"><span class="lbl" id="lv-' + k + '-l">' + label + '</span><div class="segs" role="radiogroup" aria-labelledby="lv-' + k + '-l">' + ['new', 'some', 'solid'].map(v => '<label><input type="radio" name="lv-' + k + '" id="lv-' + k + '-' + v + '" value="' + v + '"' + (d.levels[k] === v ? ' checked' : '') + '><span>' + ({ new: 'New to it', some: 'Some', solid: 'Solid' })[v] + '</span></label>').join('') + '</div></div>';
     const intro = first
-      ? '<p class="eyebrow">Takes about five minutes</p><h1 class="h-page">Build your recruiting coach</h1><p class="lede">Tell it where you go to school, what you\'re aiming for and the dates that matter. It builds a day-by-day plan to the date you want to be interview-ready, teaches each day\'s lesson, grades your answers and runs mock interviews. ' +
+      ? '<p class="eyebrow">Takes about five minutes</p><h1 class="h-page">Build your Street Ready plan</h1><p class="lede">Tell it where you go to school, what you\'re aiming for and the dates that matter. It builds a day-by-day plan to the date you want to be interview-ready, teaches each day\'s lesson, grades your answers and runs mock interviews. ' +
         (IN_CLAUDE ? 'It runs on your own Claude account, and your progress stays in this browser.' : 'You\'ll need a Claude account, and the free plan works: anything that needs AI opens in a Claude chat on your account. Your plan and progress stay in this browser.') + '</p>'
       : '<h1 class="h-page">Setup</h1><p class="lede">Change anything and your plan rebuilds when you save. Sessions you\'ve finished stay finished.</p>';
     $('#main').innerHTML = '<div class="setup"><div style="min-width:0"><div class="intro">' + intro +

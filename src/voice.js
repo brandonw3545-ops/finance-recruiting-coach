@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: voice answers
+   Street Ready: voice answers
    Speech-to-text through the browser's own Web Speech API (Chrome, Edge, Safari),
    plus delivery stats: time, words per minute and filler words.
    stats() and verdicts() are pure; Recorder needs a browser.
