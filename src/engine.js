@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: topic bank + plan engine
+   Street Ready: topic bank + plan engine
    Pure functions, no DOM. Builds a day-by-day plan from a student's profile.
    ========================================================================== */
 const Engine = (() => {
@@ -849,7 +849,7 @@ const Engine = (() => {
   }
 
   const api = {
-    CATS, LESSON_CATS, SEATS, YEARS, EVENT_TYPES, TOPICS, QUESTIONS, DRILLS, SEAT_TECH, PHASE_INFO, DEFAULT_PROFILE,
+    CATS, LESSON_CATS, SEATS, SEAT_WEIGHTS, YEARS, EVENT_TYPES, TOPICS, QUESTIONS, DRILLS, SEAT_TECH, PHASE_INFO, DEFAULT_PROFILE,
     parseISO, iso, addDays, daysBetween, todayISO, fmt, slug, splitList, splitLines, rng,
     normalize, validate, buildPlan, itemOn, nextItem, weekOf, teaserLevel, questionsFor, fillQuestion, pickMock, planMarkdown, baseWeights,
     questionById, reviewKey, reviewSchedule, REVIEW_GAPS,

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: the app
+   Street Ready: the app
    One app, two homes:
    - the website (GitHub Pages): no AI on the page; written lessons, self-checks and
      voice practice work right here, and AI actions open in the visitor's own Claude chat;
@@ -322,7 +322,7 @@
   const MARK = '<svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect class="bm-bg" x="0" y="0" width="28" height="28" rx="6"/><rect class="bm-ln" x="6" y="7.5" width="16" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="12.7" width="11.5" height="2.6" rx="1.3"/><rect class="bm-ln" x="6" y="17.9" width="7" height="2.6" rx="1.3"/><path class="bm-ck" d="M15.6 18.6l2.2 2.2 4.4-5"/></svg>';
   function shell() {
     $('#app').innerHTML =
-      '<header class="top"><div class="wrap"><div class="top-row">' + (IN_CLAUDE ? '<div class="brand">' : '<a class="brand" href="./" title="Home">') + MARK + '<div class="brand-txt"><div class="brand-name">Finance Recruiting Coach</div><div class="brand-sub" id="brand-sub"></div></div>' + (IN_CLAUDE ? '</div>' : '</a>') + '<div class="count" id="count"></div></div>' +
+      '<header class="top"><div class="wrap"><div class="top-row">' + (IN_CLAUDE ? '<div class="brand">' : '<a class="brand" href="./" title="Home">') + MARK + '<div class="brand-txt"><div class="brand-name">Street Ready</div><div class="brand-sub" id="brand-sub"></div></div>' + (IN_CLAUDE ? '</div>' : '</a>') + '<div class="count" id="count"></div></div>' +
       '<nav class="tabs" id="tabs" aria-label="Sections"></nav></div></header>' +
       '<main class="wrap" id="main"></main><footer class="wrap foot" id="foot"></footer>';
   }
@@ -471,6 +471,16 @@
   let lessonQs = [];
   const drafts = {};          // unsent answers, by box
   const libFor = it => (it && (it.kind === 'lesson') && it.topicId && LIB[it.topicId]) || null;
+  /* a written lesson, tailored to this person's setup: a For you section and a Make it yours question (src/personal.js) */
+  const guideFor = {};
+  function tailored(it, lib) {
+    if (typeof Personal === 'undefined') return lib.md;
+    try {
+      const b = Personal.build(S.profile, { cat: lib.cat, title: lib.title, topicId: it.topicId }, { today: todayISO(), plan: getPlan(), item: it, weak: weakSpots() });
+      guideFor[it.topicId] = b.guide;
+      return Personal.apply(lib.md, b);
+    } catch (e) { return lib.md; }
+  }
   function viewToday() {
     const plan = getPlan(), t = todayISO();
     let item = S.ui.viewKey ? findItem(S.ui.viewKey) : null;
@@ -519,7 +529,7 @@
         '<p class="hint">' + (ai ? 'About ' + prof().minutes + ' minutes. The first time, Claude asks you to allow this page; it uses your own Claude account.'
           : 'A free Claude account works. No Claude? Copy prompt works in most AI chat apps.') + '</p></div>';
     }
-    const md = busy ? stream.text : saved ? saved.text : lib.md;
+    const md = busy ? stream.text : saved ? saved.text : tailored(it, lib);
     return fl + '<div class="lesson-wrap" id="lesson-area" data-key="' + esc(it.key) + '"><div class="lesson-bar" id="lesson-bar">' + lessonBarHTML(it, saved, busy, lib) + '</div>' +
       '<article class="lesson" id="lesson">' + renderLesson(md, it.key) + '</article>' +
       (!busy && saved && saved.truncated ? '<p class="trunc">This one stopped early. Regenerate it for the full version.</p>' : '') + '</div>' +
@@ -534,7 +544,7 @@
         (lib ? '<button class="btn small" data-act="lib-restore"' + k + '>Standard lesson</button>' : '') +
         '<button class="btn small" data-act="copy-lesson"' + k + '>Copy as prompt</button></div>';
     }
-    return '<span class="note mono">From the lesson library</span><div class="btn-row">' + doneBtn(it, true) +
+    return '<span class="note mono">From the lesson library, tailored to your setup</span><div class="btn-row">' + doneBtn(it, true) +
       (aiReady() ? '<button class="btn small" data-act="teach"' + k + '>Personalize it</button>' : handoffBtn('personalize', 'Make it about me', k, 'small')) + '</div>';
   }
   function gradeButtons(scope, key) {
@@ -655,7 +665,8 @@
     if (qid.indexOf('L:') === 0) {
       const rest = qid.slice(2), i = rest.indexOf(':');
       const l = LIB[rest.slice(0, i)];
-      return { model: (l && l.answers && l.answers[rest.slice(i + 1)]) || '', followUp: '' };
+      const lab = rest.slice(i + 1), tid = rest.slice(0, i);
+      return { model: (l && l.answers && l.answers[lab]) || (lab === 'Make it yours' ? guideFor[tid] || '' : ''), followUp: '' };
     }
     const b = E.questionById(qid);
     return b ? { model: b.answer || '', followUp: b.followUp || '' } : { model: '', followUp: '' };
@@ -778,7 +789,7 @@
     const plan = getPlan();
     if (!plan) return;
     const p = prof(), base = appURL();
-    const r = Calendar.buildICS(plan, { time: p.remindAt, minutes: p.minutes, from: todayISO(), link: d => base + '#d-' + d, name: 'Recruiting coach' });
+    const r = Calendar.buildICS(plan, { time: p.remindAt, minutes: p.minutes, from: todayISO(), link: d => base + '#d-' + d, name: 'Street Ready' });
     downloadText('recruiting-plan.ics', r.text, 'text/calendar;charset=utf-8');
     calInfo = { sessions: r.sessions, dates: r.dates, time: p.remindAt };
     if (S.ui.tab !== 'plan') { S.ui.tab = 'plan'; save(); }
@@ -789,7 +800,7 @@
     return '<div class="cal-info"><div class="btn-row" style="justify-content:space-between"><b>Downloaded recruiting-plan.ics</b><button class="btn small ghost" data-act="cal-close">Close</button></div>' +
       '<p class="note">' + calInfo.sessions + ' sessions at ' + fmtTime(calInfo.time) + ', each with a reminder, plus ' + calInfo.dates + ' key date' + (calInfo.dates === 1 ? '' : 's') + '. Each event links back to that day\'s session.</p>' +
       '<ul><li><b>iPhone or Mac:</b> open the file and choose Add All.</li><li><b>Google Calendar:</b> on a computer, open Settings, then Import &amp; export, then Import. Pick the file and a calendar.</li>' +
-      '<li>Import it into a new calendar named "Recruiting coach" so you can remove it in one step. If your plan changes, delete that calendar and import a fresh file.</li></ul>' +
+      '<li>Import it into a new calendar named "Street Ready" so you can remove it in one step. If your plan changes, delete that calendar and import a fresh file.</li></ul>' +
       '<p class="hint">Change the reminder time in Setup, under Routine.</p></div>';
   }
   function phaseBarHTML(plan, compact) {
@@ -1455,7 +1466,7 @@
     const order = [1, 2, 3, 4, 5, 6, 0], dn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], dl = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const lv = (k, label) => '<div class="lv-row"><span class="lbl" id="lv-' + k + '-l">' + label + '</span><div class="segs" role="radiogroup" aria-labelledby="lv-' + k + '-l">' + ['new', 'some', 'solid'].map(v => '<label><input type="radio" name="lv-' + k + '" id="lv-' + k + '-' + v + '" value="' + v + '"' + (d.levels[k] === v ? ' checked' : '') + '><span>' + ({ new: 'New to it', some: 'Some', solid: 'Solid' })[v] + '</span></label>').join('') + '</div></div>';
     const intro = first
-      ? '<p class="eyebrow">Takes about five minutes</p><h1 class="h-page">Build your recruiting coach</h1><p class="lede">Tell it where you go to school, what you\'re aiming for and the dates that matter. It builds a day-by-day plan to the date you want to be interview-ready, teaches each day\'s lesson, grades your answers and runs mock interviews. ' +
+      ? '<p class="eyebrow">Takes about five minutes</p><h1 class="h-page">Build your Street Ready plan</h1><p class="lede">Tell it where you go to school, what you\'re aiming for and the dates that matter. It builds a day-by-day plan to the date you want to be interview-ready, teaches each day\'s lesson, grades your answers and runs mock interviews. ' +
         (IN_CLAUDE ? 'It runs on your own Claude account, and your progress stays in this browser.' : 'You\'ll need a Claude account, and the free plan works: anything that needs AI opens in a Claude chat on your account. Your plan and progress stay in this browser.') + '</p>'
       : '<h1 class="h-page">Setup</h1><p class="lede">Change anything and your plan rebuilds when you save. Sessions you\'ve finished stay finished.</p>';
     $('#main').innerHTML = '<div class="setup"><div style="min-width:0"><div class="intro">' + intro +

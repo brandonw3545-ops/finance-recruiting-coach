@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: games
+   Street Ready: games
    Pure functions, no DOM. Seeded question generators for the Mental Math Sprint and
    Statement Flows, the live-room questions built from them, scoring, challenge links,
    the day streak and the readiness estimate.

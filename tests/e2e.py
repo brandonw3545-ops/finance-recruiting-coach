@@ -139,7 +139,7 @@ with sync_playwright() as pw:
     # ---------------- A1. setup ----------------
     ctx, page, errs = open_claude(viewport={'width': 1280, 'height': 900})
     page.wait_for_selector('#setup-form')
-    check('Build your recruiting coach' in page.inner_text('main'), 'A: first visit lands on setup')
+    check('Build your Street Ready plan' in page.inner_text('main'), 'A: first visit lands on setup')
     page.wait_for_selector('button[data-act="suggest"]')
     check(page.locator('a[data-act="handoff"][data-kind="dates"]').count() == 0, 'A: once Claude connects, setup offers in-page date suggestions instead of a link')
     page.screenshot(path=str(SHOTS / 'a01-setup-desktop.png'))
@@ -158,7 +158,10 @@ with sync_playwright() as pw:
     check('From the lesson library' in page.inner_text('#lesson-bar') and page.locator('#lesson-bar [data-act="teach"]').inner_text() == 'Personalize it', 'A: library lesson offers Personalize it')
     check(page.locator('.sec-cold').count() == 1 and page.locator('.sec-trap').count() == 1 and page.locator('details.sec-answers[open]').count() == 0, 'A: lesson sections render, answers hidden')
     opts = page.locator('#lg-q option').all_inner_texts()
-    check([o.split(':')[0] for o in opts[:-1]] == LABELS and opts[-1] == 'Type my own question', 'A: grade box lists the seven lesson questions: ' + ' | '.join(o[:24] for o in opts))
+    check([o.split(':')[0] for o in opts[:-1]] == LABELS + ['Make it yours'] and opts[-1] == 'Type my own question', 'A: grade box lists the seven lesson questions plus Make it yours: ' + ' | '.join(o[:24] for o in opts))
+    you = page.inner_text('.sec-you') if page.locator('.sec-you').count() == 1 else ''
+    check('Your seat:' in you and 'interview' in you and 'Your dates:' in you, 'A: the lesson opens with a For you section built from Setup: ' + you[:160].replace('\n', ' | '))
+    check(page.locator('.sec-turn li').filter(has_text='Make it yours').count() == 1, 'A: Your turn ends with a Make it yours question')
     page.select_option('#lg-q', '1')
     page.fill('#lg-a', 'The sell side advises and sells, the buy side invests. Banks are sell side; asset managers are buy side.')
     page.click('#lg-go')
@@ -417,7 +420,7 @@ with sync_playwright() as pw:
 
     # ---------------- B1. home, library, lesson pages ----------------
     ctx, page, errs = open_web('', viewport={'width': 1280, 'height': 900})
-    check(page.title() == 'Finance Recruiting Coach' and 'Finance recruiting prep, built like a model.' in page.inner_text('h1'), 'B: home page renders')
+    check(page.title() == 'Street Ready' and 'Finance recruiting prep, built like a model.' in page.inner_text('h1'), 'B: home page renders')
     check(page.locator('.ex-list li').count() >= 6 and page.locator('.lesson-ledger li').count() == 6, 'B: example plan and six featured lessons')
     check(page.locator('a.btn.primary[href="app.html"]').count() >= 2 and page.locator('meta[property="og:image"]').count() == 1, 'B: calls to action and share card meta')
     page.click('.faq-item summary >> nth=0')

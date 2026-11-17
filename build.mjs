@@ -29,7 +29,7 @@ const esc = MD.esc;
 const SITE_URL = 'https://brandonw3545-ops.github.io/finance-recruiting-coach/';
 const AI_URL = 'https://claude.ai/artifact/3QqSwrzAPJCeFJCW95Kayn';
 const REPO_URL = 'https://github.com/brandonw3545-ops/finance-recruiting-coach';
-const NAME = 'Finance Recruiting Coach';
+const NAME = 'Street Ready';
 // The Live Room's meeting point: a Firebase Realtime Database address (free tier). Leave '' to switch live rooms off;
 // the host screen then asks for an address. Setup steps are in LIVE-ROOM.md.
 const LIVE_DB = 'https://live-room-for-finance-default-rtdb.firebaseio.com';
@@ -135,7 +135,7 @@ function webPage({ title, description, url, css, body, scripts, ogType, bodyClas
 function appParts(lessons) {
   const LIB = {};
   lessons.forEach(l => { LIB[l.id] = { title: l.title, cat: l.cat, slug: l.slug, md: l.md, answers: l.answers }; });
-  const files = ['src/md.js', 'src/answers.js', 'src/engine.js', 'src/games.js', 'src/prompts.js', 'src/calendar.js', 'src/voice.js'];
+  const files = ['src/md.js', 'src/answers.js', 'src/engine.js', 'src/personal.js', 'src/games.js', 'src/prompts.js', 'src/calendar.js', 'src/voice.js'];
   const scripts = files.map(f => '<script>\n' + inlineSafe(f, read(f)) + '\n</script>').join('\n') +
     '\n<script>\nconst LIBRARY = ' + jsonForScript(LIB) + ';\n</script>\n<script>\n' + inlineSafe('src/app.js', read('src/app.js')) + '\n</script>';
   const body = '<div id="app"><noscript>This coach needs JavaScript to run.</noscript></div>\n<div id="tip" class="tip" hidden></div>\n';
@@ -214,7 +214,7 @@ function homePage(lessons) {
 
     '<section class="band alt" id="numbers"><div class="wrap two-col"><div><h2 class="sec-h">What\'s in it, counted</h2><p class="sec-note">These numbers come straight from the code every time the site is built.</p></div>' +
       '<table class="ws-grid tear"><tbody>' +
-      row(1, 'Written lessons', lessons.length, 'From the three statements to "walk me through a DCF"') +
+      row(1, 'Written lessons', lessons.length, 'Each one tailored to your seat, level and dates') +
       row(2, 'Practice questions with model answers', E.QUESTIONS.length, 'Each with the follow-up interviewers usually ask') +
       row(3, 'Events in Statement Flows', G.SCENARIOS.length, 'Every one is tested to balance') +
       row(4, 'Kinds of mental math in the Sprint', G.KIND_NAMES.length, 'The numbers change every round') +
@@ -240,13 +240,14 @@ function homePage(lessons) {
         '<figcaption class="legend-model"><span class="b-in"><b>Blue</b> is what you enter</span><span class="b-out"><b>Black</b> is what the coach builds</span><span class="b-ln"><b>Green</b> ties a session to your dates</span></figcaption>' +
       '</figure>' +
       '<div class="play-copy"><p>Tell it when your club interview, application deadline or superday is, and it works backward: fit questions before your first interview, the three statements before DCFs, a mock the day before and a warm-up that morning.</p>' +
+        '<p>Every written lesson is tailored to what you entered: how the topic comes up in interviews for your seat, what to skip if you marked it solid, your next date, and a last question about the sectors you follow.</p>' +
         '<p>You answer out loud and score yourself against a model answer. Anything you miss comes back the next day, then after 3, 7 and 14 days. The readiness score only moves when you answer something, never when you read something.</p>' +
         '<div class="btn-row"><a class="btn primary" href="app.html">Build my plan</a><a class="btn" href="library/">Read the ' + lessons.length + ' lessons</a></div></div>' +
     '</div></div></section>' +
 
     '<section class="band" id="notes"><div class="wrap two-col"><div class="maker"><h2 class="sec-h" style="margin-bottom:0">Why I built this</h2>' +
       '<p>I built this because I felt behind on finance recruiting, which starts earlier every year. I also had no idea where to start, at least not without spending a lot of money.</p>' +
-      '<p>I wanted something built around me, so I made the Finance Recruiting Coach. It gives you a lesson every day that fits your own goals and dates, then has you answer out loud and shows your time, pace and filler words, so you get better at speaking and not just at knowing the answer.</p>' +
+      '<p>I wanted something built around me, so I made Street Ready. It gives you a lesson every day that fits your own goals and dates, then has you answer out loud and shows your time, pace and filler words, so you get better at speaking and not just at knowing the answer.</p>' +
       '<p>It\'s free and the code is public. If a lesson gets something wrong, <a href="' + REPO_URL + '/issues" target="_blank" rel="noopener">open an issue on GitHub</a> and I\'ll fix it.</p>' +
       '<p class="sig">Brandon, college freshman</p></div>' +
       '<div><table class="ws-grid contents"><thead><tr><th class="rn"></th><th>What</th><th>Where it runs</th><th>Needs Claude?</th></tr></thead><tbody>' +

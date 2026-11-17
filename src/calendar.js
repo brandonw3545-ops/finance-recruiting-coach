@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: calendar export
+   Street Ready: calendar export
    Turns a plan into an .ics file that Google Calendar and Apple Calendar import:
    one timed event per study day (with a reminder) and an all-day event per key date.
    Pure functions, no DOM.
@@ -47,8 +47,8 @@ const Calendar = (() => {
     const minutes = opts.minutes || 20, from = opts.from || plan.start;
     const stamp = stampUTC(opts.now || new Date());
     const link = typeof opts.link === 'function' ? opts.link : () => '';
-    const L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Finance Recruiting Coach//Plan//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
-      'X-WR-CALNAME:' + escText(opts.name || 'Recruiting coach')];
+    const L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Street Ready//Plan//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+      'X-WR-CALNAME:' + escText(opts.name || 'Street Ready')];
     let sessions = 0, dates = 0;
     plan.items.filter(it => it.date >= from).forEach(it => {
       const url = link(it.date);

@@ -1,4 +1,6 @@
-# Finance Recruiting Coach
+# Street Ready
+
+*Formerly Finance Recruiting Coach. The web address and the repo name stayed the same, so old links still work.*
 
 A free coach for college students recruiting for finance clubs and internships. You plug in your school, the seats you want, your goals and the dates that matter. It builds a day-by-day plan to the date you want to be interview-ready, teaches a lesson a day, has you answer questions out loud, brings back the ones you miss, and runs mock interviews. It also has two games (a Mental Math Sprint and Statement Flows), challenge links that send a friend the same round, and a Live Room where a whole class plays from their phones.
 

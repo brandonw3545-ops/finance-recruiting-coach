@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: Live Room
+   Street Ready: Live Room
    One screen hosts (a projector), everyone else joins by code on a phone or laptop.
    Questions come from the same seeded generators as the solo games, so the room only
    has to sync a seed, a question number, nicknames and answer taps.

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Finance Recruiting Coach: Play
+   Street Ready: Play
    The Mental Math Sprint and Statement Flows, drawn as worksheets you fill in.
    Runs on play.html and, in a 30-second form, in the home page hero. No plan or
    sign-up needed. Scores stay in this browser (localStorage key frc:play:v1).
