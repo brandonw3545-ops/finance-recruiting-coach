@@ -1,52 +1,52 @@
 {
- "fetched": "2026-11-23",
+ "fetched": "2026-11-24",
  "source": "FRED, Federal Reserve Bank of St. Louis",
  "series": {
   "DGS10": {
-   "date": "2026-11-20",
+   "date": "2026-11-23",
    "value": 4.92,
    "monthAgo": {
-    "date": "2026-10-21",
-    "value": 5.13
+    "date": "2026-10-23",
+    "value": 5
    },
    "yearAgo": {
-    "date": "2025-11-20",
-    "value": 4.1
+    "date": "2025-11-21",
+    "value": 4.06
    }
   },
   "DGS2": {
-   "date": "2026-11-20",
+   "date": "2026-11-23",
    "value": 4.63,
    "monthAgo": {
-    "date": "2026-10-21",
-    "value": 4.81
+    "date": "2026-10-23",
+    "value": 4.69
    },
    "yearAgo": {
-    "date": "2025-11-20",
-    "value": 3.55
+    "date": "2025-11-21",
+    "value": 3.51
    }
   },
   "DFEDTARU": {
-   "date": "2026-11-23",
+   "date": "2026-11-24",
    "value": 4,
    "monthAgo": {
-    "date": "2026-10-24",
+    "date": "2026-10-25",
     "value": 4
    },
    "yearAgo": {
-    "date": "2025-11-23",
+    "date": "2025-11-24",
     "value": 4
    }
   },
   "DFEDTARL": {
-   "date": "2026-11-23",
+   "date": "2026-11-24",
    "value": 3.75,
    "monthAgo": {
-    "date": "2026-10-24",
+    "date": "2026-10-25",
     "value": 3.75
    },
    "yearAgo": {
-    "date": "2025-11-23",
+    "date": "2025-11-24",
     "value": 3.75
    }
   },
