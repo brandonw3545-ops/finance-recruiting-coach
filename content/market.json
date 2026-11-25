@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-24",
+ "fetched": "2026-11-25",
  "source": "FRED, Federal Reserve Bank of St. Louis",
  "series": {
   "DGS10": {
@@ -27,26 +27,26 @@
    }
   },
   "DFEDTARU": {
-   "date": "2026-11-24",
+   "date": "2026-11-25",
    "value": 4,
    "monthAgo": {
-    "date": "2026-10-25",
+    "date": "2026-10-26",
     "value": 4
    },
    "yearAgo": {
-    "date": "2025-11-24",
+    "date": "2025-11-25",
     "value": 4
    }
   },
   "DFEDTARL": {
-   "date": "2026-11-24",
+   "date": "2026-11-25",
    "value": 3.75,
    "monthAgo": {
-    "date": "2026-10-25",
+    "date": "2026-10-26",
     "value": 3.75
    },
    "yearAgo": {
-    "date": "2025-11-24",
+    "date": "2025-11-25",
     "value": 3.75
    }
   },
@@ -63,15 +63,15 @@
    }
   },
   "PCEPILFE": {
-   "date": "2026-09-01",
-   "value": 130.902,
+   "date": "2026-10-01",
+   "value": 131.312,
    "monthAgo": {
-    "date": "2026-08-01",
-    "value": 130.489
+    "date": "2026-09-01",
+    "value": 130.929
    },
    "yearAgo": {
-    "date": "2025-09-01",
-    "value": 126.94
+    "date": "2025-10-01",
+    "value": 127.165
    }
   },
   "UNRATE": {
